@@ -1381,9 +1381,9 @@ footer .social-icons a:hover{
 
 
 
-/* .home-welcome{
-    margin-top: -90px; */
-/* } */
+.home-welcome{
+    margin-top: -180px;
+}
 /* Home Page Second Style */
 
 
@@ -1617,6 +1617,10 @@ footer .social-icons a:hover{
 .gallery-link a:hover{
     color: #000;
 }
+.cbp-ready .cbp-item{
+    width: 100%;
+}
+
 .cbp-item-wrapper:hover .gallery-link{
     right: -3px;
 }

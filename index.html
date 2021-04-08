@@ -2,12 +2,10 @@
 <html lang="ru">
 
     <head>
-        <!-- xxx Basics xxx -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- xxx Change With Your Information xxx -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
         <title>SarbonTrans - EvroOsiyo Sarbon Trans Servis</title>
         <meta name="author" content="EOSTS (EvroOsiyo Sarbon Trans Servis)" />
@@ -42,17 +40,6 @@
     </head>
 
     <body>
-
-        <!-- Page loader Start -->
-        <div id="pageloader">
-            <div class="loader-item">
-                <div class="loader">
-                    <div class="spin"></div>
-                    <div class="bounce"></div>
-                </div>
-            </div>
-        </div>
-        <!-- Page loader End -->
 
         <header class="top-border top-transparent header-logo-top">
             <div class="top-bar-right d-flex align-items-center text-md-left">
@@ -114,7 +101,10 @@
             <nav class="navbar navbar-expand-lg bg-transparent header-fullpage">
                 <div class="container text-nowrap bdr-nav px-0">
                     <span class="order-lg-last d-inline-flex request-btn">
-                        <a class="nav-link mr-2 ml-auto" href="#" id="search_home"><i class="icofont-search"></i></a>
+                        <a id="search_home" class="nav-link mr-2 ml-auto" href="#"><i class="icofont-search"></i></a>
+                        <a class="navbar-brand-mobile" href="index.html">
+                            <img src="images/logo_footer.png" alt="">
+                        </a>
                     </span>
 
 
@@ -237,7 +227,7 @@
         <main id="body-content" style="overflow-y: inherit;">
 
             <!-- Welcome To Cargo Start -->
-            <section class="wide-tb-100 pt-0 bg-white home-welcome">
+            <section class="wide-tb-100 bg-white home-welcome">
                 <div class="container">
                     <div class="row">
 
@@ -1269,8 +1259,8 @@
 
 
         <!-- REVOLUTION JS FILES -->
-        <script type="text/javascript" src="rev-slider/revolution/js/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="rev-slider/revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <!-- <script type="text/javascript" src="rev-slider/revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="rev-slider/revolution/js/jquery.themepunch.revolution.min.js"></script> -->
 
 
         <!-- Masonary Plugin -->
@@ -1281,6 +1271,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 
         <script src="js/site-custom.js"></script>
+
+
         <script>
             var slider = tns({
                 container: '.home-slider',

@@ -1341,11 +1341,15 @@
 
 .icon-box-7 {
     text-align: center;
-    background: #fe8704;
+    background: #171616;
     margin-bottom: 45px;
     border-radius: 4px;
     position: relative;
     box-shadow: 0px 14px 47px 0px rgba(28, 28, 28, 0.24);
+    transition: all 0.2s;
+}
+.icon-box-7:hover {
+    transform: translateY(-5px);
 }
 
 .icon-box-7 img {

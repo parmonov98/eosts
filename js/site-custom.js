@@ -1,11 +1,11 @@
-$(window).load(function () {
+// $(window).load(function () {
 
-    'use strict';
+//     'use strict';
 
-    $("#pageloader").delay(200).fadeOut("slow");
-    $(".loader-item").delay(200).fadeOut();
+//     $("#pageloader").delay(200).fadeOut("slow");
+//     $(".loader-item").delay(200).fadeOut();
 
-});
+// });
 /* ==============================================
 Custom Javascript
 =============================================== */
@@ -52,8 +52,12 @@ $(document).ready(function () {
     // On Scroll Back To Top Arrow
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
+            $('.navbar-brand-mobile').removeClass('hidden-mobile-brand')
             $('#mkdf-back-to-top').addClass('on');
+            $('#search_home').removeClass('show-search')
         } else {
+            $('#search_home').addClass('show-search')
+            $('.navbar-brand-mobile').addClass('hidden-mobile-brand')
             $('#mkdf-back-to-top').removeClass('on');
         }
     });
