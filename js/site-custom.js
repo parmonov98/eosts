@@ -52,12 +52,12 @@ $(document).ready(function () {
     // On Scroll Back To Top Arrow
     $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
-            $('.navbar-brand-mobile').removeClass('hidden-mobile-brand')
+
             $('#mkdf-back-to-top').addClass('on');
-            $('#search_home').removeClass('show-search')
+            // $('.navbar-brand').addClass('show-branch')
         } else {
-            $('#search_home').addClass('show-search')
-            $('.navbar-brand-mobile').addClass('hidden-mobile-brand')
+            // $('.navbar-brand').removeClass('show-branch')
+            // $('.navbar-brand-mobile').addClass('hidden-mobile-brand')
             $('#mkdf-back-to-top').removeClass('on');
         }
     });
@@ -101,47 +101,46 @@ $(document).ready(function () {
 
     });
 
-    // Animated Skill Bars      
-    // $('.skillbar').appear();
-    //     $('.skillbar').on('appear', function () {           
-    //     $(this).find('.skillbar-bar').animate({
-    //         width: $(this).attr('data-percent')
-    //     }, 3000);           
-    // });
 
-    // $('.chart').easyPieChart({
-    //     easing: 'easeInSine',
-    //     barColor: "#232135",
-    //     lineCap: 'round',
-    //     scaleColor: false,
-    //     size: '100',
-    //     onStep: function(from, to, percent) {
-    //         $(this.el).find('.percent').text(Math.round(percent));
-    //     }
-    // });
+    // our gallaery
+    (function ($, window, document, undefined) {
+        'use strict';
+        console.log(typeof $("#js-styl2-mosaic"));
+        if ($("#js-styl2-mosaic")) {
+            $("#js-styl2-mosaic").cubeportfolio({
+                filters: "#js-filters-styl2-mosaic",
+                loadMore: "#js-loadMore-styl2-mosaic",
+                loadMoreAction: "click",
+                layoutMode: "mosaic",
+                sortToPreventGaps: !0,
+                defaultFilter: "*",
+                animationType: "quicksand",
+                gapHorizontal: 0,
+                gapVertical: 0,
+                gridAdjustment: "responsive",
+                mediaQueries: [{
+                    width: 1500,
+                    cols: 5
+                }, {
+                    width: 1100,
+                    cols: 4
+                }, {
+                    width: 800,
+                    cols: 3
+                }, {
+                    width: 480,
+                    cols: 2
+                }, {
+                    width: 320,
+                    cols: 1
+                }],
+                caption: "zoom",
+                displayType: "fadeIn",
+                displayTypeSpeed: 400
+            });
+        }
+    })(jQuery, window, document);
 
-    // Twitter Feed
-    // $(".tweet-stream").tweet({
-    //     username: "envato",
-    //     modpath: "twitter/",
-    //     count: 1,
-    //     template: "{text}{time}",
-    //     loading_text: "loading twitter feed..."
-    // });
-
-    // Open Video
-    // jQuery('.play-video').on('click', function (e) {
-    //     var videoContainer = jQuery('.video-box');
-    //     videoContainer.prepend('<iframe src="http://player.vimeo.com/video/7449107" width="500" height="281" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
-    //     videoContainer.fadeIn(300);
-    //     e.preventDefault();
-    // });
-    // // Close Video
-    // jQuery('.close-video').on('click', function (e) {
-    //     jQuery('.video-box').fadeOut(400, function () {
-    //         jQuery("iframe", this).remove().fadeOut(300);
-    //     });
-    // });
 
     $("#home-client-testimonials").owlCarousel({
         items: 2,
@@ -221,10 +220,11 @@ $(document).ready(function () {
     });
 
     /* Conter */
-    $('.counter').counterUp({
-        delay: 10,
-        time: 1000
-    });
+    // $('.counter').counterUp({
+    //     delay: 10,
+    //     time: 1000,
+
+    // });
 
 
     // Google Map
@@ -250,8 +250,8 @@ $(document).ready(function () {
                 '<div><a href="mailto:info@well&spa.com">info@well&spa.com</a></div>' +
                 '</div>' +
                 '</address>',
-            latitude: -33.87695388579145,
-            longitude: 151.22183918952942,
+            latitude: 40.1099556,
+            longitude: 64.6789192,
             icon: {
                 image: "images/pin.png",
                 iconsize: [35, 48],
@@ -263,8 +263,8 @@ $(document).ready(function () {
             iconsize: [35, 48],
             iconanchor: [17, 48]
         },
-        latitude: -33.87695388579145,
-        longitude: 151.22183918952942,
+        latitude: 40.1099556,
+        longitude: 64.6789192,
         zoom: 16
     });
 

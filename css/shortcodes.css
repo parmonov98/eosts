@@ -5,7 +5,7 @@
 /*------------------------------------------*/
 
 .txt-blue {
-    color: #232135;
+    color: rgb(255 255 255 / 50%);
 }
 
 .txt-orange {
@@ -106,12 +106,20 @@
 }
 
 .bg-light-gray {
-    background: #fafafa;
+    background: #232135;
 }
 
 .bg-navy-blue {
     background: #232135;
 }
+
+.bg-light-gray,
+.bg-light-gray a,
+.bg-light-gray .h4-md,
+.bg-light-gray .footer-heading {
+    color: #fff;
+}
+
 
 .bg-orange {
     background: #fe8704;
@@ -491,7 +499,7 @@
 }
 
 .theme-collapse .toggle {
-    color: #1c1c1c;
+    color: #fff;
     font-size: 0.9rem;
     padding-bottom: 15px;
     text-transform: capitalize;
@@ -955,6 +963,7 @@
 .wide-tb-100 {
     padding-top: 100px;
     padding-bottom: 100px;
+    background-color: #232135;
 }
 
 .wide-tb-90 {
@@ -1023,6 +1032,7 @@
     -moz-transition: all 0.15s linear;
     -o-transition: all 0.15s linear;
     transition: all 0.15s linear;
+    width: 100%;
 }
 
 .icon-box-1 .text {
@@ -1076,7 +1086,7 @@
 .service-icon {
     border-radius: 50%;
     margin-right: 20px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(35 33 53);
     box-shadow: 0px 6px 10px 0px rgba(254, 135, 4, 0.2);
     width: 65px;
     height: 65px;
@@ -1111,7 +1121,7 @@
     width: 81px;
     border-style: solid;
     border-width: 4px;
-    border-color: rgba(6, 22, 58, 0.11);
+    border-color: rgba(255, 255, 255, 0.15);
     background: transparent;
     position: relative;
     z-index: 10;
@@ -1127,7 +1137,7 @@
     content: '';
     border-style: solid;
     border-width: 4px;
-    border-color: rgba(6, 22, 58, 0.11);
+    border-color: rgba(255, 255, 255, 0.15);
     background: transparent;
     z-index: -1;
     left: -20px;
@@ -1137,7 +1147,8 @@
 .icon-box-3 .service-icon i {
     height: 100%;
     font-size: 40px;
-    color: #232135;
+    /* color: #232135; */
+    color: #fff;
     width: 100%;
     position: absolute;
     left: 0;
@@ -1145,7 +1156,7 @@
 }
 
 .icon-box-3.bg-sky-blue .service-icon i {
-    background: #fef9f5;
+    /* background: #fef9f5; */
 }
 
 .icon-box-3[class*="bg-"] {
@@ -1348,6 +1359,8 @@
     box-shadow: 0px 14px 47px 0px rgba(28, 28, 28, 0.24);
     transition: all 0.2s;
 }
+
+
 .icon-box-7:hover {
     transform: translateY(-5px);
 }
@@ -1703,8 +1716,8 @@
 }
 
 .counter-style-1.light-bg {
-    color: #333333;
-    background: #ffffff;
+    color: #fff;
+    background: #232135;
     padding: 2rem 0;
     border-bottom: 4px solid #232135;
     box-shadow: 0px 0px 57px 0px rgba(0, 0, 0, 0.05);
@@ -1715,7 +1728,7 @@
 }
 
 .counter-style-1.light-bg i {
-    color: #232135;
+    color: #fff;
 }
 
 
@@ -1726,9 +1739,11 @@
 /*------------------------------------------*/
 
 .clients-bg {
-    background-image: url(../images/bg_3.jpg);
+    background-image: url(../images/bg_01.jpg);
+    /* background-image: url(../images/eosts-label.png); */
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: cover;
 }
 
 .clients-bg .item {
@@ -1764,15 +1779,16 @@
     background-image: url(../images/bg_2.jpg);
     background-repeat: no-repeat;
     background-position: top;
-    margin-bottom: 70px;
+    padding-bottom: 50px;
+    /* margin-bottom: 70px; */
 }
 
 .free-quote-form {
     border-radius: 7px;
-    background-color: #FFF;
+    background-color: #232135;
     box-shadow: 0px 18px 76px 0px rgba(0, 0, 0, 0.14);
     padding: 40px 20px;
-    margin-bottom: -70px;
+    /* margin-bottom: -70px; */
 }
 
 .rounded-field input[type="text"],
@@ -1781,12 +1797,13 @@
     border: 1px solid #dfdfdf;
     padding: 10px 20px;
     min-height: 44px;
-    color: #999999;
+    /* color: #999999; */
     font-size: 0.875rem;
-    color: rgb(153, 153, 153);
+    color: #fff;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
     border-radius: 25px;
+    background: #232135;
 }
 
 .rounded-field input[type="text"]:focus,
@@ -1804,11 +1821,15 @@
     -webkit-border-radius: 9px;
     border-radius: 9px;
     font-size: 0.875rem;
+    color: #fff;
+    background: #232135;
 }
 
 .free-quote-alt {
     background-image: url(../images/bg_4.jpg) !important;
 }
+
+
 
 .gray-field.rounded-field input[type="text"],
 .gray-field.rounded-field input[type="email"],
@@ -1820,6 +1841,9 @@
     border: 1px solid #dfdfdf !important;
 }
 
+.rounded-field .form-control::placeholder {
+    color: #fff !important;
+}
 
 /*------------------------------------------*/
 
@@ -2012,6 +2036,7 @@
 .icons-listing.w-half {
     display: flex;
     flex-wrap: wrap;
+    /* color: #000; */
 }
 
 .icons-listing.w-half li {
@@ -2163,6 +2188,7 @@
     .faqs [class*="col-md-"] {
         margin-bottom: 30px;
     }
+
     .faqs [class*="col-md-"]:nth-last-child(-n+2) {
         margin-bottom: 0;
     }
@@ -2205,27 +2231,35 @@
     0% {
         transform: rotate(0deg);
     }
+
     10% {
         transform: rotate(0deg);
     }
+
     20% {
         transform: rotate(90deg);
     }
+
     35% {
         transform: rotate(90deg);
     }
+
     45% {
         transform: rotate(180deg);
     }
+
     60% {
         transform: rotate(180deg);
     }
+
     75% {
         transform: rotate(270deg);
     }
+
     85% {
         transform: rotate(270deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -2235,27 +2269,35 @@
     0% {
         -webkit-transform: rotate(0deg);
     }
+
     10% {
         -webkit-transform: rotate(0deg);
     }
+
     20% {
         -webkit-transform: rotate(90deg);
     }
+
     35% {
         -webkit-transform: rotate(90deg);
     }
+
     45% {
         -webkit-transform: rotate(180deg);
     }
+
     60% {
         -webkit-transform: rotate(180deg);
     }
+
     75% {
         -webkit-transform: rotate(270deg);
     }
+
     85% {
         -webkit-transform: rotate(270deg);
     }
+
     100% {
         -webkit-transform: rotate(360deg);
     }
@@ -2265,27 +2307,35 @@
     0% {
         transform: scaleX(1);
     }
+
     10% {
         transform: scaleX(1);
     }
+
     20% {
         transform: scaleX(0.8);
     }
+
     35% {
         transform: scaleX(0.8);
     }
+
     45% {
         transform: scaleX(1);
     }
+
     60% {
         transform: scaleX(1);
     }
+
     75% {
         transform: scaleX(0.8);
     }
+
     85% {
         transform: scaleX(0.8);
     }
+
     100% {
         transform: scaleX(1);
     }
@@ -2295,27 +2345,35 @@
     0% {
         -webkit-transform: scaleX(1);
     }
+
     10% {
         -webkit-transform: scaleX(1);
     }
+
     20% {
         -webkit-transform: scaleX(0.8);
     }
+
     35% {
         -webkit-transform: scaleX(0.8);
     }
+
     45% {
         -webkit-transform: scaleX(1);
     }
+
     60% {
         -webkit-transform: scaleX(1);
     }
+
     75% {
         -webkit-transform: scaleX(0.8);
     }
+
     85% {
         -webkit-transform: scaleX(0.8);
     }
+
     100% {
         -webkit-transform: scaleX(1);
     }
