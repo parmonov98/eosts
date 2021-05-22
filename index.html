@@ -4,19 +4,19 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
-        <title>SarbonTrans - EvroOsiyo Sarbon Trans Servis</title>
+        <title>EOSTS - EvroOsiyo Sarbon Trans Servis</title>
         <meta name="author" content="EOSTS (EvroOsiyo Sarbon Trans Servis)" />
         <meta name="description"
-            content="EOSTS (EvroOsiyo Sarbon Trans Servis) - логистическая компания из Узбекистана для перевозке грузов в стран Европы и СНГ."
+            content="Компания EOSTS(EvroOsiyo Sarbon Trans Servis) занимается комплексной доставкой грузов из Узбекистана, Турции, России, Украины, Польши, Литвы, Латвии и стран Европы.Мы работаем с более чем 200 партнерами и сотрудничаем более 10 лет."
             .>
         <meta name="keywords"
             content="EOSTS, EvroOsiyo Sarbon Trans Servis, в Узбекистане, логистическая компания, логистика, перевозка, Траки, Грузовики, транспортировка" />
+        <link rel="canonical" href="http://example.com/" />
 
-
-        <!-- xxx Favicon xxx -->
+        <meta name="robots" content="index, follow">
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
         <!-- Core Css Stylesheets -->
@@ -39,28 +39,47 @@
 
     </head>
 
-    <body>
+    <body itemscope itemtype="https://schema.org/WebPage">
 
         <header class="top-border top-transparent header-logo-top">
             <div class="top-bar-right d-flex align-items-center text-md-left">
                 <div class="container">
                     <div class="row align-items-center">
-                        <div class="col-12 pr-sm-0">
+                        <div class="col-12 pr-sm-0" itemscope itemtype="https://schema.org/Person">
 
                             <div class="d-flex justify-content-between py-2">
-                                <div class="top-text">
+                                <div class="top-text" itemprop="location" itemscope itemtype="https://schema.org/Place">
                                     <small class="txt-ligt-gray">Адрес</small>
-                                    <span class="fw-7 txt-blue">Республика Узбекистан, Бухарский обл, Гиждуван район,
+                                    <span class="fw-7 txt-blue" itemprop="address" itemscope
+                                        itemtype="https://schema.org/PostalAddress">
+                                        Республика
+                                        <span itemprop="addressCountry">
+                                            Узбекистан,
+                                        </span>
+                                        <span itemprop="addressRegion">
+                                            Бухарский обл,
+                                        </span>
+                                        <br />
+                                        <span itemprop="addressLocality">
+                                            Гиждуван район,
+                                        </span>
                                         ул. Чорсу 101</span>
                                 </div>
                                 <div class="top-text">
                                     <small class="txt-ligt-gray">Эл.почта</small>
-                                    <span class="fw-6 txt-blue"><a href="#"
-                                            class="txt-blue">support@sarbontrans.com</a></span>
+                                    <span class="fw-6 txt-blue">
+                                        <a href="mailto:support@sarbontrans.com" itemprop="email"
+                                            class="txt-blue">info@sarbontrans.com</a>
+                                        <br />
+                                        <a href="mailto:support@sarbontrans.com" itemprop="email"
+                                            class="txt-blue">support@sarbontrans.com</a>
+                                    </span>
                                 </div>
                                 <div class="top-text">
                                     <small class="txt-ligt-gray">Телефон</small>
-                                    <span class="fw-7 txt-blue">+99899 311 49 00</span>
+                                    <span class="fw-7 txt-blue" itemprop="telephone">+99899 311 49 00</span>
+                                    <br />
+                                    <span class="fw-7 txt-blue" itemprop="telephone">+99891 311 49 00</span>
                                 </div>
 
                                 <!-- Topbar Language Dropdown Start -->
@@ -74,12 +93,20 @@
                                             class="icofont-rounded-down"></i>
                                     </a>
                                     <div class="dropdown-menu dropdownhover-bottom dropdown-menu-right" role="menu">
-                                        <a class="dropdown-item active" href="#">
+                                        <a class="dropdown-item active" href="#" itemprop="availableLanguage" itemscope
+                                            itemtype="https://schema.org/Language">
                                             <img src="images/us.svg" alt="" class="dropdown-item-icon">
-                                            English
+                                            <span itemprop="name">
+                                                English
+                                            </span>
+
                                         </a>
-                                        <a class="dropdown-item" href="#">
-                                            Türkçe
+                                        <a class="dropdown-item" href="#" itemprop="availableLanguage" itemscope
+                                            itemtype="https://schema.org/Language">
+                                            <img src="images/tr.svg" alt="" class="dropdown-item-icon">
+                                            <span itemprop="name">
+                                                Türkçe
+                                            </span>
                                         </a>
                                     </div>
                                 </div>
@@ -93,14 +120,16 @@
             <nav class="navbar navbar-expand-lg bg-transparent header-fullpage">
                 <div class="container text-nowrap bdr-nav px-0">
 
-                    <a class="navbar-brand" href="index.html">
-                        <img src="images/logo_footer.png" alt="">
+                    <a class="navbar-brand" href="index.html" itemscope itemtype="https://schema.org/LocalBusiness">
+                        <img src="images/logo_footer.png" alt="Компания EOSTS(EvroOsiyo Sarbon Trans Servis)"
+                            itemprop="logo">
                     </a>
 
                     <span class="order-lg-last d-inline-flex request-btn">
                         <!-- <a id="search_home" class="nav-link mr-2 ml-auto" href="#"><i class="icofont-search"></i></a> -->
                         <a class="navbar-brand-mobile" href="index.html">
-                            <img src="images/logo_footer.png" alt="">
+                            <img src="images/logo_footer.png" alt="Компания EOSTS(EvroOsiyo Sarbon Trans Servis)"
+                                itemprop="logo">
                         </a>
                     </span>
 
@@ -127,45 +156,60 @@
                     <!-- Topbar Request Quote End -->
 
                     <div class="collapse navbar-collapse " id="navbarCollapse" data-hover="dropdown"
-                        data-animations="slideInUp slideInUp slideInUp slideInUp">
-                        <ul class="navbar-nav ml-auto">
+                        data-animations="slideInUp slideInUp slideInUp slideInUp" itemscope=""
+                        itemtype="http://schema.org/SiteNavigationElement">
+                        <ul class="navbar-nav ml-auto" itemprop="about" itemscope=""
+                            itemtype="http://schema.org/ItemList">
 
                             <!-- <li class="header__item"><a href="services.html" class="header__link">Услуги</a></li>
                         <li class="header__item"><a href="blog.html" class="header__link">Блог</a></li>
                         <li class="header__item"><a href="contacts.html" class="header__link">Контакты</a></li> -->
-                            <li class="nav-item active">
-                                <a href="index.html" class="nav-link">Главная</a>
+                            <li class="nav-item active" itemprop="itemListElement" itemscope=""
+                                itemtype="http://schema.org/ItemList">
+                                <a href="index.html" class="nav-link" itemprop="url">Главная</a>
+                                <meta itemprop="name" content="Главная" />
                             </li>
-                            <li class="nav-item">
-                                <a href="about.html" class="nav-link">О нас</a>
+                            <li class="nav-item" itemprop="itemListElement" itemscope=""
+                                itemtype="http://schema.org/ItemList">
+                                <a href="about.html" class="nav-link" itemprop="url">О нас</a>
+                                <meta itemprop="name" content="О нас" />
                             </li>
-                            <li class="nav-item ">
-                                <a href="services.html" class="nav-link">Услуги</a>
+                            <li class="nav-item" itemprop="itemListElement" itemscope=""
+                                itemtype="http://schema.org/ItemList">
+                                <a href="services.html" class="nav-link" itemprop="url">Услуги</a>
+                                <meta itemprop="name" content="Услуги" />
                             </li>
-                            <li class="nav-item">
-                                <a href="news.html" class="nav-link">НОВОСТИ</a>
-                            </li>
-                            <li class="nav-item">
+                            <li class="nav-item" itemprop="itemListElement" itemscope=""
+                                itemtype="http://schema.org/ItemList">
                                 <a href="contact-us.html" class="nav-link">Контакты</a>
+                                <meta itemprop="name" content="Контакты" />
                             </li>
                         </ul>
 
                         <!-- Main Navigation End -->
                         <div class="dropdown d-inline-flex mobile-lang-toggle shadow-sm">
                             <a href="#" class="dropdown-toggle btn ml-auto" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false" data-hover="dropdown" data-animations="slideInUp">
+                                aria-expanded="false" data-hover="dropdown" data-animations="slideInUp"
+                                itemprop="availableLanguage" itemscope itemtype="https://schema.org/Language">
                                 <img src="images/ru.svg" alt="" class="dropdown-item-icon">
                                 <span class="d-inline-block d-lg-none">Ru</span>
-                                <span class="d-none d-lg-inline-block">Русский</span> <i
-                                    class="icofont-rounded-down"></i>
+                                <span class="d-none d-lg-inline-block" itemprop="name">Русский</span>
                             </a>
                             <div class="dropdown-menu dropdownhover-bottom dropdown-menu-left" role="menu">
-                                <a class="dropdown-item active" href="#">
+                                <a class="dropdown-item active" href="#" itemprop="availableLanguage" itemscope
+                                    itemtype="https://schema.org/Language">
                                     <img src="images/us.svg" alt="" class="dropdown-item-icon">
-                                    English
+                                    <span itemprop="name">
+                                        English
+                                    </span>
+
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    Türkçe
+                                <a class="dropdown-item" href="#" itemprop="availableLanguage" itemscope
+                                    itemtype="https://schema.org/Language">
+                                    <img src="images/tr.svg" alt="" class="dropdown-item-icon">
+                                    <span itemprop="name">
+                                        Türkçe
+                                    </span>
                                 </a>
                             </div>
                         </div>
@@ -239,29 +283,27 @@
             </ul> -->
         </div>
 
-
-        <!-- Fullscreen Slider Start -->
-
-        <!-- Fullscreen Slider End -->
-
         <!-- Main Body Content Start -->
         <main id="body-content" style="overflow-y: inherit;">
 
             <!-- Welcome To Cargo Start -->
             <section class="wide-tb-100 home-welcome">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
+                    <div class="row" itemscope itemtype="ItemList">
+                        <div class="col-md-3 col-sm-6" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
                             <div class="icon-box-7">
-                                <img src="images/qimmat-yuklar.png" alt="Перевозка дорога ценные грузы">
+                                <img src="images/qimmat-yuklar.png" itemprop="image" alt="Перевозка драгоценных грузов">
                                 <h3 class="h3-xs txt-blue">
-                                    <a class="text-white" href="service-details 2.html">
-                                        Перевозка драгоценных грузов
+                                    <a class="text-white" href="service-details 2.html" itemprop="item">
+                                        <span itemprop="name">
+                                            Перевозка драгоценных грузов
+                                        </span>
                                     </a>
                                 </h3>
                                 <!-- <a href="service-details.html" class="btn-arrow bg-navy-blue"><i class="icofont-swoosh-right"></i></a> -->
                             </div>
-                            <p class="text-center">
+                            <p class="text-center" itemprop="description">
                                 Надежная и оперативная перевозка дорогостоящих грузов осуществляется с помощью
                                 современного грузового автотранспорта, соответствующего европейским
                                 стандартoм.
@@ -270,17 +312,21 @@
 
 
 
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-3 col-sm-6" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
                             <div class="icon-box-7">
-                                <img src="images/tez-ayniydigan2.png" alt="Перевозка скоропортящиеся грузы">
+                                <img src="images/tez-ayniydigan2.png" itemprop="image"
+                                    alt="Перевозка скоропортящиеся грузы">
                                 <h3 class="h3-xs txt-blue">
                                     <a class="text-white" href="service-details 3 skoroport.html">
-                                        Перевозка требующий особых условий хранения
+                                        <span itemprop="name">
+                                            Перевозка требующий особых условий хранения
+                                        </span>
                                     </a>
                                 </h3>
                                 <!-- <a href="service-details.html" class="btn-arrow bg-navy-blue"><i class="icofont-swoosh-right"></i></a> -->
                             </div>
-                            <p class="text-center">
+                            <p class="text-center" itemprop="description">
                                 Под классификацию таких грузов
                                 попадают, в основном, пищевые продукты и требующие особых условий хранения (уровень
                                 влажности, температурный режим) и сроков доставки.
@@ -289,16 +335,22 @@
 
 
 
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-3 col-sm-6" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
                             <div class="icon-box-7">
-                                <img src="images/ogir-yuklar.png" alt="Перевозка сверхтяжёлые грузы">
+                                <img src="images/ogir-yuklar.png" itemprop="image" alt="Перевозка сверхтяжёлые грузы">
                                 <h3 class="h3-xs txt-blue">
-                                    <a class="text-white" href="service-details 4 sverx.html">Перевозка сверхтяжёлые
-                                        <br> грузы</a>
+                                    <a class="text-white" href="service-details 4 sverx.html">
+                                        <span itemprop="name">
+                                            Перевозка сверхтяжёлые
+                                            <br> грузы</a>
+                                    </span>
                                 </h3>
                                 <!-- <a href="service-details.html" class="btn-arrow bg-navy-blue"><i class="icofont-swoosh-right"></i></a> -->
                             </div>
-                            <p class="text-center">Такие грузы обладают нестандартными размерами, весом, объемом и т.д.
+                            <p class="text-center" itemprop="description">
+                                Такие грузы обладают нестандартными размерами,
+                                весом, объемом и т.д.
                                 Их транспортировка связана с большими трудностями, так зачастую такой груз невозможно
                                 перевезти стандартными способами.
                             </p>
@@ -306,16 +358,21 @@
 
 
 
-                        <div class="col-md-3 col-sm-6">
+                        <div class="col-md-3 col-sm-6" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
                             <div class="icon-box-7">
-                                <img src="images/zastraxovanniy-yuklar.png" alt="Страхование грузов">
+                                <img src="images/zastraxovanniy-yuklar.png" itemprop="image" alt="Страхование грузов">
                                 <h3 class="h3-xs txt-blue">
-                                    <a class="text-white" href="service-details 5 straxovan.html">Страхование <br />
-                                        грузоперевозки</a>
+                                    <a class="text-white" href="service-details 5 straxovan.html">
+                                        <span itemprop="name">
+                                            Страхование <br />
+                                            грузоперевозки
+                                        </span>
+                                    </a>
                                 </h3>
                                 <!-- <a href="service-details.html" class="btn-arrow bg-navy-blue"><i class="icofont-swoosh-right"></i></a> -->
                             </div>
-                            <p class="text-center">
+                            <p class="text-center" itemprop="description">
                                 Один из важнейших факторов в транспортировке - это страхование грузов.Поэтому мы
                                 предлагаем 3 вида услуг страхования грузов
                             </p>
@@ -331,9 +388,9 @@
             <!-- What Makes Us Special Start -->
             <section class="bg-light-gray wide-tb-100">
                 <div class="container pos-rel">
-                    <div class="row">
+                    <div class="row" itemscope itemtype="https://schema.org/Organization">
                         <div class="img-business-man">
-                            <img src="images/courier-man.png" alt="">
+                            <img itemprop="photo" src="images/courier-man.png" alt="our company">
                         </div>
                         <div class="col-md-6 ml-auto">
                             <!-- Heading Main -->
@@ -344,10 +401,15 @@
                             </div>
                             <!-- Heading Main -->
 
-                            <p class="lead fw-5 txt-blue">Компания EOSTS(EvroOsiyo Sarbon Trans Servis) занимается
+                            <p class="lead fw-5 txt-blue" itemprop="description">Компания
+                                <span itemprop="name">
+                                    EOSTS(EvroOsiyo Sarbon Trans
+                                    Servis)</span>
+                                занимается
                                 комплексной доставкой грузов из Узбекистана, Турции, России, Украины, Польши, Литвы,
                                 Латвии и стран Европы.Мы работаем с более чем 200 партнерами и сотрудничаем более 10
-                                лет.</p>
+                                лет.
+                            </p>
                             <p>
                                 Мы имеем огромный опыт по логистики, и наша работа просто классно!
                             </p>
@@ -492,7 +554,7 @@
                             <div class="free-quote-form">
                                 <!-- Heading Main -->
                                 <h1 class="heading-main mb-4">
-                                    <span>Оставить</span> Телефон номер
+                                    <span>Оставить</span> Запрос
                                 </h1>
                                 <!-- Heading Main -->
 
@@ -507,6 +569,9 @@
                                     <div class="form-row mb-4">
                                         <input type="text" name="number" class="form-control"
                                             placeholder="Телефон номер">
+                                    </div>
+                                    <div class="form-row mb-4">
+                                        <input type="email" name="email" class="form-control" placeholder="Э-почта">
                                     </div>
 
                                     <div class="form-row mb-4">

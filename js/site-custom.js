@@ -250,8 +250,8 @@ $(document).ready(function () {
                 '<div><a href="mailto:info@well&spa.com">info@well&spa.com</a></div>' +
                 '</div>' +
                 '</address>',
-            latitude: 40.1099556,
-            longitude: 64.6789192,
+            latitude: -33.87695388579145,
+            longitude: 151.22183918952942,
             icon: {
                 image: "images/pin.png",
                 iconsize: [35, 48],
@@ -263,8 +263,8 @@ $(document).ready(function () {
             iconsize: [35, 48],
             iconanchor: [17, 48]
         },
-        latitude: 40.1099556,
-        longitude: 64.6789192,
+        latitude: -33.87695388579145,
+        longitude: 151.22183918952942,
         zoom: 16
     });
 
