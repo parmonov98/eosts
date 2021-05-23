@@ -142,8 +142,38 @@
 		display: inline-flex !important;
 	}
 
+	.flex-md-column {
+		/* flex-direction: column; */
+	}
+
 	.header-logo-top .top-text {
 		/* display: none; */
+		margin-right: 0 !important;
+
+	}
+
+
+
+	.header-logo-top .lang-toggle {
+		display: none !important;
+	}
+
+	.header-logo-top .top-text a {
+		font-size: 0.75rem;
+	}
+
+	.mobile-lang-toggle {
+		box-shadow: none !important;
+	}
+
+	.mobile-lang-toggle .d-inline-block {
+		color: #fff;
+	}
+
+	.dropdown .dropdown-item.active,
+	.dropdown .dropdown-item:active {
+		background-color: #fef9f5 !important;
+		color: #565656;
 	}
 
 	.fixed-top {

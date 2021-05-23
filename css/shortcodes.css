@@ -25,6 +25,11 @@
 }
 
 
+
+.header-logo-top .top-text .txt-blue {
+    font-size: 0.75rem;
+}
+
 /* ANIMATED X */
 
 .navbar-toggler .icon-bar {
@@ -141,7 +146,7 @@
 /*------------------------------------------*/
 
 .bg-img-6 {
-    background-image: url(../images/bg_6.jpg);
+    background-image: url(../images/contact-us-bg.jpg);
     background-repeat: no-repeat;
     background-position: center center;
 }
@@ -1694,7 +1699,7 @@
 /*------------------------------------------*/
 
 .counter-bg {
-    background-image: url(../images/bg_1.jpg);
+    background-image: url(../images/facst-about-company.png);
     background-repeat: no-repeat;
 }
 
@@ -1739,10 +1744,9 @@
 /*------------------------------------------*/
 
 .clients-bg {
-    background-image: url(../images/bg_01.jpg);
-    /* background-image: url(../images/eosts-label.png); */
+    background-image: url(../images/clients-bg.jpg);
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center top;
     background-size: cover;
 }
 
@@ -1776,11 +1780,23 @@
 /*------------------------------------------*/
 
 .free-quote {
-    background-image: url(../images/bg_2.jpg);
+    background-image: url(../images/facts-about-company.png);
     background-repeat: no-repeat;
     background-position: top;
     padding-bottom: 50px;
+    position: relative;
     /* margin-bottom: 70px; */
+}
+
+.free-quote::after {
+    /* content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%; */
 }
 
 .free-quote-form {

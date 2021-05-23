@@ -22,12 +22,18 @@
         <!-- Core Css Stylesheets -->
         <link href="css/base.css" rel="stylesheet">
         <link href="css/icofont.min.css" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-v4-rtl/4.4.1-1/css/bootstrap.min.css" integrity="sha512-w/dt8wqnZ5e3QR3DQEw0W/8gEcIDjIadEI8VHRsngrIpkPVQNm7EPCi1bPwxJytbACKqzMQ67GmdxECbw9Bp8w==" crossorigin="anonymous" /> -->
+        <!-- <link href="css/bootstrap.css" rel="stylesheet"> -->
+
+        <!-- <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-v4-rtl/4.4.1-1/css/bootstrap.min.css"
+            integrity="sha512-w/dt8wqnZ5e3QR3DQEw0W/8gEcIDjIadEI8VHRsngrIpkPVQNm7EPCi1bPwxJytbACKqzMQ67GmdxECbw9Bp8w=="
+            crossorigin="anonymous" /> -->
         <!-- REVOLUTION STYLE SHEETS -->
         <!-- <link rel="stylesheet" type="text/css" href="rev-slider/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css"> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
             integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
             crossorigin="anonymous" />
+
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-v4-rtl/4.4.1-1/js/bootstrap.min.js" integrity="sha512-gaMoFu7uCFiLfgiU0MXZc/qreuG03Hg/EqRflGara7tlcl3GepIKYY7NjKL/3PwlsR3KacYt0Yi09P1I2/aiJg==" crossorigin="anonymous"></script> -->
 
         <!-- <link rel="stylesheet" type="text/css" href="rev-slider/revolution/fonts/font-awesome/css/font-awesome.css"> -->
@@ -37,6 +43,7 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
 
+
     </head>
 
     <body itemscope itemtype="https://schema.org/WebPage">
@@ -44,10 +51,10 @@
         <header class="top-border top-transparent header-logo-top">
             <div class="top-bar-right d-flex align-items-center text-md-left">
                 <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-12 pr-sm-0" itemscope itemtype="https://schema.org/Person">
+                    <div class="row align-items-center ">
+                        <div class="col-12 pr-sm-0 " itemscope itemtype="https://schema.org/Person">
 
-                            <div class="d-flex justify-content-between py-2">
+                            <div class="d-flex justify-content-between py-2 ">
                                 <div class="top-text" itemprop="location" itemscope itemtype="https://schema.org/Place">
                                     <small class="txt-ligt-gray">Адрес</small>
                                     <span class="fw-7 txt-blue" itemprop="address" itemscope
@@ -83,7 +90,8 @@
                                 </div>
 
                                 <!-- Topbar Language Dropdown Start -->
-                                <div class="dropdown d-inline-flex lang-toggle shadow-sm order-lg-last">
+                                <div
+                                    class="dropdown d-inline-flex lang-toggle shadow-sm order-lg-last justify-center align-items-center">
                                     <a href="#" class="dropdown-toggle btn" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false" data-hover="dropdown"
                                         data-animations="slideInUp slideInUp slideInUp slideInUp">
@@ -125,7 +133,7 @@
                             itemprop="logo">
                     </a>
 
-                    <span class="order-lg-last d-inline-flex request-btn">
+                    <span class="order-lg-last d-inline-flex request-btn d-lg-none">
                         <!-- <a id="search_home" class="nav-link mr-2 ml-auto" href="#"><i class="icofont-search"></i></a> -->
                         <a class="navbar-brand-mobile" href="index.html">
                             <img src="images/logo_footer.png" alt="Компания EOSTS(EvroOsiyo Sarbon Trans Servis)"
@@ -155,7 +163,7 @@
 
                     <!-- Topbar Request Quote End -->
 
-                    <div class="collapse navbar-collapse " id="navbarCollapse" data-hover="dropdown"
+                    <div class="collapse navbar-collapse mr-5" id="navbarCollapse" data-hover="dropdown"
                         data-animations="slideInUp slideInUp slideInUp slideInUp" itemscope=""
                         itemtype="http://schema.org/SiteNavigationElement">
                         <ul class="navbar-nav ml-auto" itemprop="about" itemscope=""
@@ -187,7 +195,7 @@
                         </ul>
 
                         <!-- Main Navigation End -->
-                        <div class="dropdown d-inline-flex mobile-lang-toggle shadow-sm">
+                        <div class="dropdown d-inline-flex mobile-lang-toggle shadow-sm d-lg-none">
                             <a href="#" class="dropdown-toggle btn ml-auto" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false" data-hover="dropdown" data-animations="slideInUp"
                                 itemprop="availableLanguage" itemscope itemtype="https://schema.org/Language">
@@ -289,8 +297,8 @@
             <!-- Welcome To Cargo Start -->
             <section class="wide-tb-100 home-welcome">
                 <div class="container">
-                    <div class="row" itemscope itemtype="ItemList">
-                        <div class="col-md-3 col-sm-6" itemprop="itemListElement" itemscope
+                    <div class="row flex-wrap" itemscope itemtype="ItemList">
+                        <div class="col-xl-3 col-sm-6 col-xs-12" itemprop="itemListElement" itemscope
                             itemtype="https://schema.org/ListItem">
                             <div class="icon-box-7">
                                 <img src="images/qimmat-yuklar.png" itemprop="image" alt="Перевозка драгоценных грузов">
@@ -312,7 +320,7 @@
 
 
 
-                        <div class="col-md-3 col-sm-6" itemprop="itemListElement" itemscope
+                        <div class="col-xl-3 col-sm-6 col-xs-12" itemprop="itemListElement" itemscope
                             itemtype="https://schema.org/ListItem">
                             <div class="icon-box-7">
                                 <img src="images/tez-ayniydigan2.png" itemprop="image"
@@ -335,7 +343,7 @@
 
 
 
-                        <div class="col-md-3 col-sm-6" itemprop="itemListElement" itemscope
+                        <div class="col-xl-3 col-sm-6 col-xs-12" itemprop="itemListElement" itemscope
                             itemtype="https://schema.org/ListItem">
                             <div class="icon-box-7">
                                 <img src="images/ogir-yuklar.png" itemprop="image" alt="Перевозка сверхтяжёлые грузы">
@@ -358,7 +366,7 @@
 
 
 
-                        <div class="col-md-3 col-sm-6" itemprop="itemListElement" itemscope
+                        <div class="col-xl-3 col-sm-6 col-xs-12" itemprop="itemListElement" itemscope
                             itemtype="https://schema.org/ListItem">
                             <div class="icon-box-7">
                                 <img src="images/zastraxovanniy-yuklar.png" itemprop="image" alt="Страхование грузов">
@@ -680,20 +688,25 @@
                             </h1>
                         </div>
                         <!-- Heading Main -->
+
                         <div class="col-sm-12">
                             <div class="owl-carousel owl-theme" id="home-client-testimonials">
 
                                 <!-- Client Testimonials Slider Item -->
-                                <div class="item">
+                                <div class="item" itemprop="review" itemscope itemtype="https://schema.org/Review">
                                     <div class="client-testimonial bg-wave">
                                         <div class="media">
                                             <div class="client-testimonial-icon rounded-circle bg-navy-blue">
                                                 <img src="images/team_1.jpg" alt="">
                                             </div>
                                             <div class="client-inner-content media-body">
-                                                <p>1. EOSTS (ЕвроОсиё Сарбон Транс Сервис) за рекомендовали себя как
+                                                <p itemprop="reviewBody">1. EOSTS (ЕвроОсиё Сарбон Транс Сервис) за
+                                                    рекомендовали себя как
                                                     очень надежные, поработав с ними, вы убедитесь. </p>
-                                                <footer class="blockquote-footer"><cite title="Source Title">John Gerry
+                                                <footer class="blockquote-footer"><cite title="Source Title">
+                                                        <span itemprop="author">
+                                                            John Gerry
+                                                        </span>
                                                         Design Hunt</cite>
                                                 </footer>
                                             </div>
@@ -703,18 +716,22 @@
                                 <!-- Client Testimonials Slider Item -->
 
                                 <!-- Client Testimonials Slider Item -->
-                                <div class="item">
+                                <div class="item" itemprop="review" itemscope itemtype="https://schema.org/Review">
                                     <div class="client-testimonial bg-wave">
                                         <div class="media">
                                             <div class="client-testimonial-icon rounded-circle bg-navy-blue">
                                                 <img src="images/team_2.jpg" alt="">
                                             </div>
                                             <div class="client-inner-content media-body">
-                                                <p>Базирующаяся в Узбекистане компания EOSTS («ЕвроОсиё Сарбон Транс
+                                                <p itemprop="reviewBody">Базирующаяся в Узбекистане компания EOSTS
+                                                    («ЕвроОсиё Сарбон Транс
                                                     Сервис») настолько доступна и надежна. Они быстро ответили на звонки
                                                     и быстро предоставили обновленную информацию о грузе. </p>
-                                                <footer class="blockquote-footer"><cite title="Source Title">John Gerry
-                                                        Design Hunt</cite>
+                                                <footer class="blockquote-footer">
+                                                    <cite title="Source Title" itemprop="author">
+                                                        John Gerry
+                                                        Design Hunt
+                                                    </cite>
                                                 </footer>
                                             </div>
                                         </div>
@@ -723,18 +740,22 @@
                                 <!-- Client Testimonials Slider Item -->
 
                                 <!-- Client Testimonials Slider Item -->
-                                <div class="item">
+                                <div class="item" itemprop="review" itemscope itemtype="https://schema.org/Review">
                                     <div class="client-testimonial bg-wave">
                                         <div class="media">
                                             <div class="client-testimonial-icon rounded-circle bg-navy-blue">
                                                 <img src="images/team_3.jpg" alt="">
                                             </div>
                                             <div class="client-inner-content media-body">
-                                                <p>Каждый раз нам предоставляли услуги высочайшего качества с
+                                                <p itemprop="reviewBody">Каждый раз нам предоставляли услуги высочайшего
+                                                    качества с
                                                     профессионализмом, оперативностью и частыми обновлениями. Так что
                                                     нам не пришлось беспокоиться о грузе. Быть спокойным.</p>
-                                                <footer class="blockquote-footer"><cite title="Source Title">John Gerry
-                                                        Design Hunt</cite>
+                                                <footer class="blockquote-footer">
+                                                    <cite title="Source Title" itemprop="author">
+                                                        John Gerry
+                                                        Design Hunt
+                                                    </cite>
                                                 </footer>
                                             </div>
                                         </div>
@@ -766,8 +787,11 @@
                             <div class="owl-carousel owl-theme" id="home-clients">
 
                                 <!-- Client Logo -->
-                                <div class="item">
-                                    <img src="images/clients/client1.png" alt="">
+                                <div class="item" itemscope itemprop="organization"
+                                    itemtype="https://schema.org/Organization">
+                                    <a href="#">
+                                        <img itemprop="logo" src="images/clients/client1.png" alt="Company name">
+                                    </a>
                                 </div>
                                 <!-- Client Logo -->
 
@@ -819,16 +843,17 @@
                         <!-- Heading Main -->
                     </div>
 
-                    <div id="js-styl2-mosaic" class="cbp">
-                        <div class="cbp-item design">
+                    <div id="js-styl2-mosaic" class="cbp" itemscope itemtype="https://schema.org/ImageObject">
+                        <div class="cbp-item design" itemprop="">
                             <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
+                                <a href="project-single.html" class="txt-white">
+                                    <i class="icofont-external-link"></i>
+                                </a>
                             </div>
-                            <a href="images/gallery/img01.jpg" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
+                            <a href="images/gallery/img01.jpg" itemprop="contentUrl" class="cbp-caption cbp-lightbox"
+                                data-title="Lorem ipsum" itemscope itemtype="https://schema.org/ImageObject">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="images/gallery/thumbnails/img01.jpg" alt="">
+                                    <img src="images/gallery/thumbnails/img01.jpg" itemprop="contentUrl" alt="Somehere">
                                 </div>
                                 <div class="cbp-caption-activeWrap">
                                     <div class="cbp-l-caption-alignCenter">
@@ -1265,15 +1290,34 @@
                         <div class="footer-widget-contact">
                             <div class="media mb-3">
                                 <i class="icofont-google-map mr-3"></i>
-                                <div class="media-body">
-                                    Республика Узбекистан, Бухарский обл, Гиждуван район, ул. Чорсу 101
+                                <div class="media-body" itemprop="location" itemscope=""
+                                    itemtype="https://schema.org/Place">
+                                    <span itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress">
+                                        Республика
+                                        <span itemprop="addressCountry">
+                                            Узбекистан,
+                                        </span>
+                                        <span itemprop="addressRegion">
+                                            Бухарский обл,
+                                        </span>
+                                        <br>
+                                        <span itemprop="addressLocality">
+                                            Гиждуван район,
+                                        </span>
+                                        ул. Чорсу 101
+                                    </span>
+                                    <!-- Республика Узбекистан, Бухарский обл, Гиждуван район, ул. Чорсу 101 -->
                                 </div>
                             </div>
                             <div class="media mb-2">
                                 <i class="icofont-smart-phone mr-3"></i>
                                 <div class="media-body">
-                                    <div>+99899 311 49 00 </div>
-                                    <div>+99899 099 95 59</div>
+                                    <div itemprop="telephone">
+                                        <a href="tel:+99899 311 49 00">+99899 311 49 00</a>
+                                    </div>
+                                    <div itemprop="telephone">
+                                        <a href="tel:+99891 311 49 00">+99891 311 49 00</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="media mb-3">

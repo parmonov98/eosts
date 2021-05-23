@@ -43,29 +43,48 @@
     <!-- Page loader End -->
 
 
-    <header class="top-border top-transparent wow fadeInDown header-logo-top">
+    <header class="top-border top-transparent header-logo-top">
       <div class="top-bar-right d-flex align-items-center text-md-left">
         <div class="container">
-          <div class="row align-items-center">
-            <div class="col-12 pr-sm-0">
+          <div class="row align-items-center ">
+            <div class="col-12 pr-sm-0 " itemscope itemtype="https://schema.org/Person">
 
-              <div class="d-flex justify-content-between py-2">
-                <div class="top-text">
+              <div class="d-flex justify-content-between py-2 ">
+                <div class="top-text" itemprop="location" itemscope itemtype="https://schema.org/Place">
                   <small class="txt-ligt-gray">Адрес</small>
-                  <span class="fw-7 txt-blue">Узбекистан,Бухарский обл,Гиждуван район,ул. Чорсу
-                    101</span>
+                  <span class="fw-7 txt-blue" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                    Республика
+                    <span itemprop="addressCountry">
+                      Узбекистан,
+                    </span>
+                    <span itemprop="addressRegion">
+                      Бухарский обл,
+                    </span>
+                    <br />
+                    <span itemprop="addressLocality">
+                      Гиждуван район,
+                    </span>
+                    ул. Чорсу 101</span>
                 </div>
                 <div class="top-text">
                   <small class="txt-ligt-gray">Эл.почта</small>
-                  <span class="fw-6 txt-blue"><a href="#" class="txt-blue">support@sarbontrans.com</a></span>
+                  <span class="fw-6 txt-blue">
+                    <a href="mailto:support@sarbontrans.com" itemprop="email" class="txt-blue">info@sarbontrans.com</a>
+                    <br />
+                    <a href="mailto:support@sarbontrans.com" itemprop="email"
+                      class="txt-blue">support@sarbontrans.com</a>
+                  </span>
                 </div>
                 <div class="top-text">
                   <small class="txt-ligt-gray">Телефон</small>
-                  <span class="fw-7 txt-blue">+99899 311 49 00</span>
+                  <span class="fw-7 txt-blue" itemprop="telephone">+99899 311 49 00</span>
+                  <br />
+                  <span class="fw-7 txt-blue" itemprop="telephone">+99891 311 49 00</span>
                 </div>
 
                 <!-- Topbar Language Dropdown Start -->
-                <div class="dropdown d-inline-flex lang-toggle shadow-sm order-lg-last">
+                <div
+                  class="dropdown d-inline-flex lang-toggle shadow-sm order-lg-last justify-center align-items-center">
                   <a href="#" class="dropdown-toggle btn" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" data-hover="dropdown"
                     data-animations="slideInUp slideInUp slideInUp slideInUp">
@@ -74,12 +93,20 @@
                     <span class="d-none d-lg-inline-block">Русский</span> <i class="icofont-rounded-down"></i>
                   </a>
                   <div class="dropdown-menu dropdownhover-bottom dropdown-menu-right" role="menu">
-                    <a class="dropdown-item active" href="#">
+                    <a class="dropdown-item active" href="#" itemprop="availableLanguage" itemscope
+                      itemtype="https://schema.org/Language">
                       <img src="images/us.svg" alt="" class="dropdown-item-icon">
-                      English
+                      <span itemprop="name">
+                        English
+                      </span>
+
                     </a>
-                    <a class="dropdown-item" href="#">
-                      Türkçe
+                    <a class="dropdown-item" href="#" itemprop="availableLanguage" itemscope
+                      itemtype="https://schema.org/Language">
+                      <img src="images/tr.svg" alt="" class="dropdown-item-icon">
+                      <span itemprop="name">
+                        Türkçe
+                      </span>
                     </a>
                   </div>
                 </div>
@@ -90,18 +117,17 @@
           </div>
         </div>
       </div>
-
       <nav class="navbar navbar-expand-lg bg-transparent header-fullpage">
         <div class="container text-nowrap bdr-nav px-0">
 
-          <a class="navbar-brand" href="index.html">
-            <img src="images/logo_footer.png" alt="">
+          <a class="navbar-brand" href="index.html" itemscope itemtype="https://schema.org/LocalBusiness">
+            <img src="images/logo_footer.png" alt="Компания EOSTS(EvroOsiyo Sarbon Trans Servis)" itemprop="logo">
           </a>
 
-          <span class="order-lg-last d-inline-flex request-btn">
+          <span class="order-lg-last d-inline-flex request-btn d-lg-none">
             <!-- <a id="search_home" class="nav-link mr-2 ml-auto" href="#"><i class="icofont-search"></i></a> -->
             <a class="navbar-brand-mobile" href="index.html">
-              <img src="images/logo_footer.png" alt="">
+              <img src="images/logo_footer.png" alt="Компания EOSTS(EvroOsiyo Sarbon Trans Servis)" itemprop="logo">
             </a>
           </span>
 
@@ -125,49 +151,57 @@
 
           <!-- Topbar Request Quote End -->
 
-          <div class="collapse navbar-collapse " id="navbarCollapse" data-hover="dropdown"
-            data-animations="slideInUp slideInUp slideInUp slideInUp">
-            <ul class="navbar-nav ml-auto">
+          <div class="collapse navbar-collapse mr-5" id="navbarCollapse" data-hover="dropdown"
+            data-animations="slideInUp slideInUp slideInUp slideInUp" itemscope=""
+            itemtype="http://schema.org/SiteNavigationElement">
+            <ul class="navbar-nav ml-auto" itemprop="about" itemscope="" itemtype="http://schema.org/ItemList">
 
-              <!-- <li class="header__item"><a href="services.html" class="header__link">Услуги</a></li>
-                <li class="header__item"><a href="blog.html" class="header__link">Блог</a></li>
-                <li class="header__item"><a href="contacts.html" class="header__link">Контакты</a></li> -->
-              <li class="nav-item ">
-                <a href="index.html" class="nav-link">Главная</a>
+              <li class="nav-item " itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                <a href="index.html" class="nav-link" itemprop="url">Главная</a>
+                <meta itemprop="name" content="Главная" />
               </li>
-              <li class="nav-item">
-                <a href="about.html" class="nav-link">О нас</a>
+              <li class="nav-item " itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                <a href="about.html" class="nav-link" itemprop="url">О нас</a>
+                <meta itemprop="name" content="О нас" />
               </li>
-              <li class="nav-item ">
-                <a href="services.html" class="nav-link">Услуги</a>
+              <li class="nav-item " itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
+                <a href="services.html" class="nav-link" itemprop="url">Услуги</a>
+                <meta itemprop="name" content="Услуги" />
               </li>
-              <li class="nav-item ">
-                <a href="news.html" class="nav-link">НОВОСТИ</a>
-              </li>
-              <li class="nav-item active">
+              <li class="nav-item active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ItemList">
                 <a href="contact-us.html" class="nav-link">Контакты</a>
+                <meta itemprop="name" content="Контакты" />
               </li>
             </ul>
+
             <!-- Main Navigation End -->
-
-
-            <div class="dropdown d-inline-flex mobile-lang-toggle shadow-sm">
+            <div class="dropdown d-inline-flex mobile-lang-toggle shadow-sm d-lg-none">
               <a href="#" class="dropdown-toggle btn ml-auto" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" data-hover="dropdown" data-animations="slideInUp">
+                aria-expanded="false" data-hover="dropdown" data-animations="slideInUp" itemprop="availableLanguage"
+                itemscope itemtype="https://schema.org/Language">
                 <img src="images/ru.svg" alt="" class="dropdown-item-icon">
                 <span class="d-inline-block d-lg-none">Ru</span>
-                <span class="d-none d-lg-inline-block">Русский</span> <i class="icofont-rounded-down"></i>
+                <span class="d-none d-lg-inline-block" itemprop="name">Русский</span>
               </a>
               <div class="dropdown-menu dropdownhover-bottom dropdown-menu-left" role="menu">
-                <a class="dropdown-item active" href="#">
+                <a class="dropdown-item active" href="#" itemprop="availableLanguage" itemscope
+                  itemtype="https://schema.org/Language">
                   <img src="images/us.svg" alt="" class="dropdown-item-icon">
-                  English
+                  <span itemprop="name">
+                    English
+                  </span>
+
                 </a>
-                <a class="dropdown-item" href="#">
-                  Türkçe
+                <a class="dropdown-item" href="#" itemprop="availableLanguage" itemscope
+                  itemtype="https://schema.org/Language">
+                  <img src="images/tr.svg" alt="" class="dropdown-item-icon">
+                  <span itemprop="name">
+                    Türkçe
+                  </span>
                 </a>
               </div>
             </div>
+
 
           </div>
 
@@ -228,7 +262,7 @@
                     101</span>
                 </div>
                 <div class="d-flex align-items-start items">
-                  <i class="icofont-phone"></i> <span>+1 (408) 786 - 5117</span>
+                  <i class="icofont-phone"></i> <span>+99891 311 49 00</span>
                 </div>
                 <div class="text-nowrap d-flex align-items-start items">
                   <i class="icofont-email"></i> <a href="#">support@sarbontrans.com</a>
@@ -249,7 +283,7 @@
               <div class="free-quote-form contact-page">
                 <!-- Heading Main -->
                 <h1 class="heading-main mb-4">
-                  Оставить отзыв
+                  Оставить заврос
                 </h1>
                 <!-- Heading Main -->
 
@@ -307,12 +341,13 @@
       <section class="map-bg">
         <div id="map-holder" class="pos-rel">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6102.97918223667!2d64.6766783091054!3d40.10909151557704!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDA2JzM1LjkiTiA2NMKwNDAnNDQuNSJF!5e0!3m2!1sen!2s!4v1618302616565!5m2!1sen!2s"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3049.181670454643!2d64.55307821561682!3d40.160508679105995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f5065879e9fb55b%3A0xb446833c83e8d518!2sEvroOsiyo%20Sarbon%20Trans%20Servis!5e0!3m2!1sen!2s!4v1621694617736!5m2!1sen!2s"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </section>
       <!-- Google Map Start -->
     </main>
+
 
     <!-- Main Footer Start -->
     <footer class="wide-tb-70 bg-light-gray pb-0">
@@ -432,6 +467,7 @@
       </div>
     </footer>
     <!-- Main Footer End -->
+
 
 
     <div class="video-box">
