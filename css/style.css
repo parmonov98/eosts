@@ -60,6 +60,7 @@ a:focus {
     -moz-transition: all 0.15s linear;
     -o-transition: all 0.15s linear;
     transition: all 0.15s linear;
+
 }
 
 /*------------------------------------------*/
@@ -69,6 +70,12 @@ a:focus {
     width: 140px;
     background: #f1fbff;
     padding: .9rem;
+    /* max-height: 100px; */
+}
+
+.navbar-brand img {
+    /* height: 80%; */
+    /* max-height: 38px; */
 }
 
 .navbar {
@@ -1639,6 +1646,10 @@ footer .social-icons a:hover {
     .slider-section .controls {
 
         top: 80%;
+    }
+
+    .navbar-brand-mobile img {
+        max-width: 120px;
     }
 }
 
