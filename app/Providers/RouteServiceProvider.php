@@ -17,7 +17,11 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+<<<<<<< Updated upstream
     public const HOME = '/dashboard';
+=======
+    public const HOME = '/';
+>>>>>>> Stashed changes
 
     /**
      * The controller namespace for the application.

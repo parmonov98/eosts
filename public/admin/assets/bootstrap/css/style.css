@@ -1,0 +1,130 @@
+
+
+/* LINE ICONS CONFIGURATION */
+
+.mtbox {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.box1 {
+  padding: 15px;
+  text-align: center;
+  color: #989898;
+  border-bottom: 1px solid #989898;
+}
+
+.box1 span {
+  font-size: 50px;
+
+}
+
+.box1 h3 {
+  text-align: center;
+}
+
+.box0:hover .box1 {
+  border-bottom: 1px solid #ffffff;
+}
+
+.box0 p {
+  text-align: center;
+  font-size: 22px;
+    color: #909090;
+}
+
+.box0:hover p {
+  color: #ff865c;
+}
+
+.box0:hover>p {
+  color: #ff865c;
+}
+
+.box0:hover {
+  background: #ffffff;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* MAIN CHART CONFIGURATION */
+.main-chart {
+  padding-top: 20px;
+}
+
+.mleft {
+}
+
+.border-head h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  margin-left: 15px;
+    padding-bottom: 5px;
+    font-weight: normal;
+    font-size: 18px;
+    display: inline-block;
+    width: 100%;
+    font-weight: 700;
+    color: #989898;
+}
+
+
+
+
+#activ:focus{
+	position: absolute;
+	border: 2px solid #0027ff;
+	width: 110%;
+	height: 50px;
+	font-size: 30px;
+	z-index: 1;
+	right: 0;
+}
+
+#activ1:focus{
+	position: absolute;
+	border: 2px solid #0027ff;
+	width: 110%;
+	height: 50px;
+	font-size: 30px;
+	z-index: 1;
+	left: 0;
+}
+
+a:hover .bg-aqua{
+	background-color: #000 !important;
+}
+
+#mfile{
+	color: #ffffff;
+}
+a#mfile:hover {
+	color: red;
+}
+#pagination nav div a,#pagination nav span{
+  background-color: #00a65a;
+  border-color: #008d4c;
+  color: #fff;
+
+  display: inline-block;
+  padding: 6px 25px;
+  margin-bottom: 0;
+  font-size: 19px !important;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  }
+
+#pagination nav span{
+  background-color: #cccccc;
+  border-color: #cccccc;
+}
+

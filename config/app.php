@@ -161,14 +161,21 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        
 
         /*
          * Package Service Providers...
          */
+<<<<<<< Updated upstream
 
          UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
          Intervention\Image\ImageServiceProvider::class,
 
+=======
+         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+         Intervention\Image\ImageServiceProvider::class,
+>>>>>>> Stashed changes
         /*
          * Application Service Providers...
          */
@@ -231,7 +238,13 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< Updated upstream
         'Image' => Intervention\Image\Facades\Image::class,
+=======
+        'Input' => Illuminate\Http\Concerns\InteractsWithInput::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+>>>>>>> Stashed changes
 
     ],
 

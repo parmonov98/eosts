@@ -55,6 +55,11 @@ return [
                 'image/pjpeg',
                 'image/png',
                 'image/gif',
+<<<<<<< Updated upstream
+=======
+                'audio/mp3',
+                'video/mp4',                   
+>>>>>>> Stashed changes
                 'image/svg+xml',
                 'application/pdf',
                 'text/plain',
@@ -68,6 +73,11 @@ return [
                 'image/jpeg',
                 'image/pjpeg',
                 'image/png',
+<<<<<<< Updated upstream
+=======
+                'audio/mp3',
+                'video/mp4',                   
+>>>>>>> Stashed changes
                 'image/gif',
                 'image/svg+xml',
             ],
@@ -144,6 +154,11 @@ return [
         'xls'  => 'Microsoft Excel',
         'xlsx' => 'Microsoft Excel',
         'zip'  => 'Archive',
+<<<<<<< Updated upstream
+=======
+        'mp4'  => 'video',
+        'mp3'  => 'audio',        
+>>>>>>> Stashed changes
         'gif'  => 'GIF Image',
         'jpg'  => 'JPEG Image',
         'jpeg' => 'JPEG Image',
