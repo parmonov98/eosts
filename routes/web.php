@@ -1,14 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-<<<<<<< Updated upstream
-use Inertia\Inertia;
-
-=======
 use App\Http\Controllers as Adress;
 use Illuminate\Support\Facades\File;
->>>>>>> Stashed changes
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,22 +14,6 @@ use Illuminate\Support\Facades\File;
 |
 */
 
-<<<<<<< Updated upstream
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-require __DIR__.'/auth.php';
-=======
 Route::get('/',function(){
     $route = "/ru";
     return redirect($route);
@@ -162,4 +140,3 @@ Route::resource('/poll',Adress\Admin\PollController::class);
 
 });
 */
->>>>>>> Stashed changes

@@ -26,9 +26,6 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-<<<<<<< Updated upstream
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
-=======
         // 'App\Model' => 'App\Policies\ModelPolicy',
         Permission::class => PermissionPolicy::class,
         Role::class => RolePolicy::class,
@@ -36,7 +33,6 @@ class AuthServiceProvider extends ServiceProvider
         Menu::class => MenusPolicy::class,
         Comment::class => ContactPolicy::class,        
         Settings::class => SettingPolicy::class,
->>>>>>> Stashed changes
     ];
 
     /**
