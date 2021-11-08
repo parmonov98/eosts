@@ -32,11 +32,13 @@ class IndexController extends SiteController
     public function index($lang = null)
     {
 
+
    	  if($lang != 'ru' && $lang != 'en' && $lang != 'tu'){
 		abort(404);
 	   }
 	   session()->put('lang', $lang);
 	   $lang = session('lang');
+    	
 
 		$this->title =  $this->keywords =  $this->meta_desc =  $this->getSetting()['names']['name'][$lang];
 

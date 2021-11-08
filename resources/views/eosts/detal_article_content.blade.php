@@ -30,9 +30,12 @@
                 <!-- Blog Items -->
                 <div class="col-md-12">
                   <div class="text-left">
-                    <img src="{{ asset('/articles/') }}{{'/'.$articles->img['max']}}" alt="" class="rounded mb-4">
-                    <div class="meta-box"><a href="#">Business</a> <span>/</span> September 28, 2018</div>
-                    <h4 class="h4-md mb-3 fw-7 txt-blue">Logistics Should Brace for Changes in Cargo</h4>
+                    <img src="{{ asset('/articles/'.$articles->img['max']) }}" alt="" class="rounded mb-4">
+                    <div class="meta-box"><a href="{{ route('blCat',['cat'=>$cat,'blog'=>$articles->menu->path]) }}">{!! $articles->menu->title[$cat]!!}</a> <span>/</span> {{ is_object($articles->created_at) ? $articles->created_at->format('F d, Y') : ''}}</div>
+                    <h4 class="h4-md mb-3 fw-7 txt-blue">{!!$articles->title[$cat]!!}</h4>
+
+
+
 
                     {!!$articles['text'.$cat]!!}
                     
@@ -41,38 +44,15 @@
 
                   
 
+<br>
+<hr style="border: 2px #b7b7b7 dotted;">
+<br>
 
 
 
-
-
-                  <!-- Tags & Share Box -->
-                  <div class="row align-items-center mt-5">
-                    <div class="col-md-auto">
-                      <div class="tags">
-                        <a href="#">Outstanding</a>
-                        <a href="#">Lifestyle</a>
-                        <a href="#">Travel</a>
-                      </div>
-                    </div>
-                    <div class="col-md-auto ml-auto">
-                      <div class="share-this">
-                        <div class="d-inline-flex align-items-center">
-                          Share it:
-                          <a href="#" class="rounded-circle tw" data-toggle="tooltip" title=""
-                            data-original-title="Twitter"><i class="fab fa-twitter"></i></a>
-                          <a href="#" class="rounded-circle ff" data-toggle="tooltip" title=""
-                            data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                          <a href="#" class="rounded-circle ln" data-toggle="tooltip" title=""
-                            data-original-title="Linkedin"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Tags & Share Box -->
 
 @if( $articles->izox == 1 )
-<hr>
+
 
 
 
@@ -146,7 +126,7 @@
                       </div>
                     </div>
                     <div class="form-row">
-                      <button type="submit" class="form-btn btn-theme bg-orange">Post Comment <i
+                      <button type="submit" class="form-btn btn-theme bg-orange">{{('ru'==$cat)?'Оставьте комментарий':''}} {{('en'==$cat)?'Post Comment':''}} {{('tu'==$cat)?'Yorum Gönder':''}} <i
                           class="icofont-rounded-right"></i></button>
                     </div>
                   </form>
@@ -214,7 +194,7 @@
 
               <!-- Search Widget Start -->
               <div class="widget-wrap">
-                <h3 class="h3-md fw-7 mb-4">Search</h3>
+                <h3 class="h3-md fw-7 mb-4">{{('ru'==$cat)?'Найти':''}}{{('en'==$cat)?'Search':''}}{{('tu'==$cat)?'Arama':''}}</h3>
                 <form action="{{route('obSearch')}}" class="flex-nowrap col ml-auto footer-subscribe p-0" method ="post">
                 	@csrf
                   <input type="text" name="query" class="form-control" placeholder="Search …">
@@ -230,7 +210,7 @@
 
                   <!-- Recent Post Widget Start -->
                   <div class="widget-wrap">
-                    <h3 class="h3-md fw-7 mb-4">Recent Posts</h3>
+                    <h3 class="h3-md fw-7 mb-4">{{('ru'==$cat)?'Последние новости':''}}{{('en'==$cat)?'Last news':''}}{{('tu'==$cat)?'Son haberler':''}}</h3>
                     <div class="blog-list-footer">
                       <ul class="list-unstyled">
                         
@@ -260,9 +240,13 @@
                                     <!-- Sidebar Support Widget Start -->
                   <div class="widget-wrap text-center bg-light-gray rounded py-5">
                     <div class="mb-2"><i class="icofont-headphone-alt icofont-4x"></i></div>
-                    <h3 class="h3-md fw-5 txt-white mb-4">Нужно помощ?</h3>
-                    <p>У нас имееться Call-center <br>24/7</p>
-                    <a href="#" class="btn-theme bg-orange mt-3"> Связаться <i class="icofont-rounded-right"></i></a>
+
+
+                    <h3 class="h3-md fw-5 txt-white mb-4">{{('ru'==$cat)?'Нужно помощ?':''}} {{('en'==$cat)?'Need help?':''}} {{('tu'==$cat)?'Yardıma mı ihtiyacınız var?':''}}</h3>
+                    <p>{{('ru'==$cat)?'У нас имееться Call-center':''}} {{('en'==$cat)?'We have a Call-center':''}} {{('tu'==$cat)?'Çağrı merkezimiz var':''}} <br>24/7</p>
+                    <a href="#" class="btn-theme bg-orange mt-3"> {{('ru'==$cat)?'Связаться':''}} {{('en'==$cat)?'Contact':''}} {{('tu'==$cat)?'Temas':''}} <i class="icofont-rounded-right"></i></a>
+
+
                   </div>
                   <!-- Sidebar Support Widget End -->
 

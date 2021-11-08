@@ -488,10 +488,11 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      ЯТТ "Буронов Журабек Расулович"
+      Разработчик:
+      <a href="https://parmonov98.uz" target="_blank" rel="nofollow">@parmonov98</a>
     </div>
     <!-- Default to the left -->
-    <strong>&copy; {{date("Y")}} Телеграм:<a href="#">(91) 907-76-84, (97) 846-66-06</a></strong> орқали маълумот алмашиш.
+    <strong>&copy; EOSTS </strong> - {{date("Y")}}. Все права защищены. 
   </footer>
 
   <!-- Control Sidebar -->

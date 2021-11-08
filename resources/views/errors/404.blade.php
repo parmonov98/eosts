@@ -2,35 +2,62 @@
 
 
 @section('content')
-<?php
-$public = substr($_SERVER['REQUEST_URI'], 1,6); 
-if($public=='public'){ $lan = substr($_SERVER['REQUEST_URI'], 8,2);   
-    if($lan != 'oz' && $lan != 'uz' && $lan != 'ru' && $lan != 'en'){$lan = 'oz';} 
-}else{$lan = substr($_SERVER['REQUEST_URI'], 1,2);   
-    if($lan != 'oz' && $lan != 'uz' && $lan != 'ru' && $lan != 'en'){$lan='oz';}  
-}
-?> 
-<div class="col-lg-12 col-md-12 order-1 order-lg-2">  
-          <h3  align="center">404 {{ ('oz'==$lan)?'Мавжуд бўлмаган саҳифа':'' }}{{ ('uz'==$lan)?'Mavjud bo`lmagan sahifa sahifa':'' }}{{ ('ru'==$lan)?'Не существующей страница':'' }}{{ ('en'==$lan)?'Not existing page':'' }}</h3>
+<?php if(!session()->has('lang')){session()->put('lang', 'ru');  }$lan = session('lang');  ?>
 
-           <div class="card mb-4">
-		 
-                                <div class="card-body">
 
-	
-	<div class="col-sm-12 padding-right" align="center">
 
-		<div class="content-404">
-			<img src="{{ asset('/images/404.png') }}" class="img-responsive" alt="" style="width: 100%;" />
-			<h2><b>404</b> {{ ('oz'==$lan)?'Мавжуд бўлмаган саҳифа':'' }}{{ ('uz'==$lan)?'Mavjud bo`lmagan sahifa sahifa':'' }}{{ ('ru'==$lan)?'Не существующей страница':'' }}{{ ('en'==$lan)?'Not existing page':'' }}.</h2>
-			<p>404 {{ ('oz'==$lan)?'Мавжуд бўлмаган саҳифа':'' }}{{ ('uz'==$lan)?'Mavjud bo`lmagan sahifa sahifa':'' }}{{ ('ru'==$lan)?'Не существующей страница':'' }}{{ ('en'==$lan)?'Not existing page':'' }}.</p>
-			<a href="/" class="btn btn-primary btn-block">{{ ('oz'==$lan)?'Бош саҳифа':'' }}{{ ('uz'==$lan)?'Bosh sahifa':'' }}{{ ('ru'==$lan)?'Главная страница':'' }}{{ ('en'==$lan)?'Home':'' }}</a>
-		</div>
 
-	</div>
-	</div>
-	</div>
-	</div>
+
+
+
+
+    <!-- Page Breadcrumbs Start -->
+    <div class="slider bg-navy-blue bg-scroll pos-rel breadcrumbs-page">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><i class="icofont-home"></i></a></li>
+            <li class="breadcrumb-item active" aria-current="page">Woops 404</li>
+          </ol>
+        </nav>
+
+        <h1>Woops 404</h1>
+        <div class="breadcrumbs-description">
+          Meet the amazing team behind this project and find out more about how we work.
+        </div>
+      </div>
+    </div>
+    <!-- Page Breadcrumbs End -->
+
+    <!-- Main Body Content Start -->
+    <main id="body-content">
+
+      <!-- Default Grid Start -->
+      <section class="wide-tb-100">
+        <div class="container pos-rel">
+          <div class="row">
+            <div class="col-lg-10 offset-lg-1 bg-light-gray rounded">
+              <!-- xxx Error Page xxx -->
+              <div class="text-center p-5">
+                <img src="{{ asset(env('THEME').'/images/404_img.png') }}" alt="Nothing Found 404 Error">
+                <h3 class="h3-sm fw-6  mb-4 mt-5">You may have mis-typed the URL. Or the page has been
+                  removed. <br>Actually, there is nothing to see here...</h3>
+                <a href="/" class="mr-2 mb-3 btn-theme bg-navy-blue icon-left"><i class="icofont-home"></i> 
+{{ ('tu'==$lan)?'Ana sayfada':'' }}{{ ('ru'==$lan)?'На главная страница':'' }}{{ ('en'==$lan)?'Back To Home':'' }}
+</a>
+              </div>
+              <!-- xxx Error Page xxx -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- Default Grid End -->
+    </main>
+
+
+
+
 	
 @endsection
 

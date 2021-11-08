@@ -24,7 +24,7 @@ $lang = session('lang');
                                     </a>
                                 </h3>
                             </div>
-                            <div style="height: 110px; overflow: hidden;">
+                            <div style="height: 108px; overflow: hidden;">
                             
                                 {!!$article['description'.$lang]!!}
                             

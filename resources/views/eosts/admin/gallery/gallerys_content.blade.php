@@ -1,62 +1,57 @@
 
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
-										 {!! Html::link(route('gallery.create'),'+',['class' => 'btn btn-primary btn-lg ']) !!}
-				                <h2>Фото галерея </h2>
+										 {!! Html::link(route('gallery.create'),'+',['class' => 'btn btn-primary btn-lg','style'=>'margin-bottom: 5px;']) !!}
+				               <strong style="font-size: 2rem; padding: 10px; " align="right"> Фото галерея </strong>
+    @if ($status = Session::get('status'))
+	<div class="alert alert-success">
+	<button class="close" data-dismiss="alert">×</button>
+	<strong>{{ $status }}</strong>
+	</div>									
+    @endif
+    @if ($error = Session::get('error'))
+	<div class="alert alert-danger">
+	<button class="close" data-dismiss="alert">×</button>
+	<strong>{{ $error }}</strong>
+	</div>									
+    @endif
+
+
 				        <div class="short-table white">
 
 
-                            <div class="tournamentsTable">
+
+
 @if($gallerys)
-				                    <table class="table table-striped" style="width: 100%" cellspacing="0" cellpadding="0">
-				                        <thead>
-				                            <tr>
-				                                
-				                                <th style="width: 50px;text-align: center;">ID</th>
-				                                <th>Заголовка</th>
-				                                <th style="width: 100px;text-align: center;">Фото</th>
-				                                <th style="width: 50px;text-align: center;"><i class="fa fa-trash-o"></i></th>
-				                            </tr>
-				                        </thead>
-				                        <tbody>
-											@foreach($gallerys as $file)
-											<tr>
-				                                <td class="align-left">{{$file->id}}</td>
-				                                <td class="align-left">
-
-				                                {{ $file->name['title']['ru'] }}
-
-				                               </td>
-
-
-
-				                                <td>
-													@if(isset($file->img))
-				{{ Html::image(asset('/gallery/'.$file->img['min']),'',['style'=>'width:50px;']) }}
+<div class="card-body">
+                <div class="row">
+@foreach($gallerys as $file)
+                  <div class="col-sm-2" style=" padding-bottom: 5px;">
+                  @if(isset($file->img))
+				{{ Html::image(asset('/gallery/'.$file->img['sr']),'',['style'=>'width:100%;']) }}
 													@endif
-												</td>
+{!! Form::open(['url' => route('gallery.destroy',['gallery'=>$file->id]),'class'=>'form-horizontal','method'=>'POST']) !!}
+	    {{ method_field('DELETE') }}
+	    {!! Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger btn-block','type'=>'submit']) !!}
+	{!! Form::close() !!}
+                  </div>
+@endforeach
 
-</td>
-				                                <td>
-												{!! Form::open(['url' => route('gallery.destroy',['gallery'=>$file->id]),'class'=>'form-horizontal','method'=>'POST']) !!}
-												    {{ method_field('DELETE') }}
-												    {!! Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger','type'=>'submit']) !!}
-												{!! Form::close() !!}
-
-												</td>
-											 </tr>
-											@endforeach
-
-				                        </tbody>
-				                    </table>
-				                </div>
+  @endif
 
 
 
-								  </div>
 
-         @endif
-                        </div>
+
+
+ </div> </div>
+
+
+
+
+
+
+
 
 				             <div class="wrap_result"></div>
 

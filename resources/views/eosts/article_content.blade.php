@@ -13,12 +13,12 @@ $lang = session('lang');
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/"><i class="icofont-home"></i></a></li>
-            <li class="breadcrumb-item active" aria-current="page">Новости о компании</li>
+            <li class="breadcrumb-item active" aria-current="page">{{('ru'==$lang)?'Новости о компании':''}} {{('tu'==$lang)?'Şirket Haberleri':''}} {{('en'==$lang)?'Company news':''}}</li>
           </ol>
         </nav>
 
-        <h1>Последнии новости</h1>
-        <div class="breadcrumbs-description">Мы стараемся быть прозрачными и держать вас в курсе новостей о компании.</div>
+        <h1>{{('ru'==$lang)?'Последнии новости':''}} {{('tu'==$lang)?'Son Haberler':''}} {{('en'==$lang)?'Latest news':''}}</h1>
+        <div class="breadcrumbs-description">{{('ru'==$lang)?'Мы стараемся быть прозрачными и держать вас в курсе новостей о компании.':''}} {{('tu'==$lang)?'Şeffaf olmaya ve sizi şirket haberlerinden haberdar etmeye çalışıyoruz.':''}} {{('en'==$lang)?'We try to be transparent and keep you updated on company news.':''}}</div>
       </div>
     </div>
     <!-- Page Breadcrumbs End -->
@@ -154,7 +154,7 @@ $lang = session('lang');
                 <div class="sidebar-primary col-lg-12 col-md-6">
                   <!-- Search Widget Start -->
                   <div class="widget-wrap">
-                    <h3 class="h3-md fw-7 mb-4"> {{('ru'==$lang)?'Найти':''}}{{('en'==$lang)?'Search':''}}{{('tu'==$lang)?'Search':''}}</h3>
+                    <h3 class="h3-md fw-7 mb-4"> {{('ru'==$lang)?'Найти':''}}{{('en'==$lang)?'Search':''}}{{('tu'==$lang)?'Arama':''}}</h3>
                     <form action="{{route('obSearch')}}" class="flex-nowrap col ml-auto footer-subscribe p-0">@csrf
                       <input type="text" name="query" class="form-control" placeholder=" Поиск">
                       <button type="submit" class="btn btn-theme bg-orange"><i class="icofont-search p-0"></i></button>
@@ -166,7 +166,7 @@ $lang = session('lang');
 
                   <!-- Recent Post Widget Start -->
                   <div class="widget-wrap">
-                    <h3 class="h3-md fw-7 mb-4">{{('ru'==$lang)?'Последние новости':''}}{{('en'==$lang)?'Last news':''}}{{('tu'==$lang)?'Last news':''}}</h3>
+                    <h3 class="h3-md fw-7 mb-4">{{('ru'==$lang)?'Последние новости':''}}{{('en'==$lang)?'Last news':''}}{{('tu'==$lang)?'Son haberler':''}}</h3>
                     <div class="blog-list-footer">
 
                         @foreach($pub as $k => $pubs)
@@ -195,9 +195,11 @@ $lang = session('lang');
                   <!-- Sidebar Support Widget Start -->
                   <div class="widget-wrap text-center bg-light-gray rounded py-5">
                     <div class="mb-2"><i class="icofont-headphone-alt icofont-4x"></i></div>
-                    <h3 class="h3-md fw-5 txt-white mb-4">Нужно помощ?</h3>
-                    <p>У нас имееться Call-center <br>24/7</p>
-                    <a href="#" class="btn-theme bg-orange mt-3"> Связаться <i class="icofont-rounded-right"></i></a>
+
+                    <h3 class="h3-md fw-5 txt-white mb-4">{{('ru'==$lang)?'Нужно помощ?':''}} {{('en'==$lang)?'Need help?':''}} {{('tu'==$lang)?'Yardıma mı ihtiyacınız var?':''}}</h3>
+                    <p>{{('ru'==$lang)?'У нас имееться Call-center':''}} {{('en'==$lang)?'We have a Call-center':''}} {{('tu'==$lang)?'Çağrı merkezimiz var':''}} <br>24/7</p>
+                    <a href="#" class="btn-theme bg-orange mt-3"> {{('ru'==$lang)?'Связаться':''}} {{('en'==$lang)?'Contact':''}} {{('tu'==$lang)?'Temas':''}} <i class="icofont-rounded-right"></i></a>
+
                   </div>
                   <!-- Sidebar Support Widget End -->
                 </div>

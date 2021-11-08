@@ -71,13 +71,9 @@ $img->fit(Config::get('settings.slider')['min']['width'],
 
 			}
 
-
-
-
-
-	if($this->model->fill($data)->save()) {
+	if(isset($data['img']) && isset($data['name']['name']['ru']) && isset($data['name']['name']['en']) && $this->model->fill($data)->save()) {
 	   return ['status' => 'Информация добавлена'];
-	}
+	}else{ return ['error' => 'Нет фото'];}
 
 	if(empty($data)){return ['error'=>'Нет информация'];	}
 	if($result->update($data)){return ['status'=>'Информация обновлена'];}
@@ -91,8 +87,11 @@ $img->fit(Config::get('settings.slider')['min']['width'],
 
 	public function deleteFile($id) {
 		$result = $this->one($id);
-		$zmax = public_path('/sliders/').$result->img['max'];File::delete($zmax);
-		$zmax = public_path('/sliders/').$result->img['min'];File::delete($zmax);
+
+		if(isset($result->img) && is_file(public_path('/sliders/').$result->img['max'])){			
+		$zmax = public_path('/sliders/').$result->img['max'];File::delete($zmax);}
+		if(isset($result->img) && is_file(public_path('/sliders/').$result->img['min'])){	
+		$zmax = public_path('/sliders/').$result->img['min'];File::delete($zmax);}
 			if($result->delete()) {
 				return ['status' => 'Удалено'];
 			}

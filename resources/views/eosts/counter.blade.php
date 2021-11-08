@@ -1,12 +1,18 @@
-
+<?php if(!session()->has('lang')){session()->put('lang', 'ru');  }$lang = session('lang');  ?>
 
             <!-- Counter Start -->
             <section class="wide-tb-100 bg-scroll counter-bg pos-rel">
                 <div class="bg-overlay blue opacity-50"></div>
                 <div class="col-sm-12 wow fadeInDown" data-wow-duration="0" data-wow-delay="0s">
                     <h1 class="heading-main">
+@if('ru'==$lang)
                         <span class="text-white">Компания в цифрах</span> Факты о компании
-                    </h1>
+@elseif('en'==$lang)
+<span class = "text-white"> Company in numbers </span> Company facts
+@else      
+          <span class = "text-white"> Rakamlarla şirket </span> Şirket gerçekleri       
+@endif
+                 </h1>
                 </div>
                 <div class="container">
                     <div class="row">
@@ -17,7 +23,7 @@
                             <span class="counter">50</span>
                             <span>+</span>
                             <div>
-                                Партнеры
+                            {{('ru'==$lang)?'Партнеры':''}} {{('en'==$lang)?'Partners':''}}{{('tu'==$lang)?'Ortaklar':''}}
                             </div>
                         </div>
                         <!-- Counter Col End -->
@@ -29,7 +35,7 @@
                             <span class="counter">100</span>
                             <span>+</span>
                             <div>
-                                клиенты по всему миру
+                       {{('ru'==$lang)?'клиенты по всему миру':''}} {{('en'==$lang)?'clients all over the world':''}}{{('tu'==$lang)?'tüm dünyada müşteriler':''}}         
                             </div>
                         </div>
                         <!-- Counter Col End -->
@@ -45,7 +51,7 @@
                             <span class="counter">20</span>
                             <span>+</span>
                             <div>
-                                Собственные траки
+                       {{('ru'==$lang)?'Собственные траки':''}} {{('en'==$lang)?'Own tracks':''}}{{('tu'==$lang)?'Kendi parçaları':''}}          
                             </div>
                         </div>
                         <!-- Counter Col End -->
@@ -56,7 +62,7 @@
                             <p><i class="icofont-umbrella-alt"></i></p>
                             <span class="counter">2340</span>
                             <div>
-                                тонн перевезено
+                        {{('ru'==$lang)?'тонн перевезено':''}} {{('en'==$lang)?'tons transported':''}}{{('tu'==$lang)?'taşınan ton':''}}        
                             </div>
                         </div>
                         <!-- Counter Col End -->

@@ -1,11 +1,25 @@
 @extends(env('THEME').'.layouts.site')
 
 @section('content')
+
+
+    <!-- Page Breadcrumbs Start -->
+    <div class="slider bg-navy-blue bg-scroll pos-rel breadcrumbs-page">
+      <div class="container">
+
+        <h1 class="text-center">Reset Password</h1>
+
+      </div>
+    </div>
+    <!-- Page Breadcrumbs End -->
+    
+
+    
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Parolni tiklash') }}</div>
+            <div class="card free-quote-form " style="margin: 100px 0 100px 0;">
+                <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -34,7 +48,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary btn-block">
-                                    {{ __('Parolni tiklash havolasini yuborish') }}
+                                    {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
                         </div>

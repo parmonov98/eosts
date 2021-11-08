@@ -1,6 +1,11 @@
 <div id="content-page" class="content group">
 				            <div class="hentry group">
-
+    @if ($error = Session::get('error'))
+  <div class="alert alert-danger">
+  <button class="close" data-dismiss="alert">×</button>
+  <strong>{{ $error }}</strong>
+  </div>                  
+    @endif
 {!! Form::open(['url' => url('/admins/slider') ,'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
 
 
@@ -43,6 +48,9 @@
       <div class="input-prepend"><span class="add-on">
 
       <i class="icon-user"></i></span>
+    
+
+
       Краткий названия фермы (на {{$label}}) :<strong style="color:red;">*</strong> 
 
       {!! Form::text("name[name][$language]", isset($products->name['name'][$language]) ? 

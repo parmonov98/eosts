@@ -10,6 +10,7 @@ use Html;
 use Arr;
 use Session;
 use App\Models\Menu;
+use App\Models\Article;
 use App\Http\Requests;
 
 class SearchController extends SiteController
@@ -65,6 +66,9 @@ public function serArt($q = FALSE, $cat = FALSE)
         	 'query' => 'required|min:3|max:255',
         ]);
 
+$pub = $this->ArticleLike(0,0);
+
+
         if($validator->fails()){
 $product = view(env('THEME').'.search_content')->with(['message'=>$tre])->render();
 $this->vars = Arr::add($this->vars,'content',$product);
@@ -73,7 +77,7 @@ $this->vars = Arr::add($this->vars,'content',$product);
 			//dd($articles);
 
     	if(count($articles) == 0){
-$product = view(env('THEME').'.search_content')->with(['message'=>$top,'search'=>$data['query']])->render();
+$product = view(env('THEME').'.search_content')->with(['message'=>$top,'search'=>$data['query'],'pub'=>$pub])->render();
 $this->vars = Arr::add($this->vars,'content',$product);
 		}else{
 
@@ -81,7 +85,7 @@ $this->vars = Arr::add($this->vars,'content',$product);
 		$this->keywords = $data['query'];
 		$this->meta_desc = $data['query'];
 
-		$product = view(env('THEME').'.search_content')->with(['products'=>$articles,'search'=>$data['query']])->render();
+		$product = view(env('THEME').'.search_content')->with(['products'=>$articles,'search'=>$data['query'],'pub'=>$pub])->render();
 		$this->vars = Arr::add($this->vars,'content',$product);
 
 				}
@@ -96,6 +100,16 @@ $this->vars = Arr::add($this->vars,'content',$product);
 
 
 
+public function ArticleLike($id, $cat_id){
 
+    if($id>0 && $cat_id>0){
+    $articles = Article::where('id','!=',$id)->where('img','!=',NULL)->where('category_id',$cat_id)->inRandomOrder()->limit(3)->get();
+}else{
+    $articles = Article::where('img','!=',NULL)->orderBy('created_at', 'desc')->inRandomOrder()->limit(3)->get();
+}
+
+
+    return $articles;
+}
 
 }

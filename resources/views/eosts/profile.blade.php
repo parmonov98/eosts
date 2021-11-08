@@ -5,54 +5,38 @@
   $lan = session('lang');
 ?>
 
-<div class="col-md-12 col-sm-12 col-xs-12" id="blog">
-          <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
+    <!-- Page Breadcrumbs Start -->
+    <div class="slider bg-navy-blue bg-scroll pos-rel breadcrumbs-page">
+      <div class="container">
 
+        <h1 class="text-center">{{('ru'==$lan)?'Профиль пользователя':''}}{{('en'==$lan)?'User profile':''}}{{('tu'==$lan)?'Kullanıcı profili':''}}  </h1>
 
-
- <ol class="breadcrumb cat_title">
-      <li class="breadcrumb-item "><a href="/">Bosh sahifa</a></li>
-      <li class="breadcrumb-item active ">Foydalanuvchi profil</li>
-      </ol>
-
-
-
-<!-- START CONTENT -->
-				        <div id="content-single" class="content group" style="background-color: #fbfbfb;padding: 30px;box-shadow: 0px 3px 8px 0px rgba(0,0,0,.3);">
-				            <div class="hentry hentry-post blog-big group ">
-				                <!-- post featured & title -->
- <!-- Boshi   -->
- <div class="nav-tabs-custom">
+      </div>
+    </div>
+    <!-- Page Breadcrumbs End -->
 
 
 
 
 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card free-quote-form " style="margin: 100px 0 100px 0;">
+                <div class="card-header">{{ __('Login') }}</div>
 
-<ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" class="nav-link active" aria-expanded="false" href="#profile"><i class="fa fa-user"></i> {{ (Auth::user())?Auth::user()->name:''}} profile</a></li>
-
-        <li><a data-toggle="tab" class="nav-link" aria-expanded="false" href="#certificate"><i class="fa fa-user-o"></i> Certificate</a></li>
- </ul>
- <!-- <form method="post" action="#">    -->
-
-            <div class="tab-content">
+                <div class="card-body">
 
 
-               <div id="profile" class="tab-pane active">
+        <form class="form-horizontal was-validated" method="POST" action="{{ route('regPrUp') }}" enctype="multipart/form-data">
 
-
-            <form class="form-horizontal was-validated" method="POST" action="{{ route('regPrUp') }}" enctype="multipart/form-data">
-
-
-                        {{ csrf_field() }}
+ @csrf
 
                         <div class="form-group">
 
 
                             <div class="col-md-12">
-                               F.I.Sh.:<br> <input id="name" type="text" class="form-control" name="name" value="{{$user->name}}" placeholder="Name" >
+                               Name:<br> <input id="name" type="text" class="form-control" name="name" value="{{$user->name}}" placeholder="Name" >
 
                                 @if($errors->has('name'))
                                     <span class="help-block">
@@ -66,11 +50,11 @@
 
 
                             <div class="col-md-12">
-                               OTM yoki maktab:<br> <input id="otm" type="text" class="form-control" name="otm" value="{{$user->otm}}" placeholder="OTM yoki maktab" >
+                               Telegram ID:<br> <input id="telegram_id" type="text" class="form-control" name="telegram_id" value="{{$user->telegram_id}}" placeholder="Telegram ID" >
 
-                                @if($errors->has('otm'))
+                                @if($errors->has('telegram_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('otm') }}</strong>
+                                        <strong>{{ $errors->first('telegram_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -92,15 +76,15 @@
                         <div class="form-group media">
 
                             <div class="col-md-12">
-							@if(!empty($user->image))
-							<img class="d-flex align-self-start mr-3 img-thumbnail" align="left" style="width: 60px;" src="{{ asset(env('THEME').'/i/users/'.$user->image) }}" alt="{{ $user->name }}">
-							@else
-								<img class="d-flex align-self-start mr-3 img-thumbnail" align="left" style="width: 60px;" src="{{ asset(env('THEME').'/i/users/user.png') }}" alt="{{ $user->name }}">
-							@endif
+                            @if(!empty($user->image))
+                            <img class="d-flex align-self-start mr-3 img-thumbnail" align="left" style="width: 60px;" src="{{ asset(env('THEME').'/images/users/'.$user->image) }}" alt="{{ $user->name }}">
+                            @else
+                                <img class="d-flex align-self-start mr-3 img-thumbnail" align="left" style="width: 60px;" src="{{ asset(env('THEME').'/images/users/user.png') }}" alt="{{ $user->name }}">
+                            @endif
                                 Avatar:
-									<label class="custom-file" style="position: absolute;z-index: 4;left: 0;height: 65px;cursor: pointer;">
-									<input type="file" id="file2" name="image" class="custom-file-input">
-									</label>
+                                    <label class="custom-file" style="position: absolute;z-index: 4;left: 0;height: 65px;cursor: pointer;">
+                                    <input type="file" id="file2" name="image" class="custom-file-input">
+                                    </label>
 
                                 @if ($errors->has('image'))
                                     <span class="help-block">
@@ -118,42 +102,49 @@
                                 <button type="submit" class="btn btn-outline-primary btn-lg btn-block">
                                     <i class="fa fa-floppy-o"></i> Ok
                                 </button>
-								<br />
+                                <br />
                             </div>
                         </div>
                     </form>
 
 
-           		</div>
 
 
-                <div id="certificate" class="tab-pane">
-                        ++
+
+
+
+
+
+
                 </div>
-
-
-
-           	</div>
-	</div>
-
- <!-- OXRI  -->
-
-				                <!-- post content -->
-
-
-				                <div class="clear"></div>
-				            </div>
-
-
-				            <!-- END COMMENTS -->
-				        </div>
-				        <!-- END CONTENT -->
-
-
-
             </div>
-          </div>
         </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   {!!Html::script('assets/js/jquery.js')!!}

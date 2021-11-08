@@ -12,7 +12,7 @@ class Gallery extends Model
 
         protected $table = 'gallery';
     protected $fillable = [
-        'name','img'
+        'name','img','sezi'
     ];
 
     protected $casts = [

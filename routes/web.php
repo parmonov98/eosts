@@ -35,6 +35,8 @@ Route::get('/pdf/{id?}',[Adress\IndexController::class, 'generate_pdf'])->name('
 Route::match(['get','post'],'/search/search/', [Adress\SearchController::class, 'store'])->name('obSearch');
 
 
+Route::resource('/contacts/contacts/',Adress\ContactController::class);
+
 
 Route::get('/all/{lang?}', [Adress\ArticleController::class, 'all_articles'])->name('allCat');
 

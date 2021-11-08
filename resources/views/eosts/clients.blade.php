@@ -1,3 +1,5 @@
+<?php if(!session()->has('lang')){session()->put('lang', 'ru');  }$lang = session('lang');  ?>
+
             <!-- Clients Start -->
             <section class="wide-tb-100 bg-fixed clients-bg pos-rel">
                 <div class="bg-overlay blue opacity-80"></div>
@@ -5,8 +7,8 @@
                     <div class="row">
                         <!-- Heading Main -->
                         <div class="col-sm-12 wow fadeInDown" data-wow-duration="0" data-wow-delay="0s">
-                            <h1 class="heading-main">
-                                Наши клиенты
+                            <h1 class="heading-main">{{('ru'==$lang)?'Наши клиенты':''}} {{('en'==$lang)?'Our clients':''}} {{('tu'==$lang)?'Müşterilerimiz':''}} 
+                                
                             </h1>
                         </div>
                         <!-- Heading Main -->

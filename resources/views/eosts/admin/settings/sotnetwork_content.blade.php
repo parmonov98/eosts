@@ -23,6 +23,9 @@
 				<i class="fa fa-twitter"></i> URL('http://www.twitter.com/...'):<input type="text" name="sotnet[twitter]" value="{{isset($setname['sot_network']['sotnet']['twitter']) ? $setname['sot_network']['sotnet']['twitter'] : ''}}" placeholder="Twitter канали" class="form-control">
 				<br />
 
+				<i class="fa fa-whatsapp"></i> URL('http://www.whatsapp.com/...'):<input type="text" name="sotnet[whatsapp]" value="{{isset($setname['sot_network']['sotnet']['whatsapp']) ? $setname['sot_network']['sotnet']['whatsapp'] : ''}}" placeholder="Twitter канали" class="form-control">
+				<br />
+				
 				<i class="fa fa-youtube"></i> URL('http://www.youtube.com/...'):<input type="text" name="sotnet[youtube]" value="{{isset($setname['sot_network']['sotnet']['youtube']) ? $setname['sot_network']['sotnet']['youtube'] : ''}}" placeholder="youtube канали" class="form-control">
 									
 			 </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Repositories\MenusRepository;
 use App\Models\Article;
 use App\Models\Slider;
+use App\Models\Gallery;
 use App\Models\Settings;
 use Config;
 use Cache;
@@ -52,7 +53,7 @@ class SiteController extends Controller
 		}
 	$lang = session('lang');
 
-	if($lang != 'oz' && $lang != 'uz' && $lang != 'ru' && $lang != 'en'){
+	if($lang != 'tu' && $lang != 'ru' && $lang != 'en'){
 			abort(404);
 		}
 
@@ -63,6 +64,9 @@ class SiteController extends Controller
 
 	$slider = view(config('settings.theme').'.slider')->with('sliders',$this->getSliders($lang))->render();
 	$this->vars = Arr::add($this->vars,'slider',$slider);
+
+	$gallery = view(config('settings.theme').'.gallery')->with('gallerys',$this->getGallerys($lang))->render();
+	$this->vars = Arr::add($this->vars,'gallery',$gallery);
 
 
 	$this->vars = Arr::add($this->vars,'keywords',$this->keywords);
@@ -108,12 +112,20 @@ class SiteController extends Controller
 	public function getSliders($cat = null){
 		//dd($cat);
 
-			$art = 	$articles = Slider::orderBy('created_at', 'desc')
+			$art = Slider::orderBy('created_at', 'desc')
 							->latest('id')->take(Config::get('settings.slider_kurish'))->get();
 
 			// dd($art);
 		return [$art,$cat];
 	}
+
+
+
+	public function getGallerys($cat = null){
+			$art = 	Gallery::orderBy('created_at', 'desc')->inRandomOrder()->limit(Config::get('settings.gal'))->get();		
+		return [$art,$cat];
+	}
+
 
 	public function getSetting(){
 		$man = Settings::select()->first();

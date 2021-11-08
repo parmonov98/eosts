@@ -194,9 +194,9 @@ $sozla->add('<span>Топ рейтинг</span>', array('route' => 'setRating'))
 			if(Gate::allows('VIEW_ADMIN_ARTICLES')) {
 			$menu->add('<span>Статьи</span>',  array('route'  => 'article.index'))->prepend('<i class="fa fa-newspaper-o"></i>');
 
-			$menu->add('<span>Slider</span>',  array('route'  => 'slider.index'))->prepend('<i class="fa fa-newspaper-o"></i>');
+			$menu->add('<span>Slider</span>',  array('route'  => 'slider.index'))->prepend('<i class="fa fa-slideshare"></i>');
 			
-			$menu->add('<span>Gallery</span>',  array('route'  => 'gallery.index'))->prepend('<i class="fa fa-newspaper-o"></i>');
+			$menu->add('<span>Gallery</span>',  array('route'  => 'gallery.index'))->prepend('<i class="fa fa-picture-o"></i>');
 
 		}
 

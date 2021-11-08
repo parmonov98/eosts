@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card free-quote-form " style="margin: 100px 0 100px 0;">
                 <div class="card-header">{{ __('Parolni tiklash') }}</div>
 
                 <div class="card-body">

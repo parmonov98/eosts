@@ -35,3 +35,7 @@
 @section('ind')
 	{!! $content !!}
 @endsection
+
+@section('gallery')
+	{!! $gallery !!}
+@endsection

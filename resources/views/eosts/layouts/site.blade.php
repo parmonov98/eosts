@@ -7,7 +7,6 @@ $lang = session('lang');
 	?>
 
 
-
 <!DOCTYPE HTML>
 <html lang="ru-RU">
 <head>
@@ -95,7 +94,8 @@ $lang = session('lang');
                                     </span>
                                 </div>
                                 <div class="top-text">
-                                    <small class="txt-ligt-gray">Телефон</small>
+                                    <small class="txt-ligt-gray">{{('ru'==$lang)?'Телефон':''}}
+                        {{('en'==$lang)?'Telephone':''}}  {{('tu'==$lang)?'Telefon':''}}</small>
                              @if(isset($getsetting) && $getsetting['address']['phone'][0]!=null)
                                     <span class="fw-7 txt-blue" itemprop="telephone">{{$getsetting['address']['phone'][0]}}</span>
                               @endif
@@ -320,377 +320,12 @@ $lang = session('lang');
             
 
    
-
+@yield('gallery') 
  
 
 
 
-            <section class="bg-light-gray wide-tb-100">
-                <div class="container pos-rel">
-                    <div class="row">
-                        <!-- Heading Main -->
-                        <div class="col-sm-12 wow fadeInDown" data-wow-duration="0" data-wow-delay="0s">
-                            <h1 class="heading-main">
-                                <span>наша </span>фотогалерея
-                            </h1>
-                        </div>
-                        <!-- Heading Main -->
-                    </div>
-
-                    <div id="js-styl2-mosaic" class="cbp" itemscope itemtype="https://schema.org/ImageObject">
-                        <div class="cbp-item design" itemprop="">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white">
-                                    <i class="icofont-external-link"></i>
-                                </a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img01.jpg')}}" itemprop="contentUrl" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum" itemscope itemtype="https://schema.org/ImageObject">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img01.jpg')}}" itemprop="contentUrl" alt="Somehere">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="cbp-item design">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img04.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img04.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="cbp-item identity">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img05.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img05.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="cbp-item photography">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img06.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img06.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="cbp-item identity">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img09.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img09.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="cbp-item business">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img11.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img11.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="cbp-item photography">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img03.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img03.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="cbp-item business">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img12.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img12.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="cbp-item photography">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img07.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img07.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="cbp-item design">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img14.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img14.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="cbp-item identity">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img15.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img15.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="cbp-item identity">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img26.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img26.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-
-
-
-                        <div class="cbp-item photography">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img08.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img08.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="cbp-item business">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img29.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img27.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-
-
-                        <div class="cbp-item identity">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img29.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img29.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="cbp-item business">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img33.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img33.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="cbp-item identity">
-                            <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white"><i
-                                        class="icofont-external-link"></i></a>
-                            </div>
-                            <a href="{{ asset(env('THEME').'/images/gallery/img32.jpg')}}" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum">
-                                <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset(env('THEME').'/images/gallery/thumbnails/img32.jpg')}}" alt="">
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <i class="icofont-search icofont-2x txt-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-
-                    </div>
-
-                </div>
-            </section>
+ 
             <!-- Google Map Start -->
             <!-- <section class="map-bg">
             <div class="contact-details row d-flex">
@@ -727,18 +362,63 @@ $lang = session('lang');
                             <img src="{{ asset(env('THEME').'/images/logo_footer.png')}}" alt="" />
                         </div>
                         <p>
-                            Компания EOSTS(EvroOsiyo Sarbon Trans Servis) занимается доставкой грузов из Узбекистана,
-                            Турции, России, Украины, Польши, Литвы, Латвии и стран Европы. Мы работаем с более чем 200
-                            партнерами и сотрудничаем более 10 лет. <br />Наша работа просто классная!
+                            {!!('ru'==$lang)?'Компания EOSTS(EvroOsiyo Sarbon Trans Servis) занимается доставкой грузов из Узбекистана, Турции, России, Украины, Польши, Литвы, Латвии и стран Европы. Мы работаем с более чем 200 партнерами и сотрудничаем более 10 лет. <br />Наша работа просто классная!':''!!}
+
+                             {!!('en'==$lang)?'EOSTS (Evro Osiyo Sarbon Trans Servis) delivers goods from Uzbekistan, Turkey, Russia, Ukraine, Poland, Lithuania, Latvia and European countries. We work with more than 200 partners and have been cooperating for over 10 years. <br /> Our work is just awesome!':''!!}
+
+                            {!!('tu'==$lang)?'EOSTS (Evro Osiyo Sarbon Trans Servis) Özbekistan, Türkiye, Rusya, Ukrayna, Polonya, Litvanya, Letonya ve Avrupa ülkelerinden mal sevkiyatı yapmaktadır. 200\'den fazla ortakla çalışıyoruz ve 10 yılı aşkın bir süredir işbirliği yapıyoruz. <br /> İşimiz harika!':''!!}
+
+                            
                         </p>
 
-                        <h3 class="footer-heading">Наши соц.сети</h3>
+                        <h3 class="footer-heading">{{('ru'==$lang)?'Наши соц.сети':''}}
+                        {{('en'==$lang)?'Our social networks':''}}
+                    {{('tu'==$lang)?'Sosyal ağlarımız':''}}</h3>
                         <div class="social-icons">
-                            <a href="#"><i class="icofont-facebook"></i></a>
 
-                            <a href="#"><i class="icofont-telegram"></i></a>
-                            <a href="#"><i class="icofont-whatsapp"></i></a>
-                            <a href="#"><i class="icofont-instagram"></i></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@if(isset($getsetting) && $getsetting['sot_network']['sotnet']['facebook'])
+<a href="{{$getsetting['sot_network']['sotnet']['facebook']}}" target="_blank"><i class="icofont-facebook"></i></a>
+@endif
+
+@if(isset($getsetting) && $getsetting['sot_network']['sotnet']['telegram'])
+<a href="{{$getsetting['sot_network']['sotnet']['telegram']}}" target="_blank"><i class="icofont-telegram"></i></a>
+@endif
+
+
+ @if(isset($getsetting) && $getsetting['sot_network']['sotnet']['whatsapp'])
+<a href="{{$getsetting['sot_network']['sotnet']['whatsapp']}}" target="_blank"><i class="icofont-whatsapp"></i></a>
+ @endif
+
+ 
+@if(isset($getsetting) && $getsetting['sot_network']['sotnet']['instagram'])
+<a href="{{$getsetting['sot_network']['sotnet']['instagram']}}" target="_blank"><i class="icofont-instagram"></i></a>
+@endif
+
+@if(isset($getsetting) && $getsetting['sot_network']['sotnet']['twitter'])
+<a href="{{$getsetting['sot_network']['sotnet']['twitter']}}" target="_blank"><i class="icofont-twitter"></i></a>
+@endif
+
+@if(isset($getsetting) && $getsetting['sot_network']['sotnet']['youtube'])
+<a href="{{$getsetting['sot_network']['sotnet']['youtube']}}" target="_blank"><i class="icofont-youtube"></i></a>
+@endif
 
                         </div>
                     </div>
@@ -746,14 +426,14 @@ $lang = session('lang');
 
                     <!-- Column Second -->
                     <div class="col-lg-4 col-md-6">
-                        <h3 class="footer-heading"> Карта сайта</h3>
+                        <h3 class="footer-heading"> {{('ru'==$lang)?'Карта сайта':''}} {{('en'==$lang)?'Map of site':''}} {{('tu'==$lang)?'Site haritası':''}}  </h3>
                         <div class="footer-widget-menu">
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="/"><i class="icofont-simple-right"></i> <span>ГЛАВНАЯ</span></a>
+                                    <a href="/"><i class="icofont-simple-right"></i> <span>{{('ru'==$lang)?'ГЛАВНАЯ':''}} {{('en'==$lang)?'HOME':''}} {{('tu'==$lang)?'EV':''}}</span></a>
                                 </li>
                                 <li>
-                                    <a href="/about.html"><i class="icofont-simple-right"></i>
+                                    <a href="#"><i class="icofont-simple-right"></i>
                                         <span>О НАС</span></a>
                                 </li>
 
@@ -777,45 +457,50 @@ $lang = session('lang');
 
                     <!-- Column Third -->
                     <div class="col-lg-4 col-md-6">
-                        <h3 class="footer-heading"> Наши контакты</h3>
+                        <h3 class="footer-heading"> {{('ru'==$lang)?'Наши контакты':''}}{{('en'==$lang)?'Our contacts':''}}{{('tu'==$lang)?'Our contacts':''}}</h3>
                         <div class="footer-widget-contact">
                             <div class="media mb-3">
                                 <i class="icofont-google-map mr-3"></i>
                                 <div class="media-body" itemprop="location" itemscope=""
                                     itemtype="https://schema.org/Place">
+
+                         @if(isset($getsetting) && $getsetting['address']['addres'][$lang]!=null)
+                          <span itemprop="address">{!!$getsetting['address']['addres'][$lang]!!}</span>
+                          @endif  
                                     <span itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress">
-                                        Республика
-                                        <span itemprop="addressCountry">
-                                            Узбекистан,
-                                        </span>
-                                        <span itemprop="addressRegion">
-                                            Бухарский обл,
-                                        </span>
-                                        <br>
-                                        <span itemprop="addressLocality">
-                                            Гиждуван район,
-                                        </span>
-                                        ул. Чорсу 101
-                                    </span>
-                                    <!-- Республика Узбекистан, Бухарский обл, Гиждуван район, ул. Чорсу 101 -->
                                 </div>
                             </div>
                             <div class="media mb-2">
                                 <i class="icofont-smart-phone mr-3"></i>
                                 <div class="media-body">
+
+                             @if(isset($getsetting) && $getsetting['address']['phone'][0]!=null)
                                     <div itemprop="telephone">
-                                        <a href="tel:+99899 311 49 00">+99899 311 49 00</a>
+                                        <a href="tel:{{$getsetting['address']['phone'][0]}}">{{$getsetting['address']['phone'][0]}}</a>
                                     </div>
+                              @endif
+
+                             @if(isset($getsetting) && $getsetting['address']['phone'][1]!=null)
                                     <div itemprop="telephone">
-                                        <a href="tel:+99891 311 49 00">+99891 311 49 00</a>
+                                        <a href="tel:{{$getsetting['address']['phone'][1]}}">{{$getsetting['address']['phone'][1]}}</a>
                                     </div>
+                              @endif
+
                                 </div>
                             </div>
                             <div class="media mb-3">
                                 <i class="icofont-ui-email mr-3"></i>
                                 <div class="media-body">
-                                    <div class="pt-1"><a href="#">support@sarbontrans.com</a></div>
-                                    <!-- <div><a href="#">support@sarbontrans.com</a></div> -->
+
+                                    @if(isset($getsetting) && $getsetting['address']['email'][0]!=null)
+                                    <div class="pt-1"><a href="mailto:{{$getsetting['address']['email'][0]}}">{{$getsetting['address']['email'][0]}}</a></div>
+                                    @endif
+                                        
+                                    @if(isset($getsetting) && $getsetting['address']['email'][1]!=null)
+                                     <div class="pt-1"><a href="mailto:{{$getsetting['address']['email'][1]}}">{{$getsetting['address']['email'][1]}}</a></div>
+                                    @endif
+
+
                                 </div>
                             </div>
                             <div class="media mb-3">
@@ -823,7 +508,8 @@ $lang = session('lang');
                                 <div class="media-body">
                                     <!-- <div><strong>Пон - Вос</strong></div> -->
                                     <div class="pt-1">
-                                        24/7 Служба поддержки клиентов
+                                        {{('ru'==$lang)?'24/7 Служба поддержки клиентов':''}}{{('en'==$lang)?'24/7 Product support serviceses client':''}}{{('tu'==$lang)?'24/7 Product support serviceses client':''}}
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -838,10 +524,10 @@ $lang = session('lang');
                 <div class="container">
                     <div class="row text-md-left text-center">
                         <div class="col-sm-12 col-md-6 copyright-links">
-                            © EOSTS - 2020. Все права защищены.
+                            <strong>&copy; EOSTS - {{date("Y")}}. </strong>{{('ru'==$lang)?'Все права защищены.':''}} {{('en'==$lang)?'All right are protected.':''}} {{('tu'==$lang)?'All right are protected.':''}}
                         </div>
                         <div class="col-sm-12 col-md-6 text-md-right text-center">
-                            Разработчик:
+                          {{('ru'==$lang)?'Разработчик:':''}} {{('en'==$lang)?'The Developer:':''}} {{('tu'==$lang)?'The Developer:':''}}  
                             <a href="https://parmonov98.uz" target="_blank" rel="nofollow">@parmonov98</a>
                         </div>
                     </div>

@@ -1,7 +1,12 @@
 <div id="content-page" class="content group">
 				            <div class="hentry group">
-
-{!! Form::open(['url' => url('/admins/slider') ,'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
+    @if ($error = Session::get('error'))
+  <div class="alert alert-danger">
+  <button class="close" data-dismiss="alert">×</button>
+  <strong>{{ $error }}</strong>
+  </div>                  
+    @endif
+{!! Form::open(['url' => url('/admins/gallery') ,'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
 
 
 
@@ -19,7 +24,7 @@
   $j=0;
   $languages=['ru'=>'Русский','en'=>'English','tu'=>'Türkçe'];
   ?>
-  <div class="col-md-12">
+  <div class="col-md-7">
       <ul class="nav nav-tabs">
             <?php foreach ($languages as $language => $label) { ?>
                 <li class="<?= ($i==0)?'active':'' ?>"><a data-toggle="tab" href="#<?=$language?>"><?=$label?></a></li>
@@ -64,10 +69,11 @@
   </div>
 
 
+  <div class="col-md-5">
 
-
-
-
+<div><input type="radio" id="form_rad" name="sezi" checked value="1"/><label for="form_rad"><img src="{{ asset('/admin/img/AUTO01.jpg')}}" height="66"></label></div>
+<div><input type="radio" id="form_rad" name="sezi" value="2"/><label for="form_rad"><img src="{{ asset('/admin/img/AUTO02.jpg')}}" height="66"></label></div>
+<div><input type="radio" id="form_rad" name="sezi" value="3"/><label for="form_rad"><img src="{{ asset('/admin/img/AUTO03.jpg')}}" height="66"></label></div>
 
 
 			 </div>
