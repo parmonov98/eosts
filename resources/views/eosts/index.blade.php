@@ -39,3 +39,7 @@
 @section('gallery')
 	{!! $gallery !!}
 @endsection
+
+@section('futnav')
+	{!! $futnav !!}
+@endsection

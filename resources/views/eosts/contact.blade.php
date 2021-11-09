@@ -2,10 +2,6 @@
 
 
 
-
-                     
-
-
     
 @if('ru'==$lang)
 
@@ -18,15 +14,6 @@
 
 
 @endif
-
-
-                           
-
-
-
-
-
-
 
 
 
@@ -62,31 +49,52 @@
           <div class="row justify-content-between">
             <div class="col-md-6 col-sm-12 col-lg-4 wow fadeInRight" data-wow-duration="0" data-wow-delay="0s">
               <div class="contact-detail-shadow">
-                <h4>Бухара</h4>
+                <h4>{{('ru'==$lang)?'Бухара':''}} {{('en'==$lang)?'Bukhara':''}} {{('tu'==$lang)?'Buhara':''}}</h4>
                 <div class="d-flex align-items-start items">
-                  <i class="icofont-google-map"></i> <span>Узбекистан, Бухарская область, район Гиждуван, ул. Чорсу 101
-                  </span>
+                  <i class="icofont-google-map"></i> 
+
+                    @if(isset($getsetting) && $getsetting['address']['addres']['bux'][$lang]!=null)
+                      <span>{!!$getsetting['address']['addres']['bux'][$lang]!!}</span>
+                    @endif   
                 </div>
                 <div class="d-flex align-items-start items">
-                  <i class="icofont-phone"></i> <span>+99899 311 49 00 </span>
+                  <i class="icofont-phone"></i> 
+
+                   @if(isset($getsetting) && $getsetting['address']['phone'][0]!=null)
+                                    <span>{{$getsetting['address']['phone'][0]}}</span>
+                              @endif
+
                 </div>
                 <div class="text-nowrap d-flex align-items-start items">
-                  <i class="icofont-email"></i> <a href="#">support@sarbontrans.com</a>
+                  <i class="icofont-email"></i> 
+
+                   @if(isset($getsetting) && $getsetting['address']['email'][0]!=null)
+                                        <a href="mailto:{{$getsetting['address']['email'][0]}}">{{$getsetting['address']['email'][0]}}</a>
+                                    @endif
+
                 </div>
               </div>
             </div>
             <div class="col-md-6 col-sm-12 col-lg-4 wow fadeInLeft" data-wow-duration="0" data-wow-delay="0s">
               <div class="contact-detail-shadow">
-                <h4>Ташкент</h4>
+                <h4>{{('ru'==$lang)?'Ташкент':''}} {{('en'==$lang)?'Tashkent':''}} {{('tu'==$lang)?'Taşkent':''}}</h4>
                 <div class="d-flex align-items-start items">
-                  <i class="icofont-google-map"></i> <span>Узбекистан, Бухарская область, район Гиждуван, ул. Чорсу
-                    101</span>
+                  <i class="icofont-google-map"></i> 
+                    @if(isset($getsetting) && $getsetting['address']['addres']['tosh'][$lang]!=null)
+                      <span>{!!$getsetting['address']['addres']['tosh'][$lang]!!}</span>
+                    @endif   
                 </div>
                 <div class="d-flex align-items-start items">
-                  <i class="icofont-phone"></i> <span>+99891 311 49 00</span>
+                  <i class="icofont-phone"></i> 
+                  @if(isset($getsetting) && $getsetting['address']['phone'][1]!=null)
+                                    <span>{{$getsetting['address']['phone'][1]}}</span>
+                              @endif
                 </div>
                 <div class="text-nowrap d-flex align-items-start items">
-                  <i class="icofont-email"></i> <a href="#">support@sarbontrans.com</a>
+                  <i class="icofont-email"></i> 
+                   @if(isset($getsetting) && $getsetting['address']['email'][1]!=null)
+                                        <a href="mailto:{{$getsetting['address']['email'][1]}}">{{$getsetting['address']['email'][0]}}</a>
+                                    @endif
                 </div>
               </div>
             </div>

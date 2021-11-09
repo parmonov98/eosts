@@ -15,10 +15,6 @@
     </div>
     <!-- Page Breadcrumbs End -->
 
-
-
-
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -27,13 +23,10 @@
 
                 <div class="card-body">
 
-
         <form class="form-horizontal was-validated" method="POST" action="{{ route('regPrUp') }}" enctype="multipart/form-data">
 
  @csrf
-
                         <div class="form-group">
-
 
                             <div class="col-md-12">
                                Name:<br> <input id="name" type="text" class="form-control" name="name" value="{{$user->name}}" placeholder="Name" >
@@ -46,21 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-
-
-                            <div class="col-md-12">
-                               Telegram ID:<br> <input id="telegram_id" type="text" class="form-control" name="telegram_id" value="{{$user->telegram_id}}" placeholder="Telegram ID" >
-
-                                @if($errors->has('telegram_id'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('telegram_id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
+                       <div class="form-group">
 
                             <div class="col-md-12">
                                 Email Address:<br><input id="email" type="email" class="form-control" placeholder="Email Address" name="email" value="{{ $user->email }}">
@@ -93,8 +72,6 @@
                                 @endif
                             </div>
                         </div>
-
-
 
                         <div class="form-group">
                             <div class="col-md-12 col-md-offset-4">

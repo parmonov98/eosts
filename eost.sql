@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 09 2021 г., 06:16
+-- Время создания: Ноя 09 2021 г., 18:37
 -- Версия сервера: 10.5.11-MariaDB
 -- Версия PHP: 8.0.8
 
@@ -348,6 +348,30 @@ INSERT INTO `permission_role` (`id`, `role_id`, `permission_id`, `created_at`, `
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `requ`
+--
+
+CREATE TABLE `requ` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `package` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Дамп данных таблицы `requ`
+--
+
+INSERT INTO `requ` (`id`, `name`, `number`, `email`, `package`, `text`, `created_at`, `updated_at`) VALUES
+(1, 'Jurabek', '998919077684', 'bjr061981@gmail.com', 'Перевозка драгоценных грузов', 'dfsf', '2021-11-09 01:39:30', '2021-11-09 01:39:30');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `roles`
 --
 
@@ -396,7 +420,7 @@ INSERT INTO `role_user` (`id`, `created_at`, `updated_at`, `user_id`, `role_id`)
 
 CREATE TABLE `setting` (
   `id` bigint(20) NOT NULL,
-  `names` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `names` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sot_network` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -411,7 +435,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`id`, `names`, `address`, `sot_network`, `img`, `rating`, `css`, `created_at`, `updated_at`) VALUES
-(1, '{\"name\":{\"ru\":\"EO\\u0421T\\u0421 (\\u0415\\u0432\\u0440\\u043e \\u041e\\u0441\\u0438\\u0451 \\u0421\\u0430\\u0440\\u0431\\u043e\\u043d \\u0422\\u0440\\u0430\\u043d\\u0441 \\u0421\\u0435\\u0440\\u0432\\u0438\\u0441)\",\"en\":\"EOSTS(EvroOsiyo Sarbon Trans Servis)\",\"tu\":\"EOSTS(EvroOsiyo Sarbon Trans Servis)\"}}', '{\"addres\":{\"ru\":\"\\u0420\\u0435\\u0441\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u0430 \\u0423\\u0437\\u0431\\u0435\\u043a\\u0438\\u0441\\u0442\\u0430\\u043d, \\u0411\\u0443\\u0445\\u0430\\u0440\\u0441\\u043a\\u0438\\u0439 \\u043e\\u0431\\u043b, \\u0413\\u0438\\u0436\\u0434\\u0443\\u0432\\u0430\\u043d \\u0440\\u0430\\u0439\\u043e\\u043d, \\u0443\\u043b. \\u0427\\u043e\\u0440\\u0441\\u0443 101\",\"en\":\"Republic of Uzbekistan, Bukhara region,<br> Gijduvan district, st. Chorsu 101\",\"tu\":\"\\u00d6zbekistan Cumhuriyeti, Buhara b\\u00f6lgesi,<br> Gijduvan il\\u00e7esi, st. korsu 101\"},\"phone\":[\"+99899 311 49 00\",\"+99899 311 49 00\"],\"email\":[\"info@sarbontrans.com\",\"support@sarbontrans.com\"]}', '{\"sotnet\":{\"facebook\":\"http:\\/\\/www.facebook.com\\/\",\"telegram\":\"http:\\/\\/www.telegram.me\\/\",\"instagram\":null,\"twitter\":null,\"whatsapp\":\"http:\\/\\/www.whatsapp.com\\/\",\"youtube\":null}}', NULL, NULL, 0, NULL, '2021-11-08 21:35:43');
+(1, '{\"name\":{\"ru\":\"EO\\u0421T\\u0421 (\\u0415\\u0432\\u0440\\u043e \\u041e\\u0441\\u0438\\u0451 \\u0421\\u0430\\u0440\\u0431\\u043e\\u043d \\u0422\\u0440\\u0430\\u043d\\u0441 \\u0421\\u0435\\u0440\\u0432\\u0438\\u0441)\",\"en\":\"EOSTS(EvroOsiyo Sarbon Trans Servis)\",\"tu\":\"EOSTS(EvroOsiyo Sarbon Trans Servis)\"}}', '{\"addres\":{\"bux\":{\"ru\":\"\\u0423\\u0437\\u0431\\u0435\\u043a\\u0438\\u0441\\u0442\\u0430\\u043d, \\u0411\\u0443\\u0445\\u0430\\u0440\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0440\\u0430\\u0439\\u043e\\u043d \\u0413\\u0438\\u0436\\u0434\\u0443\\u0432\\u0430\\u043d, \\u0443\\u043b. \\u0427\\u043e\\u0440\\u0441\\u0443 101\",\"en\":\"\\u0423\\u0437\\u0431\\u0435\\u043a\\u0438\\u0441\\u0442\\u0430\\u043d, \\u0411\\u0443\\u0445\\u0430\\u0440\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0440\\u0430\\u0439\\u043e\\u043d \\u0413\\u0438\\u0436\\u0434\\u0443\\u0432\\u0430\\u043d, \\u0443\\u043b. \\u0427\\u043e\\u0440\\u0441\\u0443 101\",\"tu\":\"\\u0423\\u0437\\u0431\\u0435\\u043a\\u0438\\u0441\\u0442\\u0430\\u043d, \\u0411\\u0443\\u0445\\u0430\\u0440\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0440\\u0430\\u0439\\u043e\\u043d \\u0413\\u0438\\u0436\\u0434\\u0443\\u0432\\u0430\\u043d, \\u0443\\u043b. \\u0427\\u043e\\u0440\\u0441\\u0443 101\"},\"tosh\":{\"ru\":\"\\u0423\\u0437\\u0431\\u0435\\u043a\\u0438\\u0441\\u0442\\u0430\\u043d, \\u0411\\u0443\\u0445\\u0430\\u0440\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0440\\u0430\\u0439\\u043e\\u043d \\u0413\\u0438\\u0436\\u0434\\u0443\\u0432\\u0430\\u043d, \\u0443\\u043b. \\u0427\\u043e\\u0440\\u0441\\u0443 101\",\"en\":\"\\u0423\\u0437\\u0431\\u0435\\u043a\\u0438\\u0441\\u0442\\u0430\\u043d, \\u0411\\u0443\\u0445\\u0430\\u0440\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0440\\u0430\\u0439\\u043e\\u043d \\u0413\\u0438\\u0436\\u0434\\u0443\\u0432\\u0430\\u043d, \\u0443\\u043b. \\u0427\\u043e\\u0440\\u0441\\u0443 101\",\"tu\":\"\\u0423\\u0437\\u0431\\u0435\\u043a\\u0438\\u0441\\u0442\\u0430\\u043d, \\u0411\\u0443\\u0445\\u0430\\u0440\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0440\\u0430\\u0439\\u043e\\u043d \\u0413\\u0438\\u0436\\u0434\\u0443\\u0432\\u0430\\u043d, \\u0443\\u043b. \\u0427\\u043e\\u0440\\u0441\\u0443 101\"}},\"phone\":[\"+99899 311 49 00\",\"+99899 311 49 00\"],\"email\":[\"info@sarbontrans.com\",\"support@sarbontrans.com\"]}', '{\"sotnet\":{\"facebook\":\"http:\\/\\/www.facebook.com\\/\",\"telegram\":\"http:\\/\\/www.telegram.me\\/\",\"instagram\":null,\"twitter\":null,\"whatsapp\":\"http:\\/\\/www.whatsapp.com\\/\",\"youtube\":null}}', NULL, NULL, 0, NULL, '2021-11-09 10:01:56');
 
 -- --------------------------------------------------------
 
@@ -461,7 +485,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `telegram_chat_id`, `image`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Jurabek', 219216212, '1635471588.jpg', 'bjr061981@gmail.com', NULL, '$2y$10$pyU6LGpn5Fv2QneNNl3DQecKmcVLTfVxyrINEkIsRCh6Hoqq7TAAG', NULL, '2021-03-29 22:31:14', '2021-11-08 05:44:54'),
+(1, 'Jurabek', 219216212, '1636468828.jpg', 'bjr061981@gmail.com', NULL, '$2y$10$pyU6LGpn5Fv2QneNNl3DQecKmcVLTfVxyrINEkIsRCh6Hoqq7TAAG', NULL, '2021-03-29 22:31:14', '2021-11-09 09:40:28'),
 (2, 'yosh', NULL, NULL, 'uqituvchi@uz.uz', NULL, '$2y$10$GalXh.sFqrr3BBDJQwoCE.hOXwUv/RQnfx2ZBjek09TTbLNzpBx3y', NULL, '2021-07-06 20:30:04', '2021-07-06 20:30:04');
 
 --
@@ -538,6 +562,12 @@ ALTER TABLE `permission_role`
   ADD PRIMARY KEY (`id`),
   ADD KEY `permission_role_role_id_foreign` (`role_id`),
   ADD KEY `permission_role_permission_id_foreign` (`permission_id`);
+
+--
+-- Индексы таблицы `requ`
+--
+ALTER TABLE `requ`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `roles`
@@ -635,6 +665,12 @@ ALTER TABLE `permissions`
 --
 ALTER TABLE `permission_role`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT для таблицы `requ`
+--
+ALTER TABLE `requ`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`

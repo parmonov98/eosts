@@ -5,6 +5,8 @@ use App\Http\Controllers as Adress;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\ExampleNotification;
+use Illuminate\Http\Request;
+use App\Models\Requ;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +32,24 @@ Route::get('/{cat}/blog/{blog}', [Adress\ArticleController::class, 'index'])->na
 
 Route::get('/{cat}/blog/{blog}/{id}', [Adress\ArticleController::class, 'show'])->name('bCatf')->where(['cat'=>'ru|en|tu','blog'=>'[\w-]+','id'=>'[\0-9]+']);
 
-
+if(Auth::check()){
 Route::post('/message',[Adress\TelegramController::class,'message'])->name('message');
+}else{
+Route::post('/message', function (Request $request) {$d = $request->except('_token');
 
+   
+if($d['name']==null || $d['number']==null || $d['email']==null || $d['package']==null || $d['text']==null ){
+    return redirect()->back()->with('error', 'Вы не заполнили всех полей'); 
+}else{
+Notification::route('message', env('TELEGRAM_USER_ID'))->notify(new ExampleNotification(json_encode($d)));
+
+$item = new Requ; $item->name = $d['name']; $item->name = $d['name'];$item->number = $d['number'];$item->email = $d['email'];
+$item->package = $d['package'];$item->text = $d['text'];$item->save();
+
+            return redirect()->back()->with('success', 'Ваша сообщения отправлено'); }
+    })->name('message');
+
+}
 
 Route::get('/pdf/{id?}',[Adress\IndexController::class, 'generate_pdf'])->name('pdf')->where(['id'=>'[\0-9]+']);
 
@@ -40,7 +57,7 @@ Route::match(['get','post'],'/search/search/', [Adress\SearchController::class, 
 
 
 Route::resource('/contacts/contacts/',Adress\ContactController::class);
-
+Route::get('export-excel-csv-file/{slug}', [Adress\Admin\RequController::class, 'exportExcelCSV']);
 
 Route::get('/all/{lang?}', [Adress\ArticleController::class, 'all_articles'])->name('allCat');
 
@@ -89,6 +106,12 @@ Route::match(['get','post'],'filesup', [Adress\Admin\SettingController::class, '
 
 Route::get('rating', [Adress\Admin\SettingController::class, 'rating'])->name('setRating');
 Route::match(['get','post'],'ratingup', [Adress\Admin\SettingController::class, 'ratingup'])->name('setRatingUp');
+
+
+Route::resource('requ', Adress\Admin\RequController::class);
+
+
+
 
 Route::resource('/slider',Adress\Admin\SliderController::class);
 Route::resource('/gallery',Adress\Admin\GalleryController::class);

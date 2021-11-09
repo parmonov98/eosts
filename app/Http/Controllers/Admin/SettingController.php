@@ -99,6 +99,8 @@ class SettingController extends AdminController
     {
         $result = $this->s_t->addup($request);
 
+        // dd($result);
+
         if(is_array($result) && !empty($result['error'])) {
             return back()->with($result);
         }

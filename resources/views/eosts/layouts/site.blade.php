@@ -66,8 +66,8 @@ $lang = session('lang');
                             <div class="d-flex justify-content-between py-2 ">
                                 <div class="top-text" itemprop="location" itemscope itemtype="https://schema.org/Place">
         <small class="txt-ligt-gray">{{('ru'==$lang)?'Адрес':''}}{{('en'==$lang)?'Address':''}}{{('tu'==$lang)?'Address':''}}</small>
-                         @if(isset($getsetting) && $getsetting['address']['addres'][$lang]!=null)
-                          <span class="fw-7 txt-blue" itemprop="address">{!!$getsetting['address']['addres'][$lang]!!}</span>
+                         @if(isset($getsetting) && $getsetting['address']['addres']['tosh'][$lang]!=null)
+                          <span class="fw-7 txt-blue" itemprop="address">{!!$getsetting['address']['addres']['tosh'][$lang]!!}</span>
                           @endif                                    
 
 
@@ -121,7 +121,7 @@ $lang = session('lang');
 <img src="{{ asset(env('THEME').'/images/us.svg')}}" alt="" class="dropdown-item-icon"><span class="d-inline-block d-lg-none">Ru</span> <span class="d-none d-lg-inline-block">English</span> <i class="icofont-rounded-down"></i></a>
 
 @else
-<a href="/tu" class="dropdown-toggle btn" data-toggle="dropdown" aria-haspopup="true"
+<a href="#" class="dropdown-toggle btn" data-toggle="dropdown" aria-haspopup="true"
     aria-expanded="false" data-hover="dropdown" data-animations="slideInUp slideInUp slideInUp slideInUp">
 <img src="{{ asset(env('THEME').'/images/tr.svg')}}" alt="" class="dropdown-item-icon"><span class="d-inline-block d-lg-none">Tu</span> <span class="d-none d-lg-inline-block">Türkçe</span> <i class="icofont-rounded-down"></i></a>
 @endif
@@ -149,7 +149,7 @@ $lang = session('lang');
                                 @endif
                                  @if('tu'!=$lang)
 
-                                        <a class="dropdown-item" href="/tu" itemprop="availableLanguage" itemscope
+                                        <a class="dropdown-item" href="#" itemprop="availableLanguage" itemscope
                                             itemtype="https://schema.org/Language">
                                             <img src="{{ asset(env('THEME').'/images/tr.svg')}}" alt="" class="dropdown-item-icon">
                                             <span itemprop="name">
@@ -270,7 +270,7 @@ $lang = session('lang');
 </a>
 @endif
  @if('tu'!=$lang)
-<a class="dropdown-item " href="/tu" itemprop="availableLanguage" itemscope
+<a class="dropdown-item " href="#" itemprop="availableLanguage" itemscope
     itemtype="https://schema.org/Language">
     <img src="{{ asset(env('THEME').'/images/tr.svg')}}" alt="" class="dropdown-item-icon">
     <span itemprop="name">
@@ -429,27 +429,12 @@ $lang = session('lang');
                         <h3 class="footer-heading"> {{('ru'==$lang)?'Карта сайта':''}} {{('en'==$lang)?'Map of site':''}} {{('tu'==$lang)?'Site haritası':''}}  </h3>
                         <div class="footer-widget-menu">
                             <ul class="list-unstyled">
-                                <li>
-                                    <a href="/"><i class="icofont-simple-right"></i> <span>{{('ru'==$lang)?'ГЛАВНАЯ':''}} {{('en'==$lang)?'HOME':''}} {{('tu'==$lang)?'EV':''}}</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="icofont-simple-right"></i>
-                                        <span>О НАС</span></a>
-                                </li>
 
-                                <li>
-                                    <a href="/services.html"><i class="icofont-simple-right"></i>
-                                        <span>УСЛУГИ</span></a>
-                                </li>
-                                <li>
-                                    <a href="/contact-us.html"><i class="icofont-simple-right"></i>
-                                        <span>КОНТАКТЫ</span></a>
-                                </li>
 
-                                <li>
-                                    <a href="/about.html#faqs"><i class="icofont-simple-right"></i>
-                                        <span>Вопросы</span></a>
-                                </li>
+
+@yield('futnav') 
+
+
                             </ul>
                         </div>
                     </div>
@@ -464,8 +449,8 @@ $lang = session('lang');
                                 <div class="media-body" itemprop="location" itemscope=""
                                     itemtype="https://schema.org/Place">
 
-                         @if(isset($getsetting) && $getsetting['address']['addres'][$lang]!=null)
-                          <span itemprop="address">{!!$getsetting['address']['addres'][$lang]!!}</span>
+                         @if(isset($getsetting) && $getsetting['address']['addres']['tosh'][$lang]!=null)
+                          <span itemprop="address">{!!$getsetting['address']['addres']['tosh'][$lang]!!}</span>
                           @endif  
                                     <span itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress">
                                 </div>

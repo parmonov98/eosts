@@ -127,7 +127,7 @@
 
 
 			<label class="control-label">
-				Йукланадиган расм:
+				Загрузить изображение:
 			</label>
 			<div class="input-prepend">
 			<input type="file" class="form-control" id="fileInput" name="image" multiple="" data-placeholder="Файла йўқ" data-buttonText=Выберите изображение data-buttonName="btn-primary">
@@ -137,7 +137,7 @@
 
 
 			<label class="control-label">
-				Санани қўлда киритиш:
+				Введите дату вручную:
 			</label>
 
 

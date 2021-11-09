@@ -27,6 +27,13 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
     </div>
   @endif
 
+  @if ($success = Session::get('success'))
+    <div class="alert alert-primary">
+    <button class="close" data-dismiss="alert">×</button>
+    <strong>{{ $success }}</strong>
+    </div>
+  @endif
+
 
 <!-- Free Quote From -->
 <form action="{{ route('message') }}" method="post" novalidate="novalidate" class="col rounded-field">

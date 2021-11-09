@@ -158,7 +158,6 @@ public function SetUmumlar()
 
 	    $request->validate([
             'name' => 'required|max:255',
-            'otm' => 'required',
             'email' => 'required|email|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -167,7 +166,7 @@ public function SetUmumlar()
 
 
 		$data = $request->except('_token','image');
-		$data = $request->only('name','otm','email');
+		$data = $request->only('name','email');
 
     $data['birthdate']=date('Y-m-d',strtotime($request['birthdate']));
 
@@ -184,7 +183,7 @@ public function SetUmumlar()
 				$obj = $str.'.jpg';
 				$img = Image::make($image);
 				$img->fit(Config::get('settings.file')['width'],
-						Config::get('settings.file')['height'])->save(public_path().'/'.env('THEME').'/i/users/'.$obj);
+						Config::get('settings.file')['height'])->save(public_path().'/'.env('THEME').'/images/users/'.$obj);
 				$data['image'] = $obj;
 
 
@@ -206,73 +205,8 @@ public function SetUmumlar()
 
 
 
-    public function iunvonup(Request $request)
-    {
-        $data = $request->except('_token');
-// customfield
-        // dd($data['customfield']);
-        if($data['customfield']==null){
-        return redirect('/profile')->with(['error'=>'Маълумот йўқ']);
-        }else{
-
-            if($data['customfield']=='no'){
-                $data['date_phd']=$data['shif_phd']=$data['tema_phd']=$data['state_phd']=$data['agency_phd']=$data['dipnum_phd']=null;
-                $data['date_dsc']=$data['shif_dsc']=$data['tema_dsc']=$data['state_dsc']=$data['agency_dsc']=$data['dipnum_dsc']=null;
-            }
-            elseif($data['customfield']=='doctor'){
-                $data['date_phd']=$data['shif_phd']=$data['tema_phd']=$data['state_phd']=$data['agency_phd']=$data['dipnum_phd']=null;
-            }else{
-                $data['date_dsc']=$data['shif_dsc']=$data['tema_dsc']=$data['state_dsc']=$data['agency_dsc']=$data['dipnum_dsc']=null;
-            }
-
-          // dd($data);
-        $datas['iunvon'] = $data;
-        $request->user()->update($datas);
-        return redirect('/profile')->with(['status'=>'Сақланди']);
-        }
-
-    }
 
 
-
-
-
-    public function idarajaup(Request $request)
-    {
-        $data = $request->except('_token');
-// customfield
-         // dd($data);
-        if($data['teachers']==null){
-        return redirect('/profile')->with(['error1'=>'Маълумот йўқ']);
-        }else{
-
-            if($data['teachers']=='no'){
-                 $data['date_dots']=$data['dots_code']=$data['dots_dip_num']=null;
-                 $data['date_prof']=$data['prof_code']=$data['prof_dip_num']=null;
-            }
-            elseif($data['teachers']=='professor'){
-                $data['date_dots']=$data['dots_code']=$data['dots_dip_num']=null;
-            }else{
-                $data['date_prof']=$data['prof_code']=$data['prof_dip_num']=null;
-            }
-
-          // dd($data);
-        $datas['idaraja'] = $data;
-        $request->user()->update($datas);
-        return redirect('/profile')->with(['status1'=>'Сақланди']);
-        }
-
-    }
-
-
-    public function maqolaup(Request $request)
-    {
-        $data = $request->except('_token');
-        // dd($data);
-
-        $request->user()->update($data);
-        return redirect('/profile')->with(['status2'=>'Сақланди']);
-    }
 
 
 }

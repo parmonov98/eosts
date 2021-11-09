@@ -71,6 +71,8 @@ class SettingRepository extends Repositor {
 			abort(403);
 		}
 		$data = $request->except('_token');
+
+		// dd($data);
 		$result = $this->model->where('id',$id);
 		if($result->update(['address' => json_encode($data)])) {
 			return ['status' => 'Информация обновлена'];

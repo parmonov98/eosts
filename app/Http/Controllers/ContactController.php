@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Models\Contact;
+use App\Models\Settings;
 use App\Models\User;
 use App\Repositories\ContactRepository;
 use Validator;
@@ -27,18 +28,23 @@ class ContactController extends SiteController
     public function index()
     {
 
-         session()->put('lang', 'ru');
-     $lang = session('lang');
-  
-      if($lang != 'ru' && $lang != 'en' && $lang != 'tu'){
-    abort(404);
+     if(empty(session('lang'))){
+       session()->put('lang', 'ru');
      }
+       $lang = session('lang');
+
+      if($lang != 'ru' && $lang != 'en' && $lang !== 'tu'){
+        abort(404);
+       }
+
 
 
         $this->title = 'Контакты';
 
 
-        $articles = view(config('settings.theme').'.contact')->render();
+    $getsetting = $this->getSetting();
+
+        $articles = view(config('settings.theme').'.contact',compact('getsetting'))->render();
 
         $this->vars = Arr::add($this->vars,'content',$articles);
 
@@ -49,6 +55,11 @@ class ContactController extends SiteController
 
     }
 
+
+    public function getSetting(){
+        $man = Settings::select()->first();
+        return $man;
+    }
 
     public function show(Request $request)
     {

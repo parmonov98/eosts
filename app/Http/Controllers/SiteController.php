@@ -62,11 +62,18 @@ class SiteController extends Controller
 	$this->vars = Arr::add($this->vars,'navigation',$navigation);
 
 
+	$futnav = view(config('settings.theme').'.futnav')->with('menu',$this->getMenufut($lang))->render();
+	$this->vars = Arr::add($this->vars,'futnav',$futnav);
+
+
 	$slider = view(config('settings.theme').'.slider')->with('sliders',$this->getSliders($lang))->render();
 	$this->vars = Arr::add($this->vars,'slider',$slider);
 
 	$gallery = view(config('settings.theme').'.gallery')->with('gallerys',$this->getGallerys($lang))->render();
 	$this->vars = Arr::add($this->vars,'gallery',$gallery);
+
+
+
 
 
 	$this->vars = Arr::add($this->vars,'keywords',$this->keywords);
@@ -107,6 +114,35 @@ class SiteController extends Controller
 		});
 		return $mBuilder;
 		}
+
+
+
+
+	public function getMenufut($cat= 'ru'){
+			if(empty($cat)){
+		$cat = session('lang');
+	}
+		$menu = $this->m_rep->get();
+		// dd($menu);
+
+		$mBuilder = Menu::make('MyNavfut',function($m) use($menu,$cat){
+			foreach($menu as $item){
+				if(Str::limit($item->path,4) == 'http...'){$urlm = '';}
+				else if(Str::limit($item->path,1) == '/...') {$urlm = '..';}
+				else if($item->path == "#"){$urlm = '..';}
+				else{$urlm = $cat.'/blog/';}
+
+				if($item->parent == 0) {
+					$m->add($item->title[$cat],$urlm.$item->path)->id($item->id);
+				}
+			}
+		});
+		return $mBuilder;
+		}
+
+
+
+
 
 
 	public function getSliders($cat = null){

@@ -7,14 +7,35 @@
 
 			<div class="input-prepend">
 				
+				
+<div class="row">
+  <div class="col-md-6">
+<h3>Бухара</h3>
 				<i class="fa fa-map-marker"></i> Русский:
-				<input type="text" name="addres[ru]" value="{{isset($setname['address']['addres']['ru']) ? $setname['address']['addres']['ru'] : ''}}" placeholder="Русский" class="form-control">
+				<input type="text" name="addres[bux][ru]" value="{{isset($setname['address']['addres']['bux']['ru']) ? $setname['address']['addres']['bux']['ru'] : ''}}" placeholder="Русский" class="form-control">
 
 				<i class="fa fa-map-marker"></i> English:
-				<input type="text" name="addres[en]" value="{{isset($setname['address']['addres']['en']) ? $setname['address']['addres']['en'] : ''}}" placeholder="English" class="form-control">
+				<input type="text" name="addres[bux][en]" value="{{isset($setname['address']['addres']['bux']['en']) ? $setname['address']['addres']['bux']['en'] : ''}}" placeholder="English" class="form-control">
 
 				<i class="fa fa-map-marker"></i> Türkçe:
-				<input type="text" name="addres[tu]" value="{{isset($setname['address']['addres']['tu']) ? $setname['address']['addres']['tu']  : ''}}" placeholder="Türkçe" class="form-control">
+				<input type="text" name="addres[bux][tu]" value="{{isset($setname['address']['addres']['bux']['tu']) ? $setname['address']['addres']['bux']['tu']  : ''}}" placeholder="Türkçe" class="form-control">  	
+
+  </div>
+  <div class="col-md-6">
+  	<h3>Ташкент</h3>
+				<i class="fa fa-map-marker"></i> Русский:
+				<input type="text" name="addres[tosh][ru]" value="{{isset($setname['address']['addres']['tosh']['ru']) ? $setname['address']['addres']['tosh']['ru'] : ''}}" placeholder="Русский" class="form-control">
+
+				<i class="fa fa-map-marker"></i> English:
+				<input type="text" name="addres[tosh][en]" value="{{isset($setname['address']['addres']['tosh']['en']) ? $setname['address']['addres']['tosh']['en'] : ''}}" placeholder="English" class="form-control">
+
+				<i class="fa fa-map-marker"></i> Türkçe:
+				<input type="text" name="addres[tosh][tu]" value="{{isset($setname['address']['addres']['tosh']['tu']) ? $setname['address']['addres']['tosh']['tu']  : ''}}" placeholder="Türkçe" class="form-control">  	
+  </div>
+</div>
+
+
+
 
 
 			<hr>
