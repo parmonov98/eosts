@@ -199,7 +199,7 @@ $this->content = view(config('settings.theme').'.admin.contact.contacts_content'
      */
     public function edit($id)
     {
-        dd('Salom');
+        // dd('Salom');
     	if(Gate::denies('destroy', new Contact)) {
 			abort(403);
 		}

@@ -183,13 +183,13 @@ $lang = session('lang');
                     </span>
 
 
-                    <div class="d-inline-flex request-btn ml-2 order-lg-last">
+<!--                     <div class="d-inline-flex request-btn ml-2 order-lg-last">
                         <a class="btn-theme icon-left bg-orange no-shadow d-none d-lg-inline-block align-self-center"
                             href="#" role="button" data-toggle="modal" data-target="#request_popup"><i
                                 class="icofont-page"></i>
                             Получить расчёт
                         </a>
-                    </div>
+                    </div> -->
                     <!-- Topbar Request Quote Start -->
 
                     <!-- Toggle Button Start -->
@@ -394,29 +394,29 @@ $lang = session('lang');
 
 
 
-@if(isset($getsetting) && $getsetting['sot_network']['sotnet']['facebook'])
+@if(isset($getsetting) && isset($getsetting['sot_network']['sotnet']['facebook']))
 <a href="{{$getsetting['sot_network']['sotnet']['facebook']}}" target="_blank"><i class="icofont-facebook"></i></a>
 @endif
 
-@if(isset($getsetting) && $getsetting['sot_network']['sotnet']['telegram'])
+@if(isset($getsetting) && isset($getsetting['sot_network']['sotnet']['telegram']))
 <a href="{{$getsetting['sot_network']['sotnet']['telegram']}}" target="_blank"><i class="icofont-telegram"></i></a>
 @endif
 
 
- @if(isset($getsetting) && $getsetting['sot_network']['sotnet']['whatsapp'])
+ @if(isset($getsetting) && isset($getsetting['sot_network']['sotnet']['whatsapp']))
 <a href="{{$getsetting['sot_network']['sotnet']['whatsapp']}}" target="_blank"><i class="icofont-whatsapp"></i></a>
  @endif
 
  
-@if(isset($getsetting) && $getsetting['sot_network']['sotnet']['instagram'])
+@if(isset($getsetting) && isset($getsetting['sot_network']['sotnet']['instagram']))
 <a href="{{$getsetting['sot_network']['sotnet']['instagram']}}" target="_blank"><i class="icofont-instagram"></i></a>
 @endif
 
-@if(isset($getsetting) && $getsetting['sot_network']['sotnet']['twitter'])
+@if(isset($getsetting) && isset($getsetting['sot_network']['sotnet']['twitter']))
 <a href="{{$getsetting['sot_network']['sotnet']['twitter']}}" target="_blank"><i class="icofont-twitter"></i></a>
 @endif
 
-@if(isset($getsetting) && $getsetting['sot_network']['sotnet']['youtube'])
+@if(isset($getsetting) && isset($getsetting['sot_network']['sotnet']['youtube']))
 <a href="{{$getsetting['sot_network']['sotnet']['youtube']}}" target="_blank"><i class="icofont-youtube"></i></a>
 @endif
 

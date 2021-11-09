@@ -41,6 +41,7 @@
           </ol>
         </nav>
 
+
         <h1>{{('ru'==$lang)?'Связаться с нами':''}} {{('en'==$lang)?'Contact us':''}} {{('tu'==$lang)?'Bize Ulaşın':''}}</h1>
         <div class="breadcrumbs-description">{{('ru'==$lang)?'Вы всегда можете связаться с нами и мы будем рады Вам помочь!':''}} {{('en'==$lang)?'You can always contact us and we will be happy to help you!':''}} {{('tu'==$lang)?'Her zaman bizimle iletişime geçebilirsiniz, size yardımcı olmaktan memnuniyet duyarız!':''}}
           
@@ -102,13 +103,31 @@
               data-wow-delay="0s">
               <div class="free-quote-form contact-page">
                 <!-- Heading Main -->
+
+                @if ($error = Session::get('error'))
+    <div class="alert alert-danger">
+    <button class="close" data-dismiss="alert">×</button>
+    <strong>{{ $error }}</strong>
+    </div>
+  @endif
+
+  @if ($error = Session::get('errors'))
+    <div class="alert alert-danger">
+    <button class="close" data-dismiss="alert">×</button>
+    @foreach($errors as $error)
+    <strong>{{ $error }}</strong>
+    @endforeach
+    </div>
+  @endif
+  
                 <h1 class="heading-main mb-4">
                   Оставить заврос
                 </h1>
                 <!-- Heading Main -->
 
-                <form action="contact_process.php" method="post" id="contactusForm" novalidate="novalidate"
-                  class="col rounded-field">
+                <form action="{{ route('conts') }}" method="post" id="contactusForm" novalidate="novalidate"
+                  class="col rounded-field">@csrf
+                  @if(!Auth::check())
                   <div class="form-row mb-4">
                     <div class="col">
                       <input type="text" name="name" id="name" class="form-control" placeholder="Имя">
@@ -117,39 +136,23 @@
                       <input type="text" name="email" id="email" class="form-control" placeholder="Email">
                     </div>
                   </div>
-                  <!-- <div class="form-row mb-4">
-                      <div class="col">
-                        <select title="Please choose a package" required=""  name="Transport_Package" id ="Transport_Package" class="custom-select" aria-required="true" aria-invalid="false">
-                            <option value="">Transport Type</option>
-                            <option value="Type 1">Type 1</option>
-                            <option value="Type 2">Type 2</option>
-                            <option value="Type 3">Type 3</option>
-                            <option value="Type 4">Type 4</option>
-                        </select>
-                      </div>
-                      <div class="col">
-                        <select title="Please choose a package" required="" name="Freight_Package" id="Freight_Package" class="custom-select" aria-required="true" aria-invalid="false">
-                            <option value="">Type of freight</option>
-                            <option value="Type 1">Type 1</option>
-                            <option value="Type 2">Type 2</option>
-                            <option value="Type 3">Type 3</option>
-                            <option value="Type 4">Type 4</option>
-                        </select>
-                      </div>
-                    </div> -->
+                @endif
                   <div class="form-row mb-4">
                     <div class="col">
-                      <textarea rows="7" name="cment" id="cment" placeholder="Введите сообщение"
+                      <textarea rows="7" name="message" maxlength="250" id="cment" placeholder="Введите сообщение"
                         class="form-control"></textarea>
                     </div>
                   </div>
                   <div class="form-row text-center">
 
-                    <button name="contactForm" id="contactForm" type="submit"
+                    <button id="contactForm" type="submit"
                       class="form-btn mx-auto btn-theme bg-orange">Отправить<i
                         class="icofont-rounded-right"></i></button>
                   </div>
                 </form>
+
+
+
               </div>
             </div>
           </div>
@@ -167,3 +170,17 @@
       </section>
       <!-- Google Map Start -->
     </main>
+
+
+        <script type="text/javascript">
+function maxLength(el) {    
+    if (!('maxLength' in el)) {
+        var max = el.attributes.maxLength.value;
+        el.onkeypress = function () {
+            if (this.value.length >= max) return false;
+        };
+    }
+}
+
+maxLength(document.getElementById("cment"));
+    </script>

@@ -123,7 +123,7 @@ $title = str_replace($heas, $yummy, $ph);
 
 			<hr>
 				      	<div class="row" style="padding-top: 30px;">
-		<div class="col-lg-6">{{ $products->appends(request()->except('page'))->links() }}</div>
+		<div class="col-lg-6 text-center theme-pagination">{{ $products->appends(request()->except('page'))->links() }}</div>
 
 		</div>
 			@endif

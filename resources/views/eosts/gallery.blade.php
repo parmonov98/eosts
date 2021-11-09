@@ -24,7 +24,7 @@
 
                         <div class="cbp-item @if($gallery->sezi == 1) design @elseif($gallery->sezi == 2) identity @else photography @endif" itemprop="">
                             <div class="gallery-link">
-                                <a href="project-single.html" class="txt-white">
+                                <a href="{{ asset('/gallery/'.$gallery->img['max']) }}" class="txt-white">
                                     <i class="icofont-external-link"></i>
                                 </a>
                             </div>

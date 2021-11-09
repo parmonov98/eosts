@@ -10,6 +10,7 @@ use Auth;
 use App\Models\User;
 use App\Models\Article;
 use App\Models\Settings;
+use App\Models\Contact;
 use Config;
 use Str;
 use PDF;
@@ -131,13 +132,13 @@ class IndexController extends SiteController
 
 	    public function generate_pdf($id){
 		if(!session()->has('lang')){
-			session()->put('lang', 'oz');
+			session()->put('lang', 'ru');
 		}
 		$cat = session('lang');
 
 
 
-	if($cat != 'oz' && $cat != 'uz' && $cat != 'ru' && $cat != 'en'){
+	if($cat != 'tu' && $cat != 'ru' && $cat != 'en'){
 			abort(404);
 		}
 	$article = Article::select('title','text'.$cat,'img')->find($id);
@@ -153,6 +154,39 @@ class IndexController extends SiteController
 
 
 
+
+
+
+	public function pdf($id){
+		// dd('salom');
+		$qabulxona = Contact::find($id);
+		if($qabulxona==null){abort(404);}
+		///dd($qabulxona->user_id);
+
+
+
+	//	 if($qabulxona->user_id != NULL){$email[$qabulxona->user_id];}
+
+		 //if(isset($qabulxona->email))
+		 if($qabulxona->email!= NULL)
+		 {$qabulxona->email;
+		 }else{
+			$name = User::find($qabulxona->user_id)->first()->name;
+			$email = User::find($qabulxona->user_id)->first()->email;
+			$qabulxona->email = $email;
+			$qabulxona->name = $name;
+
+		 }
+
+		$str = Str::random(8);
+		$names = $qabulxona->id.'-'.$str;
+	//$article = Article::select('title','text'.$cat,'img')->find($id);
+
+	//$user = ['title'=>$article->title[$cat], 'text'=>$article['text'.$cat], 'img'=>$article->img];
+//dd($qabulxona);
+      $pdf = PDF::loadView('pdf.wpdf', compact('qabulxona','names'));
+      return $pdf->download($names.'.pdf');
+    }
 
 
 

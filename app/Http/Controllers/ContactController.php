@@ -59,19 +59,22 @@ class ContactController extends SiteController
     {
 
       $data = $request->except('_token');
-        //dd($data);
         $validator = Validator::make($data,[
         	'message' => 'string|required',
-        	'site' => 'string|required'
+        	// 'site' => 'string|required'
         ]);
 
+// name
+
+        // dd($data);
 
 
         $validator->sometimes(['name','email'],'required|max:255',function($input) {
         	return !Auth::check();
         });
         if($validator->fails()) {
-			return \Response::json(['error'=>$validator->errors()->all()]);
+            return back()->with(['errors' => $validator->errors()->all()]);
+
 		}
 
 		$user = Auth::user();
@@ -82,7 +85,9 @@ class ContactController extends SiteController
 
 		$contact->fill($data)->save();
 		// $this->send();
-		return \Response::json(['status'=>'Saqlandi']);
+return back()->with(['status'=>'Saqlandi']);
+
+		// return \Response::json(['status'=>'Saqlandi']);
 
         exit();
 

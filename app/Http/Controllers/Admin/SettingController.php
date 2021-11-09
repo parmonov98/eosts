@@ -136,6 +136,60 @@ class SettingController extends AdminController
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+ public function setteng()
+    {
+
+        $this->title = 'Каналы социальных сетей!';
+        $setname = $this->setful();
+
+         $articles = view(config('settings.theme').'.admin.settings.setteng_content',compact('setname'));
+           $this->vars = Arr::add($this->vars,'content',$articles);
+
+        return $this->renderOutput();
+        //return $set;
+    }
+
+     public function settengup(Request $request)
+    {
+        $result = $this->s_t->stbot($request);
+
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+
+        return back()->with($result);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public function files()
     {
 

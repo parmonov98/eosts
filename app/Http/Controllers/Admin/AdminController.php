@@ -163,7 +163,7 @@ $sozla->add('<span>Адрес</span>', array('route' => 'setAddress'))->prepend(
  // $sozla->add('<span>Йил дастури</span>', array('route' => 'setFiles'))->prepend('<i class="fa fa-newspaper-o"></i>');
  // $sozla->add('<span>Фото галирия</span>', array('route' => 'rasm.index'))->prepend('<i class="fa fa-camera"></i>');
 
- // $sozla->add('<span>Фон расмини ўзгартириш</span>', array('route' => 'setFon'))->prepend('<i class="fa fa-retweet"></i>');
+ // $sozla->add('<span>Соц.сети</span>', array('route' => 'setNetwork'))->prepend('<i class="fa fa-retweet"></i>');
 
 
 $sozla->add('<span>Топ рейтинг</span>', array('route' => 'setRating'))->prepend('<i class="fa fa-line-chart"></i>');
@@ -176,17 +176,9 @@ $sozla->add('<span>Топ рейтинг</span>', array('route' => 'setRating'))
 
 
 
-			if(Gate::allows('VIEW_ADMIN_XATO')) {
-			$menu->add('<span>Хатолар</span>',array('route' => 'xato.index'))->prepend('<i class="fa fa-exclamation-triangle"></i>');
-			}
-
 			if(Gate::allows('VIEW_ADMIN_COMMENT')) {
 			$menu->add('<span>Комментарии</span>',array('route' => 'izox.index'))->prepend('<i class="fa fa-comment"></i>');
-			}
-
-
-
-			if(Gate::allows('VIEW_ADMIN_CONTACT')) {
+			
 			$menu->add('<span>Сообщения</span>',array('route' => 'contact.index'))->prepend('<i class="fa fa-envelope-open"></i>');
 			}
 
@@ -194,9 +186,9 @@ $sozla->add('<span>Топ рейтинг</span>', array('route' => 'setRating'))
 			if(Gate::allows('VIEW_ADMIN_ARTICLES')) {
 			$menu->add('<span>Статьи</span>',  array('route'  => 'article.index'))->prepend('<i class="fa fa-newspaper-o"></i>');
 
-			$menu->add('<span>Slider</span>',  array('route'  => 'slider.index'))->prepend('<i class="fa fa-slideshare"></i>');
+			$menu->add('<span>Slider</span>',  array('route'  => 'slider.index'))->prepend('<i class="fa fa-picture-o "></i>');
 			
-			$menu->add('<span>Gallery</span>',  array('route'  => 'gallery.index'))->prepend('<i class="fa fa-picture-o"></i>');
+			$menu->add('<span>Gallery</span>',  array('route'  => 'gallery.index'))->prepend('<i class="fa fa-camera"></i>');
 
 		}
 
@@ -210,7 +202,7 @@ $sozla->add('<span>Топ рейтинг</span>', array('route' => 'setRating'))
 			if(Gate::allows('EDIT_PERMISSIONS')) {
 			$menu->add('<span>Пользователи</span>',  array('route'  => 'users.index'))->prepend('<i class="fa fa-users"></i>');
 
-			$menu->add('<span>Привилегии</span>',  array('route'  => 'permissions.index'))->prepend('<i class="fa fa-tags"></i>');
+			// $menu->add('<span>Привилегии</span>',  array('route'  => 'permissions.index'))->prepend('<i class="fa fa-tags"></i>');
 			}
 
 			//class="sub-menu"

@@ -92,6 +92,29 @@ class SettingRepository extends Repositor {
 
 	}
 
+
+
+
+	public function stbot($request,$id = 1) {
+		if(!Gate::allows('edit', $this->model)) {
+			abort(403);
+		}
+		$data = $request->except('_token','telegram_user_id');
+		$result = $this->model->where('id',$id);
+//dd($data);
+
+
+		if($result->update(['telegram_user_id'=>$request->get('telegram_user_id'),'setteng_telegram' => json_encode($data)])) {
+			return ['status' => 'Информация обновлена'];
+		}
+
+	}
+
+
+
+
+
+
 	public function filesup($request,$id = 1) {
 		if(!Gate::allows('edit', $this->model)) {
 			abort(403);

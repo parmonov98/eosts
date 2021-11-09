@@ -4,9 +4,9 @@
 
   <h2>
 @if(isset($_GET['page']) && $_GET['page'] > 1 )
-  Xabarlar bilan ishlash bo`limi
+ Отдел сообщения 
 @else
-  ({!!($counts == 0)?$counts:'<font color="red">'.$counts.'</font>'!!}) ta yangi xabar mavjud
+  ({!!($counts == 0)?$counts:'<font color="red">'.$counts.'</font>'!!}) новые сообщения
 @endif
   </h2>
       @if ($status = Session::get('status'))
@@ -20,9 +20,9 @@
 				                        <thead>
 				                            <tr>
 				                                <th class="align-left">ID</th>
-				                                <th>Ismi:</th>
-				                               <th>Matni</th>
-				                                <th>Telefon</th>
+				                                <th>Имя:</th>
+				                               <th>Текст</th>
+				                                <th>Телефон</th>
 
 				                                 <th>E-mail</th>
 				                                <th style="width: 70px;text-align: center;">PDF</th>
