@@ -9,6 +9,7 @@ use App\Repositories\RoleUserRepository;
 use Auth;
 use App\Models\User;
 use App\Models\Article;
+use App\Models\Uslug;
 use App\Models\Settings;
 use App\Models\Contact;
 use Config;
@@ -69,21 +70,16 @@ class IndexController extends SiteController
 
 
 	public function getArticles($cat = null){
-// dd($cat);
-				$articles = Article::where([
-								['description'.$cat,'!=','NULL'],
-								['text'.$cat,'!=','NULL'],
-								['heddin','!=','0']
+
+// dd(Uslug::get()[0]['title'][$cat]);
+
+				$articles = Uslug::where([
+								['title->'.$cat,'!=','NULL'],
+								['desc->'.$cat,'!=','NULL'],
+								['text->'.$cat,'!=','NULL']
 								])
-								->where('img','!=','NULL')
-								->where('title','!=','NULL')
 								->orderBy('created_at', 'desc')
 								->latest('id')->paginate(Config::get('settings.paginate_index'));
-
-		// dd($articles);
-		if($articles){
-			$articles->load('menu');
-		}
 
 		return $articles;
 	}
@@ -130,26 +126,6 @@ class IndexController extends SiteController
 
 
 
-	    public function generate_pdf($id){
-		if(!session()->has('lang')){
-			session()->put('lang', 'ru');
-		}
-		$cat = session('lang');
-
-
-
-	if($cat != 'tu' && $cat != 'ru' && $cat != 'en'){
-			abort(404);
-		}
-	$article = Article::select('title','text'.$cat,'img')->find($id);
-
-	if($article==null){abort(404);}
-	$str = Str::random(8);
-	$user = ['title'=>$article->title[$cat], 'text'=>$article['text'.$cat], 'img'=>$article->img];
-// dd($user);
-      $pdf = PDF::loadView('pdf.pdf', compact('user'));
-      return $pdf->download($str.'.pdf');
-    }
 
 
 
@@ -157,36 +133,7 @@ class IndexController extends SiteController
 
 
 
-	public function pdf($id){
-		// dd('salom');
-		$qabulxona = Contact::find($id);
-		if($qabulxona==null){abort(404);}
-		///dd($qabulxona->user_id);
 
-
-
-	//	 if($qabulxona->user_id != NULL){$email[$qabulxona->user_id];}
-
-		 //if(isset($qabulxona->email))
-		 if($qabulxona->email!= NULL)
-		 {$qabulxona->email;
-		 }else{
-			$name = User::find($qabulxona->user_id)->first()->name;
-			$email = User::find($qabulxona->user_id)->first()->email;
-			$qabulxona->email = $email;
-			$qabulxona->name = $name;
-
-		 }
-
-		$str = Str::random(8);
-		$names = $qabulxona->id.'-'.$str;
-	//$article = Article::select('title','text'.$cat,'img')->find($id);
-
-	//$user = ['title'=>$article->title[$cat], 'text'=>$article['text'.$cat], 'img'=>$article->img];
-//dd($qabulxona);
-      $pdf = PDF::loadView('pdf.wpdf', compact('qabulxona','names'));
-      return $pdf->download($names.'.pdf');
-    }
 
 
 

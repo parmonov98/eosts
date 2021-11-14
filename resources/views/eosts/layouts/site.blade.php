@@ -321,6 +321,8 @@ $lang = session('lang');
 
    
 @yield('gallery') 
+
+@yield('callout') 
  
 
 

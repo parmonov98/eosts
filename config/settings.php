@@ -34,6 +34,12 @@
 				'max' => ['width'=>1550,'height'=>1030],
 				'min' => ['width'=>254,'height'=>220]
 				],
+
+		'ulug' => [
+				'max' => ['width'=>700,'height'=>400],
+				'min' => ['width'=>254,'height'=>220]
+				],
+
 					
 		'blog' => [
 				'max' => ['width'=>700,'height'=>400],

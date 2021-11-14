@@ -1,13 +1,25 @@
 <div id="content-page" class="content group">
 				            <div class="hentry group">
-    @if ($error = Session::get('error'))
-  <div class="alert alert-danger">
-  <button class="close" data-dismiss="alert">×</button>
-  <strong>{{ $error }}</strong>
-  </div>                  
-    @endif
 
-{!! Form::open(['url' => (isset($slider->id)) ? route('slider.update',['slider'=>$slider->id]) : route('slider.store'),'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
+
+{!! Form::open(['url' => (isset($setname->id)) ? route('employee.update',['employee'=>$setname->id]) : route('employee.store'),'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
+
+
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
 
 
 
@@ -15,7 +27,9 @@
 
 
 
-  <?php
+
+
+<?php
   $i=0;
   $j=0;
   $languages=['ru'=>'Русский','en'=>'English','tu'=>'Türkçe'];
@@ -40,54 +54,24 @@
     <br />
 
 
-
       <div class="input-prepend"><span class="add-on">
-
       <i class="icon-user"></i></span>
-    
-
-
-      Краткий названия фермы (на {{$label}}) :<strong style="color:red;">*</strong> 
-
-      {!! Form::text("name[name][$language]", isset($slider->name['name'][$language]) ? 
-      $slider->name['name'][$language] : old("name['name'][$language]"), ['class'=>'form-control','placeholder'=>'Введите название (на '.$label.')']) !!}
-
+         Имя (на {{$label}}) :<strong style="color:red;">*</strong> 
+     {!! Form::text('name['.$language.']',  isset($setname->name[$language]) ? $setname->name[$language]  : old("name[$language]"), ['id'=>'summernote','class' => 'form-control','placeholder'=>'Введите текст страницы']) !!}
+       </div>
+  <br />       
+      <div class="input-prepend"><span class="add-on">
+      <i class="icon-user"></i></span>
+         Профессия (на {{$label}}) :<strong style="color:red;">*</strong> 
+     {!! Form::text('prof['.$language.']',  isset($setname->prof[$language]) ? $setname->prof[$language]  : old("prof[$language]"), ['id'=>'summernote','class' => 'form-control','placeholder'=>'Введите текст страницы']) !!}
        </div>
 
 
-<br>
-      <div class="input-prepend"><span class="add-on">
-
-      <i class="icon-user"></i></span>
-      Краткий описания(на {{$label}}):<strong style="color:red;">*</strong> 
-
-      {!! Form::text("name[title][$language]", isset($slider->name['title'][$language]) ? 
-      $slider->name['title'][$language] : old("name['title'][$language]"), ['class'=>'form-control','placeholder'=>'Введите краткий описания (на '.$label.')']) !!}
-
-       </div>
-<br>
- 
-
-      <div class="input-prepend"><span class="add-on">
-
-      <i class="icon-user"></i></span>
-      Полный описания(на {{$label}}):<strong style="color:red;">*</strong> 
-
-      {!! Form::text("name[description][$language]", isset($slider->name['description'][$language]) ? 
-      $slider->name['description'][$language] : old("name['description'][$language]"), ['class'=>'form-control','placeholder'=>'Введите полный описания (на '.$label.')']) !!}
-
-       </div>
 
 
+     
                 </div>
             <?php $j++; } ?>
-
-
-
-       <hr>
-
-  </div>
-  </div>
 
 
 
@@ -99,6 +83,8 @@
 			 </div>
 
 
+		<br />   	
+
 
 
 
@@ -106,30 +92,28 @@
 
 <div class="col-sm-8">
   Загрузка фото :
-   <input type="file" name="image" id="file" size="2048">
-Размер <strong> 2 МБ</strong> (в формате <strong>.png, .gif, .jpeg, .jpg </strong>) файл можно отправить   
+   <input type="file" name="file" id="file" size="2048">
+Вы можете загружать файлы размером до <strong> 2 МБ</strong> (в формате <strong>.png, .gif, .jpeg, .jpg </strong>)   
 </div>
   <div class="col-sm-4">
-@if(isset($slider->img['min']))
-    {{ Html::image(asset('/sliders/'.$slider->img['min']),'',['style'=>'width:50%;']) }}
+@if(isset($setname->img))
+    {{ Html::image(asset('/uploads/'.$setname->img),'',['style'=>'width:50%;']) }}
 @endif
 </div>
 
 </div>
 
-
-
-
-</div>
-
-		</div>
-
-	    @if(isset($slider->id))
+      @if(isset($setname->id))
           <input type="hidden" name="_method" value="PUT">
       @endif
 
 
-						{!! Form::button('Сохранить', ['class' => 'btn btn-primary btn-block','type'=>'submit']) !!}
+		</div>
+
+		<br />
+
+
+						{!! Form::button('Сақлаш', ['class' => 'btn btn-success','type'=>'submit']) !!}
 
 
 

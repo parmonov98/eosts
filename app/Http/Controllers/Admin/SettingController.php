@@ -177,10 +177,73 @@ class SettingController extends AdminController
 
 
 
+ public function onas()
+    {
+        $this->title = 'О нас!';
+        $setname = $this->setful();
+
+         $articles = view(config('settings.theme').'.admin.settings.onas_content',compact('setname'));
+           $this->vars = Arr::add($this->vars,'content',$articles);
+
+        return $this->renderOutput(); 
+    }
+
+     public function onasup(Request $request)
+    {
+        $result = $this->s_t->onas($request);
+
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
+
+
+
+ public function vebor()
+    {
+        $this->title = 'О нас!';
+        $setname = $this->setful();
+
+         $articles = view(config('settings.theme').'.admin.settings.vebor_content',compact('setname'));
+           $this->vars = Arr::add($this->vars,'content',$articles);
+
+        return $this->renderOutput(); 
+    }
+
+     public function veborup(Request $request)
+    {
+        $result = $this->s_t->vebor($request);
+
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
 
 
 
 
+ public function vopraos()
+    {
+        $this->title = 'О нас!';
+        $setname = $this->setful();
+
+         $articles = view(config('settings.theme').'.admin.settings.vopraos_content',compact('setname'));
+           $this->vars = Arr::add($this->vars,'content',$articles);
+
+        return $this->renderOutput(); 
+    }
+
+     public function vopraosup(Request $request)
+    {
+        $result = $this->s_t->vopraos($request);
+
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
 
 
 

@@ -115,6 +115,47 @@ class SettingRepository extends Repositor {
 
 
 
+	public function onas($request,$id = 1) {
+
+		$data = $request->except('_token');
+		$result = $this->model->where('id',$id);
+// dd($data);
+
+		if($result->update(['prcomp'=>$request->get('prcomp')])) {
+			return ['status' => 'Информация обновлена'];
+		}
+
+	}
+
+
+
+	public function vebor($request,$id = 1) {
+
+		$data = $request->except('_token');
+		$result = $this->model->where('id',$id);
+// dd($data);
+
+		if($result->update(['vebor'=>$request->get('vebor')])) {
+			return ['status' => 'Информация обновлена'];
+		}
+
+	}
+
+
+
+
+	public function vopraos($request,$id = 1) {
+
+		$data = $request->except('_token');
+		$result = $this->model->where('id',$id);
+// dd($data);
+
+		if($result->update(['select'=>$request->get('select')])) {
+			return ['status' => 'Информация обновлена'];
+		}
+
+	}
+
 
 
 	public function filesup($request,$id = 1) {

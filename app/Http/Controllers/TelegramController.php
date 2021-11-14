@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Notifications\ExampleNotification;
 use Illuminate\Support\Facades\Notification;
 use App\Models\Requ;
+
 use Arr;
 use App\Notifications\InvoicePaid;
 

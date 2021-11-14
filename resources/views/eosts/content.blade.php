@@ -15,9 +15,9 @@ $lang = session('lang');
                         <div class="col-xl-3 col-sm-6 col-xs-12" itemprop="itemListElement" itemscope
                             itemtype="#">
                             <div class="icon-box-7">
-                                <img src="{{ asset('/articles/'.$article->img['min'])}}" itemprop="image" alt="Перевозка драгоценных грузов">
+                                <img src="{{ asset('/uslugi/'.$article->img['min'])}}" itemprop="image" alt="Перевозка драгоценных грузов">
                                 <h3 class="h3-xs txt-blue">
-                                    <a class="text-white" href="{{ route('bCatf',['cat'=>$lang, 'blog'=>$article->menu->path, 'id'=>$article->id]) }}" itemprop="item">
+                                    <a class="text-white" href="{{ route('ushow',['id'=>$article->id]) }}" itemprop="item">
                                         <span itemprop="name">
                                             {!!$article->title[$lang]!!}
                                         </span>
@@ -26,7 +26,7 @@ $lang = session('lang');
                             </div>
                             <div style="height: 108px; overflow: hidden;">
                             
-                                {!!$article['description'.$lang]!!}
+                                {!!$article->desc[$lang]!!}
                             
                             </div>
                         </div>

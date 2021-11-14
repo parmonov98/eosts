@@ -101,7 +101,9 @@ class SliderController extends AdminController
      */
     public function edit(Slider $slider)
     {
-        //
+    $this->title = 'Редактирование ссылки - '.$slider->name['name']['ru'];
+    $this->content = view(config('settings.theme').'.admin.sliders.slider_create_content')->with(['slider' => $slider])->render();
+        return $this->renderOutput();
     }
 
     /**
@@ -113,7 +115,14 @@ class SliderController extends AdminController
      */
     public function update(Request $request, Slider $slider)
     {
-        //
+
+       $result = $this->s_rep->updateSliders($request,$slider);
+
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+
+        return redirect('/admins/slider')->with($result);
     }
 
     /**

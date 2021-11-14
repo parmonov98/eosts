@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\UsersRepository;
 use App\Http\Requests;
-
+use App\Models\Uslug;
 use App\Models\Obuna;
-
+use App\Models\Settings;
+use App\Models\Employee;
+use Arr;
 use Auth;
 
 class ObunaController extends SiteController
@@ -20,6 +22,7 @@ class ObunaController extends SiteController
 		parent::__construct(new \App\Repositories\MenusRepository(new \App\Models\Menu));
 
 		$this->u_rep = $u_rep;
+		$this->template = env('THEME').'.uslug';
 
 
 	}
@@ -53,6 +56,108 @@ if(is_object(Obuna::where('email', $request['email'])->first())){
 
 
     }
+
+
+
+    public function uslug()
+    {
+        if(empty(session('lang'))){
+           session()->put('lang', 'ru');
+        }
+       $cat = session('lang');
+
+      if($cat != 'ru' && $cat != 'en' && $cat !== 'tu'){
+        abort(404);
+       }
+
+        $articles = Uslug::orderBy('created_at', 'desc')->limit(4)->get();
+
+        $this->title = $this->keywords = $this->meta_desc = 'Услуги';
+
+
+
+        $content = view(env('THEME').'.full_uslug_content',compact('articles','cat'))->render();
+        $this->vars = Arr::add($this->vars,'content',$content);
+        return $this->renderOutput($cat);
+
+    }
+
+
+    public function show($id)
+    {
+    	if(empty(session('lang'))){
+	       session()->put('lang', 'ru');
+    	}
+       $cat = session('lang');
+
+      if($cat != 'ru' && $cat != 'en' && $cat !== 'tu'){
+        abort(404);
+       }
+
+
+    	if(empty($id)){ abort(404); }
+
+
+        $articles = Uslug::where("title",'!=','NULL')->where('id',$id)->first();
+
+    	if($id){
+    		if($articles == null){
+				abort(404);
+		}
+
+
+
+if(isset($articles->id)){
+		$this->title = $this->keywords = $this->meta_desc = $articles->title[$cat];
+		}
+
+
+		$content = view(env('THEME').'.detal_uslug_content',compact('articles','cat'))->render();
+       	$this->vars = Arr::add($this->vars,'content',$content);
+       	return $this->renderOutput($cat);
+    }        
+
+    }
+
+
+
+	public function getSetting(){
+		$man = Settings::select()->first();
+		return $man;
+	}
+
+    public function getEmployee(){
+        $man = Employee::get();
+        return $man;
+    }
+
+
+           public function pronas(){
+
+
+        if(empty(session('lang'))){
+           session()->put('lang', 'ru');
+        }
+       $lang = session('lang');
+
+      if($lang != 'ru' && $lang != 'en' && $lang !== 'tu'){
+        abort(404);
+       }
+
+        $this->title =  $this->keywords =  $this->meta_desc =  $this->getSetting()['names']['name'][$lang];
+
+
+        $employee =$this->getEmployee();
+        $pronas =$this->getSetting();
+
+        $pronas = view(config('settings.theme').'.pronas',compact('pronas','employee','lang'))->render();
+
+        $this->vars = Arr::add($this->vars,'content',$pronas);
+
+
+        return $this->renderOutput($lang);
+
+            }
 
 
 

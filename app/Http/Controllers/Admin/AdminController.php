@@ -166,22 +166,45 @@ $sozla->add('<span>Топ рейтинг</span>', array('route' => 'setRating'))
 		}
 
 
+$onas = $menu->add('<span>О нас</span>',['disableActivationByURL' => true, 'url' => '#'])->attr('class', 'treeview')->prepend('<i class="fa fa-cubes"></i>');
+
+ $onas->add('<span>Про EOSTS</span>', array('route' => 'setOnas'))->prepend('<i class="fa fa-user-circle-o"></i>');
+ $onas->add('<span>Дополнительной</span>', array('route' => 'setVopraos'))->prepend('<i class="fa fa-bookmark-o"></i>');
+ $onas->add('<span>ВЫБИР EOSTS</span>', array('route' => 'setVeboros'))->prepend('<i class="fa fa-sellsy"></i>');
+
+$onas->add('<span>Наша команда</span>', array('route' => 'employee.index'))->prepend('<i class="fa fa-users"></i>');
+ $onas->add('<span>Вопросы</span>', array('route' => 'setVopraos'))->prepend('<i class="fa fa-share-alt"></i>');
+
+
+$sent = $menu->add('<span>Все сообщения</span>',['disableActivationByURL' => true, 'url' => '#'])->attr('class', 'treeview')->prepend('<i class="fa fa-comments-o"></i>');
+
+ $sent->add('<span>Дубликат заявок</span>', array('route' => 'requ.index'))->prepend('<i class="fa fa-paste"></i>');
+
+$sent->add('<span>Комментарии</span>', array('route' => 'izox.index'))->prepend('<i class="fa fa-comment"></i>');
+ $sent->add('<span>Сообщения</span>', array('route' => 'contact.index'))->prepend('<i class="fa fa-envelope-open"></i>');
+
+
+
+$foto = $menu->add('<span>Фото</span>',['disableActivationByURL' => true, 'url' => '#'])->attr('class', 'treeview')->prepend('<i class="fa fa-image"></i>');
+
+ $foto->add('<span>Slider</span>', array('route' => 'slider.index'))->prepend('<i class="fa fa-picture-o"></i>');
+
+$foto->add('<span>Gallery</span>', array('route' => 'gallery.index'))->prepend('<i class="fa fa-camera"></i>');
+
+
+
 
 
 	if(Gate::allows('VIEW_ADMIN_COMMENT')) {
-	$menu->add('<span>Комментарии</span>',array('route' => 'izox.index'))->prepend('<i class="fa fa-comment"></i>');
+	$menu->add('<span>Услуги</span>',array('route' => 'uslug.index'))->prepend('<i class="fa fa-gears"></i>');
 	
-	$menu->add('<span>Сообщения</span>',array('route' => 'contact.index'))->prepend('<i class="fa fa-envelope-open"></i>');
-	$menu->add('<span>Дубликат заявок</span>',array('route' => 'requ.index'))->prepend('<i class="fa fa-paste"></i>');
 	}
 
 
 	if(Gate::allows('VIEW_ADMIN_ARTICLES')) {
-	$menu->add('<span>Статьи</span>',  array('route'  => 'article.index'))->prepend('<i class="fa fa-newspaper-o"></i>');
+	// $menu->add('<span>Статьи</span>',  array('route'  => 'article.index'))->prepend('<i class="fa fa-newspaper-o"></i>');
 
-	$menu->add('<span>Slider</span>',  array('route'  => 'slider.index'))->prepend('<i class="fa fa-picture-o "></i>');
 	
-	$menu->add('<span>Gallery</span>',  array('route'  => 'gallery.index'))->prepend('<i class="fa fa-camera"></i>');
 
 }
 

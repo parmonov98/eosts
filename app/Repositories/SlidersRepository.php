@@ -85,13 +85,96 @@ $img->fit(Config::get('settings.slider')['min']['width'],
 
 
 
+
+
+
+
+
+public function updateSliders($request,$slider){
+
+		$data = $request->except('_token','_method','file');
+	// dd($slider);
+
+		// if(empty($data)) {return array('error' => 'Нет фото');}
+
+
+		if($request->hasFile('image')) {
+
+
+		if(is_array($slider->img)){
+
+			if(is_file(public_path('sliders/').$slider->img['max'])){
+			$file2 = public_path('sliders/').$slider->img['max'];File::delete($file2);}
+
+			if(is_file(public_path('sliders/').$slider->img['min'])){
+			$file = public_path('sliders/').$slider->img['min'];
+				File::delete($file);}
+
+			}
+
+
+
+
+			$image = $request->file('image');
+
+			if(!empty($request->image)){
+
+				$obj = new \stdClass;
+
+		$rand = '_'.strtolower(Str::random(20));
+
+		$obj->max = 'max'.$rand.'.jpg';
+		$obj->min = 'min'.$rand.'.jpg';
+
+
+	$img = Image::make($image);
+
+	$img->fit(Config::get('settings.slider')['max']['width'],
+		 Config::get('settings.slider')['max']['height'])->save(public_path('sliders/').$obj->max);
+
+
+$img->fit(Config::get('settings.slider')['min']['width'],
+			Config::get('settings.slider')['min']['height'])->save(public_path('sliders/').$obj->min);
+
+
+
+
+				$data['img'] = ['max'=>$obj->max,'min'=>$obj->min];
+				//dd($data['img']);
+			}else{
+				dd('yuq!!!!');
+			}
+
+			}
+
+
+	if(isset($data['name']['name']['ru']) && isset($data['name']['name']['en']) && $slider->update($data)) {
+			return ['status'=>'Информация обновлена'];
+	}else{ return ['error' => 'Нет фото'];}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public function deleteFile($id) {
 		$result = $this->one($id);
 
 		if(isset($result->img) && is_file(public_path('/sliders/').$result->img['max'])){			
 		$zmax = public_path('/sliders/').$result->img['max'];File::delete($zmax);}
 		if(isset($result->img) && is_file(public_path('/sliders/').$result->img['min'])){	
-		$zmax = public_path('/sliders/').$result->img['min'];File::delete($zmax);}
+		$zmin = public_path('/sliders/').$result->img['min'];File::delete($zmin);}
 			if($result->delete()) {
 				return ['status' => 'Удалено'];
 			}

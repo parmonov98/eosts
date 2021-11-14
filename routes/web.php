@@ -27,10 +27,13 @@ Route::get('/',function(){
 Route::get('/{cat?}', [Adress\IndexController::class, 'index'])->name('index')->where('cat','ru|en|tu');
 
 
+Route::get('/uslug/',[Adress\ObunaController::class,'uslug'])->name('uslug');
+Route::get('/uslugi/{id}',[Adress\ObunaController::class,'show'])->name('ushow');
 
-Route::get('/{cat}/blog/{blog}', [Adress\ArticleController::class, 'index'])->name('blCat')->where(['cat'=>'ru|en|tu','blog'=>'[\w-]+']);
 
-Route::get('/{cat}/blog/{blog}/{id}', [Adress\ArticleController::class, 'show'])->name('bCatf')->where(['cat'=>'ru|en|tu','blog'=>'[\w-]+','id'=>'[\0-9]+']);
+// Route::get('/{cat}/blog/{blog}', [Adress\ArticleController::class, 'index'])->name('blCat')->where(['cat'=>'ru|en|tu','blog'=>'[\w-]+']);
+
+// Route::get('/{cat}/blog/{blog}/{id}', [Adress\ArticleController::class, 'show'])->name('bCatf')->where(['cat'=>'ru|en|tu','blog'=>'[\w-]+','id'=>'[\0-9]+']);
 
 if(Auth::check()){
 Route::post('/message',[Adress\TelegramController::class,'message'])->name('message');
@@ -51,7 +54,13 @@ $item->package = $d['package'];$item->text = $d['text'];$item->save();
 
 }
 
+
+
+
+Route::get('/pronas',[Adress\ObunaController::class,'pronas'])->name('pronas');
+
 Route::get('/pdf/{id?}',[Adress\IndexController::class, 'generate_pdf'])->name('pdf')->where(['id'=>'[\0-9]+']);
+
 
 Route::match(['get','post'],'/search/search/', [Adress\SearchController::class, 'store'])->name('obSearch');
 
@@ -59,7 +68,7 @@ Route::match(['get','post'],'/search/search/', [Adress\SearchController::class, 
 Route::resource('/contacts/contacts/',Adress\ContactController::class);
 Route::get('export-excel-csv-file/{slug}', [Adress\Admin\RequController::class, 'exportExcelCSV']);
 
-Route::get('/all/{lang?}', [Adress\ArticleController::class, 'all_articles'])->name('allCat');
+// Route::get('/all/{lang?}', [Adress\ArticleController::class, 'all_articles'])->name('allCat');
 
 Route::match(['get','post'],'/comments',[Adress\CommentController::class, 'store'])->name('comments');
 Route::match(['get','post'],'/contacts',[Adress\ContactController::class, 'store'])->name('conts');
@@ -82,7 +91,7 @@ Route::get('mpdf/{id}', [Adress\IndexController::class, 'pdf'])->name('mpdf')->w
 
 Auth::routes();
 Route::match(['get','post'],'prof/update', [Adress\RegisterController::class, 'update'])->name('regPrUp');
-Route::get('/profile/{page?}/',[Adress\RegisterController::class, 'edit'])->name('regProf')->where(['page'=>'[\0-9]+']);
+Route::get('/profile',[Adress\RegisterController::class, 'edit'])->name('regProf')->where(['page'=>'[\0-9]+']);
 
 Route::middleware(['web'])->prefix('admins')->group(function () {
 Route::get('/', [Adress\Admin\IndexController::class, 'index'])->name('adminIndex');
@@ -98,27 +107,37 @@ Route::match(['get','post'],'addrup', [Adress\Admin\SettingController::class, 'a
 Route::get('sotnetwork', [Adress\Admin\SettingController::class, 'sotnetwork'])->name('setSotNetwork');
 Route::match(['get','post'],'sotnetworkup', [Adress\Admin\SettingController::class, 'sotnetworkup'])->name('setSotNetworkup');
 
-// Route::get('settengnetwork', [Adress\Admin\SettingController::class, 'setteng'])->name('setNetwork');
-// Route::match(['get','post'],'settengnetworkup', [Adress\Admin\SettingController::class, 'settengup'])->name('setNetworkup');
-
 Route::get('files', [Adress\Admin\SettingController::class, 'files'])->name('setFiles');
 Route::match(['get','post'],'filesup', [Adress\Admin\SettingController::class, 'filesup'])->name('setFilesUp');
 
 Route::get('rating', [Adress\Admin\SettingController::class, 'rating'])->name('setRating');
 Route::match(['get','post'],'ratingup', [Adress\Admin\SettingController::class, 'ratingup'])->name('setRatingUp');
 
+Route::get('onas', [Adress\Admin\SettingController::class, 'onas'])->name('setOnas');
+Route::match(['get','post'],'onasup', [Adress\Admin\SettingController::class, 'onasup'])->name('setOnasUp');
+
+Route::get('vebor', [Adress\Admin\SettingController::class, 'vebor'])->name('setVeboros');
+Route::match(['get','post'],'veborup', [Adress\Admin\SettingController::class, 'voborup'])->name('setVeborUp');
+
+Route::get('vopraos', [Adress\Admin\SettingController::class, 'vopraos'])->name('setVopraos');
+Route::match(['get','post'],'vopraosup', [Adress\Admin\SettingController::class, 'vopraosup'])->name('setVopraosUp');
+
+
 
 Route::resource('requ', Adress\Admin\RequController::class);
 
+Route::resource('/employee',Adress\Admin\EmployeeController::class);
 
 
+Route::resource('/uslug',Adress\Admin\UslugController::class);
 
 Route::resource('/slider',Adress\Admin\SliderController::class);
+
 Route::resource('/gallery',Adress\Admin\GalleryController::class);
 Route::resource('/contact',Adress\Admin\ContactController::class);
 Route::resource('/izox',Adress\Admin\CommentController::class);
-Route::resource('/article',Adress\Admin\ArticleController::class);
-Route::match(['get','post'],'/articleaaaa', [Adress\Admin\ArticleController::class, 'store']);
+// Route::resource('/article',Adress\Admin\ArticleController::class);
+// Route::match(['get','post'],'/articleaaaa', [Adress\Admin\ArticleController::class, 'store']);
 Route::resource('/users',Adress\Admin\UsersController::class);
 Route::resource('/menus',Adress\Admin\MenusController::class);
 Route::resource('/permissions',Adress\Admin\PermissionsController::class);
