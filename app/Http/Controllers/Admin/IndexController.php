@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
-use App\Models\Article;
 use App\Models\User;
 use Arr;
 
@@ -37,9 +36,9 @@ class IndexController extends AdminController
 		// $comment = Comment::where('prev', 0)->count();
 		//$qabulxona = Qabulxona::where('prev', 0)->count();
 		$user = User::count();
-		$article = Article::count();
 
-        $articles = view(config('settings.theme').'.admin.index_view',compact('article','user'));
+
+        $articles = view(config('settings.theme').'.admin.index_view',compact('user'));
 		   $this->vars = Arr::add($this->vars,'content',$articles);
 
 		return $this->renderOutput();

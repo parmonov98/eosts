@@ -183,13 +183,13 @@ $lang = session('lang');
                     </span>
 
 
-<!--                     <div class="d-inline-flex request-btn ml-2 order-lg-last">
+                    <div class="d-inline-flex request-btn ml-2 order-lg-last">
                         <a class="btn-theme icon-left bg-orange no-shadow d-none d-lg-inline-block align-self-center"
                             href="#" role="button" data-toggle="modal" data-target="#request_popup"><i
                                 class="icofont-page"></i>
-                            Получить расчёт
+                           {{('ru'==$lang)?'Получить расчёт':''}}{{('en'==$lang)?'Get a quote':''}}{{('tu'==$lang)?'Fiyat teklifi al':''}} 
                         </a>
-                    </div> -->
+                    </div>
                     <!-- Topbar Request Quote Start -->
 
                     <!-- Toggle Button Start -->

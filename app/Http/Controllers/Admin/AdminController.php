@@ -45,6 +45,12 @@ class AdminController extends \App\Http\Controllers\Controller
 	}
 
 
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
+
 	 public function authUsers() {
 	 	$this->user = Auth::user();
 
@@ -200,13 +206,6 @@ $foto->add('<span>Gallery</span>', array('route' => 'gallery.index'))->prepend('
 	
 	}
 
-
-	if(Gate::allows('VIEW_ADMIN_ARTICLES')) {
-	// $menu->add('<span>Статьи</span>',  array('route'  => 'article.index'))->prepend('<i class="fa fa-newspaper-o"></i>');
-
-	
-
-}
 
 
 
