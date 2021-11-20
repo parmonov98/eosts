@@ -40,7 +40,14 @@ $lang = session('lang');
                     <div class="row align-items-center">
                         <div class="col-md-6 wow fadeInLeft" data-wow-duration="0" data-wow-delay="0s">
 
-                            {!!$pronas->prcomp[$lang]!!}
+                            <h2 class="mb-4 fw-7 txt-blue">
+                {{('ru'==$lang)?'Про':''}}{{('en'==$lang)?'About':''}}{{('tu'==$lang)?'EOSTS':''}}
+                 <span class="fw-6 txt-orange" itemprop="name">{{('ru'==$lang)?'EOSTS':''}}{{('en'==$lang)?'EOSTS':''}}{{('tu'==$lang)?'hakkında':''}}</span>
+
+                       
+                          </h2>
+
+                           {!!isset($pronas->prcomp[$lang])?$pronas->prcomp[$lang]:''!!}
 
                         </div>
 
@@ -58,7 +65,59 @@ $lang = session('lang');
 
 
 
-{!!$pronas->question[$lang]!!}
+
+
+<section class="bg-light-gray wide-tb-100 pb-5 why-choose">
+        <div class="container pos-rel">
+          <div class="row">
+            <!-- Heading Main -->
+            <div class="col-sm-12 wow fadeInDown" data-wow-duration="0" data-wow-delay="0s">
+              <h1 class="heading-main">
+
+
+{!!('ru'==$lang)?'<span>НАШИ ОСОБЕННОСТИ </span> Почему именно нас выбирают?':''!!}
+{!!('en'==$lang)?'<span> OUR FEATURES </span> Why choose us?':''!!}
+{!!('tu'==$lang)?'<span> ÖZELLİKLERİMİZ </span> Neden bizi seçmelisiniz?':''!!}
+
+                
+              </h1>
+            </div>
+            <!-- Heading Main -->
+
+
+
+
+ {!!isset($pronas->question[$lang])?$pronas->question[$lang]:''!!}
+          
+
+
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="wide-tb-100 mb-spacer-md">
+        <div class="container wide-tb-100 pb-0">
+          <div class="row d-flex align-items-center">
+            
+{!!isset($pronas->select[$lang])?$pronas->select[$lang]:''!!}              
+
+              
+          </div>
+        </div>
+      </section>
+
 
 
 
@@ -74,8 +133,8 @@ $lang = session('lang');
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="p-5 about-whoose">
-                                
-                                    {!!$pronas->vebor[$lang]!!}
+                                {!!isset($pronas->vebor[$lang])?$pronas->vebor[$lang]:''!!}    
+                                  
 
                             </div>
                         </div>
@@ -84,6 +143,8 @@ $lang = session('lang');
             </section>
             <!-- Tracking Your Freight End -->
 
+
+@if($employee->count()>0)
             <!-- Our Team Start -->
             <section class="wide-tb-100 pb-0 team-section-bottom pos-rel">
                 <div class="container">
@@ -116,82 +177,7 @@ $lang = session('lang');
                 </div>
             </section>
             <!-- Our Team End -->
-
-            <!-- Clients Start -->
-            <section class="wide-tb-100 bg-fixed clients-bg pos-rel">
-                <div class="bg-overlay blue opacity-80"></div>
-                <div class="container">
-                    <div class="row">
-                        <!-- Heading Main -->
-                        <div class="col-sm-12 wow fadeInDown" data-wow-duration="0" data-wow-delay="0s">
-                            <h1 class="heading-main">{{('ru'==$lang)?'Наши клиенты':''}} {{('en'==$lang)?'Our clients':''}} {{('tu'==$lang)?'Müşterilerimiz':''}}</h1>
-                        </div>
-                        <!-- Heading Main -->
-
-                        <div class="col-sm-12 wow fadeInUp" data-wow-duration="0" data-wow-delay="0.2s">
-                            <div class="owl-carousel owl-theme" id="home-clients">
-                                <!-- Client Logo -->
-                                <div class="item">
-                                    <img src="{{ asset(env('THEME').'/images/clients/client1.png')}}" alt="" />
-                                </div>
-                                <!-- Client Logo -->
-
-                                <!-- Client Logo -->
-                                <div class="item">
-                                    <img src="{{ asset(env('THEME').'/images/clients/client2.png')}}" alt="" />
-                                </div>
-                                <!-- Client Logo -->
-
-                                <!-- Client Logo -->
-                                <div class="item">
-                                    <img src="{{ asset(env('THEME').'/images/clients/client3.png')}}" alt="" />
-                                </div>
-                                <!-- Client Logo -->
-
-                                <!-- Client Logo -->
-                                <div class="item">
-                                    <img src="{{ asset(env('THEME').'/images/clients/client4.png')}}" alt="" />
-                                </div>
-                                <!-- Client Logo -->
-
-                                <!-- Client Logo -->
-                                <div class="item">
-                                    <img src="{{ asset(env('THEME').'/images/clients/client5.png')}}" alt="" />
-                                </div>
-                                <!-- Client Logo -->
-
-                                <!-- Client Logo -->
-                                <div class="item">
-                                    <img src="{{ asset(env('THEME').'/images/clients/client6.png')}}" alt="" />
-                                </div>
-                                <!-- Client Logo -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Clients End -->
-
-
-
-            <!-- Frequently Asked Questions Start -->
-            <section class="wide-tb-100 faqs" id="faqs">
-                <div class="container">
-                    <div class="row">
-                       
-
-
-
-                    {!!$pronas->select[$lang]!!}
-
-
-
-
-
-                    </div>
-                </div>
-            </section>
-            <!-- Frequently Asked Questions End -->
+@endif
 
         </main>
 

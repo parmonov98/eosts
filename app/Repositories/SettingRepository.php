@@ -4,7 +4,8 @@ namespace App\Repositories;
 use App\Models\Settings;
 use App\Models\Comment;
 use App\User;
-use App\Models\Klient;
+use App\Models\OnasVap;
+use App\Models\OnasNaKl;
 use App\Models\Menu;
 use Gate;
 use Image;
@@ -128,33 +129,141 @@ class SettingRepository extends Repositor {
 	}
 
 
-
-	public function vebor($request,$id = 1) {
+	public function questionup($request,$id = 1) {
 
 		$data = $request->except('_token');
 		$result = $this->model->where('id',$id);
 // dd($data);
 
-		if($result->update(['vebor'=>$request->get('vebor')])) {
+		if($result->update(['question'=>$request->get('question')])) {
 			return ['status' => 'Информация обновлена'];
 		}
 
 	}
 
 
-
-
-	public function vopraos($request,$id = 1) {
-
+	public function selectup($request,$id = 1) {
 		$data = $request->except('_token');
 		$result = $this->model->where('id',$id);
-// dd($data);
-
 		if($result->update(['select'=>$request->get('select')])) {
 			return ['status' => 'Информация обновлена'];
 		}
-
 	}
+
+
+	public function cachistvaup($request,$id = 1) {
+		$data = $request->except('_token');
+		$result = $this->model->where('id',$id);
+		if($result->update(['cachistva'=>$request->get('cachistva')])) {
+			return ['status' => 'Информация обновлена'];
+		}
+	}
+
+
+	public function osobiyup($request,$id = 1) {
+		$data = $request->except('_token');
+		$result = $this->model->where('id',$id);
+		if($result->update(['osobiy'=>$request->get('osobiy')])) {
+			return ['status' => 'Информация обновлена'];
+		}
+	}
+
+
+	public function competentup($request,$id = 1) {
+		$data = $request->except('_token');
+		$result = $this->model->where('id',$id);
+		if($result->update(['competent'=>$request->get('competent')])) {
+			return ['status' => 'Информация обновлена'];
+		}
+	}
+
+
+
+
+	public function vebor($request,$id = 1) {
+		$data = $request->except('_token');
+		$result = $this->model->where('id',$id);
+		if($result->update(['vebor'=>$request->get('vebor')])) {
+			return ['status' => 'Информация обновлена'];
+		}
+	}
+
+
+	public function vopraos($request) {
+
+		$data = $request->except('_token');
+		$result = new OnasVap;
+		$result->vopros=$data['vopros'];
+		$result->otvet=$data['otvet'];
+
+		if($result->save()) {
+			return ['status' => 'Информация сохранина'];
+		}
+	}
+
+	public function vopdel($request) {
+
+		$data = $request->except('_token','_method');
+		// dd($data);
+		$result = OnasVap::where('id',$data['id'])->delete();
+		if($result) {
+			return ['status' => 'Информация сохранина'];
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public function nakilsav($request) {
+
+		$data = $request->except('_token');
+		$result = new OnasNaKl;
+        if($request->file()) {
+
+			$fileName = time().'.'.$request->file->extension();  
+	   
+			$request->file->move(public_path('nakil'), $fileName);
+	
+				$result->name =  $data['name'];
+				$result->img =  $fileName;
+				$result->save();
+	
+				return ['status' => 'Информация сохранина.'];
+	
+			}
+	}
+
+	public function nakildel($request) {
+
+		$data = $request->except('_token','_method');
+		// dd($data);
+		$result = OnasNaKl::where('id',$data['id'])->first();		
+		$img = public_path('/nakil/').$request->img;File::delete($img);
+
+		if($result->delete()) {
+			return ['status' => 'Информация сохранина'];
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

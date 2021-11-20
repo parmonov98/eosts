@@ -38,7 +38,7 @@ class GalleryController extends AdminController
 
         $gallerys = $this->getGallerys();
         // dd($gallerys);
-        $this->title = 'Gallery';
+        $this->title = 'Фото галерея';
         $this->content = view(config('settings.theme').'.admin.gallery.gallerys_content')
         ->with('gallerys',$gallerys)->render();
 

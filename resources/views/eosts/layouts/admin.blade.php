@@ -11,7 +11,7 @@
     <meta name="description" content="{{ (isset($meta_desc)) ? $meta_desc : ''}}">
 	<meta name="keywords" content="{{ (isset($keywords)) ? $keywords : ''}}">
     <meta name="author" content="{{ Auth::user()->name }}">
-
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME').'/images/favicon.ico')}}">
 	<meta name="_token" content="{!! csrf_token() !!}" />
 
   {!!Html::style('admin/assets/bootstrap/css/bootstrap.min.css')!!}
@@ -121,28 +121,28 @@
 
 
 
-  @if(Gate::allows('VIEW_ADMIN_MUROJAAT'))
+  @if(Gate::allows('VIEW_ADMIN'))
          <!-- /.messages-menu -->
 
          <li class="dropdown tasks-menu">
             <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Сизда {{$vq[1]}} та янги мурожаат бор">
-              <i class="fa fa-file-text"></i>
-              <span class="label label-danger">{{$vq[1]}}</span>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="У вас {{$requ[1]}} новое заявок">
+              <i class="fa fa-paste"></i>
+              <span class="label label-danger">{{$requ[1]}}</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">Сизда {{$vq[1]}} та янги мурожаат бор</li>
+              <li class="header">У вас {{$requ[1]}} новое заявок</li>
               <li>
                 <!-- Inner menu: contains the tasks -->
 
 
-@foreach($vq[0] as $k=>$com)
+@foreach($requ[0] as $k=>$com)
 
                    <ul class="menu">
 
 
                   <li><!-- Task item -->
-                    <a href="{{route('vqabul.edit',['vqabul' => $com->id])}}" style="text-align: right;color: #6b6565;font-size: 14px;">
+                    <a href="{{route('requ.edit',['requ' => $com->id])}}" style="text-align: right;color: #6b6565;font-size: 14px;">
                       <!-- Task title and progress text -->
 
                       <!-- The progress bar -->
@@ -153,7 +153,7 @@
 
                          <small ><i class="fa fa-clock-o"></i> {{ is_object($com->created_at) ?$com->created_at->format('d.m.Y H:s') : ''}} </small>
                         <br>
-                    <div style="text-align: left;font-size: 15px;font-weight: bold;"> {{Str::limit($com->text,150)}} </div>
+                    <div style="text-align: left;"><b style="font-size: 15px;font-weight: bold;">Описания:</b> {{Str::limit($com->text,150)}} </div>
                     </a>
                   </li>
                     <!-- end task item -->
@@ -167,7 +167,7 @@
 
               </li>
               <li class="footer">
-                <a href="{{ route('vqabul.index') }}">Ҳамма мурожаатларга ўтиш</a>
+                <a href="{{ route('requ.index') }}">Перейти ко всем ссылкам</a>
               </li>
             </ul>
           </li>
@@ -309,58 +309,8 @@
             </ul>
           </li>
 @endif
-@if(Gate::allows('VIEW_ADMIN_COMMENT'))
-
-          <!-- /.messages-menu -->
-
-         <li class="dropdown tasks-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Сизда {{$izox[1]}} та янги изох бор">
-              <i class="fa fa-comments-o"></i>
-              <span class="label label-danger">{{$izox[1]}}</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Сизда {{$izox[1]}} та янги изох бор</li>
-              <li>
-                <!-- Inner menu: contains the tasks -->
 
 
-@foreach($izox[0] as $k=>$comment)
-
-                   <ul class="menu">
-
-
-                  <li><!-- Task item -->
-                    <a href="{{route('izox.edit',['izox' => $comment->id])}}" style="text-align: right;color: #6b6565;font-size: 14px;">
-                      <!-- Task title and progress text -->
-
-                      <!-- The progress bar -->
-
-                        <!-- Change the css width attribute to simulate progress -->
-
-
-
-                         <small ><i class="fa fa-clock-o"></i> {{ is_object($comment->created_at) ?$comment->created_at->format('d.m.Y H:s') : ''}} </small>
-                        <br>
-                    <div style="text-align: left;font-size: 15px;font-weight: bold;"> {{substr($comment->text,0,150)}} </div>
-                    </a>
-                  </li>
-                    <!-- end task item -->
-                </ul>
-   {{$comment->mis}}
-
-
-
-  @endforeach
-
-
-              </li>
-              <li class="footer">
-                <a href="{{ route('izox.index') }}">Ҳамма хабарларга ўтиш</a>
-              </li>
-            </ul>
-          </li>
-@endif
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->

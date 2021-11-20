@@ -11,9 +11,7 @@ class Gallery extends Model
 
 
         protected $table = 'gallery';
-    protected $fillable = [
-        'name','img','sezi'
-    ];
+    protected $fillable = ['name','img' ];
 
     protected $casts = [
         'name' => 'array',

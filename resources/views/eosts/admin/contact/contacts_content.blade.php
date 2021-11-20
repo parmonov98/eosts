@@ -1,3 +1,6 @@
+
+
+
 @if($comments)
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
@@ -22,14 +25,9 @@
 				                                <th class="align-left">ID</th>
 				                                <th>Имя:</th>
 				                               <th>Текст</th>
-				                                <th>Телефон</th>
-
 				                                 <th>E-mail</th>
-				                                <th style="width: 70px;text-align: center;">PDF</th>
-
-
-
-				                                <th style="width: 70px;">Дествие</th>
+				                                <th style="width: 56px;text-align: center;"><i class="fa fa-eye"></i></th>
+				                                <th style="width: 56px;text-align: center;"><i class="fa fa-trash-o"></i></th>
 				                            </tr>
 				                        </thead>
 				                        <tbody>
@@ -47,20 +45,49 @@
 											<tr {!! ($comment->prev == 0)?'style="color: red;"':'' !!}>
 				                                <td class="align-left">{{$comment->id}}</td>
 				                                <td class="align-left">
-	<a href="{{route('contact.edit',['contact' => $comment->id])}}" class="btn btn-success"><i class="fa fa-pencil-square-o"></i></a>
-	  {{Html::link(route('contact.edit',['contact'=>$comment->id]),($comment->user_id != NULL)?$user[$comment->user_id]:'')}}
-      {!! Html::link(route('contact.edit',['contact'=>$comment->id]),isset($comment->name)?$comment->name:'')  !!}
+
+{{($comment->user_id != NULL)?$user[$comment->user_id]:''}}{{isset($comment->name)?$comment->name:''}}
+
 
 				                               </td>
 				                                <td class="align-left">{!!substr($comment->message,0,150)!!}</td>
-				                                <td class="align-left">{!!$comment->site!!}</td>
+				                                
 
 				                                <td>
 				                                {{($comment->user_id != NULL)?$email[$comment->user_id]:''}}
 				                                {{isset($comment->email)?$comment->email:''}}</td>
 
 
-				                                <td class="align-center" style="vertical-align: inherit;" align="center"><a href="{{ route('mpdf',['id'=>$comment->id])}}" class="btn btn-warning"><i class="fa fa-file-pdf-o"></i></a></td>
+<td class="align-center" style="vertical-align: inherit;" >
+
+	<a data-toggle="modal" data-target="#text{{$comment->id}}" class="btn btn-warning"><i class="fa fa-eye"></i></a>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="text{{$comment->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <b class="modal-title" id="exampleModalLabel">Сообщения от: {{($comment->user_id != NULL)?$user[$comment->user_id]:''}}{{isset($comment->name)?$comment->name:''}}
+</b>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{$comment->message}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</td>
 
 
 
@@ -108,6 +135,9 @@
 @else
 <div id="content-page" class="content group">
 <div class="hentry group">
-  <h2>Хабарлар билан ишлаш бўлими: хабар мавжуд эмас.</h2>
+  <h2>Раздел сообщений: сообщение нет.</h2>
   </div></div>
 @endif
+
+
+

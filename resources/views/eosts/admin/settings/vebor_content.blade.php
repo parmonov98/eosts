@@ -1,4 +1,4 @@
-<h2><u>Выбира EOSTS</u></h2>
+<h2><u>Выбир EOSTS</u></h2>
 
 <div id="content-page" class="content group">
 				            <div class="hentry group">

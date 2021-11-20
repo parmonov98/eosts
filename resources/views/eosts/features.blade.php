@@ -24,21 +24,19 @@
                                          @if('ru'==$lang)
                                         <h4 class="h4-md">Доверия</h4>
                                         <p>
-                                            Мы в сфере услуги логистика уже более 10 лет обслуживаем оперативно и
-                                            надёжно. Мы относимся к грузу бережно и внимательно.
+Наша компания служит вам более чем 10 лет и выполняет обязанности, надежно и успешно.
+
                                         </p>
                                         
                                         @elseif('en'==$lang)
                                         <h4 class = "h4-md"> Trust </h4>
                                          <p>
-                                             In the field of logistics services, we have been serving promptly and
-                                             reliably. We treat the cargo with care and attention.
+                                             Our company has been serving you for more than 10 years and fulfills its duties reliably and successfully.
                                          </p>
                                          @else
                                          <h4 class = "h4-md"> Güven </h4>
                                          <p>
-                                             Lojistik hizmetler alanında hızlı ve hızlı hizmet vermekteyiz.
-                                             güvenilir bir şekilde. Kargoya özen ve dikkatle yaklaşıyoruz.
+                                             Firmamız 10 yılı aşkın süredir sizlere hizmet vermekte olup üzerine düşen görevleri güvenilir ve başarılı bir şekilde yerine getirmektedir.
                                          </p>
                                         @endif
                                     </div>
@@ -96,25 +94,24 @@
                                     </div>
                                     <div class="service-inner-content media-body">
                                          @if('ru'==$lang)
-                                        <h4 class="h4-md">24/7 Служба поддержки клиентов</h4>
-                                        <p> У нас есть Call center для обслуживания клиентов из всех стран 24/7
-                                            круглосуточно.</p>
+                                        <h4 class="h4-md">Круглосуточная служба поддержки</h4>
+                                        <p> В нашей компании есть круглосуточный Колл - Центр с которым вы можете связаться в любое время.</p>
                                           
                                         @elseif('en'==$lang)
-                                        <h4 class = "h4-md"> 24/7 Customer Support </h4>
-                                         <p> We have a Call center to serve customers from all countries 24/7
-                                             around the clock. </p>
+                                        <h4 class = "h4-md"> 24-hour support service. </h4>
+                                         <p> Our company has a 24/7 Call Center with which you can contact at any time. </p>
 
                                         @else
                                         <h4 class = "h4-md"> 7/24 Müşteri Desteği </h4>
-                                         <p> Tüm ülkelerden müşterilerimize 7/24 hizmet verecek bir Çağrı merkezimiz var
-                                             günün her saati. </p>
+                                         <p> Firmamızda her an iletişim kurabileceğiniz 7/24 Çağrı Merkezi bulunmaktadır. </p>
                                           @endif
 
                                     </div>
                                 </div>
                             </div>
                             <!-- Icon Box -->
+
+
                             <!-- Icon Box 2 -->
                             <div class="icon-box-2">
                                 <div class="media">
@@ -123,25 +120,22 @@
                                     </div>
                                     <div class="service-inner-content media-body">
                                         @if('ru'==$lang)
-                                        <h4 class="h4-md">100% безопасная перевозка</h4>
+                                        <h4 class="h4-md">Безопасность на все 100%</h4>
                                         <p>
-                                            Мы знаем и понимаем за долгий срок своей работы что важно для клиента больше
-                                            всего и это доставка груза в назначенный срок в целости и в сохранности
+                                           Так как мы в этой сфере довольно долго, мы понимаем какая ответственность на нас лежит и мы выполняем свои обязанности с уверенностью на все 100%
                                         </p>
 
                                          
                                         @elseif('en'==$lang)
-                                        <h4 class = "h4-md"> 100% safe transportation </h4>
+                                        <h4 class = "h4-md"> 100% safety </h4>
                                          <p>
-                                             We know and understand for a long period of our work what is more important for the client
-                                             all and this is the delivery of the goods at the appointed time safe and sound
+                                            Since we have been in this area for quite a long time, we understand what responsibility lies with us and we carry out our duties with 100% confidence.
                                          </p>
 
                                         @else
-                                        <h4 class = "h4-md"> %100 güvenli ulaşım </h4>
+                                        <h4 class = "h4-md"> %100 güvenlik</h4>
                                          <p>
-                                             Müşterilerimiz için neyin daha önemli olduğunu uzun bir çalışma dönemi boyunca biliyor ve anlıyoruz.
-                                             hepsi ve bu, malların belirlenen zamanda güvenli ve sağlam bir şekilde teslim edilmesidir.
+                                            Oldukça uzun bir süredir bu alanda bulunduğumuz için, üzerimize düşen sorumluluğun ne olduğunu anlıyor ve görevlerimizi %100 güvenle yerine getiriyoruz.
                                          </p>
                                         
                                           @endif

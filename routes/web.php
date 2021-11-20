@@ -40,14 +40,22 @@ Route::post('/message',[Adress\TelegramController::class,'message'])->name('mess
 }else{
 Route::post('/message', function (Request $request) {$d = $request->except('_token');
 
-   
-if($d['name']==null || $d['number']==null || $d['email']==null || $d['package']==null || $d['text']==null ){
-    return redirect()->back()->with('error', 'Вы не заполнили всех полей'); 
-}else{
+   $validator = Validator::make($request->except('_token'), [
+                'package' => 'required',
+                'name' => 'required',
+                'email' => 'required|email',
+                'phone' => 'required|min:9|max:17',
+                'message' => 'required',
+    ]);
+
+        if ($validator->fails())
+        {
+            return redirect()->back()->with(['errors'=>$validator->errors()->all()]);
+        }else{
 Notification::route('message', env('TELEGRAM_USER_ID'))->notify(new ExampleNotification(json_encode($d)));
 
-$item = new Requ; $item->name = $d['name']; $item->name = $d['name'];$item->number = $d['number'];$item->email = $d['email'];
-$item->package = $d['package'];$item->text = $d['text'];$item->save();
+$item = new Requ; $item->name = $d['name']; $item->name = $d['name'];$item->phone = $d['phone'];$item->email = $d['email'];
+$item->package = $d['package'];$item->message = $d['message'];$item->save();
 
             return redirect()->back()->with('success', 'Ваша сообщения отправлено'); }
     })->name('message');
@@ -55,11 +63,9 @@ $item->package = $d['package'];$item->text = $d['text'];$item->save();
 }
 
 
-
+Route::post('application',[Adress\TelegramController::class,'application'])->name('application');
 
 Route::get('/pronas',[Adress\ObunaController::class,'pronas'])->name('pronas');
-
-Route::get('/pdf/{id?}',[Adress\IndexController::class, 'generate_pdf'])->name('pdf')->where(['id'=>'[\0-9]+']);
 
 
 Route::match(['get','post'],'/search/search/', [Adress\SearchController::class, 'store'])->name('obSearch');
@@ -78,15 +84,6 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     });
 
 Route::match(['get','post'],'/obuna/obuna',[Adress\ObunaController::class, 'store'])->name('obunaCat');
-
-
-// Route::group(['middleware' => ['web', 'auth']], function () {
-//     Route::get('/laravel-filemanager', [\UniSharp\LaravelFilemanager\Controllers\LfmController::class, 'show']);
-//     Route::post('/laravel-filemanager/upload', [\UniSharp\LaravelFilemanager\Controllers\UploadController::class, 'upload']);
-//     // list all lfm routes here...
-// });
-
-Route::get('mpdf/{id}', [Adress\IndexController::class, 'pdf'])->name('mpdf')->where(['id'=>'[\0-9]+']);
 
 
 Auth::routes();
@@ -110,19 +107,37 @@ Route::match(['get','post'],'sotnetworkup', [Adress\Admin\SettingController::cla
 Route::get('files', [Adress\Admin\SettingController::class, 'files'])->name('setFiles');
 Route::match(['get','post'],'filesup', [Adress\Admin\SettingController::class, 'filesup'])->name('setFilesUp');
 
-Route::get('rating', [Adress\Admin\SettingController::class, 'rating'])->name('setRating');
-Route::match(['get','post'],'ratingup', [Adress\Admin\SettingController::class, 'ratingup'])->name('setRatingUp');
+Route::get('question', [Adress\Admin\SettingController::class, 'question'])->name('setQuestion');
+Route::match(['get','post'],'questionup', [Adress\Admin\SettingController::class, 'questionup'])->name('setQuestionUp');
+
+Route::get('select', [Adress\Admin\SettingController::class, 'select'])->name('setSelect');
+Route::match(['get','post'],'selectup', [Adress\Admin\SettingController::class, 'selectup'])->name('setSelectUp');
 
 Route::get('onas', [Adress\Admin\SettingController::class, 'onas'])->name('setOnas');
 Route::match(['get','post'],'onasup', [Adress\Admin\SettingController::class, 'onasup'])->name('setOnasUp');
 
 Route::get('vebor', [Adress\Admin\SettingController::class, 'vebor'])->name('setVeboros');
-Route::match(['get','post'],'veborup', [Adress\Admin\SettingController::class, 'voborup'])->name('setVeborUp');
+Route::match(['get','post'],'veborup', [Adress\Admin\SettingController::class, 'veborup'])->name('setVeborUp');
+
+Route::get('cachistva', [Adress\Admin\SettingController::class, 'cachistva'])->name('setCachistva');
+Route::match(['get','post'],'cachistvaup', [Adress\Admin\SettingController::class, 'cachistvaup'])->name('setCachistvaUp');
+
+Route::get('osobiy', [Adress\Admin\SettingController::class, 'osobiy'])->name('setOsobiy');
+Route::match(['get','post'],'osobiyup', [Adress\Admin\SettingController::class, 'osobiyup'])->name('setOsobiyUp');
+
+Route::get('competent', [Adress\Admin\SettingController::class, 'competent'])->name('setCompetent');
+Route::match(['get','post'],'competentup', [Adress\Admin\SettingController::class, 'competentup'])->name('setCompetentUp');
+
+Route::get('nakil', [Adress\Admin\SettingController::class, 'nakil'])->name('setNakils');
+Route::delete('nakildel', [Adress\Admin\SettingController::class, 'nakildel'])->name('setNakildel');
+Route::match(['get','post'],'nakilsav', [Adress\Admin\SettingController::class, 'nakilsav'])->name('setNakilSav');
+
 
 Route::get('vopraos', [Adress\Admin\SettingController::class, 'vopraos'])->name('setVopraos');
+Route::delete('vopdel', [Adress\Admin\SettingController::class, 'vopdel'])->name('setVopdelUp');
 Route::match(['get','post'],'vopraosup', [Adress\Admin\SettingController::class, 'vopraosup'])->name('setVopraosUp');
 
-
+Route::resource('otziv', Adress\Admin\OtziviController::class);
 
 Route::resource('requ', Adress\Admin\RequController::class);
 
@@ -135,7 +150,7 @@ Route::resource('/slider',Adress\Admin\SliderController::class);
 
 Route::resource('/gallery',Adress\Admin\GalleryController::class);
 Route::resource('/contact',Adress\Admin\ContactController::class);
-Route::resource('/izox',Adress\Admin\CommentController::class);
+// Route::resource('/izox',Adress\Admin\CommentController::class);
 // Route::resource('/article',Adress\Admin\ArticleController::class);
 // Route::match(['get','post'],'/articleaaaa', [Adress\Admin\ArticleController::class, 'store']);
 Route::resource('/users',Adress\Admin\UsersController::class);

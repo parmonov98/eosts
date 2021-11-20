@@ -27,9 +27,10 @@
                 <div class="row">
 @foreach($gallerys as $file)
                   <div class="col-sm-2" style=" padding-bottom: 5px;">
-                  @if(isset($file->img))
-				{{ Html::image(asset('/gallery/'.$file->img['sr']),'',['style'=>'width:100%;']) }}
-													@endif
+ @if(isset($file->img))
+		<div style="position: relative; width: 150px; background-size: cover; height: 150px; background-image: url({{asset('/gallery/'.$file->img['min'])}});" ></div>
+@endif
+
 {!! Form::open(['url' => route('gallery.destroy',['gallery'=>$file->id]),'class'=>'form-horizontal','method'=>'POST']) !!}
 	    {{ method_field('DELETE') }}
 	    {!! Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger btn-block','type'=>'submit']) !!}

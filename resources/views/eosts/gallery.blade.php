@@ -29,9 +29,9 @@
                                 </a>
                             </div>
                             <a href="{{ asset('/gallery/'.$gallery->img['max']) }}" itemprop="contentUrl" class="cbp-caption cbp-lightbox"
-                                data-title="Lorem ipsum" itemscope itemtype="https://schema.org/ImageObject">
+                                data-title="{{isset($gallery->name['name'][$gallerys[1]])?$gallery->name['name'][$gallerys[1]]:''}}" itemscope itemtype="https://schema.org/ImageObject">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="{{ asset('/gallery/'.$gallery->img['min']) }}" itemprop="contentUrl" alt="Somehere {{$gallery->id}}">
+                                    <img src="{{ asset('/gallery/'.$gallery->img['min']) }}" itemprop="contentUrl" alt="Somehere {{$gallery->id}}" >
                                 </div>
                                 <div class="cbp-caption-activeWrap">
                                     <div class="cbp-l-caption-alignCenter">

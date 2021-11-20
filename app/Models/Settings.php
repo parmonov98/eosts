@@ -8,12 +8,12 @@ class Settings extends Model
 {
     //
 	protected $table = 'setting';
-    protected $fillable = ['names','address','sot_network','img','rating','css','prcomp','question','vebor', 'select'];
+    protected $fillable = ['names','address','sot_network','img','rating','css','prcomp','question','vebor', 'select','cachistva','osobiy','competent'];
  
     protected $casts = [
         'names' => 'array',
         'address' => 'array',
-        'sot_network' => 'array','prcomp' => 'array',
+        'sot_network' => 'array','prcomp' => 'array','cachistva' => 'array','osobiy' => 'array','competent' => 'array',
         'question' => 'array','select' => 'array','vebor' => 'array'
     ];
    

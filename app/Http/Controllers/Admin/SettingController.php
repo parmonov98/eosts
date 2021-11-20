@@ -8,7 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\SettingRepository;
 use App\Models\Comment;
+use App\Models\OnasVap;
 use App\Models\Article;
+use App\Models\OnasNaKl;
 use App\User;
 use App\Models\Settings;
 use Arr;
@@ -179,7 +181,7 @@ class SettingController extends AdminController
 
  public function onas()
     {
-        $this->title = 'О нас!';
+        $this->title = 'Про EOSTS';
         $setname = $this->setful();
 
          $articles = view(config('settings.theme').'.admin.settings.onas_content',compact('setname'));
@@ -200,9 +202,111 @@ class SettingController extends AdminController
 
 
 
+
+
+
+ public function question()
+    {
+        $this->title = 'Наше уникальность';
+        $setname = $this->setful();
+
+         $articles = view(config('settings.theme').'.admin.settings.question_content',compact('setname'));
+           $this->vars = Arr::add($this->vars,'content',$articles);
+
+        return $this->renderOutput(); 
+    }
+
+     public function questionup(Request $request)
+    {
+        $result = $this->s_t->questionup($request);
+
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
+
+
+
+ public function select()
+    {
+        $this->title = 'Показатели';
+        $setname = $this->setful();
+         $articles = view(config('settings.theme').'.admin.settings.select_content',compact('setname'));
+           $this->vars = Arr::add($this->vars,'content',$articles);
+        return $this->renderOutput(); 
+    }
+
+     public function selectup(Request $request)
+    {
+        $result = $this->s_t->selectup($request);
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
+
+
+ public function cachistva()
+    {
+        $this->title = 'Качество';
+        $setname = $this->setful();
+         $articles = view(config('settings.theme').'.admin.settings.cachistva_content',compact('setname'));
+           $this->vars = Arr::add($this->vars,'content',$articles);
+        return $this->renderOutput(); 
+    }
+
+     public function cachistvaup(Request $request)
+    {
+        $result = $this->s_t->cachistvaup($request);
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
+
+
+  public function osobiy()
+    {
+        $this->title = 'Особенность';
+        $setname = $this->setful();
+         $articles = view(config('settings.theme').'.admin.settings.osobiy_content',compact('setname'));
+           $this->vars = Arr::add($this->vars,'content',$articles);
+        return $this->renderOutput(); 
+    }
+
+     public function osobiyup(Request $request)
+    {
+        $result = $this->s_t->osobiyup($request);
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
+   
+
+  public function competent()
+    {
+        $this->title = 'Компетентность';
+        $setname = $this->setful();
+         $articles = view(config('settings.theme').'.admin.settings.competent_content',compact('setname'));
+           $this->vars = Arr::add($this->vars,'content',$articles);
+        return $this->renderOutput(); 
+    }
+
+     public function competentup(Request $request)
+    {
+        $result = $this->s_t->competentup($request);
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
+
+
  public function vebor()
     {
-        $this->title = 'О нас!';
+        $this->title = 'Выбир EOSTS';
         $setname = $this->setful();
 
          $articles = view(config('settings.theme').'.admin.settings.vebor_content',compact('setname'));
@@ -226,8 +330,8 @@ class SettingController extends AdminController
 
  public function vopraos()
     {
-        $this->title = 'О нас!';
-        $setname = $this->setful();
+        $this->title = 'Вопросы';
+        $setname = OnasVap::get();
 
          $articles = view(config('settings.theme').'.admin.settings.vopraos_content',compact('setname'));
            $this->vars = Arr::add($this->vars,'content',$articles);
@@ -244,6 +348,80 @@ class SettingController extends AdminController
         }
         return back()->with($result);
     }
+    public function vopdel(Request $request)
+    {
+        $result = $this->s_t->vopdel($request);
+
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ public function nakil()
+    {
+        $this->title = 'Наши клиенты';
+        $setname = OnasNaKl::paginate(15);
+
+         $articles = view(config('settings.theme').'.admin.settings.nakils_content',compact('setname'));
+           $this->vars = Arr::add($this->vars,'content',$articles);
+
+        return $this->renderOutput(); 
+    }
+
+     public function nakilsav(Request $request)
+    {
+        $result = $this->s_t->nakilsav($request);
+
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
+    public function nakildel(Request $request)
+    {
+        $result = $this->s_t->nakildel($request);
+
+        if(is_array($result) && !empty($result['error'])) {
+            return back()->with($result);
+        }
+        return back()->with($result);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

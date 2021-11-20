@@ -24,12 +24,12 @@
 	@include(env('THEME').'.counter')
 @endsection
 
-@section('reviews')
-	@include(env('THEME').'.reviews')
+@section('otzivi')
+	{!! $otzivi !!}
 @endsection
 
 @section('clients')
-	@include(env('THEME').'.clients')
+	{!! $naskli !!}
 @endsection
 
 @section('ind')

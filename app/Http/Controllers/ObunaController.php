@@ -8,7 +8,9 @@ use App\Http\Requests;
 use App\Models\Uslug;
 use App\Models\Obuna;
 use App\Models\Settings;
+use App\Models\OnasNaKl;
 use App\Models\Employee;
+use App\Models\OnasVap;
 use Arr;
 use Auth;
 
@@ -61,6 +63,7 @@ if(is_object(Obuna::where('email', $request['email'])->first())){
 
     public function uslug()
     {
+        $this->template = env('THEME').'.usluge';
         if(empty(session('lang'))){
            session()->put('lang', 'ru');
         }
@@ -69,6 +72,8 @@ if(is_object(Obuna::where('email', $request['email'])->first())){
       if($cat != 'ru' && $cat != 'en' && $cat !== 'tu'){
         abort(404);
        }
+       $pronas =$this->getSetting();
+
 
         $articles = Uslug::orderBy('created_at', 'desc')->limit(4)->get();
 
@@ -76,7 +81,7 @@ if(is_object(Obuna::where('email', $request['email'])->first())){
 
 
 
-        $content = view(env('THEME').'.full_uslug_content',compact('articles','cat'))->render();
+        $content = view(env('THEME').'.full_uslug_content',compact('articles','pronas','cat'))->render();
         $this->vars = Arr::add($this->vars,'content',$content);
         return $this->renderOutput($cat);
 
@@ -149,8 +154,10 @@ if(isset($articles->id)){
 
         $employee =$this->getEmployee();
         $pronas =$this->getSetting();
+        $vopros = OnasVap::get();
+        $naskli = OnasNaKl::get();
 
-        $pronas = view(config('settings.theme').'.pronas',compact('pronas','employee','lang'))->render();
+        $pronas = view(config('settings.theme').'.pronas',compact('pronas','employee','vopros','naskli','lang'))->render();
 
         $this->vars = Arr::add($this->vars,'content',$pronas);
 

@@ -39,7 +39,7 @@ class SliderController extends AdminController
         }      
 
         $sliders = $this->getSliders();
-        $this->title = 'Slider';
+        $this->title = 'Фото для слайдов';
         $this->content = view(config('settings.theme').'.admin.sliders.sliders_content')->with('sliders',$sliders)->render();
 
         return $this->renderOutput();

@@ -34,12 +34,10 @@ class RequController extends AdminController
     public function index()
     {
 
-        if(!Gate::allows('VIEW_ADMIN_ARTICLES')) {
-            abort(403);
-        }      
+ 
 
-        $requs = Requ::paginate(15);
-        $this->title = 'Дубликат заявок';
+        $requs = Requ::orderBy('created_at', 'desc')->paginate(15);
+        $this->title = 'Заявоки';
         $this->content = view(config('settings.theme').'.admin.requ.requs_content')->with('requs',$requs)->render();
 
         return $this->renderOutput();
@@ -67,5 +65,25 @@ class RequController extends AdminController
         }
         return redirect('/admins/requ')->with($result);
 
+    }
+
+
+
+
+        public function edit(Requ $requ)
+    {
+        // dd($requ);
+    if(empty($requ)){
+        return ['error'=>'Файл не найден'];
+    }
+
+
+        $result = $requ->increment('prev');
+
+        $this->title = 'Реадактирование материала - '. $requ->name;
+
+                $this->content = view(config('settings.theme').'.admin.requ.requ_create_content')->with(['comment' => $requ])->render();
+
+        return $this->renderOutput();
     }
 }

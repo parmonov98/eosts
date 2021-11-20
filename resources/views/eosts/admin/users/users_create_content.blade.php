@@ -1,3 +1,14 @@
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+              <button class="close" data-dismiss="alert">×</button>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
 <div id="content-page" class="content group">
 				            <div class="hentry group">
 
@@ -36,7 +47,7 @@
 
 
 <br />
-			{!! Form::button('Сохранить', ['class' => 'btn btn-the-salmon-dance-3','type'=>'submit']) !!}
+			{!! Form::button('Сохранить', ['class' => 'btn btn-primary','type'=>'submit']) !!}
 
 
 

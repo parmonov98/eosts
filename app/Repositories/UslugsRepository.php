@@ -41,29 +41,21 @@ class UslugsRepository extends Repositor {
 
 	public function addUslug($request) {
 
-		$data = $request->except('_token','image');
-  
-		if(empty($data['title']['ru'])) {
-			return array('error' => 'Нет русского названия');
-		}
+		
+		$data = $request->except('_token','image');	
 
-		if(empty($data['title']['en'])) {
-			return array('error' => 'No Russian title');
-		}
+		$validator=	$request->validate([
+				'title.ru' => 'required', 'title.en' => 'required', 'desc.ru' => 'required','desc.en' => 'required',
+				'text.ru' => 'required','text.en' => 'required',
+				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			]);
+	
+	        if (empty($validator) && $validator->fails())
+        {
+            return ['errors'=>$validator->errors()->all()];
+        }else{
 
-		if(empty($data['desc']['ru'] && $data['text']['ru'])) {
-			return array('error' => 'Примечание. Краткое или полное текстовое поле не заполняется.');
-		}
-
-
-		if(empty($data['desc']['en'] && $data['text']['en'])) {
-			return array('error' => 'Note The short or full text field is not filled');
-		}
-
-
-		if($request->hasFile('image')) {
-			$image = $request->file('image');
-
+        	$image = $request->file('image');
 			if(!empty($request->image)){
 
 				$obj = new \stdClass;
@@ -82,15 +74,15 @@ $img->fit(Config::get('settings.ulug')['min']['width'],
 			Config::get('settings.ulug')['min']['height'])->save(public_path('uslugi/').$obj->min);
 
 				$data['img'] = ['max'=>$obj->max,'min'=>$obj->min];
-			}else{
-				dd('yuq!!!!');
-			}	}
 
 		empty($data['desc'])?($data['desc']=NULL):'';
 	
 			if($this->model->fill($data)->save()) {
 						return ['status' => 'Информация добавлена'];
-				}
+				}	
+
+        }}
+
 	}
 
 
@@ -101,17 +93,24 @@ $img->fit(Config::get('settings.ulug')['min']['width'],
 $data = $request->except('_token','image','_method','old_image');
 
 
-		if(empty($data)) {
-			return array('error' => 'Нет информации');
-		}
+$validator=	$request->validate([
+				'title.ru' => 'required', 'title.en' => 'required', 'desc.ru' => 'required','desc.en' => 'required',
+				'text.ru' => 'required','text.en' => 'required',
+			]);
+	
+	        if (empty($validator) && $validator->fails())
+        {
+            return ['errors'=>$validator->errors()->all()];
+        }
 
-		if(empty($data['text'])) {
-			$data['text'] = null;
-		}
+
 
 
 
 		if($request->hasFile('image')) {
+			$request->validate([
+				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			]);
 			$image = $request->file('image');
 
 

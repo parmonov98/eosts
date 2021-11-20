@@ -1,4 +1,4 @@
-<h2><u>Йил дастури</u></h2>
+<h2><u>Про EOSTS</u></h2>
 
 <div id="content-page" class="content group">
 				            <div class="hentry group">

@@ -9,6 +9,6 @@ class Requ extends Model
 {
     use HasFactory;
   
-    protected $table = 'requ';
-    protected $fillable = ['name', 'number', 'email', 'package', 'text'];
+protected $table = 'requ';
+protected $fillable = ['name', 'phone','incoterms', 'city_of_departure', 'weight', 'email', 'dimension', 'package', 'message','prev'];
 }

@@ -1,4 +1,5 @@
-
+<h2><u>Все заявки</u></h2>
+	
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
     @if ($status = Session::get('status'))
@@ -15,11 +16,9 @@
     @endif
 
 
-<h2 class="float-right text-right"><a href="{{url('export-excel-csv-file/xlsx')}}" class="btn btn-success mr-1">Export Excel</a></h2>
 
 
-
-@if($requs)
+@if($requs->count()>0)
 
 <table class="table table-striped table-bordered table-hover" width="100%">
 
@@ -31,20 +30,26 @@
 		<th>E-mail</th> 
 		<th>Тип услуги</th> 
 		<th>Время отправлений</th> 
+		<th style="width: 50px;text-align: center;"><i class="fa fa-eye"></i></th>
 		<th style="width: 50px;text-align: center;"><i class="fa fa-trash-o"></i></th>
 	</tr> 
 </thead>
 
 <tbody>
 @foreach($requs as $k=>$requ)
-		<tr>
+		<tr {!! ($requ->prev == 0)?'style="color: red;"':'' !!}>
 		<td>{{++$k}}</td>
 		<td>{{$requ->name}}</td>
-		<td>{{$requ->number}}</td>
+		<td>{{$requ->phone}}</td>
 		<td>{{$requ->email}}</td>
 		<td>{{$requ->package}}</td>
 		<td>{{ is_object($requ->created_at) ? $requ->created_at->format('F d, Y') : ''}}</td>
+		<td>
 
+	<a href="{{route('requ.edit',['requ' => $requ->id])}}" class="btn btn-success">
+		<i class="fa fa-eye"></i></a>
+	
+	</td>
 <td>{!! Form::open(['url' => route('requ.destroy',['requ'=>$requ->id]),'class'=>'form-horizontal','method'=>'POST']) !!}
 {{ method_field('DELETE') }}
 {!! Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger','type'=>'submit']) !!}
@@ -55,6 +60,8 @@
 @endforeach
 </tbody>
 </table>
+@else
+<h2 style="text-align: center;color: red;">Заявки нет !!!</h2>
   @endif
 
 				        <div class="short-table white">

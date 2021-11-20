@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
 use App\Models\Xatolar;
 use App\Models\Comment;
 use App\Models\User;
+use App\Models\Requ;
 use Config;
 // use Auth;
 use Illuminate\Support\Facades\Auth;
@@ -98,7 +98,7 @@ $menu = $this->getMenu();
 
 		// $this->vars = Arr::add($this->vars,'mes',$this->messages());
 		// $this->vars = Arr::add($this->vars,'xato',$this->getXato());
-		$this->vars = Arr::add($this->vars,'izox',$this->getIzox());
+		$this->vars = Arr::add($this->vars,'requ',$this->getRequ());
 
 		$navigation = view(config('settings.theme').'.admin.navigation')->with('menu',$menu)->render();
 
@@ -134,15 +134,11 @@ $menu = $this->getMenu();
 	}
 
 
-	public function getXato() {
-				$cou = Xatolar::where('prev','0')->orderBy('created_at', 'desc')->limit(Config::get('settings.izox_xato_xabar'))->get();
-				$soni = Xatolar::where('prev','0')->orderBy('created_at', 'desc')->count();
-		return [$cou,$soni];
-	}
 
-	public function getIzox() {
-				$cou = Comment::where('prev','0')->orderBy('created_at', 'desc')->limit(Config::get('settings.izox_xato_xabar'))->get();
-				$soni = Comment::where('prev','0')->orderBy('created_at', 'desc')->count();
+
+	public function getRequ() {
+				$cou = Requ::where('prev','0')->orderBy('created_at', 'desc')->limit(Config::get('settings.izox_xato_xabar'))->get();
+				$soni = Requ::where('prev','0')->orderBy('created_at', 'desc')->count();
 		return [$cou,$soni];
 	}
 
@@ -166,45 +162,42 @@ $sozla = $menu->add('<span>Настройки</span>',['disableActivationByURL' 
 $sozla->add('<span>Адрес</span>', array('route' => 'setAddress'))->prepend('<i class="fa fa-map-marker"></i>');
  $sozla->add('<span>Социальной сети</span>', array('route' => 'setSotNetwork'))->prepend('<i class="fa fa-share-alt"></i>');
 
-
-$sozla->add('<span>Топ рейтинг</span>', array('route' => 'setRating'))->prepend('<i class="fa fa-line-chart"></i>');
-
 		}
 
 
 $onas = $menu->add('<span>О нас</span>',['disableActivationByURL' => true, 'url' => '#'])->attr('class', 'treeview')->prepend('<i class="fa fa-cubes"></i>');
 
  $onas->add('<span>Про EOSTS</span>', array('route' => 'setOnas'))->prepend('<i class="fa fa-user-circle-o"></i>');
- $onas->add('<span>Дополнительной</span>', array('route' => 'setVopraos'))->prepend('<i class="fa fa-bookmark-o"></i>');
- $onas->add('<span>ВЫБИР EOSTS</span>', array('route' => 'setVeboros'))->prepend('<i class="fa fa-sellsy"></i>');
-
+ $onas->add('<span>Наше уникальность</span>', array('route' => 'setQuestion'))->prepend('<i class="fa fa-bookmark-o"></i>');
+ $onas->add('<span>Показатели</span>', array('route' => 'setSelect'))->prepend('<i class="fa fa-bar-chart"></i>');
+ $onas->add('<span>Выбир EOSTS</span>', array('route' => 'setVeboros'))->prepend('<i class="fa fa-sellsy"></i>');
 $onas->add('<span>Наша команда</span>', array('route' => 'employee.index'))->prepend('<i class="fa fa-users"></i>');
- $onas->add('<span>Вопросы</span>', array('route' => 'setVopraos'))->prepend('<i class="fa fa-share-alt"></i>');
+$onas->add('<span>Наши клиенты</span>', array('route' => 'setNakils'))->prepend('<i class="fa fa-child"></i>');
+$onas->add('<span>Вопросы</span>', array('route' => 'setVopraos'))->prepend('<i class="fa fa-share-alt"></i>');
+
+
+$uslugi = $menu->add('<span>Услуги</span>',['disableActivationByURL' => true, 'url' => '#'])->attr('class', 'treeview')->prepend('<i class="fa fa-server"></i>');
+	$uslugi->add('<span>Качество</span>',array('route' => 'setCachistva'))->prepend('<i class="fa fa-eercast"></i>');
+	$uslugi->add('<span>Услуги</span>',array('route' => 'uslug.index'))->prepend('<i class="fa fa-handshake-o"></i>');
+	$uslugi->add('<span>Особенность</span>',array('route' => 'setOsobiy'))->prepend('<i class="fa fa-wpexplorer"></i>');
+	$uslugi->add('<span>Компетентность</span>',array('route' => 'setCompetent'))->prepend('<i class="fa fa-compass"></i>');
+	$uslugi->add('<span>Отзывы от клиентов</span>',array('route' => 'otziv.index'))->prepend('<i class="fa fa-id-card-o"></i>');
 
 
 $sent = $menu->add('<span>Все сообщения</span>',['disableActivationByURL' => true, 'url' => '#'])->attr('class', 'treeview')->prepend('<i class="fa fa-comments-o"></i>');
-
- $sent->add('<span>Дубликат заявок</span>', array('route' => 'requ.index'))->prepend('<i class="fa fa-paste"></i>');
-
-$sent->add('<span>Комментарии</span>', array('route' => 'izox.index'))->prepend('<i class="fa fa-comment"></i>');
+ $sent->add('<span>Заявок</span>', array('route' => 'requ.index'))->prepend('<i class="fa fa-paste"></i>');
  $sent->add('<span>Сообщения</span>', array('route' => 'contact.index'))->prepend('<i class="fa fa-envelope-open"></i>');
 
 
 
 $foto = $menu->add('<span>Фото</span>',['disableActivationByURL' => true, 'url' => '#'])->attr('class', 'treeview')->prepend('<i class="fa fa-image"></i>');
-
  $foto->add('<span>Slider</span>', array('route' => 'slider.index'))->prepend('<i class="fa fa-picture-o"></i>');
-
 $foto->add('<span>Gallery</span>', array('route' => 'gallery.index'))->prepend('<i class="fa fa-camera"></i>');
 
 
 
 
 
-	if(Gate::allows('VIEW_ADMIN_COMMENT')) {
-	$menu->add('<span>Услуги</span>',array('route' => 'uslug.index'))->prepend('<i class="fa fa-gears"></i>');
-	
-	}
 
 
 
@@ -215,7 +208,7 @@ $foto->add('<span>Gallery</span>', array('route' => 'gallery.index'))->prepend('
 
 
 			if(Gate::allows('EDIT_PERMISSIONS')) {
-			$menu->add('<span>Пользователи</span>',  array('route'  => 'users.index'))->prepend('<i class="fa fa-users"></i>');
+			// $menu->add('<span>Пользователи</span>',  array('route'  => 'users.index'))->prepend('<i class="fa fa-users"></i>');
 
 			// $menu->add('<span>Привилегии</span>',  array('route'  => 'permissions.index'))->prepend('<i class="fa fa-tags"></i>');
 			}

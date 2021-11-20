@@ -49,6 +49,6 @@ $d = json_decode($this->massege);
 
        return TelegramMessage::create()
             ->to(env('TELEGRAM_USER_ID'))
-            ->content("Клиент оставил своих контактов\nИмя: $d->name\nТелефон номер: $d->number\nЭ-почта: $d->email\nТип услуги: $d->package\nТекст: $d->text");
+            ->content("Клиент оставил своих контактов\nИмя: $d->name\nТелефон номер: $d->phone\nЭ-почта: $d->email\nТип услуги: $d->package\nТекст: $d->message");
     }
 }

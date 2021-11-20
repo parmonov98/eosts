@@ -25,17 +25,22 @@
 
     
 @if('ru'==$lang)
-<p class="lead fw-5 txt-blue" itemprop="description">Компания<span itemprop="name"> EOSTS(EvroOsiyo Sarbon Trans Servis)</span>
-занимается комплексной доставкой грузов из Узбекистана, Турции, России, Украины, Польши, Литвы,
-Латвии и стран Европы.Мы работаем с более чем 200 партнерами и сотрудничаем более 10 лет.</p>
-<p>Мы имеем огромный опыт по логистики, и наша работа просто классно!</p>
+<p class="lead fw-5 txt-blue" itemprop="description">Компания<span itemprop="name"> Логистическая компания "EOSTS", основанная в 2014, Джамоловом Баходыром в Узбекистане.</span> Наша компания сотрудничает с более чем 200 партнерами и
+сотрудниками более 10 лет, также не забываем что наша компания занимается комплексной доставкой между странами как :
+Узбекистан, Турция, Россия, Украина, Польша и другие страны Европы. </p> <p>
+Мы имеем огромный опыт по логистики, и наша работа просто классно! </p>
 @elseif('en'==$lang)
-<p class = "lead fw-5 txt-blue" itemprop = "description"> Company <span itemprop = "name"> EOSTS (EvroOsiyo Sarbon Trans Servis) </span>is engaged in complex delivery of goods from Uzbekistan, Turkey, Russia, Ukraine, Poland, Lithuania, Latvia and European countries. We work with more than 200 partners and have been cooperating for more than 10 years. </p>
-<p> We have a lot of experience in logistics, and our work is just great! </p>
-@else      
- <p class = "lead fw-5 txt-blue" itemprop = "description"> Şirket <span itemprop = "name"> EOSTS (EvroOsiyo Sarbon Trans Servis) </span> Özbekistan, Türkiye, Rusya, Ukrayna, Polonya, Litvanya'dan karmaşık mal teslimatı yapmaktadır. Letonya ve Avrupa ülkeleri. 200'den fazla ortakla çalışıyoruz ve 10 yılı aşkın süredir işbirliği yapıyoruz. </p>
-<p> Lojistik alanında çok deneyime sahibiz ve işimiz harika! </p>
+<p class = "lead fw-5 txt-blue" itemprop = "description"> <span itemprop = "name"> Logistics company "EOSTS", founded in 2014 by Jamolov Bakhodyr in Uzbekistan. </span> Our company cooperates with over 200 partners and
+employees for more than 10 years, we also do not forget that our company is engaged in complex delivery between countries as:
+Uzbekistan, Turkey, Russia, Ukraine, Poland and other European countries. </p> <p>
+We have a lot of experience in logistics, and our work is just awesome! </p>
+@else
+<p class = "lead fw-5 txt-blue" itemprop = "description"> <span itemprop = "name"> Özbekistan'da Jamolov Bakhodyr tarafından 2014 yılında kurulan lojistik şirketi "EOSTS". 200'den fazla ortak ve
+10 yılı aşkın bir süredir çalışanlarımız arasında, şirketimizin ülkeler arasında karmaşık teslimatla uğraştığını da unutmayız:
+Özbekistan, Türkiye, Rusya, Ukrayna, Polonya ve diğer Avrupa ülkeleri. </p> <p>
+Lojistik konusunda çok tecrübemiz var ve işimiz harika! </p>
 @endif
+
 
 
                             <div class="mt-5">
@@ -56,12 +61,20 @@
                                         aria-labelledby="pills-home-tab">
                                         <p>
 @if('ru'==$lang)
-   Компания EOSTS(EvroOsiyo Sarbon Trans Servis) - логистическая компания базирующийся в Узбекистане.
-
+Данная услуга была запущена Джамоловом Баходыром, так как
+он работал в сотрудничестве с другими логистическими
+компаниями начиная с 2006 года, позже он основал свою
+компанию "EOSTS".
 @elseif('en'==$lang)
-EOSTS (EvroOsiyo Sarbon Trans Servis) is a logistics company based in Uzbekistan.
+This service was launched by Jamolov Bakhodyr, since
+he worked in collaboration with other logistics
+companies since 2006, later he founded his
+company "EOSTS".
 @else      
-EOSTS (EvroOsiyo Sarbon Trans Servis), Özbekistan merkezli bir lojistik şirketidir.
+Bu hizmet, o zamandan beri Jamolov Bakhodyr tarafından başlatıldı.
+diğer lojistik ile işbirliği içinde çalıştı
+2006'dan beri şirketlerini kurdu, daha sonra
+şirket "EOSTS".
 @endif                                          
                                             
                                         </p>
@@ -71,12 +84,12 @@ EOSTS (EvroOsiyo Sarbon Trans Servis), Özbekistan merkezli bir lojistik şirket
                                         aria-labelledby="pills-profile-tab">
                                         <p>
 @if('ru'==$lang)
-Миссия EOSTS(EvroOsiyo Sarbon Trans Servis): Обеспечить лучшее на рынке качество транспортных и логистических услуг. Быть лидером. Сделать авто перевозки грузов доступными и привлекательными для клиента.
+Наша миссия обеспечить высокое качество на рынке по логистическим компаниям. Наша логистическая компания "EOSTS" - это самый верный выбор для помощи с грузоперевозками.                   
 
 @elseif('en'==$lang)
-Mission of EOSTS (EvroOsiyo Sarbon Trans Servis): To provide the best quality transport and logistics services on the market. Be a leader. To make auto transportation of goods affordable and attractive for the client.
+Our mission is to provide high quality in the market for logistics companies. Our logistics company "EOSTS" is the right choice for assistance with cargo transportation.
 @else      
-EOSTS (EvroOsiyo Sarbon Trans Servis) Misyonu: Piyasadaki en kaliteli nakliye ve lojistik hizmetlerini sunmak. Lider olmak. Malların otomatik nakliyesini müşteri için uygun fiyatlı ve çekici hale getirmek.
+Misyonumuz, lojistik firmaları için pazarda yüksek kalite sağlamaktır. Lojistik şirketimiz "EOSTS", kargo taşımacılığı konusunda yardım için doğru seçimdir.
 @endif                                               
                                             
                                         </p>

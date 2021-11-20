@@ -8,7 +8,7 @@
 	'home_articles_count' => 3,
 	'elon_paginate' => 3,
 	'cat_count' => 2,
-	'gal' => 14,
+	'gal' => 20,
 	'paginate' => 12 ,
 	'izox_xato_xabar' => 4 ,
 	'paginate_index' => 4 ,

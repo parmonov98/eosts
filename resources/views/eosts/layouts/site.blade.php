@@ -316,10 +316,12 @@ $lang = session('lang');
 @yield('quote') 
 @yield('counter') 
 @yield('reviews') 
+@yield('otzivi') 
 @yield('clients') 
             
+@yield('vopros') 
 
-   
+
 @yield('gallery') 
 
 @yield('callout') 
@@ -543,6 +545,17 @@ $lang = session('lang');
         </div>
         <!-- Search Popup End -->
 
+
+
+
+
+
+
+
+
+
+
+
         <!-- Request Modal -->
         <div class="modal fade" id=request_popup tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered request_popup" role="document">
@@ -556,7 +569,7 @@ $lang = session('lang');
                                 </a>
                                 <div class="d-lg-flex justify-content-end no-gutters mb-spacer-md"
                                     style="box-shadow: 0px 18px 76px 0px rgba(0, 0, 0, 0.06);">
-                                    <div class="col bg-fixed bg-img-7 request_pag_img">
+                                    <div class="col bg-fixed bg-img-7 request_pag_img" style="background-image: url({{ asset(env('THEME').'/images/contact-us.png')}});">
                                         &nbsp;
                                     </div>
 
@@ -564,73 +577,79 @@ $lang = session('lang');
                                     <div class="col-md-7 col-12">
                                         <div class="px-3 m-5">
                                             <h2 class="h2-xl mb-4 fw-6">Получить расчет </h2>
-                                            <form action="#" method="post" novalidate="novalidate"
-                                                class="rounded-field">
+<div class="alert alert-danger alert-dismissible fade " role="alert">
+    
+</div>
+
+
+        
+
+
+                        <form novalidate="novalidate" class="rounded-field">@csrf
+                    <div class="form-row mb-4">
+                          <div class="col">
+                            <select title="Please choose a package" required="" name="package" id="package" class="custom-select" aria-required="true" aria-invalid="false">
+                              <option value="Type 1">Тип груз 1</option>
+                              <option value="Type 2">Тип груз 2</option>
+                            </select>
+                          </div>
+                          <div class="col">
+                            <select title="Please choose a package" required="" name="incoterms" id="incoterms" class="custom-select" aria-required="true" aria-invalid="false">
+                              <option value="">Incoterms</option>
+                              <option value="Type 1">Type 1</option>
+                              <option value="Type 2">Type 2</option>
+                              <option value="Type 3">Type 3</option>
+                              <option value="Type 4">Type 4</option>
+                            </select>
+                          </div>
+                        </div>
+
 
                                                 <div class="form-row mb-4">
                                                     <div class="col">
-                                                        <select title="Please choose a package" required=""
-                                                            name="package" class="custom-select" aria-required="true"
-                                                            aria-invalid="false">
-                                                            <option value="">Аргумент1</option>
-                                                            <option value="">Аргумент1</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col">
-                                                        <select title="Please choose a package" required=""
-                                                            name="package" class="custom-select" aria-required="true"
-                                                            aria-invalid="false">
-                                                            <option value="">Аргумент1</option>
-                                                            <option value="">Аргумент1</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row mb-4">
-                                                    <div class="col">
-                                                        <input type="text" name="name" class="form-control"
+                                                        <input type="text" name="city_of_departure" id="city_of_departure" class="form-control"
                                                             placeholder="City of departure">
                                                     </div>
                                                     <div class="col">
-                                                        <input type="text" name="email" class="form-control"
+                                                        <input type="text" name="delivery_city" id="delivery_city" class="form-control"
                                                             placeholder="Delivery city">
                                                     </div>
                                                 </div>
                                                 <div class="form-row mb-4">
                                                     <div class="col">
-                                                        <input type="text" name="name" class="form-control"
+                                                        <input type="text" name="weight" id="weight" class="form-control"
                                                             placeholder="Total gross weight (KG)">
                                                     </div>
                                                     <div class="col">
-                                                        <input type="text" name="email" class="form-control"
+                                                        <input type="text" name="dimension" id="dimension" class="form-control"
                                                             placeholder="Dimension">
                                                     </div>
                                                 </div>
 
                                                 <div class="form-row">
                                                     <div class="col">
-                                                        <div class="center-head"><span
-                                                                class="bg-light-gray txt-orange">Your Personal
+                                                        <div class="center-head"><span class="bg-light-gray txt-orange">Your Personal
                                                                 Details</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-row mb-4">
                                                     <div class="col">
-                                                        <input type="text" name="name" class="form-control mb-3"
+                                                        <input type="text" name="name" id="names" class="form-control mb-3"
                                                             placeholder="Your Name">
-                                                        <input type="text" name="name" class="form-control mb-3"
+                                                        <input type="text" name="email" id="emails" class="form-control mb-3"
                                                             placeholder="Email">
-                                                        <input type="text" name="name" class="form-control"
+                                                        <input type="text" name="phone" id="phones" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control"
                                                             placeholder="Phone Number">
                                                     </div>
                                                     <div class="col">
-                                                        <textarea rows="7" placeholder="Message"
+                                                        <textarea rows="7" name="message" id="message" placeholder="Message"
                                                             class="form-control"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="col pt-3">
-                                                        <button type="submit" class="form-btn btn-theme bg-orange">Send
+                                                        <button type="submit" id="formSubmit" class="form-btn btn-theme bg-orange">Send
                                                             Message <i class="icofont-rounded-right"></i></button>
                                                     </div>
                                                 </div>
@@ -646,6 +665,88 @@ $lang = session('lang');
             </div>
         </div>
         <!-- Request Modal -->
+
+
+        
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="top: 30vh;">
+    <div class="modal-content" style="background-color: unset;">
+   
+      <div class="modal-body" align="center">
+        <img src="/payment_successful.gif">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        $(document).ready(function(){
+            $('#formSubmit').click(function(e){
+                e.preventDefault();
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "{{ route('application') }}",
+                    method: 'post',
+                    data: {"_token":$('meta[name="csrf-token"]').attr('content'),name: $('#name').val(),package: $('#package').val(), incoterms: $('#incoterms').val(),
+                    city_of_departure: $('#city_of_departure').val(),weight: $('#weight').val(), weight: $('#weight').val(),
+                    dimension: $('#dimension').val(),name: $('#names').val(), email: $('#emails').val(),
+                    phone: $('#phones').val(), message: $('#message').val(),delivery_city: $('#delivery_city').val()
+                    },
+                    success: function(result){
+                        if(result.errors)
+                        {
+                            $('.alert-danger').html(' ');
+
+
+                            $.each(result.errors, function(key, value){
+                                $('.alert-danger').addClass('show');
+                                $('.alert-danger').append('<li>'+value+'</li>');
+                            });
+                        }
+                        else
+                        {
+                            $('.alert-danger').hide();
+                            $('#request_popup').modal('hide');
+                            $('#success').modal('show');
+                            setTimeout(function(){ $('#success').modal('hide'); }, 1900); 
+
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- Back To Top Start -->
         <a id="mkdf-back-to-top" href="#" class="off"><i class="icofont-rounded-up"></i></a>

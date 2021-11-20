@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Notifications\ExampleNotification;
 use Illuminate\Support\Facades\Notification;
 use App\Models\Requ;
-
+use Validator;
 use Arr;
 use App\Notifications\InvoicePaid;
 
@@ -21,17 +21,59 @@ class TelegramController extends Controller
 public function message(Request $request) {
 	$d = $request->except('_token');
 
-if($d['name']==null || $d['number']==null || $d['email']==null || $d['package']==null || $d['text']==null){
-	return back()->with(['error' => 'Вы не заполнили всех полей']); 
-}
+$validator = Validator::make($request->except('_token'), [
+				'package' => 'required',
+				'name' => 'required',
+				'email' => 'required|email',
+				'phone' => 'required|min:9|max:17',
+				'message' => 'required',
+	]);
 
-$item = new Requ; $item->name = $d['name']; $item->name = $d['name'];$item->number = $d['number'];$item->email = $d['email'];
-$item->package = $d['package'];$item->text = $d['text'];$item->save();
+        if ($validator->fails())
+        {
+            return redirect()->back()->with(['errors'=>$validator->errors()->all()]);
+        }
+
+
+$item = new Requ; $item->name = $d['name']; $item->name = $d['name'];$item->phone = $d['phone'];$item->email = $d['email'];
+$item->package = $d['package'];$item->message = $d['message'];$item->save();
 
 	auth()->user()->notify(new ExampleNotification(json_encode($d)));
 	return redirect()->back()->with('success', 'Ваша сообщения отправлено'); 
 }
 
 
+
+    public function application(Request $request)
+    {
+				// $date = $request->except('_token');
+			// dd($date->all());
+        $validator = Validator::make($request->except('_token'), [
+				'package' => 'required',
+				'incoterms' => 'required',
+				'city_of_departure' => 'required',
+				'delivery_city' => 'required',
+				'weight' => 'required|numeric',
+				'dimension' => 'required',
+				'name' => 'required',
+				'email' => 'required|email',
+				'phone' => 'required|min:9|max:17',
+				'message' => 'required',
+        ]);
+
+        
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+
+
+        $input = $request->except('_token');
+
+        // dd($input);
+        
+        Requ::create($input);
+        return response()->json(['success'=>'Data is successfully added']);
+    }
 
 }

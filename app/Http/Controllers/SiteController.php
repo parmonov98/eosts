@@ -8,6 +8,9 @@ use App\Models\Article;
 use App\Models\Slider;
 use App\Models\Gallery;
 use App\Models\Settings;
+use App\Models\OnasNaKl;
+use App\Models\OnasVap;
+use App\Models\Otzivi;
 use Config;
 use Cache;
 use Menu;
@@ -73,7 +76,14 @@ class SiteController extends Controller
 	$this->vars = Arr::add($this->vars,'gallery',$gallery);
 
 
+	$vopros = view(config('settings.theme').'.vopros')->with('vopros',$this->OnasVap())->render();
+	$this->vars = Arr::add($this->vars,'vopros',$vopros);
 
+	$naskli = view(config('settings.theme').'.clients')->with('naskli',$this->OnasNaKl())->render();
+	$this->vars = Arr::add($this->vars,'naskli',$naskli);
+
+	$otzivi = view(config('settings.theme').'.otzivi')->with('otzivi',$this->getOtzivi())->render();
+	$this->vars = Arr::add($this->vars,'otzivi',$otzivi);
 
 
 	$this->vars = Arr::add($this->vars,'keywords',$this->keywords);
@@ -84,9 +94,16 @@ class SiteController extends Controller
 	return view($this->template)->with($this->vars);
 	}
 
+	public function OnasNaKl(){
+		$naskli = OnasNaKl::get();
+		return $naskli;
+		}
 
 
-
+	public function OnasVap(){
+		$vopros = OnasVap::get();
+		return $vopros;
+		}
 
 
 	public function getMenu($cat= 'ru'){
@@ -114,7 +131,6 @@ class SiteController extends Controller
 		});
 		return $mBuilder;
 		}
-
 
 
 
@@ -167,5 +183,10 @@ class SiteController extends Controller
 		$man = Settings::select()->first();
 		return $man;
 	}
+
+	public function getOtzivi(){
+		$man = Otzivi::get();
+		return $man;
+	}	
 }
 

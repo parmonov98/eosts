@@ -1,4 +1,4 @@
-<h2><u>Выбира EOSTS</u></h2>
+<h2><u>Вопросы</u></h2>
 
 <div id="content-page" class="content group">
 				            <div class="hentry group">
@@ -8,8 +8,9 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
 
-{!! Form::open(['url' => route('setVopraosUp') ,'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
 
+
+{!! Form::open(['url' => route('setVopraosUp') ,'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
 
 
 <?php
@@ -36,7 +37,14 @@
 
     <br />
 
+    <div class="input-prepend"><span class="add-on">
 
+<i class="icon-user"></i></span>
+Вопрос:<strong style="color:red;">*</strong> {!! Form::text('vopros['.$language.']', old("vopros[$language]"), ['class'=>'form-control','placeholder'=>'Введите название страницы']) !!}
+
+
+
+ </div>
 
       <div class="input-prepend"><span class="add-on">
 
@@ -44,9 +52,10 @@
     
 
 
-      на {{$label}} :<strong style="color:red;">*</strong> 
+      Отвит на {{$label}} :<strong style="color:red;">*</strong> 
 
-     {!! Form::textarea('select['.$language.']',  isset($setname->select[$language]) ? $setname->select[$language]  : old("select[$language]"), ['id'=>'summernote','class' => 'form-control','placeholder'=>'Введите текст страницы']) !!}
+      {!! Form::textarea('otvet['.$language.']', old("otvet[$language]"), ['id'=>'summernote','class' => 'form-control','placeholder'=>'Введите текст страницы']) !!}
+      
 
        </div>
 
@@ -60,17 +69,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 		<br />
 
 	{!! Form::button('Сохранить', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
@@ -78,14 +76,44 @@
 {!! Form::close() !!}
 
 
+
+@if(count($setname)>0)
+<table class="table table-striped table-bordered table-hover" style="margin-top: 30px;">
+  <thead>
+    <tr class="active">
+      <th scope="col">#</th>
+      <th scope="col">Вопрос</th>
+      <th scope="col">Отвит</th>
+      <th style="width: 50px;text-align: center;"><i class="fa fa-trash-o"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+@foreach($setname as $k=>$set)
+    <tr>
+      <th scope="row">{{++$k}}</th>
+      <td>{!!$set->vopros['ru']!!}</td>
+      <td>{!!$set->otvet['ru']!!}</td>
+      <td>
+{!! Form::open(['url' => route('setVopdelUp',['id'=>$set->id]),'class'=>'form-horizontal','method'=>'POST']) !!}
+{{ method_field('DELETE') }}
+{!! Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger','type'=>'submit']) !!}
+{!! Form::close() !!}</td>
+    </tr>
+@endforeach
+
+  </tbody>
+</table>
+@endif
+
 </div>
 </div>
+
 
 <!-- summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 <script type="text/javascript">
     $('#summernote*').summernote({
-        height: 250
+        height: 100
     });
 </script>

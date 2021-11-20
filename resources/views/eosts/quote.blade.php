@@ -26,7 +26,15 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
     <strong>{{ $error }}</strong>
     </div>
   @endif
-
+  @if ($errors = Session::get('errors'))
+    <div class="alert alert-danger">
+    <button class="close" data-dismiss="alert">×</button>
+    <ol>
+    @foreach($errors as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+    </ol></div>
+  @endif
   @if ($success = Session::get('success'))
     <div class="alert alert-primary">
     <button class="close" data-dismiss="alert">×</button>
@@ -42,7 +50,7 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
         <input type="text" name="name" class="form-control" placeholder="{{$nam[$l]}}" required>
     </div>
     <div class="form-row mb-4">
-        <input type="text" name="number"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="{{$phon[$l]}}" required>
+        <input type="text" name="phone" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="{{$phon[$l]}}" required>
     </div>
     <div class="form-row mb-4">
         <input type="email" name="email" class="form-control" placeholder="{{$mail[$l]}}" required>
@@ -60,7 +68,7 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
     <div class="form-row mb-4">
 
 
-        <textarea rows="7" maxlength="250" id="text" required name="text" placeholder="{{$texa[$l]}}" class="form-control"></textarea>
+        <textarea rows="7" maxlength="250" id="text" required name="message" placeholder="{{$texa[$l]}}" class="form-control"></textarea>
     </div>
     <div class="form-row text-center">
         <button type="submit" class="form-btn mx-auto btn-theme bg-orange">{{$butt[$l]}}<i class="icofont-rounded-right"></i></button>
