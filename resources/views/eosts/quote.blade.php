@@ -42,22 +42,24 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
     </div>
   @endif
 
+  <div class="alert alert-danger alert-dismissible fade " id="alert-danger" role="alert"></div>
+
 
 <!-- Free Quote From -->
 <form action="{{ route('message') }}" method="post" novalidate="novalidate" class="col rounded-field">
     @csrf
     <div class="form-row mb-4">
-        <input type="text" name="name" class="form-control" placeholder="{{$nam[$l]}}" required>
+        <input type="text" name="name" id="names" class="form-control" placeholder="{{$nam[$l]}}" required>
     </div>
     <div class="form-row mb-4">
-        <input type="text" name="phone" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="{{$phon[$l]}}" required>
+        <input type="text" name="phone" id="phones" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="{{$phon[$l]}}" required>
     </div>
     <div class="form-row mb-4">
-        <input type="email" name="email" class="form-control" placeholder="{{$mail[$l]}}" required>
+        <input type="email" name="email" id="emails" class="form-control" placeholder="{{$mail[$l]}}" required>
     </div>
 
     <div class="form-row mb-4">
-        <select title="Please choose a package" required="required" name="package" class="custom-select" aria-required="true" aria-invalid="false">
+        <select title="Please choose a package" required="required" id="packages" name="packages" class="custom-select" aria-required="true" aria-invalid="false">
             <option value="">{{$uslug[$l]}}</option>
             <option value="Перевозка драгоценных грузов">{{$uslug1[$l]}}</option>
             <option value="Перевозка требующий особых условий хранения">{{$uslug2[$l]}}</option>
@@ -71,7 +73,7 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
         <textarea rows="7" maxlength="250" id="text" required name="message" placeholder="{{$texa[$l]}}" class="form-control"></textarea>
     </div>
     <div class="form-row text-center">
-        <button type="submit" class="form-btn mx-auto btn-theme bg-orange">{{$butt[$l]}}<i class="icofont-rounded-right"></i></button>
+        <button type="submit" id="formSubmitid" class="form-btn mx-auto btn-theme bg-orange">{{$butt[$l]}}<i class="icofont-rounded-right"></i></button>
     </div>
 </form>
 <!-- Free Quote From -->
@@ -97,4 +99,46 @@ function maxLength(el) {
 }
 
 maxLength(document.getElementById("text"));
+    </script>
+
+
+
+     <script>
+        $(document).ready(function(){
+            $('#formSubmitid').click(function(e){
+                e.preventDefault();
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "{{ route('message') }}",
+                    method: 'post',
+                    data: {"_token":$('meta[name="csrf-token"]').attr('content'),name: $('#names').val(),package: $('#packages').val(), 
+                    email: $('#emails').val(), phone: $('#phones').val(), message: $('#text').val()
+                    },
+                    success: function(result){
+                        if(result.errors)
+                        {
+                            $('#alert-danger').html(' ');
+
+
+                            $.each(result.errors, function(key, value){
+                                $('#alert-danger').addClass('show');
+                                $('#alert-danger').append('<li>'+value+'</li>');
+                            });
+                        }
+                        else
+                        {
+                            $('#alert-danger').hide();
+                            $('#request_popup').modal('hide');
+                            $('#success').modal('show');
+                            setTimeout(function(){ $('#success').modal('hide'); }, 1900); 
+
+                        }
+                    }
+                });
+            });
+        });
     </script>

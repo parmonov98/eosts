@@ -10,3 +10,6 @@
 	{!! $content !!}
 @endsection
 
+@section('futnav')
+	{!! $futnav !!}
+@endsection

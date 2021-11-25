@@ -13,7 +13,7 @@ $public = substr($_SERVER['REQUEST_URI'], 1,6);
 
                             <li class="nav-item {{('ru'==$public)?'active':''}}{{('en'==$public)?'active':''}}{{('tu'==$public)?'active':''}}" itemprop="itemListElement" itemscope=""
                                 itemtype="http://schema.org/ItemList">
-                                <a href="/{{$lang}}" class="nav-link" itemprop="url">{{('ru'==$lang)?'Главная':''}}{{('en'==$lang)?'Address':''}}{{('tu'==$lang)?'Address':''}}</a>
+                                <a href="/{{$lang}}" class="nav-link" itemprop="url">{{('ru'==$lang)?'Главная':''}}{{('en'==$lang)?'Home':''}}{{('tu'==$lang)?'Ev':''}}</a>
                                 <meta itemprop="name" content="{{('ru'==$lang)?'Главная':''}}{{('en'==$lang)?'Address':''}}{{('tu'==$lang)?'Address':''}}" />
                             </li>
                             

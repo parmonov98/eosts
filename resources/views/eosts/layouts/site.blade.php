@@ -149,13 +149,13 @@ $lang = session('lang');
                                 @endif
                                  @if('tu'!=$lang)
 
-                                        <a class="dropdown-item" href="#" itemprop="availableLanguage" itemscope
+                                      <!--   <a class="dropdown-item" href="#" itemprop="availableLanguage" itemscope
                                             itemtype="https://schema.org/Language">
                                             <img src="{{ asset(env('THEME').'/images/tr.svg')}}" alt="" class="dropdown-item-icon">
                                             <span itemprop="name">
                                                 Türkçe
                                             </span>
-                                        </a>
+                                        </a> -->
                                 @endif
 
                                     </div>
@@ -234,14 +234,14 @@ $lang = session('lang');
         <span class="d-none d-lg-inline-block" itemprop="name">English</span>
     </a>
 @else
-    <a href="#" class="dropdown-toggle btn ml-auto" data-toggle="dropdown" aria-haspopup="true"
+<!--     <a href="#" class="dropdown-toggle btn ml-auto" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false" data-hover="dropdown" data-animations="slideInUp"
         itemprop="availableLanguage" itemscope itemtype="https://schema.org/Language">
         <img src="{{ asset(env('THEME').'/images/tr.svg')}}" alt="" class="dropdown-item-icon">
         <span class="d-inline-block d-lg-none">Tu</span>
         <span class="d-none d-lg-inline-block" itemprop="name">Türkçe</span>
     </a>
-
+ -->
 @endif
 
 
@@ -270,13 +270,13 @@ $lang = session('lang');
 </a>
 @endif
  @if('tu'!=$lang)
-<a class="dropdown-item " href="#" itemprop="availableLanguage" itemscope
+<!-- <a class="dropdown-item " href="#" itemprop="availableLanguage" itemscope
     itemtype="https://schema.org/Language">
     <img src="{{ asset(env('THEME').'/images/tr.svg')}}" alt="" class="dropdown-item-icon">
     <span itemprop="name">
         Türkçe
     </span>
-</a>
+</a> -->
 @endif
 
 
@@ -567,92 +567,84 @@ $lang = session('lang');
                                 <a href="#" class="close" data-dismiss="modal" aria-label="Close">
                                     <i class="icofont-close-line"></i>
                                 </a>
-                                <div class="d-lg-flex justify-content-end no-gutters mb-spacer-md"
+                                <div class="d-lg-flex no-gutters mb-spacer-md"
                                     style="box-shadow: 0px 18px 76px 0px rgba(0, 0, 0, 0.06);">
-                                    <div class="col bg-fixed bg-img-7 request_pag_img" style="background-image: url({{ asset(env('THEME').'/images/contact-us.png')}});">
-                                        &nbsp;
-                                    </div>
+                        
 
-
-                                    <div class="col-md-7 col-12">
+                                    <div class="col-md-12 col-12">
                                         <div class="px-3 m-5">
-                                            <h2 class="h2-xl mb-4 fw-6">Получить расчет </h2>
-<div class="alert alert-danger alert-dismissible fade " role="alert">
+                                            <h1 class="heading-main mb-4">
+                                   @if('ru'==$lang) <span>Оставить</span> Запрос @elseif('en'==$lang)<span> Submit </span> Request @else  <span> Gönder </span> İstek @endif
+                                </h1>
+
+<div class="alert alert-danger alert-dismissible fade " id="alertdanger" role="alert">
     
 </div>
 
+@if ($error = Session::get('error'))
+    <div class="alert alert-danger">
+    <button class="close" data-dismiss="alert">×</button>
+    <strong>{{ $error }}</strong>
+    </div>
+  @endif
+  @if ($errors = Session::get('errors'))
+    <div class="alert alert-danger">
+    <button class="close" data-dismiss="alert">×</button>
+    <ol>
+    @foreach($errors as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+    </ol></div>
+  @endif
+  @if ($success = Session::get('success'))
+    <div class="alert alert-primary">
+    <button class="close" data-dismiss="alert">×</button>
+    <strong>{{ $success }}</strong>
+    </div>
+  @endif
 
+ <?php 
+$nam = ['ru'=>'Имя','en'=>'Name','tu'=>'İsim']; $phon = ['ru'=>'Телефон номер','en'=>'Phone number','tu'=>'Telefon numarası'];
+$mail = ['ru'=>'Э-почта','en'=>'Email','tu'=>'E-posta']; $texa = ['ru'=>'Опишите откуда и куда...','en'=>'Describe where and where ...','tu'=>'Nerede ve nerede olduğunu açıklayın ...']; $butt = ['ru'=>'Отправить','en'=>'Send','tu'=>'Göndermek'];
+
+$uslug = ['ru'=>'Тип услуги','en'=>'Service type','tu'=>'Servis tipi'];
+$uslug1 = ['ru'=>'Перевозка драгоценных грузов','en'=>'Transportation of precious cargo','tu'=>'Değerli kargo taşımacılığı'];
+$uslug2 = ['ru'=>'Перевозка требующий особых условий хранения','en'=>'Transportation requiring special storage conditions','tu'=>'Özel saklama koşulları gerektiren taşıma'];
+$uslug3 = ['ru'=>'Перевозка сверхтяжёлые грузы','en'=>'Extra heavy cargo transportation','tu'=>'Ekstra ağır yük taşımacılığı'];
+$uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Cargo insurance','tu'=>'Kargo sigortası'];
+  ?>
         
+<form novalidate="novalidate" class="rounded-field">@csrf
 
 
-                        <form novalidate="novalidate" class="rounded-field">@csrf
-                    <div class="form-row mb-4">
-                          <div class="col">
-                            <select title="Please choose a package" required="" name="package" id="package" class="custom-select" aria-required="true" aria-invalid="false">
-                              <option value="Type 1">Тип груз 1</option>
-                              <option value="Type 2">Тип груз 2</option>
-                            </select>
-                          </div>
-                          <div class="col">
-                            <select title="Please choose a package" required="" name="incoterms" id="incoterms" class="custom-select" aria-required="true" aria-invalid="false">
-                              <option value="">Incoterms</option>
-                              <option value="Type 1">Type 1</option>
-                              <option value="Type 2">Type 2</option>
-                              <option value="Type 3">Type 3</option>
-                              <option value="Type 4">Type 4</option>
-                            </select>
-                          </div>
-                        </div>
+<div class="form-row mb-4">
+        <input type="text" name="name" id="name" class="form-control" placeholder="{{$nam[$lang]}}" required>
+    </div>
+    <div class="form-row mb-4">
+        <input type="text" name="phone" id="phone" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="{{$phon[$lang]}}" required>
+    </div>
+    <div class="form-row mb-4">
+        <input type="email" name="email" id="email" class="form-control" placeholder="{{$mail[$lang]}}" required>
+    </div>
+
+    <div class="form-row mb-4">
+        <select title="Please choose a package" required="required" id="package" name="package" class="custom-select" aria-required="true" aria-invalid="false">
+            <option value="">{{$uslug[$lang]}}</option>
+            <option value="Перевозка драгоценных грузов">{{$uslug1[$lang]}}</option>
+            <option value="Перевозка требующий особых условий хранения">{{$uslug2[$lang]}}</option>
+            <option value="Перевозка сверхтяжёлые грузы">{{$uslug3[$lang]}}</option>
+            <option value="Страхование грузоперевозки">{{$uslug4[$lang]}}</option>
+        </select>
+    </div>
+    <div class="form-row mb-4">
+
+    <textarea rows="7" maxlength="250" id="message" required name="message" placeholder="{{$texa[$lang]}}" class="form-control"></textarea>
+    </div>
+    <div class="form-row text-center">
+        <button type="submit" id="formSubmit" class="form-btn mx-auto btn-theme bg-orange">{{$butt[$lang]}}<i class="icofont-rounded-right"></i></button>
+    </div>
 
 
-                                                <div class="form-row mb-4">
-                                                    <div class="col">
-                                                        <input type="text" name="city_of_departure" id="city_of_departure" class="form-control"
-                                                            placeholder="City of departure">
-                                                    </div>
-                                                    <div class="col">
-                                                        <input type="text" name="delivery_city" id="delivery_city" class="form-control"
-                                                            placeholder="Delivery city">
-                                                    </div>
-                                                </div>
-                                                <div class="form-row mb-4">
-                                                    <div class="col">
-                                                        <input type="text" name="weight" id="weight" class="form-control"
-                                                            placeholder="Total gross weight (KG)">
-                                                    </div>
-                                                    <div class="col">
-                                                        <input type="text" name="dimension" id="dimension" class="form-control"
-                                                            placeholder="Dimension">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-row">
-                                                    <div class="col">
-                                                        <div class="center-head"><span class="bg-light-gray txt-orange">Your Personal
-                                                                Details</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row mb-4">
-                                                    <div class="col">
-                                                        <input type="text" name="name" id="names" class="form-control mb-3"
-                                                            placeholder="Your Name">
-                                                        <input type="text" name="email" id="emails" class="form-control mb-3"
-                                                            placeholder="Email">
-                                                        <input type="text" name="phone" id="phones" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control"
-                                                            placeholder="Phone Number">
-                                                    </div>
-                                                    <div class="col">
-                                                        <textarea rows="7" name="message" id="message" placeholder="Message"
-                                                            class="form-control"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="form-row">
-                                                    <div class="col pt-3">
-                                                        <button type="submit" id="formSubmit" class="form-btn btn-theme bg-orange">Send
-                                                            Message <i class="icofont-rounded-right"></i></button>
-                                                    </div>
-                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -689,12 +681,6 @@ $lang = session('lang');
 
 
 
-
-
-
-
-
-
     <script>
         $(document).ready(function(){
             $('#formSubmit').click(function(e){
@@ -705,27 +691,25 @@ $lang = session('lang');
                     }
                 });
                 $.ajax({
-                    url: "{{ route('application') }}",
+                    url: "{{ route('message') }}",
                     method: 'post',
-                    data: {"_token":$('meta[name="csrf-token"]').attr('content'),name: $('#name').val(),package: $('#package').val(), incoterms: $('#incoterms').val(),
-                    city_of_departure: $('#city_of_departure').val(),weight: $('#weight').val(), weight: $('#weight').val(),
-                    dimension: $('#dimension').val(),name: $('#names').val(), email: $('#emails').val(),
-                    phone: $('#phones').val(), message: $('#message').val(),delivery_city: $('#delivery_city').val()
+                    data: {"_token":$('meta[name="csrf-token"]').attr('content'),name: $('#name').val(),package: $('#package').val(), 
+                    email: $('#email').val(), phone: $('#phone').val(), message: $('#message').val()
                     },
                     success: function(result){
                         if(result.errors)
                         {
-                            $('.alert-danger').html(' ');
+                            $('#alertdanger').html(' ');
 
 
                             $.each(result.errors, function(key, value){
-                                $('.alert-danger').addClass('show');
-                                $('.alert-danger').append('<li>'+value+'</li>');
+                                $('#alertdanger').addClass('show');
+                                $('#alertdanger').append('<li>'+value+'</li>');
                             });
                         }
                         else
                         {
-                            $('.alert-danger').hide();
+                            $('#alertdanger').hide();
                             $('#request_popup').modal('hide');
                             $('#success').modal('show');
                             setTimeout(function(){ $('#success').modal('hide'); }, 1900); 

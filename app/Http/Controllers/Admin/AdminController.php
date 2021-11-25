@@ -150,7 +150,7 @@ $menu = $this->getMenu();
 		return Menu::make('adminMenus', function($menu) {
 
 
-$menu->add('<span>Главная страница</span>',array('route' => 'adminIndex'))->prepend('<i class="fa fa-dashboard"></i>');
+// $menu->add('<span>Главная страница</span>',array('route' => 'adminIndex'))->prepend('<i class="fa fa-dashboard"></i>');
 
 
 

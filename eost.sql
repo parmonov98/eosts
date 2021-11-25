@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 20 2021 г., 05:04
+-- Время создания: Ноя 25 2021 г., 06:24
 -- Версия сервера: 10.5.11-MariaDB
 -- Версия PHP: 8.0.8
 
@@ -108,8 +108,8 @@ INSERT INTO `gallery` (`id`, `name`, `img`, `created_at`, `updated_at`) VALUES
 (13, '{\"name\":{\"ru\":\"\\u041c\\u044b EOSTS 2\",\"en\":\"\\u041c\\u044b EOSTS 2\",\"tu\":null}}', '{\"max\":\"max_eu6t9exvjfloviw926xd.jpg\",\"min\":\"min_eu6t9exvjfloviw926xd.jpg\"}', '2021-11-19 19:23:42', '2021-11-19 19:23:42'),
 (14, '{\"name\":{\"ru\":\"\\u041c\\u044b EOSTS 2\",\"en\":\"\\u041c\\u044b EOSTS 2\",\"tu\":null}}', '{\"max\":\"max_jfm19rzoxc5bt0aip1hy.jpg\",\"min\":\"min_jfm19rzoxc5bt0aip1hy.jpg\"}', '2021-11-19 19:24:31', '2021-11-19 19:24:31'),
 (15, '{\"name\":{\"ru\":\"\\u041c\\u044b EOSTS 2\",\"en\":\"\\u041c\\u044b EOSTS 2\",\"tu\":null}}', '{\"max\":\"max_abteisj27ubshoajmxhh.jpg\",\"min\":\"min_abteisj27ubshoajmxhh.jpg\"}', '2021-11-19 19:25:04', '2021-11-19 19:25:04'),
-(16, '{\"name\":{\"ru\":\"\\u041c\\u044b EOSTS 2\",\"en\":\"\\u041c\\u044b EOSTS 2\",\"tu\":null}}', '{\"max\":\"max_i0b1qzfb6jlbtrpuvwot.jpg\",\"min\":\"min_i0b1qzfb6jlbtrpuvwot.jpg\"}', '2021-11-19 19:25:35', '2021-11-19 19:25:35'),
-(17, '{\"name\":{\"ru\":\"\\u041c\\u044b EOSTS 2\",\"en\":\"\\u041c\\u044b EOSTS 2\",\"tu\":null}}', '{\"max\":\"max_nskq5qxqxz8pbmickuol.jpg\",\"min\":\"min_nskq5qxqxz8pbmickuol.jpg\"}', '2021-11-19 19:26:03', '2021-11-19 19:26:03');
+(16, '{\"name\":{\"ru\":\"\\u041c\\u044b EOSTS 2\",\"en\":\"\\u041c\\u044b EOSTS 2\",\"tu\":\"\\u041c\\u044b \\u0433\\u043e\\u0442\\u043e\\u0432\\u044b\"}}', '{\"max\":\"max_i0b1qzfb6jlbtrpuvwot.jpg\",\"min\":\"min_guhddogaafuexp6b30ph.jpg\"}', '2021-11-19 19:25:35', '2021-11-24 22:22:34'),
+(17, '{\"name\":{\"ru\":\"\\u041c\\u044b EOSTS 2\",\"en\":\"\\u041c\\u044b EOSTS 2\",\"tu\":\"\\u041c\\u044b EOSTS 2\"}}', '{\"max\":\"max_nskq5qxqxz8pbmickuol.jpg\",\"min\":\"min_nskq5qxqxz8pbmickuol.jpg\"}', '2021-11-19 19:26:03', '2021-11-24 22:20:53');
 
 -- --------------------------------------------------------
 
@@ -391,15 +391,24 @@ CREATE TABLE `requ` (
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `package` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `incoterms` varchar(255) DEFAULT NULL,
-  `city_of_departure` varchar(255) DEFAULT NULL,
-  `weight` varchar(255) DEFAULT NULL,
-  `dimension` varchar(255) DEFAULT NULL,
   `message` text NOT NULL,
   `prev` int(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Дамп данных таблицы `requ`
+--
+
+INSERT INTO `requ` (`id`, `name`, `phone`, `email`, `package`, `message`, `prev`, `created_at`, `updated_at`) VALUES
+(1, '1 chorak uchun jadval 2021-2022', '998994228081', 'mirshodbek-4455@umail.uz', 'Перевозка драгоценных грузов', 'hrthh', 0, '2021-11-24 21:00:00', '2021-11-24 21:00:00'),
+(2, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'xfvx', 0, '2021-11-24 21:12:59', '2021-11-24 21:12:59'),
+(3, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'ffff', 0, '2021-11-24 21:15:00', '2021-11-24 21:15:00'),
+(4, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'hfhh', 0, '2021-11-24 21:16:03', '2021-11-24 21:16:03'),
+(5, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'ggjgj', 0, '2021-11-24 21:16:18', '2021-11-24 21:16:18'),
+(6, 'Uyda uqitish', '998919077684', 'mirshodbek-4455@umail.uz', 'Перевозка требующий особых условий хранения', 'sssfsff', 0, '2021-11-24 21:41:42', '2021-11-24 21:41:42'),
+(7, 'Uyda uqitish 2', '998994228081', 'info@sarbontrans.com', 'Перевозка драгоценных грузов', 'zczczc', 0, '2021-11-24 21:41:57', '2021-11-24 21:41:57');
 
 -- --------------------------------------------------------
 
@@ -766,7 +775,7 @@ ALTER TABLE `permission_role`
 -- AUTO_INCREMENT для таблицы `requ`
 --
 ALTER TABLE `requ`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`

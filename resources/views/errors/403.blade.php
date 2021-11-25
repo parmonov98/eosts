@@ -19,7 +19,7 @@
             </g>
           </svg>
 <h1>You are not allowed to enter here</h1>
-<h2>Go <a target="_blank" href="/">Home!</a></h2>
+<h2>Go <a href="/">Home!</a></h2>
 
 <style type="text/css">
   @import url("https://fonts.googleapis.com/css?family=Bungee");

@@ -28,12 +28,13 @@
 @foreach($gallerys as $file)
                   <div class="col-sm-2" style=" padding-bottom: 5px;">
  @if(isset($file->img))
-		<div style="position: relative; width: 150px; background-size: cover; height: 150px; background-image: url({{asset('/gallery/'.$file->img['min'])}});" ></div>
+ <a href="{{route('gallery.edit',['gallery'=>$file->id]) }}">
+		<div style="position: relative; width: 152px; background-size: cover; height: 150px; border-radius: 4px 4px 0px 0px; background-image: url({{asset('/gallery/'.$file->img['min'])}});" ></div></a>
 @endif
 
 {!! Form::open(['url' => route('gallery.destroy',['gallery'=>$file->id]),'class'=>'form-horizontal','method'=>'POST']) !!}
 	    {{ method_field('DELETE') }}
-	    {!! Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger btn-block','type'=>'submit']) !!}
+	    {!! Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger btn-block','style'=>'border-radius: 0px 0px 4px 4px;','type'=>'submit']) !!}
 	{!! Form::close() !!}
                   </div>
 @endforeach

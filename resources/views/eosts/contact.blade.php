@@ -2,19 +2,6 @@
 
 
 
-    
-@if('ru'==$lang)
-
-
-@endif
-@if('en'==$lang)
-
-
-@else      
-
-
-@endif
-
 
 
     <!-- Page Breadcrumbs Start -->

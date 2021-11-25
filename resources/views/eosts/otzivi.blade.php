@@ -31,7 +31,7 @@
                                                 <img src="{{ asset('/users/'.$value->img)}}" alt="">
                                             </div>
                                             <div class="client-inner-content media-body">
-                                                {!! $value->text !!}
+                                               <div style="    height: 200px;  overflow: auto;    margin-bottom: 11px;"> {!! $value->text !!}</div>
                                                 
                                                 <footer class="blockquote-footer"><cite title="Source Title">
                                                         <span itemprop="author"> {{ $value->name }} </span> </cite>

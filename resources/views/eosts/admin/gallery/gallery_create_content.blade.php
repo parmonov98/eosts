@@ -20,11 +20,7 @@
           @endif
 
 
-
-{!! Form::open(['url' => url('/admins/gallery') ,'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
-
-
-
+{!! Form::open(['url' => (isset($gallery->id)) ? route('gallery.update',['gallery'=>$gallery->id]) : route('gallery.store'),'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
 
 
 
@@ -65,8 +61,8 @@
       <i class="icon-user"></i></span>
       Названия фото (на {{$label}}) :<strong style="color:red;">*</strong> 
 
-      {!! Form::text("name[name][$language]", isset($products->name['name'][$language]) ? 
-      $products->name['name'][$language] : old("name['name'][$language]"), ['class'=>'form-control','placeholder'=>'Введите название (на '.$label.')']) !!}
+      {!! Form::text("name[name][$language]", isset($gallery->name['name'][$language]) ? 
+      $gallery->name['name'][$language] : old("name['name'][$language]"), ['class'=>'form-control','placeholder'=>'Введите название (на '.$label.')']) !!}
 
        </div>
 
@@ -84,7 +80,7 @@
   </div>
 
 
-  <div class="col-md-6">
+  <div class="{{isset($gallery)?'col-md-4':'col-md-6'}}">
 
       Загрузка качественный фото:
 
@@ -107,27 +103,29 @@
 
 			 </div>
 
+@if(isset($gallery->id))
+<div class="col-md-2" style="text-align: center;">
+  <p>{{ Html::image(asset('/gallery/'.$gallery->img['max']),'',['style'=>'max-height: 95px;']) }}</p>
 
-
+  <p>{{ Html::image(asset('/gallery/'.$gallery->img['min']),'',['style'=>'max-height: 95px;']) }}</p>
+</div>
+      <input type="hidden" name="_method" value="PUT">
+@endif
  
 </div>
 
 		</div>
 
-		
+	
 
-
+</div>
 						{!! Form::button('Сохранить', ['class' => 'btn btn-primary btn-block','type'=>'submit']) !!}
+</div>
 
-
-
-    <br>
 
 {!! Form::close() !!}
 
 
-</div>
-</div>
 
 <script>
 

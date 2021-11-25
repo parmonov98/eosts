@@ -102,7 +102,11 @@ class GalleryController extends AdminController
      */
     public function edit(Gallery $gallery)
     {
-        //
+    $this->title = 'Реадактирование материала - '. $gallery->name['name']['ru'];
+
+$this->content = view(config('settings.theme').'.admin.gallery.gallery_create_content')->with(['gallery' => $gallery])->render();
+
+        return $this->renderOutput();
     }
 
     /**
@@ -114,7 +118,13 @@ class GalleryController extends AdminController
      */
     public function update(Request $request, Gallery $gallery)
     {
-        //
+       $result = $this->g_rep->updateGallery($request, $gallery);
+        if(is_array($result) && !empty($result['error'])) {
+            //dd($result);
+
+            return back()->with($result);
+        }
+        return redirect('/admins/gallery')->with($result);
     }
 
     /**

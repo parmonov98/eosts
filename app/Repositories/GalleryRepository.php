@@ -38,7 +38,7 @@ public function addFiles($request){
 				'name.name.ru' => 'required',
 				'name.name.en' => 'required',
 				'max' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-				'min' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+				'min' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
 			]);
 	
 	        if (empty($validator) && $validator->fails())
@@ -55,6 +55,67 @@ public function addFiles($request){
 		$data['img'] = ['max'=>$max,'min'=>$min];
 
 	if(isset($data['img']) && $this->model->fill($data)->save()) {
+	   return ['status' => 'Информация добавлена'];
+	}else{ return ['error' => 'Нет фото'];}
+        }
+    }
+
+
+
+
+public function updateGallery($request, $gallery){
+	// dd($request);
+
+		$data = $request->except('_token','max','min');	
+
+		$validator=	$request->validate([
+				'name.name.ru' => 'required',
+				'name.name.en' => 'required',
+				'max' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+				'min' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+			]);
+	
+	        if (empty($validator) && $validator->fails())
+        {
+            return ['errors'=>$validator->errors()->all()];
+        }else{
+
+	$rand = '_'.strtolower(Str::random(20));
+if($request->hasFile('max') && $request->hasFile('min')) {
+if(is_array($gallery->img)){
+$file2 = public_path('gallery/').$gallery->img['max'];File::delete($file2);
+$file = public_path('gallery/').$gallery->img['min'];File::delete($file);
+}    		
+
+$max = 'max'.$rand.'.'.$request->max->extension();
+$min = 'min'.$rand.'.'.$request->min->extension();
+   
+$request->max->move(public_path('gallery'), $max);
+$request->min->move(public_path('gallery'), $min);
+$data['img'] = ['max'=>$max,'min'=>$min];
+
+}
+elseif($request->hasFile('max')) {
+if(is_array($gallery->img)){$file2 = public_path('gallery/').$gallery->img['max'];File::delete($file2);}
+$max = 'max'.$rand.'.'.$request->max->extension();			   
+$request->max->move(public_path('gallery'), $max);
+$data['img'] = ['max'=>$max,'min'=>$gallery->img['min']];
+}
+elseif($request->hasFile('min')) {
+if(is_array($gallery->img)){$file = public_path('gallery/').$gallery->img['min'];File::delete($file);}
+
+$min = 'min'.$rand.'.'.$request->min->extension();
+$request->min->move(public_path('gallery'), $min);
+$data['img'] = ['max'=>$gallery->img['max'],'min'=>$min];
+
+}
+			
+
+
+
+
+
+	if($gallery->update($data)) {
 	   return ['status' => 'Информация добавлена'];
 	}else{ return ['error' => 'Нет фото'];}
         }

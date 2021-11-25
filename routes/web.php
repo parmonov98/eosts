@@ -50,20 +50,21 @@ Route::post('/message', function (Request $request) {$d = $request->except('_tok
 
         if ($validator->fails())
         {
-            return redirect()->back()->with(['errors'=>$validator->errors()->all()]);
+            return response()->json(['errors'=>$validator->errors()->all()]);
+            // return redirect()->back()->with(['errors'=>$validator->errors()->all()]);
         }else{
 Notification::route('message', env('TELEGRAM_USER_ID'))->notify(new ExampleNotification(json_encode($d)));
 
 $item = new Requ; $item->name = $d['name']; $item->name = $d['name'];$item->phone = $d['phone'];$item->email = $d['email'];
 $item->package = $d['package'];$item->message = $d['message'];$item->save();
 
-            return redirect()->back()->with('success', 'Ваша сообщения отправлено'); }
+            return response()->json(['success'=>'Ваша сообщения отправлено']); }
     })->name('message');
 
 }
 
 
-Route::post('application',[Adress\TelegramController::class,'application'])->name('application');
+// Route::post('application',[Adress\TelegramController::class,'application'])->name('application');
 
 Route::get('/pronas',[Adress\ObunaController::class,'pronas'])->name('pronas');
 
