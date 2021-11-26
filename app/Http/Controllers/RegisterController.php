@@ -10,7 +10,7 @@ use File;
 use Arr;
 // use App\SetUmum;
 use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\Models\User;
 
 class RegisterController extends SiteController
 {
@@ -102,12 +102,12 @@ public function SetUmumlar()
 
 
         if ( !Hash::check($request->current_password, Auth::user()->password) ) {
-            return redirect()->back()->with('error', 'Joriy parol noto\'g\'ri.');
+            return redirect()->back()->with('error', 'Текущий пароль неверен.');
         }else{
             // dd($user);
            User::find(auth()->user()->id)->update(['password'=> Hash::make($request->password)]);
             // $user->update(['password',Hash::make($data['password'])]);
-            return redirect()->back()->with('status', 'Parol yangilandi.');
+            return redirect()->back()->with('status', 'Пароль обновлен.');
         }
 
 

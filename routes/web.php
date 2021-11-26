@@ -90,6 +90,7 @@ Route::match(['get','post'],'/obuna/obuna',[Adress\ObunaController::class, 'stor
 Auth::routes();
 Route::match(['get','post'],'prof/update', [Adress\RegisterController::class, 'update'])->name('regPrUp');
 Route::get('/profile',[Adress\RegisterController::class, 'edit'])->name('regProf')->where(['page'=>'[\0-9]+']);
+Route::match(['get','post'],'/repeatpass', [Adress\RegisterController::class, 'repeatpass'])->name('regRepeatPass');
 
 Route::middleware(['web'])->prefix('admins')->group(function () {
 Route::get('/', [Adress\Admin\IndexController::class, 'index'])->name('adminIndex');

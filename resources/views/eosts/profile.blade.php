@@ -15,13 +15,78 @@
     </div>
     <!-- Page Breadcrumbs End -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card free-quote-form " style="margin: 100px 0 100px 0;">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
+
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@if ($status = Session::get('status'))
+    <div class="alert alert-success">
+    <button class="close" data-dismiss="alert">×</button>
+    <strong>{{ $status }}</strong>
+    </div>
+    @endif
+
+@if ($error = Session::get('error'))
+    <div class="alert alert-danger">
+    <button class="close" data-dismiss="alert">×</button>
+    <strong>{{ $error }}</strong>
+    </div>
+  @endif
+
+
+
+ <div class="form-group">
+
+                            <div class="col-md-12">
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ __('Профиль') }}</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Измени пароль</a>
+  </li>
+
+</ul>
+</div>
+</div>
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+
+<div class="card-body">
 
         <form class="form-horizontal was-validated" method="POST" action="{{ route('regPrUp') }}" enctype="multipart/form-data">
 
@@ -52,6 +117,17 @@
                             </div>
                         </div>
 
+
+
+
+
+
+
+
+
+
+
+
                         <div class="form-group media">
 
                             <div class="col-md-12">
@@ -76,8 +152,8 @@
                         <div class="form-group">
                             <div class="col-md-12 col-md-offset-4">
                             <br>
-                                <button type="submit" class="btn btn-outline-primary btn-lg btn-block">
-                                    <i class="fa fa-floppy-o"></i> Ok
+                                <button type="submit" class="btn btn-outline-light btn-lg btn-block">
+                                    <i class="fa fa-cog fa-spin fa-1x fa-fw"></i> Сохранить...
                                 </button>
                                 <br />
                             </div>
@@ -94,6 +170,71 @@
 
 
                 </div>
+
+
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+
+
+
+<form class="form-horizontal" method="POST" action="{{ route('regRepeatPass') }}" enctype="multipart/form-data">
+                        @csrf
+
+
+
+<div class="form-row">
+    <div class="col-sm-4 form-group">
+        <label class="font-normal">Введите текущий пароль: *</label>
+
+        <input id="password" type="password" class="form-control" name="current_password">
+<br>
+        @if($errors->has('current_password'))
+            <span class="help-block">
+                <strong>{{ $errors->first('current_password') }}</strong>
+            </span>
+        @endif
+
+    </div>
+
+    <div class="col-sm-4 form-group" title="8 belgidan kam bulmasin">
+        <label class="font-normal">Введите новый пароль:</label>
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+        @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+
+        <div class="col-sm-4 form-group">
+        <label class="font-normal">Подтвердите пароль:</label>
+
+        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
+    </div>
+
+</div>
+
+
+
+    <div class="form-group">
+        <hr>
+          <button type="submit" class="btn btn-outline-light btn-lg btn-block"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i> Сохранить...</button>
+    </div>
+</form>
+
+
+  </div>
+  
+</div>
+
+
+
+
+
+                
             </div>
         </div>
     </div>
