@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 27 2021 г., 21:43
+-- Время создания: Ноя 27 2021 г., 23:12
 -- Версия сервера: 10.5.11-MariaDB
 -- Версия PHP: 8.0.8
 
@@ -421,26 +421,6 @@ CREATE TABLE `requ` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
---
--- Дамп данных таблицы `requ`
---
-
-INSERT INTO `requ` (`id`, `name`, `phone`, `email`, `package`, `message`, `prev`, `created_at`, `updated_at`) VALUES
-(1, '1 chorak uchun jadval 2021-2022', '998994228081', 'mirshodbek-4455@umail.uz', 'Перевозка драгоценных грузов', 'hrthh', 0, '2021-11-24 21:00:00', '2021-11-24 21:00:00'),
-(2, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'xfvx', 0, '2021-11-24 21:12:59', '2021-11-24 21:12:59'),
-(3, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'ffff', 0, '2021-11-24 21:15:00', '2021-11-24 21:15:00'),
-(4, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'hfhh', 0, '2021-11-24 21:16:03', '2021-11-24 21:16:03'),
-(5, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'ggjgj', 0, '2021-11-24 21:16:18', '2021-11-24 21:16:18'),
-(6, 'Uyda uqitish', '998919077684', 'mirshodbek-4455@umail.uz', 'Перевозка требующий особых условий хранения', 'sssfsff', 0, '2021-11-24 21:41:42', '2021-11-24 21:41:42'),
-(7, 'Uyda uqitish 2', '998994228081', 'info@sarbontrans.com', 'Перевозка драгоценных грузов', 'zczczc', 0, '2021-11-24 21:41:57', '2021-11-24 21:41:57'),
-(8, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'fsf', 0, '2021-11-26 07:10:06', '2021-11-26 07:10:06'),
-(9, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'fsf', 0, '2021-11-26 07:10:06', '2021-11-26 07:10:06'),
-(10, 'Uyda uqitish 2', '+99899 311 49 00', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'dghd', 0, '2021-11-26 07:14:43', '2021-11-26 07:14:43'),
-(11, 'Uyda uqitish 2', '998997349931', 'xushboqovasugdiyona@gmail.com', 'Перевозка требующий особых условий хранения', 'yyr6y', 0, '2021-11-26 07:18:09', '2021-11-26 07:18:09'),
-(12, 'Uyda uqitish 2', '998994228081', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'какы', 0, '2021-11-26 07:30:54', '2021-11-26 07:30:54'),
-(13, '2 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка требующий особых условий хранения', 'явсяс', 0, '2021-11-26 07:34:34', '2021-11-26 07:34:34'),
-(14, '1 chorak uchun jadval 2021-2022', '998919077684', 'xushboqovasugdiyona@gmail.com', 'Перевозка драгоценных грузов', 'вкпвп', 0, '2021-11-26 07:36:07', '2021-11-26 07:36:07');
-
 -- --------------------------------------------------------
 
 --
@@ -819,7 +799,7 @@ ALTER TABLE `permission_role`
 -- AUTO_INCREMENT для таблицы `requ`
 --
 ALTER TABLE `requ`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`

@@ -114,13 +114,13 @@
     @endforeach
     </div>
   @endif
-  
+    <div class="alert alert-danger alert-dismissible fade " id="alert-danger" role="alert"></div>
                 <h1 class="heading-main mb-4">
                   Оставить заврос
                 </h1>
                 <!-- Heading Main -->
 
-                <form action="{{ route('conts') }}" method="post" id="contactusForm" novalidate="novalidate"
+                <form id="contactusForm" novalidate="novalidate"
                   class="col rounded-field">@csrf
                   @if(!Auth::check())
                   <div class="form-row mb-4">
@@ -183,4 +183,48 @@ function maxLength(el) {
 }
 
 maxLength(document.getElementById("cment"));
+
+
     </script>
+
+
+     
+
+<script>
+        $(document).ready(function(){
+            $('#contactForm').click(function(e){
+                e.preventDefault();
+          var name = $('#name').val();
+          var email = $('#email').val();
+          var message = $('#cment').val();
+                $.ajax({
+                    url: "{{ route('conts') }}",
+                    method: 'post',
+                    data: {"_token":$('meta[name="csrf-token"]').attr('content'),name: name, 
+                    email: email, message: message
+                    },
+                    success: function(result){
+                        if(result.errors)
+                        {
+                            $('#alert-danger').html(' ');
+
+                            $.each(result.errors, function(key, value){
+                                $('#alert-danger').addClass('show');
+                                $('#alert-danger').append('<li>'+value+'</li>');
+                            });
+                        }
+                        else
+                        {
+                            $('#alert-danger').hide();
+                            $('#request_popup').modal('hide');
+                            $('#success').modal('show');
+
+                            $('#name').val('');$('#email').val('');$('#cment').val('');
+                     
+
+                        }
+                    }
+                });
+            });
+        });
+    </script>    

@@ -123,6 +123,7 @@ Route::resource('/uslug',Adress\Admin\UslugController::class);
 Route::resource('/slider',Adress\Admin\SliderController::class);
 Route::resource('/gallery',Adress\Admin\GalleryController::class);
 Route::resource('/contact',Adress\Admin\ContactController::class);
+Route::post('setprev', [Adress\Admin\ContactController::class, 'prev'])->name('setPrev');
 Route::resource('/users',Adress\Admin\UsersController::class);
 Route::resource('/menus',Adress\Admin\MenusController::class);
 Route::resource('/permissions',Adress\Admin\PermissionsController::class);

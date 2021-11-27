@@ -36,7 +36,7 @@ class RequController extends AdminController
 
  
 
-        $requs = Requ::orderBy('created_at', 'desc')->paginate(15);
+        $requs = Requ::orderBy('created_at', 'desc')->paginate(10);
         $this->title = 'Заявоки';
         $this->content = view(config('settings.theme').'.admin.requ.requs_content')->with('requs',$requs)->render();
 
@@ -60,10 +60,11 @@ class RequController extends AdminController
     {
           $result = Requ::where('id',$id)->delete();
 
-        if(is_array($result) && !empty($result['error'])) {
+        if($result!=0) {
             return back()->with('status' , 'Информация удалена');
+        }else{
+        return redirect('/admins/requ')->with('error' , 'Информация не удалена');
         }
-        return redirect('/admins/requ')->with($result);
 
     }
 

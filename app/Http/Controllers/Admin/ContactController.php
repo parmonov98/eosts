@@ -186,9 +186,17 @@ $this->content = view(config('settings.theme').'.admin.contact.contacts_content'
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function prev(Request $request)
     {
-        //
+        $data = $request->except('_token');
+
+        // dd($data);
+      $comment = $this->c_rep->one($data['prev']);
+      if($comment->update(['prev'=>1])){
+        return ['status' => 'Update'];
+      }else{
+        return ['error' => 'Not update'];
+      }
     }
 
     /**

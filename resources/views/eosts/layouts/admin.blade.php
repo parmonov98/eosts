@@ -12,7 +12,8 @@
 	<meta name="keywords" content="{{ (isset($keywords)) ? $keywords : ''}}">
     <meta name="author" content="{{ Auth::user()->name }}">
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset(env('THEME').'/images/favicon.ico')}}">
-	<meta name="_token" content="{!! csrf_token() !!}" />
+
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   {!!Html::style('admin/assets/bootstrap/css/bootstrap.min.css')!!}
   {!!Html::style('admin/assets/font-awesome/css/font-awesome.min.css')!!}

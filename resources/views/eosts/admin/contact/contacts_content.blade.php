@@ -60,13 +60,13 @@
 
 <td class="align-center" style="vertical-align: inherit;" >
 
-	<a data-toggle="modal" data-target="#text{{$comment->id}}" class="btn btn-warning"><i class="fa fa-eye"></i></a>
+	<a data-toggle="modal" data-target="#text{{$comment->id}}"  class="btn btn-warning"><i class="fa fa-eye"></i></a>
 
 
 
 
 <!-- Modal -->
-<div class="modal fade" id="text{{$comment->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" data-id="{{$comment->id}}" id="text{{$comment->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -80,7 +80,7 @@
         {{$comment->message}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id="prev" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -141,3 +141,33 @@
 
 
 
+
+
+
+
+
+<script>
+        $(document).ready(function(){
+            $('#prev*').click(function(e){
+                e.preventDefault();
+          var prev = $('.in').data('id');
+                  $.ajax({
+                    url: "{{ route('setPrev') }}",
+                    method: 'post',
+                    data: {"_token":$('meta[name="csrf-token"]').attr('content'),prev: prev},
+                    success: function(result){
+                        if(result.errors)
+                        {
+                            $('#alert-danger').html(' ');
+
+                            $.each(result.errors, function(key, value){
+                                $('#alert-danger').addClass('show');
+                                $('#alert-danger').append('<li>'+value+'</li>');
+                            });
+                        }
+                    
+                    }
+                });
+            });
+        });
+    </script>    

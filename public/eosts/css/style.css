@@ -941,6 +941,7 @@ h2.h2-xl {
 .contact-page-option.free-quote-form .rounded-field select,
 .contact-page-option.free-quote-form .rounded-field textarea {
     background-color: #232135;
+    color: #ffffff;
 }
 
 .contact-detail-shadow.no-shadow {
