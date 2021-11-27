@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Models\Contact;
 use App\Models\Settings;
 use App\Models\User;
+use App\Models\Maps;
 use App\Repositories\ContactRepository;
 use Validator;
 use Auth;
@@ -37,14 +38,14 @@ class ContactController extends SiteController
         abort(404);
        }
 
-
+        $maps =$this->getMaps();
 
         $this->title = 'Контакты';
 
 
     $getsetting = $this->getSetting();
 
-        $articles = view(config('settings.theme').'.contact',compact('getsetting'))->render();
+        $articles = view(config('settings.theme').'.contact',compact('getsetting','maps'))->render();
 
         $this->vars = Arr::add($this->vars,'content',$articles);
 
@@ -54,6 +55,12 @@ class ContactController extends SiteController
 
 
     }
+
+    public function getMaps(){
+        $id = Maps::min('id');
+        $vopros = Maps::where('id', $id)->first();
+        return $vopros;
+        }       
 
 
     public function getSetting(){

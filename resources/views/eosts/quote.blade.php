@@ -134,7 +134,7 @@ maxLength(document.getElementById("text"));
                             $('#alert-danger').hide();
                             $('#request_popup').modal('hide');
                             $('#success').modal('show');
-                            setTimeout(function(){ $('#success').modal('hide'); }, 1900); 
+                            // setTimeout(function(){ $('#success').modal('hide'); }, 1900); 
 
                         }
                     }

@@ -11,6 +11,7 @@ use App\Models\Settings;
 use App\Models\OnasNaKl;
 use App\Models\Employee;
 use App\Models\OnasVap;
+use App\Models\Maps;
 use Arr;
 use Auth;
 
@@ -88,7 +89,7 @@ if(is_object(Obuna::where('email', $request['email'])->first())){
     }
 
 
-    public function show($id)
+    public function show($alias)
     {
     	if(empty(session('lang'))){
 	       session()->put('lang', 'ru');
@@ -100,12 +101,12 @@ if(is_object(Obuna::where('email', $request['email'])->first())){
        }
 
 
-    	if(empty($id)){ abort(404); }
+    	if(empty($alias)){ abort(404); }
 
 
-        $articles = Uslug::where("title",'!=','NULL')->where('id',$id)->first();
+        $articles = Uslug::where("title",'!=','NULL')->where('alias',$alias)->first();
 
-    	if($id){
+    	if($alias){
     		if($articles == null){
 				abort(404);
 		}
@@ -151,13 +152,17 @@ if(isset($articles->id)){
 
         $this->title =  $this->keywords =  $this->meta_desc =  $this->getSetting()['names']['name'][$lang];
 
+        $maps =$this->getMaps();
+
+        $allmaps =$this->getAllMap();        
+        // dd($maps);
 
         $employee =$this->getEmployee();
         $pronas =$this->getSetting();
         $vopros = OnasVap::get();
         $naskli = OnasNaKl::get();
 
-        $pronas = view(config('settings.theme').'.pronas',compact('pronas','employee','vopros','naskli','lang'))->render();
+        $pronas = view(config('settings.theme').'.pronas',compact('pronas','employee','vopros','naskli','maps','lang','allmaps'))->render();
 
         $this->vars = Arr::add($this->vars,'content',$pronas);
 
@@ -166,6 +171,16 @@ if(isset($articles->id)){
 
             }
 
+        public function getAllMap(){
+        $vopros = Maps::orderBy('id', 'desc')->get();
+        return $vopros;
+        }      
 
+
+    public function getMaps(){
+        $id = Maps::max('id');
+        $vopros = Maps::where('id', $id)->first();
+        return $vopros;
+        }       
 
 }

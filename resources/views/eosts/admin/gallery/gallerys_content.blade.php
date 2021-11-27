@@ -29,7 +29,11 @@
                   <div class="col-sm-2" style=" padding-bottom: 5px;">
  @if(isset($file->img))
  <a href="{{route('gallery.edit',['gallery'=>$file->id]) }}">
-		<div style="position: relative; width: 152px; background-size: cover; height: 150px; border-radius: 4px 4px 0px 0px; background-image: url({{asset('/gallery/'.$file->img['min'])}});" ></div></a>
+		<div style="position: relative; width: 100%;  border-radius: 4px 4px 0px 0px;" >
+			<img src="{{asset('/gallery/'.$file->img['min'])}}" width="100%">
+
+
+		</div></a>
 @endif
 
 {!! Form::open(['url' => route('gallery.destroy',['gallery'=>$file->id]),'class'=>'form-horizontal','method'=>'POST']) !!}

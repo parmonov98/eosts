@@ -17,7 +17,7 @@ $lang = session('lang');
                             <div class="icon-box-7">
                                 <img src="{{ asset('/uslugi/'.$article->img['min'])}}" itemprop="image" alt="Перевозка драгоценных грузов">
                                 <h3 class="h3-xs txt-blue">
-                                    <a class="text-white" href="{{ route('ushow',['id'=>$article->id]) }}" itemprop="item">
+                                    <a class="text-white" href="{{ route('ushow',['uslug'=>$article->alias]) }}" itemprop="item">
                                         <span itemprop="name">
                                             {!!$article->title[$lang]!!}
                                         </span>

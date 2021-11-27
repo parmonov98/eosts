@@ -325,6 +325,7 @@ $lang = session('lang');
 @yield('gallery') 
 
 @yield('callout') 
+
  
 
 
@@ -552,6 +553,28 @@ $lang = session('lang');
 
 
 
+<!-- Modal HTML -->
+<div id="success" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="material-icons">&#x2714;</i>
+                </div>
+                <h4 class="modal-title w-100">{{('ru'==$lang)?'Всё отлично!:':'Everything is fine!'}} </h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">{{('ru'==$lang)?'Все прошло замечательно.':'everything went great.'}}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 
@@ -712,7 +735,7 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
                             $('#alertdanger').hide();
                             $('#request_popup').modal('hide');
                             $('#success').modal('show');
-                            setTimeout(function(){ $('#success').modal('hide'); }, 1900); 
+                            // setTimeout(function(){ $('#success').modal('hide'); }, 1900); 
 
                         }
                     }

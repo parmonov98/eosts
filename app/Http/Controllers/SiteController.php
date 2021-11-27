@@ -11,6 +11,7 @@ use App\Models\Settings;
 use App\Models\OnasNaKl;
 use App\Models\OnasVap;
 use App\Models\Otzivi;
+use App\Models\Maps;
 use Config;
 use Cache;
 use Menu;
@@ -85,6 +86,9 @@ class SiteController extends Controller
 	$otzivi = view(config('settings.theme').'.otzivi')->with('otzivi',$this->getOtzivi())->render();
 	$this->vars = Arr::add($this->vars,'otzivi',$otzivi);
 
+	// $maps = view(config('settings.theme').'.maps')->with('maps',$this->getMaps())->render();
+	// $this->vars = Arr::add($this->vars,'maps',$maps);
+
 
 	$this->vars = Arr::add($this->vars,'keywords',$this->keywords);
 		$this->vars = Arr::add($this->vars,'meta_desc',$this->meta_desc);
@@ -104,6 +108,12 @@ class SiteController extends Controller
 		$vopros = OnasVap::get();
 		return $vopros;
 		}
+
+
+	public function getMaps(){
+		$vopros = Maps::get();
+		return $vopros;
+		}		
 
 
 	public function getMenu($cat= 'ru'){

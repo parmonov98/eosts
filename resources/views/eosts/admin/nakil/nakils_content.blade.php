@@ -1,8 +1,8 @@
 
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
-	<p>	<strong style="font-size: 2.5rem; padding: 10px; " align="right"> Наши клиенты </strong>
-		</p>
+										 {!! Html::link(route('nakil.create'),'+',['class' => 'btn btn-primary btn-lg','style'=>'margin-bottom: 5px;']) !!}
+				               <strong style="font-size: 2rem; padding: 10px; " align="right"> Наши клиенты </strong>
     @if ($status = Session::get('status'))
 	<div class="alert alert-success">
 	<button class="close" data-dismiss="alert">×</button>
@@ -19,41 +19,6 @@
 
 				        <div class="short-table white">
 
-{!! Form::open(['url' => route('setNakilSav') ,'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
-
-<div class="row">
-  <div class="col-md-6">Названия: <input type="text" class="form-control" name="name" id=""></div>
-  <div class="col-md-6"><input type="file" name="file" id="file" size="2048">
-
-Размер <strong> 2 МБ</strong> (в формате <strong>.png, .gif, .jpeg, .jpg </strong>) файл можно отправить  
-</div>
-</div>
-
-
-
-</div>
-
-		</div>
-
-		<br />
-
-	
-
-	{!! Form::button('Сохранить', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
-
-{!! Form::close() !!}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -61,11 +26,13 @@
 <div class="card-body">
                 <div class="row">
 @foreach($setname as $file)
-                  <div class="col-sm-2" style=" padding-bottom: 5px;">
+                  <div class="col-sm-3" style=" padding-bottom: 5px;">
                   @if(isset($file->img))
+                  <a href="{{route('nakil.edit',['nakil'=>$file->id]) }}" >
 				{{ Html::image(asset('/nakil/'.$file->img),'',['style'=>'width:100%;']) }}
+			</a>
 													@endif
-{!! Form::open(['url' => route('setNakildel',['id'=>$file->id]),'class'=>'form-horizontal','method'=>'POST']) !!}
+{!! Form::open(['url' => route('nakil.destroy',['nakil'=>$file->id]),'class'=>'form-horizontal','method'=>'POST']) !!}
 	    {{ method_field('DELETE') }}
 	    {!! Form::button('<i class="fa fa-trash-o"></i>', ['class' => 'btn btn-danger btn-block','type'=>'submit']) !!}
 	{!! Form::close() !!}
@@ -73,6 +40,7 @@
 @endforeach
 
   @endif
+
 
 
 

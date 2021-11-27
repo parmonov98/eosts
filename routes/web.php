@@ -8,16 +8,6 @@ use App\Notifications\ExampleNotification;
 use Illuminate\Http\Request;
 use App\Models\Requ;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/',function(){
     $route = "/ru";
@@ -28,12 +18,7 @@ Route::get('/{cat?}', [Adress\IndexController::class, 'index'])->name('index')->
 
 
 Route::get('/uslug/',[Adress\ObunaController::class,'uslug'])->name('uslug');
-Route::get('/uslugi/{id}',[Adress\ObunaController::class,'show'])->name('ushow');
-
-
-// Route::get('/{cat}/blog/{blog}', [Adress\ArticleController::class, 'index'])->name('blCat')->where(['cat'=>'ru|en|tu','blog'=>'[\w-]+']);
-
-// Route::get('/{cat}/blog/{blog}/{id}', [Adress\ArticleController::class, 'show'])->name('bCatf')->where(['cat'=>'ru|en|tu','blog'=>'[\w-]+','id'=>'[\0-9]+']);
+Route::get('/uslugi/{uslug}',[Adress\ObunaController::class,'show'])->name('ushow')->where(['uslug'=>'[\w-]+']);
 
 if(Auth::check()){
 Route::post('/message',[Adress\TelegramController::class,'message'])->name('message');
@@ -51,7 +36,6 @@ Route::post('/message', function (Request $request) {$d = $request->except('_tok
         if ($validator->fails())
         {
             return response()->json(['errors'=>$validator->errors()->all()]);
-            // return redirect()->back()->with(['errors'=>$validator->errors()->all()]);
         }else{
 Notification::route('message', env('TELEGRAM_USER_ID'))->notify(new ExampleNotification(json_encode($d)));
 
@@ -63,14 +47,10 @@ $item->package = $d['package'];$item->message = $d['message'];$item->save();
 
 }
 
-
-// Route::post('application',[Adress\TelegramController::class,'application'])->name('application');
-
 Route::get('/pronas',[Adress\ObunaController::class,'pronas'])->name('pronas');
-
+Route::post('/selmap',[Adress\IndexController::class,'selmap'])->name('selmap');
 
 Route::match(['get','post'],'/search/search/', [Adress\SearchController::class, 'store'])->name('obSearch');
-
 
 Route::resource('/contacts/contacts/',Adress\ContactController::class);
 Route::get('export-excel-csv-file/{slug}', [Adress\Admin\RequController::class, 'exportExcelCSV']);
@@ -130,31 +110,19 @@ Route::match(['get','post'],'osobiyup', [Adress\Admin\SettingController::class, 
 Route::get('competent', [Adress\Admin\SettingController::class, 'competent'])->name('setCompetent');
 Route::match(['get','post'],'competentup', [Adress\Admin\SettingController::class, 'competentup'])->name('setCompetentUp');
 
-Route::get('nakil', [Adress\Admin\SettingController::class, 'nakil'])->name('setNakils');
-Route::delete('nakildel', [Adress\Admin\SettingController::class, 'nakildel'])->name('setNakildel');
-Route::match(['get','post'],'nakilsav', [Adress\Admin\SettingController::class, 'nakilsav'])->name('setNakilSav');
-
-
 Route::get('vopraos', [Adress\Admin\SettingController::class, 'vopraos'])->name('setVopraos');
 Route::delete('vopdel', [Adress\Admin\SettingController::class, 'vopdel'])->name('setVopdelUp');
 Route::match(['get','post'],'vopraosup', [Adress\Admin\SettingController::class, 'vopraosup'])->name('setVopraosUp');
 
 Route::resource('otziv', Adress\Admin\OtziviController::class);
-
 Route::resource('requ', Adress\Admin\RequController::class);
-
 Route::resource('/employee',Adress\Admin\EmployeeController::class);
-
-
+Route::resource('/maps',Adress\Admin\MapsController::class);
+Route::resource('/nakil',Adress\Admin\NakilController::class);
 Route::resource('/uslug',Adress\Admin\UslugController::class);
-
 Route::resource('/slider',Adress\Admin\SliderController::class);
-
 Route::resource('/gallery',Adress\Admin\GalleryController::class);
 Route::resource('/contact',Adress\Admin\ContactController::class);
-// Route::resource('/izox',Adress\Admin\CommentController::class);
-// Route::resource('/article',Adress\Admin\ArticleController::class);
-// Route::match(['get','post'],'/articleaaaa', [Adress\Admin\ArticleController::class, 'store']);
 Route::resource('/users',Adress\Admin\UsersController::class);
 Route::resource('/menus',Adress\Admin\MenusController::class);
 Route::resource('/permissions',Adress\Admin\PermissionsController::class);

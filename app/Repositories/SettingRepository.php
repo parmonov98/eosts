@@ -223,50 +223,6 @@ class SettingRepository extends Repositor {
 
 
 
-	public function nakilsav($request) {
-
-		$data = $request->except('_token');
-		$result = new OnasNaKl;
-        if($request->file()) {
-
-			$fileName = time().'.'.$request->file->extension();  
-	   
-			$request->file->move(public_path('nakil'), $fileName);
-	
-				$result->name =  $data['name'];
-				$result->img =  $fileName;
-				$result->save();
-	
-				return ['status' => 'Информация сохранина.'];
-	
-			}
-	}
-
-	public function nakildel($request) {
-
-		$data = $request->except('_token','_method');
-		// dd($data);
-		$result = OnasNaKl::where('id',$data['id'])->first();		
-		$img = public_path('/nakil/').$request->img;File::delete($img);
-
-		if($result->delete()) {
-			return ['status' => 'Информация сохранина'];
-		}
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public function filesup($request,$id = 1) {
 		if(!Gate::allows('edit', $this->model)) {
 			abort(403);

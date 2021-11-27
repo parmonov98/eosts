@@ -78,7 +78,7 @@ Kalite <span class = "fw-6 txt-orange"> ve </span> verimlilik <br> <span class =
 
             <!-- Icon Box 1 -->
             <div class="col-md-3 wow fadeInUp" data-wow-duration="0" data-wow-delay="0.{{$key}}s">
-              <a href="{{route('ushow',['id'=>$value->id])}}">
+              <a href="{{route('ushow',['uslug'=>$value->alias])}}">
                 <div class="icon-box-1">
                   <img src="{{ asset('/uslugi/'.$value->img['min']) }}" alt="{{$value->title[$cat]}}">
                   <div class="text">

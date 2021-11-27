@@ -158,9 +158,14 @@
       <!-- Google Map Start -->
       <section class="map-bg">
         <div id="map-holder" class="pos-rel">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3049.181670454643!2d64.55307821561682!3d40.160508679105995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f5065879e9fb55b%3A0xb446833c83e8d518!2sEvroOsiyo%20Sarbon%20Trans%20Servis!5e0!3m2!1sen!2s!4v1621694617736!5m2!1sen!2s"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+
+
+
+
+
+<iframe width="600" height="450" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord={{$maps->longitu}}, {{$maps->latitu}}&amp;q={{$maps->title[$lang]}}&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br />
+
         </div>
       </section>
       <!-- Google Map Start -->

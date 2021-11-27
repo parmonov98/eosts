@@ -55,6 +55,8 @@ class UslugsRepository extends Repositor {
             return ['errors'=>$validator->errors()->all()];
         }else{
 
+        	$data['alias'] = $this->transliterate(Str::limit($data['title']['ru'],200));
+
         	$image = $request->file('image');
 			if(!empty($request->image)){
 
@@ -103,8 +105,7 @@ $validator=	$request->validate([
             return ['errors'=>$validator->errors()->all()];
         }
 
-
-
+		$data['alias'] = $this->transliterate(Str::limit($data['title']['ru'],200));
 
 
 		if($request->hasFile('image')) {

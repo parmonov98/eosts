@@ -1,13 +1,22 @@
-@extends(env('THEME').'.layouts.site')
+
+
+
+
+
+@extends('.layouts.app')
 
 @section('content')
+
+
+
+
 
 
     <!-- Page Breadcrumbs Start -->
     <div class="slider bg-navy-blue bg-scroll pos-rel breadcrumbs-page">
       <div class="container">
 
-        <h1 class="text-center">Login</h1>
+        <h1 class="text-center" style="font-size: 2rem; color: #fff"><a href="/" style="color: #fff"><i class="fa fa-home"></i></a> \ Login</h1>
 
       </div>
     </div>
@@ -20,7 +29,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card free-quote-form " style="margin: 100px 0 100px 0;">
-                <div class="card-header">{{ __('Login') }}</div>
+
+
+
+                <div class="card-header" >{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

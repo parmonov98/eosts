@@ -378,61 +378,6 @@ class SettingController extends AdminController
 
 
 
-
- public function nakil()
-    {
-        $this->title = 'Наши клиенты';
-        $setname = OnasNaKl::paginate(15);
-
-         $articles = view(config('settings.theme').'.admin.settings.nakils_content',compact('setname'));
-           $this->vars = Arr::add($this->vars,'content',$articles);
-
-        return $this->renderOutput(); 
-    }
-
-     public function nakilsav(Request $request)
-    {
-        $result = $this->s_t->nakilsav($request);
-
-        if(is_array($result) && !empty($result['error'])) {
-            return back()->with($result);
-        }
-        return back()->with($result);
-    }
-    public function nakildel(Request $request)
-    {
-        $result = $this->s_t->nakildel($request);
-
-        if(is_array($result) && !empty($result['error'])) {
-            return back()->with($result);
-        }
-        return back()->with($result);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public function files()
     {
 

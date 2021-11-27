@@ -160,6 +160,8 @@ $sozla = $menu->add('<span>Настройки</span>',['disableActivationByURL' 
  $sozla->add('<span>Названия компания</span>', array('route' => 'setNames'))->prepend('<i class="fa fa-street-view"></i>');
 
 $sozla->add('<span>Адрес</span>', array('route' => 'setAddress'))->prepend('<i class="fa fa-map-marker"></i>');
+$sozla->add('<span>Google карта</span>', array('route' => 'maps.index'))->prepend('<i class="fa fa-map-o"></i>');
+
  $sozla->add('<span>Социальной сети</span>', array('route' => 'setSotNetwork'))->prepend('<i class="fa fa-share-alt"></i>');
 
 		}
@@ -172,7 +174,7 @@ $onas = $menu->add('<span>О нас</span>',['disableActivationByURL' => true, '
  $onas->add('<span>Показатели</span>', array('route' => 'setSelect'))->prepend('<i class="fa fa-bar-chart"></i>');
  $onas->add('<span>Выбир EOSTS</span>', array('route' => 'setVeboros'))->prepend('<i class="fa fa-sellsy"></i>');
 $onas->add('<span>Наша команда</span>', array('route' => 'employee.index'))->prepend('<i class="fa fa-users"></i>');
-$onas->add('<span>Наши клиенты</span>', array('route' => 'setNakils'))->prepend('<i class="fa fa-child"></i>');
+$onas->add('<span>Наши клиенты</span>', array('route' => 'nakil.index'))->prepend('<i class="fa fa-child"></i>');
 $onas->add('<span>Вопросы</span>', array('route' => 'setVopraos'))->prepend('<i class="fa fa-share-alt"></i>');
 
 

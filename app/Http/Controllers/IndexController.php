@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Article;
 use App\Models\Uslug;
 use App\Models\Settings;
+use App\Models\Maps;
 use App\Models\Contact;
 use Config;
 use Str;
@@ -97,33 +98,31 @@ class IndexController extends SiteController
 
 
 
-	public function myCaptcha()
-    {
-        return view('myCaptcha');
-    }
-	    public function myCaptchaPost(Request $request)
-    {
-        request()->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-            'captcha' => 'required|captcha'
-        ],
-        ['captcha.captcha'=>'Invalid captcha code.']);
-        dd("You are here :) .");
-    }
 
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function refreshCaptcha()
+    public function selmap(Request $request)
     {
 
-        return response()->json(['captcha'=>  '<img src="'.Captcha::src().'">']);
+	   $lang = session('lang');
+   	  if($lang != 'ru' && $lang != 'en' && $lang != 'tu'){
+	   session()->put('lang', 'ru');
+	   $lang = session('lang');
+	   }
+    	
+
+    	$data = $request->except('_token');	
+    	// dd($data['smap']);
+    	if($data['smap']>0){
+        $maps = Maps::where('id', $data['smap'])->first();
+
+echo '<iframe width="600" height="450" src="https://maps.google.com/maps?width=600&amp;height=450&amp;hl=en&amp;coord='.$maps->longitu.','.$maps->latitu.'&amp;q='.$maps->title[$lang].'&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>';
+
+    }else{
+    	echo '';
     }
 
+
+    }
 
 
 

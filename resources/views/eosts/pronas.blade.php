@@ -9,8 +9,6 @@ $lang = session('lang');
 
 
 
-
-
         <!-- Page Breadcrumbs Start -->
         <div class="slider bg-navy-blue bg-scroll pos-rel breadcrumbs-page">
             <div class="container">
@@ -52,9 +50,31 @@ $lang = session('lang');
                         </div>
 
                         <div class="col-md-6 wow fadeInRight" data-wow-duration="0" data-wow-delay="0s">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3049.181670454643!2d64.55307821561682!3d40.160508679105995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f5065879e9fb55b%3A0xb446833c83e8d518!2sEvroOsiyo%20Sarbon%20Trans%20Servis!5e0!3m2!1sen!2s!4v1621694617736!5m2!1sen!2s"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                 {!!Html::style(env('THEME').'/css/select2.min.css')!!}  
+
+
+<div class="norma">
+            
+<select class="form-control select2" name="smaps" id="smap">
+   
+<?php 
+foreach ($allmaps as $key => $map) { 
+  echo '<option value="'.$map->id.'">'.$map->title[$lang].'</option>';
+} 
+?>
+
+
+</select>
+
+
+ </div>
+
+<div id="iframe">
+<iframe width="600" height="450" src="https://maps.google.com/maps?width=600&amp;height=450&amp;hl=en&amp;coord={{$maps->longitu}}, {{$maps->latitu}}&amp;q={{$maps->title[$lang]}}&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br />
+
+</div>
+
+
                         </div>
                     </div>
                 </div>
@@ -180,4 +200,44 @@ $lang = session('lang');
 @endif
 
         </main>
+{!!Html::script(env('THEME').'/js/select2.full.min.js')!!}
+<style type="text/css">
+    .norma{
+       position: absolute;
+        width: 200px;
+        right: 0px;
+        top: 10px; 
+    }
+</style>
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+$('#smap').on('click',function(e) {
+    e.preventDefault(); 
+    var smap = $('#smap').val();
+
+
+       $.ajax({
+            url:"{{route('selmap')}}",
+            data:{"_token":$('meta[name="csrf-token"]').attr('content'),smap: smap},
+            type:'POST',
+            datatype:'JSON',
+            success: function(html) { 
+                $('#iframe').html(html);      
+            },
+            error:function() {
+                $('#salom').css('color','red').append('<strond>Ошибка: </strong>');
+                $('#salom').delay(2000).fadeOut(500);
+            }
+        });
+
+
+
+});
+
+});   
+    
+
+</script>
