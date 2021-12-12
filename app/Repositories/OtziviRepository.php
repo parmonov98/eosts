@@ -44,7 +44,7 @@ class OtziviRepository extends Repositor {
 		$data['img'] = $user;
 
 	if(isset($data['img']) && $this->model->fill($data)->save()) {
-				return ['status'=>'Информация добавлена'];
+				return ['status'=>'Ma\'lumot qo\'shildi'];
 			}
         }
 
@@ -70,11 +70,11 @@ class OtziviRepository extends Repositor {
    
         $request->img->move(public_path('users'), $user);
 
-            if($result->update($data)){	return ['status' => 'File has been uploaded.'];}
+            if($result->update($data)){	return ['status' => 'File yangilandi.'];}
         }elseif($result->update($data)){	
 
 
-        	return ['status' => 'File has been uploaded.'];}
+        	return ['status' => 'File yangilandi.'];}
 
 	}
 
@@ -87,7 +87,7 @@ class OtziviRepository extends Repositor {
 
 
 		if($result->delete()) {
-			return ['status'=>'Информация удалена'];
+			return ['status'=>'Ma\'lumot uchirildi'];
 		}
 	}
 

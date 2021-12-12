@@ -59,7 +59,7 @@
       <div class="input-prepend"><span class="add-on">
 
       <i class="icon-user"></i></span>
-      Названия фото (на {{$label}}) :<strong style="color:red;">*</strong> 
+      Fotosurat nomlari ({{$label}} tilida):<strong style="color:red;">*</strong> 
 
       {!! Form::text("name[name][$language]", isset($gallery->name['name'][$language]) ? 
       $gallery->name['name'][$language] : old("name['name'][$language]"), ['class'=>'form-control','placeholder'=>'Введите название (на '.$label.')']) !!}
@@ -82,23 +82,24 @@
 
   <div class="{{isset($gallery)?'col-md-4':'col-md-6'}}">
 
-      Загрузка качественный фото:
+      Sifatli fotosurat yuklash:
 
 
   <input type="file" name="max" id="file" size="2048">
 
-Размер <strong> 2 МБ</strong> (в формате <strong>.png, .gif, .jpeg, .jpg </strong>) файл можно отправить 
+Hajmi <strong> 2 МБ</strong> (<strong>.png, .gif, .jpeg, .jpg </strong>formatida) faylni yuborish mumkin 
 
 
 <hr />
 
 
-      Загрузка не качественный фото:
+      Sifatsiz surat yuklanmoqda:
 
 
   <input type="file" name="min" id="file" size="2048">
 
-Размер <strong> 1 МБ</strong> (в формате <strong>.png, .gif, .jpeg, .jpg </strong>) файл можно отправить 
+
+Hajmi <strong> 1 МБ</strong> (<strong>.png, .gif, .jpeg, .jpg </strong>formatida) faylni yuborish mumkin 
 
 
 			 </div>
@@ -119,7 +120,7 @@
 	
 
 </div>
-						{!! Form::button('Сохранить', ['class' => 'btn btn-primary btn-block','type'=>'submit']) !!}
+						{!! Form::button('Saqlash', ['class' => 'btn btn-primary btn-block','type'=>'submit']) !!}
 </div>
 
 

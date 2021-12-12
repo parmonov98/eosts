@@ -43,7 +43,7 @@ class PermissionsRepository extends Repositor {
 			}
 		}
 		
-		return ['status' => 'Права обновлены'];
+		return ['status' => 'Xuquqlar yangilandi'];
 	}
 	
 }

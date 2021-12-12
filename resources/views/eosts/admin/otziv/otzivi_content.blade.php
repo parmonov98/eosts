@@ -1,4 +1,4 @@
-<h2><a class="btn btn-primary btn-lg " href="{{route('otziv.create')}}"><i class="fa fa-plus"></i></a> <u>Отдел отзывы от клиентов</u></h2>
+<h2><a class="btn btn-primary btn-lg " href="{{route('otziv.create')}}"><i class="fa fa-plus"></i></a> <u>Mijozlarning fikr-mulohazalari bo'limi</u></h2>
 	
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
@@ -25,9 +25,9 @@
 <thead> 
 	<tr> 
 		<th>#</th> 
-		<th>Имя</th> 
-		<th>Текст</th> 
-		<th>Фото</th> 
+		<th>Ism</th> 
+		<th>Matni</th> 
+		<th>Rasm</th> 
 		<th style="width: 50px;text-align: center;"><i class="fa fa-eye"></i></th>
 		<th style="width: 50px;text-align: center;"><i class="fa fa-trash-o"></i></th>
 	</tr> 

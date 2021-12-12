@@ -1,5 +1,14 @@
-<h2><u>Про EOSTS</u></h2>
-
+<h2><u>EOSTS haqimizda</u></h2>
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+              <button class="close" data-dismiss="alert">×</button>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
 <div id="content-page" class="content group">
 				            <div class="hentry group">
 
@@ -43,8 +52,7 @@
       <i class="icon-user"></i></span>
     
 
-
-      Про EOSTS (на {{$label}}) :<strong style="color:red;">*</strong> 
+EOSTS haqida ({{$label}} tilida):<strong style="color:red;">*</strong> 
 
      {!! Form::textarea('prcomp['.$language.']',  isset($setname->prcomp[$language]) ? $setname->prcomp[$language]  : old("prcomp[$language]"), ['id'=>'summernote','class' => 'form-control','placeholder'=>'Введите текст страницы']) !!}
 
@@ -73,7 +81,7 @@
 
 		<br />
 
-	{!! Form::button('Сохранить', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
+	{!! Form::button('Saqlash', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
 
 {!! Form::close() !!}
 

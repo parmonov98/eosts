@@ -2,7 +2,7 @@
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
 										 {!! Html::link(route('employee.create'),'+',['class' => 'btn btn-primary btn-lg ']) !!}
-				                <h2>Наша команда</h2>
+				                <h2>Bizning jamoamiz</h2>
 				        <div class="short-table white">
 
 
@@ -12,9 +12,9 @@
 				                        <thead>
 				                            <tr>
 				                                <th class="align-left">ID</th>
-				                                <th>Имя</th>
-				                                <th>профессия</th>
-				                                <th style="width: 150px;text-align: center;">Фото</th>
+				                                <th>Ism</th>
+				                                <th>Kasb</th>
+				                                <th style="width: 150px;text-align: center;">Rasm</th>
   				                                <th style="width: 50px;text-align: center;"><i class="fa fa-pencil-square-o"></i></th>
 				                                <th style="width: 50px;text-align: center;"><i class="fa fa-trash-o"></i></th>
 				                            </tr>

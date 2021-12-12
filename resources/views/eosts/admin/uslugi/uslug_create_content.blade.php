@@ -66,7 +66,7 @@
 			<div class="input-prepend"><span class="add-on">
 
 			<i class="icon-user"></i></span>
-			Title:<strong style="color:red;">*</strong> {!! Form::text('title['.$language.']',isset($uslugi->title[$language]) ? $uslugi->title[$language]  : old("title[$language]"), ['class'=>'form-control','placeholder'=>'Введите название страницы']) !!}
+			Sarlavha ({{$label}}):<strong style="color:red;">*</strong> {!! Form::text('title['.$language.']',isset($uslugi->title[$language]) ? $uslugi->title[$language]  : old("title[$language]"), ['class'=>'form-control','placeholder'=>'Sahifa sarlavhasini kiriting']) !!}
 
 			 </div>
 
@@ -78,7 +78,7 @@
 
 
 			<div class="input-prepend"><span class="add-on"><i class="icon-pencil"></i></span>
-			Краткий описания:<strong style="color:red;">*</strong> {!! Form::textarea('desc['.$language.']',isset($uslugi->desc[$language]) ? $uslugi->desc[$language]  : old("desc[$language]"), ['class'=>'form-control my-editor','placeholder'=>'Введите название страницы']) !!}
+			Qisqa tasvir ({{$label}}):<strong style="color:red;">*</strong> {!! Form::textarea('desc['.$language.']',isset($uslugi->desc[$language]) ? $uslugi->desc[$language]  : old("desc[$language]"), ['class'=>'form-control my-editor','rows'=>4,'placeholder'=>'...']) !!}
 			</div>
 			<div class="msg-error"></div>
 
@@ -87,7 +87,7 @@
 
 
 			<div class="input-prepend"><span class="add-on"><i class="icon-pencil"></i></span>
-			Полный текст:<strong style="color:red;">*</strong>{!! Form::textarea('text['.$language.']',isset($uslugi->text[$language]) ? $uslugi->text[$language]  : old("text[$language]"), ['class'=>'form-control my-editor','placeholder'=>'Введите название страницы']) !!}
+			To'liq matn ({{$label}}):<strong style="color:red;">*</strong>{!! Form::textarea('text['.$language.']',isset($uslugi->text[$language]) ? $uslugi->text[$language]  : old("text[$language]"), ['class'=>'form-control my-editor','rows'=>4,'placeholder'=>'...']) !!}
 			</div>
 			<div class="msg-error"></div>
 
@@ -118,7 +118,7 @@
 
 
 
-				<label class="control-label">Загрузить изображение:				</label>
+				<label class="control-label">Rasm yuklash:				</label>
 		@if(isset($uslugi->img['min']))
 
 				{{ Html::image(asset('/uslugi/'.$uslugi->img['min']),'',['style'=>'width:100%']) }}
@@ -131,7 +131,7 @@
 				
 			</label>
 			<div class="input-prepend">
-			<input type="file" class="form-control" id="fileInput" name="image" multiple="" data-placeholder="Файла йўқ" data-buttonText=Выберите изображение data-buttonName="btn-primary">
+			<input type="file" class="form-control" id="fileInput" name="image" multiple="" data-placeholder="Файла йўқ" data-buttonText="Rasm tanlang" data-buttonName="btn-primary">
 			 </div>
 
 
@@ -143,15 +143,15 @@
 		@endif
 
 	<br />
-			{!! Form::button('Сохранить', ['class' => 'btn btn-block btn-primary','type'=>'submit']) !!}
+			{!! Form::button('Saqlash', ['class' => 'btn btn-block btn-primary','type'=>'submit']) !!}
 
  <div class="col-md-12" style="padding: 15px 0px 0px 0px;">
 <div class="raw">
 	<div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-check"></i> Текстовая поля</h4>
+                <h4><i class="icon fa fa-check"></i> Matn qutisi</h4>
                 <h1>Ctrl+Shift+F</h1>
-                Пони экранный режим и обратней
+                Pony ekran rejimi va orqaga
               </div>
 </div>
 </div>

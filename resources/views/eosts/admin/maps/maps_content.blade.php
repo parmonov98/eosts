@@ -2,7 +2,7 @@
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
 										 {!! Html::link(route('maps.create'),'+',['class' => 'btn btn-primary btn-lg','style'=>'margin-bottom: 5px;']) !!}
-				               <strong style="font-size: 2rem; padding: 10px; " align="right"> Google карта </strong>
+				               <strong style="font-size: 2rem; padding: 10px; " align="right"> Google xarita </strong>
     @if ($status = Session::get('status'))
 	<div class="alert alert-success">
 	<button class="close" data-dismiss="alert">×</button>
@@ -31,7 +31,7 @@
 	                        <thead>
 	                            <tr >
 	                                <th style="width: 50px;text-align: center;">ID</th>
-	                                <th>Названия</th>
+	                                <th>Nomlanishi</th>
 	                                <th style="width: 50px;text-align: center;"><i class="fa fa-pencil-square-o"></i></th>
 	                                <th style="width: 50px;text-align: center;"><i class="fa fa-trash-o"></i></th>
 	                            </tr>

@@ -7,9 +7,9 @@
 
   <h2>
 @if(isset($_GET['page']) && $_GET['page'] > 1 )
- Отдел сообщения 
+ Habarlar bo'limi
 @else
-  ({!!($counts == 0)?$counts:'<font color="red">'.$counts.'</font>'!!}) новые сообщения
+  ({!!($counts == 0)?$counts:'<font color="red">'.$counts.'</font>'!!}) ta yangi xabarlar
 @endif
   </h2>
       @if ($status = Session::get('status'))
@@ -23,8 +23,8 @@
 				                        <thead>
 				                            <tr>
 				                                <th class="align-left">ID</th>
-				                                <th>Имя:</th>
-				                               <th>Текст</th>
+				                                <th>Ism:</th>
+				                               <th>Matn</th>
 				                                 <th>E-mail</th>
 				                                <th style="width: 56px;text-align: center;"><i class="fa fa-eye"></i></th>
 				                                <th style="width: 56px;text-align: center;"><i class="fa fa-trash-o"></i></th>
@@ -135,7 +135,7 @@
 @else
 <div id="content-page" class="content group">
 <div class="hentry group">
-  <h2>Раздел сообщений: сообщение нет.</h2>
+  <h2>Xabar bo'limi: xabar yo'q.</h2>
   </div></div>
 @endif
 

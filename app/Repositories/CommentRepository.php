@@ -18,7 +18,7 @@ class CommentRepository extends Repositor {
 	public function one($id,$attr = array()){
 		$result = $this->model->where('id',$id)->first();
 		if(empty($result)) {
-			$result = ['status'=>'Нет комментариев'];
+			$result = ['status'=>'Izox mavjud emas'];
 		}
 		return $result;
 	}
@@ -44,11 +44,11 @@ class CommentRepository extends Repositor {
 		$data = $request->only('heddin');
 
 		if(empty($data)) {
-			return ['error'=>'Нет информации'];
+			return ['error'=>'Ma\'lumot yo\'q'];
 		}
 
 		if($result->fill($data)->update()) {
-			return ['status'=>'Комментарий рассмотрен'];
+			return ['status'=>'Izox ko\'rib chiqilsi'];
 		}
 
 	}
@@ -61,7 +61,7 @@ class CommentRepository extends Repositor {
 		$result = $this->one($id);
 
 		if($result->delete()) {
-			return ['status'=>'Комментарий удален'];
+			return ['status'=>'Izox uchirildi'];
 		}
 	}
 

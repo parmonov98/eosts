@@ -1,4 +1,4 @@
-<h2><u>Работать с отзывы от клиентов</u></h2>
+<h2><u>Mijozlarning fikr-mulohazalari bo'limi</u></h2>
 
 <div id="content-page" class="content group">
 				            <div class="hentry group">
@@ -39,7 +39,7 @@
     <div class="input-prepend"><span class="add-on">
 
 <i class="icon-user"></i></span>
-Имя:<strong style="color:red;">*</strong> 
+Ism:<strong style="color:red;">*</strong> 
 
 <input class="form-control" placeholder="Введите название страницы" name="name" value="{{isset($otzivi->name)?$otzivi->name:''}}" type="text">
 
@@ -51,7 +51,7 @@
     
 
 <br />
-      Текст :<strong style="color:red;">*</strong> 
+      Matni :<strong style="color:red;">*</strong> 
       <textarea id='summernote' class= 'form-control' placeholder='Введите текст страницы' name="text">{{isset($otzivi->name)?$otzivi->text:''}} </textarea>
 
 
@@ -68,9 +68,9 @@
 
 <div class="row">
 	<div class="col-md-6">
-		      Загрузка качественный фото:
+		      Fotosurat yuklash:
   <input type="file" name="img" id="file" size="2048">
-Размер <strong> 1 МБ</strong> (в формате <strong>.png, .gif, .jpeg, .jpg </strong>) файл можно отправить 
+  Hajmi <strong> 1 МБ</strong> (<strong>.png, .gif, .jpeg, .jpg </strong> formatida) faylni yuborish mumkin
 	</div>
 @if(isset($otzivi->name))
 	<div class="col-md-6">
@@ -86,7 +86,7 @@
 
 		<br />
 
-	{!! Form::button('Сохранить', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
+	{!! Form::button('Saqlash', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
 
 {!! Form::close() !!}
 
