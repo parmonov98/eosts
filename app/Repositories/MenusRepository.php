@@ -40,12 +40,12 @@ class MenusRepository extends Repositor {
 		elseif(empty($data['path'])){$data['path']=$pardd.$this->transliterate($data['title']['ru']);}
 
 		if(empty($data)) {
-			return ['error'=>'Нет информации'];
+			return ['error'=>'Ma\'lumot yo\'q'];
 		}
 
 
 		if($this->model->fill($data)->save()) {
-			return ['status'=>'Ссылка добавлена'];
+			return ['status'=>'Xavola qo\'shildi'];
 		}
 
 
@@ -79,7 +79,7 @@ class MenusRepository extends Repositor {
 
 
 		if($id->update($data)) {
-			return ['status'=>'Ссылка обновлена'];
+			return ['status'=>'Xavola yangilandi'];
 		}
 
 	}
@@ -92,11 +92,11 @@ class MenusRepository extends Repositor {
 	$result = $this->one($id);
 
 		if($result->articles()->count()!=0){
-		 return ['status'=>'По ссылке есть статья'];
+		 return ['status'=>'Xavolada maqola bor'];
 		}
 
 		if($result->delete()) {
-			return ['status'=>'Ссылка удалена'];
+			return ['status'=>'Xavola uchirildi'];
 		}
 	}
 

@@ -1,4 +1,4 @@
-<h2><u>Все заявки</u></h2>
+<h2><u>Barcha buyurtmalar</u></h2>
 	
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
@@ -25,11 +25,11 @@
 <thead> 
 	<tr> 
 		<th>#</th> 
-		<th>Имя</th> 
-		<th>Телефон</th> 
+		<th>Ism</th> 
+		<th>Telefon</th> 
 		<th>E-mail</th> 
-		<th>Тип услуги</th> 
-		<th>Время отправлений</th> 
+		<th>Xizmat turi</th> 
+		<th>Junatilish vaqtlari</th> 
 		<th style="width: 50px;text-align: center;"><i class="fa fa-eye"></i></th>
 		<th style="width: 50px;text-align: center;"><i class="fa fa-trash-o"></i></th>
 	</tr> 
@@ -61,7 +61,7 @@
 </tbody>
 </table>
 @else
-<h2 style="text-align: center;color: red;">Заявки нет !!!</h2>
+<h2 style="text-align: center;color: red;">Buyurtma yo'q !!!</h2>
   @endif
 
 				        <div class="short-table white">

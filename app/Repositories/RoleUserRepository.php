@@ -35,12 +35,12 @@ class RoleUserRepository extends Repositor {
 
 		$data['user_id'] = $request->id;
 		if(empty($data)) {
-			return array('error' => 'Нет информации');
+			return array('error' => 'Ma\'lumot yo\'q');
 		}
 		$this->model->fill($data);
 
 				if($this->model->fill($data)->save()) {
-					return ['status' => 'Сохранено'];
+					return ['status' => 'Saqlandi'];
 				}
 		}
 

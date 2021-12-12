@@ -2,7 +2,7 @@
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
 										 {!! Html::link(route('gallery.create'),'+',['class' => 'btn btn-primary btn-lg','style'=>'margin-bottom: 5px;']) !!}
-				               <strong style="font-size: 2rem; padding: 10px; " align="right"> Фото галерея </strong>
+				               <strong style="font-size: 2rem; padding: 10px; " align="right"> Fotogalereya </strong>
     @if ($status = Session::get('status'))
 	<div class="alert alert-success">
 	<button class="close" data-dismiss="alert">×</button>
@@ -29,8 +29,8 @@
                   <div class="col-sm-2" style=" padding-bottom: 5px;">
  @if(isset($file->img))
  <a href="{{route('gallery.edit',['gallery'=>$file->id]) }}">
-		<div style="position: relative; width: 100%;  border-radius: 4px 4px 0px 0px;" >
-			<img src="{{asset('/gallery/'.$file->img['min'])}}" width="100%">
+		<div style="position: relative; width: 100%; height: 150px;  overflow: auto; border-radius: 4px 4px 0px 0px;" >
+			<img src="{{asset('/gallery/'.$file->img['min'])}}">
 
 
 		</div></a>
@@ -45,7 +45,14 @@
 
   @endif
 
-
+<style type="text/css">
+	img{
+		float: left;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+	}
+</style>
 
 
 

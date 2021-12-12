@@ -553,27 +553,6 @@ $lang = session('lang');
 
 
 
-<!-- Modal HTML -->
-<div id="success" class="modal fade">
-    <div class="modal-dialog modal-confirm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="icon-box">
-                    <i class="material-icons">&#x2714;</i>
-                </div>
-                <h4 class="modal-title w-100">{{('ru'==$lang)?'Всё отлично!:':'Everything is fine!'}} </h4>
-            </div>
-            <div class="modal-body">
-                <p class="text-center">{{('ru'==$lang)?'Все прошло замечательно.':'everything went great.'}}</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
 
 
@@ -685,20 +664,26 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
         
 
 
-
-
 <!-- Modal -->
 <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document" style="top: 30vh;">
-    <div class="modal-content" style="background-color: unset;">
-   
-      <div class="modal-body" align="center">
-        <img src="/payment_successful.gif">
+  <div class="modal-dialog" role="document" style="width: 283px;top: 20vh;">
+    <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="
+    text-align: right; padding: 8px;">
+          <i class="icofont-close-line"></i>
+        </button>
+      <div class="modal-body">
+        <img src="/success.jpg">
       </div>
-
     </div>
   </div>
 </div>
+
+
+
+
+
+
 
 
 
@@ -720,6 +705,7 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
                     email: $('#email').val(), phone: $('#phone').val(), message: $('#message').val()
                     },
                     success: function(result){
+                        console.log(result['error']);
                         if(result.errors)
                         {
                             $('#alertdanger').html(' ');

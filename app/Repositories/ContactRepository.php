@@ -70,9 +70,9 @@ class ContactRepository extends Repositor {
 		$result = $this->one($id);
 
 		if(isset($result) && $result->delete()) {
-			return ['status'=>'Сообщение было удалено'];
+			return ['status'=>'Xabar uchirildi'];
 		}else{
-			return ['status'=>'Сообщение было удалено'];
+			return ['error'=>'Xabar uchirilmadi'];
 		}
 	}
 

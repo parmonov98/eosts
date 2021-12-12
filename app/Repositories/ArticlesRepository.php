@@ -155,7 +155,7 @@ $img->fit(Config::get('settings.blog')['min']['width'],
 
 // dd($data['created_at']);
 				if($request->user()->articles()->save($this->model)) {
-						return ['status' => 'Информация добавлена'];
+						return ['status' => 'Ma\'lumot qo\'shildi'];
 				}
 
 	}
@@ -290,7 +290,7 @@ $img->fit(Config::get('settings.blog')['min']['width'],
 		//dd($result->fill($data)->update());
 			//dd($data);
 		if($result->fill($data)->update()) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 
 	}
@@ -323,7 +323,7 @@ $img->fit(Config::get('settings.blog')['min']['width'],
 		$result->comments()->delete();
 
 		if($result->delete()) {
-			return ['status' => 'Информация удалена'];
+			return ['status' => 'Ma\'lumot uchirildi'];
 		}
 
 	}

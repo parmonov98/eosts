@@ -2,7 +2,7 @@
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
 										 {!! Html::link(route('slider.create'),'+',['class' => 'btn btn-primary btn-lg ']) !!}
-				                <h2>Фото для слайдов  </h2>
+				                <h2>Slaydlar uchun rasm  </h2>
 				        <div class="short-table white">
 
 
@@ -13,8 +13,8 @@
 				                            <tr>
 				                                
 				                                <th style="width: 50px;text-align: center;">ID</th>
-				                                <th>Заголовка</th>
-				                                <th style="width: 100px;text-align: center;">Фото</th>
+				                                <th>Sarlavha</th>
+				                                <th style="width: 100px;text-align: center;">Surat</th>
 				                                <th style="width: 50px;text-align: center;"><i class="fa fa-pencil-square-o"></i></th>
 				                                <th style="width: 50px;text-align: center;"><i class="fa fa-trash-o"></i></th>
 				                            </tr>

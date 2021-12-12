@@ -1,7 +1,7 @@
 
 
 <div class="row">
-    <h2 class="text-center ">Главная страница</h2>
+    <h2 class="text-center ">Bosh sahifa</h2>
 
 
 
@@ -14,7 +14,7 @@
             <div class="col-md-3 col-sm-2 box0">
                 <div class="box1">
                     <span class="fa fa-handshake-o"></span>
-                    <h3>Услуги</h3>
+                    <h3>Xizmatlar</h3>
                 </div>
                 <!-- <p>{{$user}}</p> -->
             </div>
@@ -24,7 +24,7 @@
             <div class="col-md-3 col-sm-2 box0">
                 <div class="box1">
                     <span class="fa fa-child"></span>
-                    <h3>Наши клиенты</h3>
+                    <h3>Bizning mijozlarimiz</h3>
                 </div>
                 <!-- <p>{{$user}}</p> -->
             </div>
@@ -35,7 +35,7 @@
             <div class="col-md-3 col-sm-2 box0">
                 <div class="box1">
                     <span class="fa fa-paste"></span>
-                    <h3>Заявок</h3>
+                    <h3>Buyurtmalar</h3>
                 </div>
                 <!-- <p>{{$user}}</p> -->
             </div>
@@ -46,7 +46,7 @@
             <div class="col-md-3 col-sm-2 box0">
                 <div class="box1">
                     <span class="fa fa-envelope-open"></span>
-                    <h3>Сообщения</h3>
+                    <h3>Xabarlar</h3>
                 </div>
                 <!-- <p>{{$user}}</p> -->
             </div>
@@ -56,7 +56,7 @@
             <div class="col-md-3 col-sm-2 box0">
                 <div class="box1">
                     <span class="fa fa-share-alt"></span>
-                    <h3>Вопросы</h3>
+                    <h3>Savollar</h3>
                 </div>
                 <!-- <p>{{$user}}</p> -->
             </div>
@@ -67,7 +67,7 @@
             <div class="col-md-3 col-sm-2 box0">
                 <div class="box1" style="padding: 15px 0px;">
                     <span class="fa fa-id-card-o"></span>
-                    <h3  style="font-size: 22px;">Отзывы от клиентов</h3>
+                    <h3  style="font-size: 22px;">Mijozlarning sharhlari</h3>
                 </div>
                 <!-- <p>{{$user}}</p> -->
             </div>
@@ -78,7 +78,7 @@
             <div class="col-md-3 col-sm-2 box0">
                 <div class="box1">
                     <span class="fa fa-picture-o"></span>
-                    <h3>Slider</h3>
+                    <h3>Slayder</h3>
                 </div>
                 <!-- <p>{{$user}}</p> -->
             </div>
@@ -89,7 +89,7 @@
             <div class="col-md-3 col-sm-2 box0">
                 <div class="box1">
                     <span class="fa fa-camera"></span>
-                    <h3>Gallery</h3>
+                    <h3>Galereya</h3>
                 </div>
                 <!-- <p>{{$user}}</p> -->
             </div>

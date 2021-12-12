@@ -1,5 +1,14 @@
-<h2><u>Особенность</u></h2>
-
+<h2><u>O'ziga xoslik</u></h2>
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+              <button class="close" data-dismiss="alert">×</button>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
 <div id="content-page" class="content group">
 				            <div class="hentry group">
 
@@ -44,7 +53,7 @@
     
 
 
-      Про EOSTS (на {{$label}}) :<strong style="color:red;">*</strong> 
+      EOSTS xaqida ({{$label}} cha) :<strong style="color:red;">*</strong> 
 
      {!! Form::textarea('osobiy['.$language.']',  isset($setname->osobiy[$language]) ? $setname->osobiy[$language]  : old("osobiy[$language]"), ['id'=>'summernote','class' => 'form-control','placeholder'=>'Введите текст страницы']) !!}
 
@@ -73,7 +82,7 @@
 
 		<br />
 
-	{!! Form::button('Сохранить', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
+	{!! Form::button('Saqlash', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
 
 {!! Form::close() !!}
 
@@ -89,3 +98,10 @@
         height: 250
     });
 </script>
+
+<style type="text/css">
+  .row {
+    margin-right: -5px!important;
+       margin-left: unset;
+}
+</style>

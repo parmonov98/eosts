@@ -50,7 +50,7 @@ public function addFiles($request){
             $fileModel->img =  $fileName;
             $fileModel->save();
 
-			return ['status' => 'File has been uploaded.'];
+			return ['status' => 'File qo\'shildi.'];
 
         }
 
@@ -66,7 +66,7 @@ public function updateFiles($request,$employee){
 		$data = $request->except('_token','file');
 
         $request->validate([
-        'file' => 'required|mimes:jpeg,jpg,png,gif|max:2048'
+        'file' => 'mimes:jpeg,jpg,png,gif|max:2048'
         ]);
 
         if($request->file()) {
@@ -77,11 +77,11 @@ public function updateFiles($request,$employee){
    
         $request->file->move(public_path('uploads'), $fileName);
 
+        }
             $employee->update($data);
 
-			return ['status' => 'File has been uploaded.'];
+			return ['status' => 'File yangilandi.'];
 
-        }
 
 }
 
@@ -95,7 +95,7 @@ public function updateFiles($request,$employee){
 
 		$img = public_path('/uploads/').$employee->img;File::delete($img);
 			if($employee->delete()) {
-				return ['status' => 'Удалено.'];
+				return ['status' => 'Uchirildi.'];
 			}
 	}
 

@@ -1,7 +1,7 @@
 
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
-				                <h2>Менеджер услуги</h2>
+				                <h2>Xizmat menejeri</h2>
 									@if ($status = Session::get('status'))
 									<div class="alert alert-success">
 									<button class="close" data-dismiss="alert">×</button>
@@ -9,7 +9,7 @@
 									</div>
 									@endif
 							
-			<a class="btn btn-primary btn-lg " href="{{route('uslug.create')}}"><i class="fa fa-plus"></i></a>
+			<!-- <a class="btn btn-primary btn-lg " href="{{route('uslug.create')}}"><i class="fa fa-plus"></i></a> -->
 		
 <hr  style="margin-top: 10px;margin-bottom: 10px;border-top: 1px #9e9e9e dotted;">
 				                <div class="short-table white">
@@ -19,8 +19,8 @@
 				                        <thead>
 				                            <tr >
 				                                <th style="width: 50px;text-align: center;">ID</th>
-				                                <th>Заголовка</th>
-				                               <th style="width: 100px;text-align: center;">Фото</th>
+				                                <th>Sarlavha</th>
+				                               <th style="width: 100px;text-align: center;">Rasm</th>
 
 				                                <th style="width: 50px;text-align: center;"><i class="fa fa-pencil-square-o"></i></th>
 				                                <th style="width: 50px;text-align: center;"><i class="fa fa-trash-o"></i></th>

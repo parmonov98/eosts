@@ -119,6 +119,7 @@ maxLength(document.getElementById("text"));
                     email: $('#emails').val(), phone: $('#phones').val(), message: $('#text').val()
                     },
                     success: function(result){
+                        console.log(result['error']);
                         if(result.errors)
                         {
                             $('#alert-danger').html(' ');

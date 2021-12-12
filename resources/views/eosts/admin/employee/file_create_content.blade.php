@@ -1,6 +1,6 @@
+<h2>Jamoamiz a'zolari</h2>
 <div id="content-page" class="content group">
 				            <div class="hentry group">
-
 
 {!! Form::open(['url' => (isset($setname->id)) ? route('employee.update',['employee'=>$setname->id]) : route('employee.store'),'class'=>'contact-form','method'=>'POST','enctype'=>'multipart/form-data']) !!}
 
@@ -56,13 +56,13 @@
 
       <div class="input-prepend"><span class="add-on">
       <i class="icon-user"></i></span>
-         Имя (на {{$label}}) :<strong style="color:red;">*</strong> 
+         Ism ({{$label}} tilida):<strong style="color:red;">*</strong> 
      {!! Form::text('name['.$language.']',  isset($setname->name[$language]) ? $setname->name[$language]  : old("name[$language]"), ['id'=>'summernote','class' => 'form-control','placeholder'=>'Введите текст страницы']) !!}
        </div>
   <br />       
       <div class="input-prepend"><span class="add-on">
       <i class="icon-user"></i></span>
-         Профессия (на {{$label}}) :<strong style="color:red;">*</strong> 
+         Mutaxasislik ({{$label}} tilida):<strong style="color:red;">*</strong> 
      {!! Form::text('prof['.$language.']',  isset($setname->prof[$language]) ? $setname->prof[$language]  : old("prof[$language]"), ['id'=>'summernote','class' => 'form-control','placeholder'=>'Введите текст страницы']) !!}
        </div>
 
@@ -78,12 +78,12 @@
 
 
 
-
+  <br />
 
 			 </div>
 
 
-		<br />   	
+		   	
 
 
 
@@ -91,9 +91,10 @@
 <div class="row">
 
 <div class="col-sm-8">
-  Загрузка фото :
+  Rasm yuklash:
    <input type="file" name="file" id="file" size="2048">
-Вы можете загружать файлы размером до <strong> 2 МБ</strong> (в формате <strong>.png, .gif, .jpeg, .jpg </strong>)   
+Siz <strong> 2 МБ</strong> gacha boʻlgan fayllarni yuklashingiz mumkin (<strong>.png, .gif, .jpeg, .jpg </strong> formatida)
+ 
 </div>
   <div class="col-sm-4">
 @if(isset($setname->img))
@@ -107,13 +108,13 @@
           <input type="hidden" name="_method" value="PUT">
       @endif
 
+    <br />
+
+
+            {!! Form::button('Saqlash', ['class' => 'btn btn-success','type'=>'submit']) !!}
 
 		</div>
 
-		<br />
-
-
-						{!! Form::button('Сақлаш', ['class' => 'btn btn-success','type'=>'submit']) !!}
 
 
 

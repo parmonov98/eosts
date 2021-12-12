@@ -33,7 +33,18 @@ class SlidersRepository extends Repositor {
 public function addFiles($request){
 
 		$data = $request->except('_token','file');
-	// dd($data);
+
+    $request->validate([
+        'name.name.ru' => 'required',
+        'name.name.en' => 'required',
+        'name.title.ru' => 'required',
+        'name.title.en' => 'required',
+        'name.description.ru' => 'required',
+        'name.description.en' => 'required',
+        'image' => 'required|mimes:jpeg,jpg,png,gif|max:2048'
+    ]);
+
+ 
 
 		if(empty($data)) {return array('error' => 'Нет фото');}
 
@@ -72,11 +83,11 @@ $img->fit(Config::get('settings.slider')['min']['width'],
 			}
 
 	if(isset($data['img']) && isset($data['name']['name']['ru']) && isset($data['name']['name']['en']) && $this->model->fill($data)->save()) {
-	   return ['status' => 'Информация добавлена'];
+	   return ['status' => 'Ma\'lumot qo\'shildi'];
 	}else{ return ['error' => 'Нет фото'];}
 
-	if(empty($data)){return ['error'=>'Нет информация'];	}
-	if($result->update($data)){return ['status'=>'Информация обновлена'];}
+	if(empty($data)){return ['error'=>'Ma\'lumot yuq'];	}
+	if($result->update($data)){return ['status'=>'Ma\'lumot yangilandi'];}
 }
 
 
@@ -92,13 +103,29 @@ $img->fit(Config::get('settings.slider')['min']['width'],
 
 public function updateSliders($request,$slider){
 
-		$data = $request->except('_token','_method','file');
-	// dd($slider);
+		$data = $request->except('_token','_method','image');
+	// dd($data);
 
-		// if(empty($data)) {return array('error' => 'Нет фото');}
+    $request->validate([
+        'name.name.ru' => 'required',
+        'name.name.en' => 'required',
+        'name.title.ru' => 'required',
+        'name.title.en' => 'required',
+        'name.description.ru' => 'required',
+        'name.description.en' => 'required',
+        'image' => 'mimes:jpeg,jpg,png,gif|max:2048'
+    ]);
 
 
 		if($request->hasFile('image')) {
+
+
+
+
+
+			$image = $request->file('image');
+
+			if(isset($request->image)){
 
 
 		if(is_array($slider->img)){
@@ -112,12 +139,6 @@ public function updateSliders($request,$slider){
 
 			}
 
-
-
-
-			$image = $request->file('image');
-
-			if(!empty($request->image)){
 
 				$obj = new \stdClass;
 

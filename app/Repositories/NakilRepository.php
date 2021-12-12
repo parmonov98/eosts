@@ -52,7 +52,7 @@ public function addKil($request){
 		$data['img'] = $img;
 
 	if(isset($data['img']) && $this->model->fill($data)->save()) {
-	   return ['status' => 'Информация добавлена'];
+	   return ['status' => 'Ma\'lumot qo\'shildi'];
 	}else{ return ['error' => 'Нет фото'];}
         }
     }
@@ -93,7 +93,7 @@ $data['img'] = $img;
 
 
 	if($result->update($data)) {
-	   return ['status' => 'Информация обновлена'];
+	   return ['status' => 'Ma\'lumot yangilandi'];
 	}else{ return ['error' => 'Нет фото'];}
         }
 
@@ -115,7 +115,7 @@ $data['img'] = $img;
 		$zmax = public_path('/nakil/').$result->img;File::delete($zmax);
 		}
 			if($result->delete()) {
-				return ['status' => 'Удалено'];
+				return ['status' => 'Uchirildi'];
 			}
 	}
 

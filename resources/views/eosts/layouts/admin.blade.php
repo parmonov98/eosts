@@ -125,14 +125,15 @@
   @if(Gate::allows('VIEW_ADMIN'))
          <!-- /.messages-menu -->
 
+
          <li class="dropdown tasks-menu">
             <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="У вас {{$requ[1]}} новое заявок">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Sizda {{$requ[1]}} ta yangi buyurtma bor">
               <i class="fa fa-paste"></i>
               <span class="label label-danger">{{$requ[1]}}</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">У вас {{$requ[1]}} новое заявок</li>
+              <li class="header">Sizda {{$requ[1]}} ta yangi buyurtma bor</li>
               <li>
                 <!-- Inner menu: contains the tasks -->
 
@@ -154,7 +155,7 @@
 
                          <small ><i class="fa fa-clock-o"></i> {{ is_object($com->created_at) ?$com->created_at->format('d.m.Y H:s') : ''}} </small>
                         <br>
-                    <div style="text-align: left;"><b style="font-size: 15px;font-weight: bold;">Описания:</b> {{Str::limit($com->text,150)}} </div>
+                    <div style="text-align: left;"><b style="font-size: 15px;font-weight: bold;">Tavsiflar:</b> {{Str::limit($com->text,150)}} </div>
                     </a>
                   </li>
                     <!-- end task item -->
@@ -439,11 +440,11 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Разработчик:
+      Dasturchi:
       <a href="https://parmonov98.uz" target="_blank" rel="nofollow">@parmonov98</a>
     </div>
     <!-- Default to the left -->
-    <strong>&copy; EOSTS </strong> - {{date("Y")}}. Все права защищены. 
+    <strong>&copy; EOSTS </strong> - {{date("Y")}}. Barcha huquqlar himoyalangan. 
   </footer>
 
   <!-- Control Sidebar -->
