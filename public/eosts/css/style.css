@@ -1055,7 +1055,7 @@ h2.h2-xl {
 
 .pricing-table ul li {
     padding: 10px 0;
-    font-size: 1rem.
+    font-size: 1rem;
 }
 
 .pricing-table .service-icon {
@@ -1673,7 +1673,7 @@ footer .social-icons a:hover {
     padding: 0px;
     letter-spacing: 0px;
     font-weight: 800;
-    white-space: wrap;
+    white-space: pre-wrap;
     min-height: 0px;
     min-width: 0px;
     max-height: none;
