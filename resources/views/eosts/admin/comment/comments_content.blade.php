@@ -4,9 +4,9 @@
 
   <h2>
 @if(isset($_GET['page']) && $_GET['page'] > 1 )
-  Отдел комментариев
+  Sharh bo'limi
 @else
-  Есть ({!!($counts == 0)?$counts:'<font color="red">'.$counts.'</font>'!!}) новые комментарии
+   ({!!($counts == 0)?$counts:'<font color="red">'.$counts.'</font>'!!}) ta yangi izohlar
 @endif
   </h2>
       @if ($status = Session::get('status'))
@@ -20,11 +20,11 @@
 				                        <thead>
 				                            <tr>
 				                                <th class="align-left">ID</th>
-				                                <th>Заголовок</th>
-				                                <th>Текст</th>
+				                                <th>Sarlavha</th>
+				                                <th>Matn</th>
 				                                <th>E-mail</th>
-				                                <th>Heddin</th>
-				                                <th style="width: 100px;">Дествие</th>
+				                                <th><i class="fa fa-eye-slash"></i> | <i class="fa fa-eye"></i></th>
+				                                <th style="width: 100px;"><i class="fa fa-trash-o"></i></th>
 				                            </tr>
 				                        </thead>
 				                        <tbody>

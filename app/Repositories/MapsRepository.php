@@ -47,8 +47,8 @@ public function addMap($request){
         }else{
 
 	if($this->model->fill($data)->save()) {
-	   return ['status' => 'Информация добавлена'];
-	}else{ return ['error' => 'Нет информация'];}
+	   return ['status' => 'Ma\'lumot qo\'shildi'];
+	}else{ return ['error' => 'Ma\'lumot yo\'q'];}
         }
     }
 
@@ -75,8 +75,8 @@ public function updateMap($request, $id){
 
 
 	if($result->update($data)) {
-	   return ['status' => 'Информация обновлена'];
-	}else{ return ['error' => 'Нет информация'];}
+	   return ['status' => 'Ma\'lumot yangilandi'];
+	}else{ return ['error' => 'Ma\'lumot yo\'q'];}
         }
 	
 }

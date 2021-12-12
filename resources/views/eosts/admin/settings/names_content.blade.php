@@ -1,5 +1,14 @@
-<h2><u>Название организации</u></h2>
-
+<h2><u>Tashkilot nomi</u></h2>
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+              <button class="close" data-dismiss="alert">×</button>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
 <div id="content-page" class="content group">
 				            <div class="hentry group">
 
@@ -12,9 +21,9 @@
 
 				Русский:<input type="text" name="name[ru]" value="{{isset($setname['names']['name']['ru']) ? $setname['names']['name']['ru'] : ''}}" placeholder="Русский" class="form-control">
 
-				English:<input type="text" name="name[en]" value="{{isset($setname['names']['name']['en']) ? $setname['names']['name']['en'] : ''}}" placeholder="Русский" class="form-control">
+				English:<input type="text" name="name[en]" value="{{isset($setname['names']['name']['en']) ? $setname['names']['name']['en'] : ''}}" placeholder="English" class="form-control">
 
-				Türkçe:<input type="text" name="name[tu]" value="{{isset($setname['names']['name']['tu']) ? $setname['names']['name']['tu'] : ''}}" placeholder="O'zbekcha" class="form-control">
+				Türkçe:<input type="text" name="name[tu]" value="{{isset($setname['names']['name']['tu']) ? $setname['names']['name']['tu'] : ''}}" placeholder="Türkçe" class="form-control">
 
 
 			 </div>
@@ -27,7 +36,7 @@
 
 
 
-						{!! Form::button('Сохранить', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
+						{!! Form::button('Saqlash', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
 
 
 {!! Form::close() !!}

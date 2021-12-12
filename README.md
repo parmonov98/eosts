@@ -1,5 +1,5 @@
 E-mail: b_jurabek@umail.com
-password: 2345678
+password: 12345678
 url admins: /admins
 login: /login/ 
 

@@ -38,7 +38,7 @@ class UsersRepository extends Repositor
 
 
 		if($result->update()) {
-			return ['status' => 'Нет информации'];
+			return ['status' => 'Ma\'lumot yo\'q'];
 		}
 
 	}
@@ -64,7 +64,7 @@ class UsersRepository extends Repositor
 			$user->roles()->attach($data['role_id']);
 		}
 
-		return ['status' => 'Пользователь добавлен'];
+		return ['status' => 'Foydalanuvchi qo\'shildi'];
 
 	}
 
@@ -88,7 +88,7 @@ class UsersRepository extends Repositor
 		$user->fill($data)->update();
 		$user->roles()->sync([$data['role_id']]);
 
-		return ['status' => 'Пользователь изменен'];
+		return ['status' => 'Foydalanuvchi o\'zgardi'];
 
 	}
 
@@ -102,7 +102,7 @@ class UsersRepository extends Repositor
 		$result->roles()->detach();
 
 		if($result->delete()) {
-			return ['status' => 'Пользователь удален'];
+			return ['status' => 'Foydalanuvchi o\'chirildi'];
 		}
 	}
 

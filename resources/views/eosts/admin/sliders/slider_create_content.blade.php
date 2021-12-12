@@ -1,5 +1,17 @@
 <div id="content-page" class="content group">
 				            <div class="hentry group">
+
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+              <button class="close" data-dismiss="alert">×</button>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
+<h2>Slaydlar uchun rasm</h2>
     @if ($error = Session::get('error'))
   <div class="alert alert-danger">
   <button class="close" data-dismiss="alert">×</button>
@@ -46,8 +58,7 @@
       <i class="icon-user"></i></span>
     
 
-
-      Краткий названия фермы (на {{$label}}) :<strong style="color:red;">*</strong> 
+Fermaning qisqa nomi ({{$label}} tilida):<strong style="color:red;">*</strong> 
 
       {!! Form::text("name[name][$language]", isset($slider->name['name'][$language]) ? 
       $slider->name['name'][$language] : old("name['name'][$language]"), ['class'=>'form-control','placeholder'=>'Введите название (на '.$label.')']) !!}
@@ -59,7 +70,7 @@
       <div class="input-prepend"><span class="add-on">
 
       <i class="icon-user"></i></span>
-      Краткий описания(на {{$label}}):<strong style="color:red;">*</strong> 
+      Qisqacha tavsif ({{$label}} tilida):<strong style="color:red;">*</strong> 
 
       {!! Form::text("name[title][$language]", isset($slider->name['title'][$language]) ? 
       $slider->name['title'][$language] : old("name['title'][$language]"), ['class'=>'form-control','placeholder'=>'Введите краткий описания (на '.$label.')']) !!}
@@ -71,7 +82,7 @@
       <div class="input-prepend"><span class="add-on">
 
       <i class="icon-user"></i></span>
-      Полный описания(на {{$label}}):<strong style="color:red;">*</strong> 
+      To'liq tavsif ({{$label}} tilida):<strong style="color:red;">*</strong> 
 
       {!! Form::text("name[description][$language]", isset($slider->name['description'][$language]) ? 
       $slider->name['description'][$language] : old("name['description'][$language]"), ['class'=>'form-control','placeholder'=>'Введите полный описания (на '.$label.')']) !!}
@@ -105,9 +116,9 @@
 <div class="row">
 
 <div class="col-sm-8">
-  Загрузка фото :
+  Rasmlar yuklanmoqda :
    <input type="file" name="image" id="file" size="2048">
-Размер <strong> 2 МБ</strong> (в формате <strong>.png, .gif, .jpeg, .jpg </strong>) файл можно отправить   
+Hajmi <strong> 2 МБ</strong> (<strong>.png, .gif, .jpeg, .jpg </strong>formatida) faylni yuborish mumkin   
 </div>
   <div class="col-sm-4">
 @if(isset($slider->img['min']))
@@ -129,7 +140,7 @@
       @endif
 
 
-						{!! Form::button('Сохранить', ['class' => 'btn btn-primary btn-block','type'=>'submit']) !!}
+						{!! Form::button('Saqlash', ['class' => 'btn btn-primary btn-block','type'=>'submit']) !!}
 
 
 

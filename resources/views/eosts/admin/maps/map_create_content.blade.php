@@ -1,6 +1,6 @@
 <div id="content-page" class="content group">
 				            <div class="hentry group">
-                    <a href="{{route('maps.index')}}" class="btn btn-primary btn-lg" style="margin-bottom: 5px;"><i class="fa fa-arrow-left"></i></a>  <strong style="font-size: 2rem; padding: 10px; " align="right"> Google карта </strong>
+                    <a href="{{route('maps.index')}}" class="btn btn-primary btn-lg" style="margin-bottom: 5px;"><i class="fa fa-arrow-left"></i></a>  <strong style="font-size: 2rem; padding: 10px; " align="right"> Google xarita </strong>
                       <hr>
     @if ($error = Session::get('error'))
   <div class="alert alert-danger">
@@ -61,7 +61,7 @@
       <div class="input-prepend"><span class="add-on">
 
       <i class="icon-user"></i></span>
-      Названия (на {{$label}}) :<strong style="color:red;">*</strong> 
+      Nomlanishi ({{$label}} tilida) :<strong style="color:red;">*</strong> 
 
       {!! Form::text("title[$language]", isset($result->title[$language]) ? 
       $result->title[$language] : old("title[$language]"), ['class'=>'form-control','placeholder'=>'Введите название (на '.$label.')']) !!}
@@ -87,7 +87,7 @@
       <div class="input-prepend"><span class="add-on">
 
       <i class="icon-user"></i></span>
-      Долгота:<strong style="color:red;">*</strong> 
+      Uzunlik:<strong style="color:red;">*</strong> 
 
       {!! Form::text("longitu", isset($result->longitu) ? 
       $result->longitu : old("longitu"), ['class'=>'form-control','placeholder'=>'...']) !!}
@@ -98,7 +98,7 @@
       <div class="input-prepend"><span class="add-on">
 
       <i class="icon-user"></i></span>
-      Шаирота:<strong style="color:red;">*</strong> 
+      Kenglik:<strong style="color:red;">*</strong> 
 
       {!! Form::text("latitu", isset($result->latitu) ? 
       $result->latitu : old("latitu"), ['class'=>'form-control','placeholder'=>'...']) !!}
@@ -120,7 +120,7 @@
 	
 
 </div>
-						{!! Form::button('Сохранить', ['class' => 'btn btn-primary btn-block','type'=>'submit']) !!}
+						{!! Form::button('Saqlash', ['class' => 'btn btn-primary btn-block','type'=>'submit']) !!}
 </div>
 
 

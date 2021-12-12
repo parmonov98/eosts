@@ -80,7 +80,7 @@ $img->fit(Config::get('settings.ulug')['min']['width'],
 		empty($data['desc'])?($data['desc']=NULL):'';
 	
 			if($this->model->fill($data)->save()) {
-						return ['status' => 'Информация добавлена'];
+						return ['status' => 'Ma\'lumot qo\'shildi'];
 				}	
 
         }}
@@ -149,7 +149,7 @@ $img->fit(Config::get('settings.ulug')['min']['width'],
 			}
 		}
 		if($uslug->update($data)) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 	}
 	
@@ -166,7 +166,7 @@ $img->fit(Config::get('settings.ulug')['min']['width'],
 		}
 
 		if($uslug->delete()) {
-			return ['status' => 'Информация удалена'];
+			return ['status' => 'Ma\'lumot uchirildi'];
 		}
 	}
 }

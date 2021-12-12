@@ -35,7 +35,7 @@ class SettingController extends AdminController
         if(Gate::allows('VIEW_ADMIN_SETTINGS')) {
             abort(403);
         }
-		        $this->title = 'Настройки сайта';
+		        $this->title = 'Sayt sozlamalari';
 
          $user = 50;
 
@@ -56,7 +56,7 @@ class SettingController extends AdminController
 
    public function names()
     {
-        $this->title = 'Название организации';
+        $this->title = 'Tashkilot nomi';
         $setname = $this->setful();
 
          $articles = view(config('settings.theme').'.admin.settings.names_content',compact('setname'));
@@ -87,7 +87,7 @@ class SettingController extends AdminController
  public function address()
     {
 
-        $this->title = 'Адреса организаций и телефонная информация!';
+        $this->title = 'Tashkilot manzillari va telefon ma\'lumotlari!';
         $setname = $this->setful();
 
          $articles = view(config('settings.theme').'.admin.settings.address_content',compact('setname'));
@@ -117,7 +117,7 @@ class SettingController extends AdminController
  public function sotnetwork()
     {
 
-        $this->title = 'Каналы социальных сетей!';
+        $this->title = 'Ijtimoiy media kanallari!';
         $setname = $this->setful();
 
          $articles = view(config('settings.theme').'.admin.settings.sotnetwork_content',compact('setname'));
@@ -154,7 +154,7 @@ class SettingController extends AdminController
  public function setteng()
     {
 
-        $this->title = 'Каналы социальных сетей!';
+        $this->title = 'Ijtimoiy media kanallari!';
         $setname = $this->setful();
 
          $articles = view(config('settings.theme').'.admin.settings.setteng_content',compact('setname'));
@@ -181,7 +181,7 @@ class SettingController extends AdminController
 
  public function onas()
     {
-        $this->title = 'Про EOSTS';
+        $this->title = 'EOSTS haqida';
         $setname = $this->setful();
 
          $articles = view(config('settings.theme').'.admin.settings.onas_content',compact('setname'));
@@ -207,7 +207,7 @@ class SettingController extends AdminController
 
  public function question()
     {
-        $this->title = 'Наше уникальность';
+        $this->title = 'Bizning o\'ziga xosligimiz';
         $setname = $this->setful();
 
          $articles = view(config('settings.theme').'.admin.settings.question_content',compact('setname'));
@@ -230,7 +230,7 @@ class SettingController extends AdminController
 
  public function select()
     {
-        $this->title = 'Показатели';
+        $this->title = 'Ko\'rsatkichlar';
         $setname = $this->setful();
          $articles = view(config('settings.theme').'.admin.settings.select_content',compact('setname'));
            $this->vars = Arr::add($this->vars,'content',$articles);
@@ -249,7 +249,7 @@ class SettingController extends AdminController
 
  public function cachistva()
     {
-        $this->title = 'Качество';
+        $this->title = 'Sifat';
         $setname = $this->setful();
          $articles = view(config('settings.theme').'.admin.settings.cachistva_content',compact('setname'));
            $this->vars = Arr::add($this->vars,'content',$articles);
@@ -268,7 +268,7 @@ class SettingController extends AdminController
 
   public function osobiy()
     {
-        $this->title = 'Особенность';
+        $this->title = 'O\'ziga xoslik';
         $setname = $this->setful();
          $articles = view(config('settings.theme').'.admin.settings.osobiy_content',compact('setname'));
            $this->vars = Arr::add($this->vars,'content',$articles);
@@ -287,7 +287,7 @@ class SettingController extends AdminController
 
   public function competent()
     {
-        $this->title = 'Компетентность';
+        $this->title = 'Kompetentsiya';
         $setname = $this->setful();
          $articles = view(config('settings.theme').'.admin.settings.competent_content',compact('setname'));
            $this->vars = Arr::add($this->vars,'content',$articles);
@@ -306,7 +306,7 @@ class SettingController extends AdminController
 
  public function vebor()
     {
-        $this->title = 'Выбир EOSTS';
+        $this->title = 'EOSTS ni tanlang';
         $setname = $this->setful();
 
          $articles = view(config('settings.theme').'.admin.settings.vebor_content',compact('setname'));
@@ -330,7 +330,7 @@ class SettingController extends AdminController
 
  public function vopraos()
     {
-        $this->title = 'Вопросы';
+        $this->title = 'Savollar';
         $setname = OnasVap::get();
 
          $articles = view(config('settings.theme').'.admin.settings.vopraos_content',compact('setname'));

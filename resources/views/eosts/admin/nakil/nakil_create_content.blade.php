@@ -19,7 +19,7 @@
             </div>
           @endif
 
-<a href="{{route('nakil.index')}}" class="btn btn-primary btn-lg" style="margin-bottom: 5px;"><i class="fa fa-arrow-left"></i></a>
+<a href="{{route('nakil.index')}}" class="btn btn-primary btn-lg" style="margin-bottom: 5px;"><i class="fa fa-arrow-left"></i></a> Bizning mijozlarimiz
 <hr>
 
 
@@ -32,18 +32,17 @@
 
 <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span>
 
-<div class="col-md-6">Названия: <input type="text" class="form-control" name="name" id="" value="{{isset($result->name)?$result->name:''}}"></div>
+<div class="col-md-6">Nomlanish: <input type="text" class="form-control" name="name" id="" value="{{isset($result->name)?$result->name:''}}"></div>
 
   
 
   <div class="{{isset($result)?'col-md-4':'col-md-6'}}">
 
-      Фото:
+      Rasm:
 
 
   <input type="file" name="img" id="file" size="1024">
-
-Размер <strong> 1 МБ</strong> (в формате <strong>.png, .gif, .jpeg, .jpg </strong>) файл можно отправить 
+Hajmi <strong> 1 МБ</strong> (<strong>.png, .gif, .jpeg, .jpg </strong> formatida) faylni yuborish mumkin
 
 
 <hr />
@@ -67,7 +66,7 @@
 	
 
 </div>
-						{!! Form::button('Сохранить', ['class' => 'btn btn-primary btn-block','type'=>'submit']) !!}
+						{!! Form::button('Saqlash', ['class' => 'btn btn-primary btn-block','type'=>'submit']) !!}
 </div>
 
 

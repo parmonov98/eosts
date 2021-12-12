@@ -48,7 +48,7 @@ class SettingRepository extends Repositor {
 		$data['view_count'] = $result->view_count + 1;
 		$result->fill($data)->update();
 		}else{
-			return redirect()->back()->withErrors(['error' => 'Информации не найдено!']);
+			return redirect()->back()->withErrors(['error' => 'Ma\'lumot topilmadi!']);
 		}
 
 	}
@@ -62,7 +62,7 @@ class SettingRepository extends Repositor {
 		// dd($result);
 
 		if($result->update(['names' => json_encode($data)])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 
 	}
@@ -76,7 +76,7 @@ class SettingRepository extends Repositor {
 		// dd($data);
 		$result = $this->model->where('id',$id);
 		if($result->update(['address' => json_encode($data)])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 
 	}
@@ -90,7 +90,7 @@ class SettingRepository extends Repositor {
 //dd($data);
 
 		if($result->update(['sot_network' => json_encode($data)])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 
 	}
@@ -108,7 +108,7 @@ class SettingRepository extends Repositor {
 
 
 		if($result->update(['telegram_user_id'=>$request->get('telegram_user_id'),'setteng_telegram' => json_encode($data)])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 
 	}
@@ -123,7 +123,7 @@ class SettingRepository extends Repositor {
 // dd($data);
 
 		if($result->update(['prcomp'=>$request->get('prcomp')])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 
 	}
@@ -136,7 +136,7 @@ class SettingRepository extends Repositor {
 // dd($data);
 
 		if($result->update(['question'=>$request->get('question')])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 
 	}
@@ -146,7 +146,7 @@ class SettingRepository extends Repositor {
 		$data = $request->except('_token');
 		$result = $this->model->where('id',$id);
 		if($result->update(['select'=>$request->get('select')])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 	}
 
@@ -155,7 +155,7 @@ class SettingRepository extends Repositor {
 		$data = $request->except('_token');
 		$result = $this->model->where('id',$id);
 		if($result->update(['cachistva'=>$request->get('cachistva')])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 	}
 
@@ -164,7 +164,7 @@ class SettingRepository extends Repositor {
 		$data = $request->except('_token');
 		$result = $this->model->where('id',$id);
 		if($result->update(['osobiy'=>$request->get('osobiy')])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 	}
 
@@ -173,7 +173,7 @@ class SettingRepository extends Repositor {
 		$data = $request->except('_token');
 		$result = $this->model->where('id',$id);
 		if($result->update(['competent'=>$request->get('competent')])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 	}
 
@@ -184,7 +184,7 @@ class SettingRepository extends Repositor {
 		$data = $request->except('_token');
 		$result = $this->model->where('id',$id);
 		if($result->update(['vebor'=>$request->get('vebor')])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 	}
 
@@ -192,12 +192,19 @@ class SettingRepository extends Repositor {
 	public function vopraos($request) {
 
 		$data = $request->except('_token');
+        $request->validate([
+        'vopros.ru' => 'required',
+        'vopros.en' => 'required',
+        'otvet.ru' => 'required',
+        'otvet.en' => 'required'
+        ]);
+
 		$result = new OnasVap;
 		$result->vopros=$data['vopros'];
 		$result->otvet=$data['otvet'];
 
 		if($result->save()) {
-			return ['status' => 'Информация сохранина'];
+			return ['status' => 'Ma\'lumot saqlandi'];
 		}
 	}
 
@@ -207,7 +214,7 @@ class SettingRepository extends Repositor {
 		// dd($data);
 		$result = OnasVap::where('id',$data['id'])->delete();
 		if($result) {
-			return ['status' => 'Информация сохранина'];
+			return ['status' => 'Ma\'lumot saqlandi'];
 		}
 	}
 
@@ -232,7 +239,7 @@ class SettingRepository extends Repositor {
 //dd($data);
 
 		if($result->update(['yildasturi' => json_encode($data)])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 
 	}
@@ -246,7 +253,7 @@ class SettingRepository extends Repositor {
 //dd($data['rating']);
 
 		if($result->update(['rating' => $data['rating']])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 
 	}
@@ -261,7 +268,7 @@ class SettingRepository extends Repositor {
 		$data = $request->except('_token');
 		//$result = $this->model->where('id',$id);
 		if(empty($data)) {
-			return array('error' => 'Нет информации');
+			return array('error' => 'Ma\'lumot yo\'q');
 		}
 $result = $this->one($id);
 
@@ -330,7 +337,7 @@ if($result->img!=null){
 
 
 		if($result->update(['img' => $datas['img'],'css'=>$data['css']])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 }
 
@@ -341,7 +348,7 @@ if($result->img!=null){
 
 //dd($data['css']);
 if($result->update(['css'=>$data['css']])) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 //return ['error' => 'Ma`lumot yo`q'];
 
@@ -375,7 +382,7 @@ private function processImage($file, $name){
 		$data = $request->except('_token','image');
 
 		if(empty($data)) {
-			return array('error' => 'Нет информации');
+			return array('error' => 'Ma\'lumot y\'q');
 		}
 
 		if(empty($data['textoz'])) {
@@ -450,7 +457,7 @@ private function processImage($file, $name){
 
 				}
 				}
-					return ['status' => 'Информация добавлена'];
+					return ['status' => 'Ma\'lumot qo\'shildi'];
 				}
 
 	}
@@ -533,7 +540,7 @@ private function processImage($file, $name){
 		//dd($result->fill($data)->update());
 
 		if($result->fill($data)->update()) {
-			return ['status' => 'Информация обновлена'];
+			return ['status' => 'Ma\'lumot yangilandi'];
 		}
 
 	}
@@ -549,7 +556,7 @@ private function processImage($file, $name){
 		$result->comments()->delete();
 
 		if($result->delete()) {
-			return ['status' => 'Информация удалена'];
+			return ['status' => 'Ma\'lumot uchirildi'];
 		}
 
 	}

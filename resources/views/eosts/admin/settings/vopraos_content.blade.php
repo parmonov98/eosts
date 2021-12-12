@@ -1,5 +1,14 @@
-<h2><u>Вопросы</u></h2>
-
+<h2><u>Savollar</u></h2>
+          @if (count($errors) > 0)
+            <div class="alert alert-danger">
+              <button class="close" data-dismiss="alert">×</button>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+          @endif
 <div id="content-page" class="content group">
 				            <div class="hentry group">
 
@@ -40,7 +49,7 @@
     <div class="input-prepend"><span class="add-on">
 
 <i class="icon-user"></i></span>
-Вопрос:<strong style="color:red;">*</strong> {!! Form::text('vopros['.$language.']', old("vopros[$language]"), ['class'=>'form-control','placeholder'=>'Введите название страницы']) !!}
+Savollar {{$label}} tilidagi:<strong style="color:red;">*</strong> {!! Form::text('vopros['.$language.']', old("vopros[$language]"), ['class'=>'form-control','placeholder'=>'Введите название страницы']) !!}
 
 
 
@@ -52,7 +61,7 @@
     
 
 
-      Отвит на {{$label}} :<strong style="color:red;">*</strong> 
+      {{$label}} tilidagi javob:<strong style="color:red;">*</strong> 
 
       {!! Form::textarea('otvet['.$language.']', old("otvet[$language]"), ['id'=>'summernote','class' => 'form-control','placeholder'=>'Введите текст страницы']) !!}
       
@@ -71,7 +80,7 @@
 
 		<br />
 
-	{!! Form::button('Сохранить', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
+	{!! Form::button('Saqlash', ['class' => 'btn btn-block btn-success btn-flat','type'=>'submit']) !!}
 
 {!! Form::close() !!}
 
@@ -82,8 +91,8 @@
   <thead>
     <tr class="active">
       <th scope="col">#</th>
-      <th scope="col">Вопрос</th>
-      <th scope="col">Отвит</th>
+      <th scope="col">Savollar</th>
+      <th scope="col">Javob</th>
       <th style="width: 50px;text-align: center;"><i class="fa fa-trash-o"></i></th>
     </tr>
   </thead>

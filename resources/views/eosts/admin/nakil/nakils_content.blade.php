@@ -2,7 +2,7 @@
 	<div id="content-page" class="content group">
 				            <div class="hentry group">
 										 {!! Html::link(route('nakil.create'),'+',['class' => 'btn btn-primary btn-lg','style'=>'margin-bottom: 5px;']) !!}
-				               <strong style="font-size: 2rem; padding: 10px; " align="right"> Наши клиенты </strong>
+				               <strong style="font-size: 2rem; padding: 10px; " align="right"> Bizning mijozlarimiz </strong>
     @if ($status = Session::get('status'))
 	<div class="alert alert-success">
 	<button class="close" data-dismiss="alert">×</button>
