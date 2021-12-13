@@ -37,7 +37,7 @@ public function addFiles($request){
 		$validator=	$request->validate([
 				'name.name.ru' => 'required',
 				'name.name.en' => 'required',
-				'max' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+				'max' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
 				'min' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
 			]);
 	
@@ -71,7 +71,7 @@ public function updateGallery($request, $gallery){
 		$validator=	$request->validate([
 				'name.name.ru' => 'required',
 				'name.name.en' => 'required',
-				'max' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+				'max' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
 				'min' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
 			]);
 	

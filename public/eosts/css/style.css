@@ -1684,7 +1684,10 @@ footer .social-icons a:hover {
     text-align: center;
     margin-top: 50px;
     transition: 0.7s ease-in-out;
+        margin-left: 20px;
+    margin-right: 20px;
 }
+
 
 .home-slider .slider-item:nth-child(odd) .h2 {
     font-size: 3rem;
@@ -2272,3 +2275,5 @@ label.error {
         display: inline-block;
         margin: 100px auto;
     }
+
+

@@ -85,9 +85,9 @@
       Sifatli fotosurat yuklash:
 
 
-  <input type="file" name="max" id="file" size="2048">
+  <input type="file" name="max" id="file" size="10240">
 
-Hajmi <strong> 2 МБ</strong> (<strong>.png, .gif, .jpeg, .jpg </strong>formatida) faylni yuborish mumkin 
+Hajmi <strong> 10 МБ</strong> (<strong>.png, .gif, .jpeg, .jpg </strong>formatida) faylni yuborish mumkin 
 
 
 <hr />
@@ -162,7 +162,7 @@ function fileExtValidate(fdata) {
 
 // file size validation
 // size in kb
-var maxSize = '2048';
+var maxSize = '10240';
 function fileSizeValidate(fdata) {
 	 if (fdata.files && fdata.files[0]) {
                 var fsize = fdata.files[0].size/1024;

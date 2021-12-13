@@ -70,7 +70,7 @@ foreach ($allmaps as $key => $map) {
  </div>
 
 <div id="iframe">
-<iframe width="600" height="450" src="https://maps.google.com/maps?width=600&amp;height=450&amp;hl=en&amp;coord={{$maps->longitu}}, {{$maps->latitu}}&amp;q={{$maps->title[$lang]}}&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br />
+<iframe width="550" height="450" src="https://maps.google.com/maps?width=600&amp;height=450&amp;hl=en&amp;coord={{$maps->longitu}}, {{$maps->latitu}}&amp;q={{$maps->title[$lang]}}&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br />
 
 </div>
 
@@ -204,10 +204,19 @@ foreach ($allmaps as $key => $map) {
 <style type="text/css">
     .norma{
        position: absolute;
-        width: 200px;
+        max-width: 152px;
         right: 0px;
         top: 10px; 
     }
+
+ @media (min-width: 767.99px) {
+       .norma{
+       position: absolute;
+        max-width: 200px;
+        right: 15px;
+        top: 10px; 
+    }
+ }   
 </style>
 
 <script type="text/javascript">

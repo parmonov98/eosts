@@ -661,19 +661,18 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
         <!-- Request Modal -->
 
 
-        
 
 
 <!-- Modal -->
 <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document" style="width: 283px;top: 20vh;">
-    <div class="modal-content">
+  <div class="modal-dialog" role="document" style="padding-left: 107px; padding-right: 107px;top: 15vh;">
+    <div class="modal-content" style="background-color: #28a745;">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="
     text-align: right; padding: 8px;">
           <i class="icofont-close-line"></i>
         </button>
-      <div class="modal-body">
-        <img src="/success.jpg">
+      <div class="modal-body" style="padding: 0;">
+        <img src="/success.jpg" width="100%">
       </div>
     </div>
   </div>
