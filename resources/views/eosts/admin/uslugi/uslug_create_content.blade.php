@@ -116,6 +116,20 @@
 		<div class="col-md-3 bg-info p-t-15 p-b-20 p-l-15 p-r-15" style="background-color: rgb(66, 74, 93);color: #ffffff;        height: auto;padding-bottom: 10px;">
 
 
+		<div class="callout callout-success" >
+                <h4>SEO</h4>
+                <label class="control-label">Description:				</label>
+                <textarea class="form-control" name="description" rows="1" id="desc" placeholder="Description ..."></textarea>
+                <label class="control-label">Keywords:				</label>
+                <textarea class="form-control" name="keywords" rows="1" id="key" placeholder="Keywords ..."></textarea>
+
+              </div>
+
+
+<style type="text/css">
+	.callout{margin-top: 10px;padding: 5px;}
+#desc,#key	{max-width: 100%;}
+</style>
 
 
 				<label class="control-label">Rasm yuklash:				</label>

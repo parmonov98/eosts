@@ -17,8 +17,8 @@ Route::get('/',function(){
 Route::get('/{cat?}', [Adress\IndexController::class, 'index'])->name('index')->where('cat','ru|en|tu');
 
 
-Route::get('/uslug/',[Adress\ObunaController::class,'uslug'])->name('uslug');
-Route::get('/uslugi/{uslug}',[Adress\ObunaController::class,'show'])->name('ushow')->where(['uslug'=>'[\w-]+']);
+Route::get('/uslug/',[Adress\ObunaController::class,'uslug'])->name('uslug')->where('cat','ru|en|tu');;
+Route::get('/{cat?}/uslugi/{uslug}',[Adress\ObunaController::class,'show'])->name('ushow')->where(['cat'=>'ru|en|tu','uslug'=>'[\w-]+']);
 
 if(Auth::check()){
 Route::post('/message',[Adress\TelegramController::class,'message'])->name('message');

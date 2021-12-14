@@ -4,7 +4,7 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/"><i class="icofont-home"></i></a></li>
-            <li class="breadcrumb-item"><a href="#">{!!$articles->menu->title[$cat]!!}</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('uslug') }}">{!!$articles->menu->title[$cat]!!}</a></li>
             <li class="breadcrumb-item active" aria-current="page"> {{$articles->title[$cat]}}</li>
           </ol>
         </nav>

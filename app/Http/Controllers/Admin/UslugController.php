@@ -79,7 +79,7 @@ class UslugController extends AdminController
     public function create()
     {
 
-		$this->title = "Добавить статью";
+		$this->title = "Yangi xizmatlar qushish";
 
 		//$catMens = $this->m_rep->get(['id','title','path','parent']);
 
@@ -96,7 +96,7 @@ class UslugController extends AdminController
      */
     public function store(Request $request)
     {
-        $this->title = 'Менеджер статтей';
+        $this->title = 'Xizmatlar yaratish';
 
 			$result = $this->u_rep->addUslug($request);
 
@@ -127,7 +127,7 @@ class UslugController extends AdminController
     public function edit(Uslug $uslug)
     {
 
-	$this->title = 'Реадактирование материала - '. $uslug['title']['ru'];
+	$this->title = 'Xizmatlarni taxrirlash - '. $uslug['title']['ru'];
     $this->content = view(config('settings.theme').'.admin.uslugi.uslug_create_content')->with(['uslugi' => $uslug])->render();
 
 		return $this->renderOutput();

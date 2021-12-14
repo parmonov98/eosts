@@ -10,7 +10,7 @@ class Uslug extends Model
 {
 
 	protected $table = 'uslugi';
-    protected $fillable = ['title', 'desc','text','img','alias'];
+    protected $fillable = ['title','description','keywords', 'desc','text','img','alias'];
 
     protected $casts = ['title' => 'array','desc' => 'array','text' => 'array','img' => 'array'];
 

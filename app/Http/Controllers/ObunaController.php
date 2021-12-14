@@ -64,6 +64,7 @@ if(is_object(Obuna::where('email', $request['email'])->first())){
 
     public function uslug()
     {
+
         $this->template = env('THEME').'.usluge';
         if(empty(session('lang'))){
            session()->put('lang', 'ru');
@@ -89,17 +90,18 @@ if(is_object(Obuna::where('email', $request['email'])->first())){
     }
 
 
-    public function show($alias)
+    public function show($cat,$alias)
     {
-    	if(empty(session('lang'))){
-	       session()->put('lang', 'ru');
-    	}
-       $cat = session('lang');
+        // dd('salom');
+
 
       if($cat != 'ru' && $cat != 'en' && $cat !== 'tu'){
         abort(404);
        }
-
+        if(empty(session('lang'))){
+           session()->put('lang', $cat);
+        }
+       $cat = session('lang');
 
     	if(empty($alias)){ abort(404); }
 
@@ -114,7 +116,9 @@ if(is_object(Obuna::where('email', $request['email'])->first())){
 
 
 if(isset($articles->id)){
-		$this->title = $this->keywords = $this->meta_desc = $articles->title[$cat];
+		$this->title = $articles->title[$cat];
+        $this->keywords = isset($articles->keywords)?$articles->keywords:$articles->title[$cat];
+        $this->meta_desc = isset($articles->description)?$articles->description:$articles->title[$cat];
 		}
 
 

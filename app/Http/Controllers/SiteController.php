@@ -156,7 +156,7 @@ class SiteController extends Controller
 				if(Str::limit($item->path,4) == 'http...'){$urlm = '';}
 				else if(Str::limit($item->path,1) == '/...') {$urlm = '..';}
 				else if($item->path == "#"){$urlm = '..';}
-				else{$urlm = $cat.'/blog/';}
+				else{$urlm = $cat.'/blog+/';}
 
 				if($item->parent == 0) {
 					$m->add($item->title[$cat],$urlm.$item->path)->id($item->id);
