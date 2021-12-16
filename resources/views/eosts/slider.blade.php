@@ -1,9 +1,11 @@
-@if(isset($sliders[0]) > 0)      
+@if(isset($sliders[0]) > 0)   
+  
         <!-- slider -->
-        <div class="slider-section">
+        <div class="slider-max loader" id="loader"> 
+        <div class="slider-section" id="slow"  style="display:none">
 
 
-            <div class="home-slider ">
+            <div class="home-slider " >
 @foreach($sliders[0] as $z=>$slider)
 
                
@@ -27,5 +29,8 @@
 @endforeach
 </div></div>
 @endif
+</div>
 
+<style type="text/css">
 
+</style>

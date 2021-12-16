@@ -745,7 +745,6 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
         <!-- Back To Top End -->
 
         <!-- Main JavaScript -->
-        <!-- <script src="js/jquery.min.js"></script> -->
         {!!Html::script(env('THEME').'/js/jquery.min.js')!!}
         {!!Html::script(env('THEME').'/js/popper.min.js')!!}
         {!!Html::script(env('THEME').'/js/bootstrap.min.js')!!}
@@ -754,6 +753,7 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
         {!!Html::script(env('THEME').'/js/owl.carousel.min.js')!!}
         {!!Html::script(env('THEME').'/js/jquery.waypoints.min.js')!!}
         {!!Html::script(env('THEME').'/js/jquery.counterup.min.js')!!}
+        {!!Html::script(env('THEME').'/js/main.js')!!}        
 
         <!-- JQuery Map Plugin -->
         <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>

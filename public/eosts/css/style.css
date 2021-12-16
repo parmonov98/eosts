@@ -2277,3 +2277,28 @@ label.error {
     }
 
 
+/*   div#preloader {
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  background:  rgba(255,255,255,.3) url('/preloader.gif') no-repeat center center;
+}*/
+
+
+div.slider-max.loader{
+    display: flex;align-items: center;justify-content: center;
+    height: 320px;
+    width: 100%;
+    background-color: #fff;
+     position: relative;
+     background:  rgba(255,255,255,.3) url('/preloader.gif') no-repeat center center;
+}
+
+
+.slider-section.slow,.container.slow{
+    display: block!important;
+}
