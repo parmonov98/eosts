@@ -9,7 +9,7 @@ $uslug3 = ['ru'=>'Перевозка сверхтяжёлые грузы','en'=>
 $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Cargo insurance','tu'=>'Kargo sigortası'];
   ?>
             <!-- Free Quote Start -->
-            <section class="wide-tb-100 bg-fixed free-quote" style="background-image: url({{ asset(env('THEME').'/images/contact-us.png')}});">
+            <section class="wide-tb-100 bg-fixed free-quote" style="background-image: url({{ asset(env('THEME').'/images/contact-us.jpg')}});">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 col-md-7">

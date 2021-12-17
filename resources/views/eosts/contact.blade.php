@@ -31,7 +31,7 @@
       <section class="wide-tb-80 contact-full-shadow">
         <div class="container">
           <div class="contact-map-bg">
-            <img src="images/map-bg.png" alt="">
+            <img src="{{asset(env('THEME'.'images/map-bg.png'))}}" alt="">
           </div>
           <div class="row justify-content-between">
             <div class="col-md-6 col-sm-12 col-lg-4 wow fadeInRight" data-wow-duration="0" data-wow-delay="0s">
@@ -187,7 +187,10 @@ maxLength(document.getElementById("cment"));
 
     </script>
 
-
+        {!!Html::script(env('THEME').'/js/fontawesome-all.js')!!}
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+        {!!Html::script(env('THEME').'/js/jquery.gmap.min.js')!!}
+        {!!Html::script(env('THEME').'/js/gmaps.js')!!}
      
 
 <script>

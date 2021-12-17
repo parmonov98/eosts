@@ -745,91 +745,45 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
         <!-- Back To Top End -->
 
         <!-- Main JavaScript -->
-        {!!Html::script(env('THEME').'/js/jquery.min.js')!!}
+
         {!!Html::script(env('THEME').'/js/popper.min.js')!!}
         {!!Html::script(env('THEME').'/js/bootstrap.min.js')!!}
         {!!Html::script(env('THEME').'/js/bootstrap-dropdownhover.min.js')!!}
-        {!!Html::script(env('THEME').'/js/fontawesome-all.js')!!}
-        {!!Html::script(env('THEME').'/js/owl.carousel.min.js')!!}
-        {!!Html::script(env('THEME').'/js/jquery.waypoints.min.js')!!}
-        {!!Html::script(env('THEME').'/js/jquery.counterup.min.js')!!}
-        {!!Html::script(env('THEME').'/js/main.js')!!}        
-
-        <!-- JQuery Map Plugin -->
-        <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
-        {!!Html::script(env('THEME').'/js/jquery.gmap.min.js')!!}
-        {!!Html::script(env('THEME').'/js/jquery.cubeportfolio.min.js')!!}
-        {!!Html::script(env('THEME').'/js/tiny-slider.js')!!}
-        {!!Html::script(env('THEME').'/js/site-custom.js')!!}
- 
 
 
         <script>
+          $(document).ready(function(){   
 
-            $(document).ready(function(){
+function addScript(src){
+    var script = document.createElement('script');
+    script.src = src;
+    script.defer = false;
+    document.body.append(script);
+}                   
 
-                var slider = tns({
-                    container: '.home-slider',
-                    items: 1,
-                    // controlsContainer: "#customize-controls",
-                    slideBy: 'page',
-                    // autoWidth: true,
-                    autoplay: true,
-                    mouseDrag: true,
-                    controls: false,
-                    navPosition: "bottom",
-                    lazyload: true,
-                    preventScrollOnTouch: 'force',
-                    // nav: false,
-                    speed: 1000,
-                    onInit: 'customizedFunction',
-                    responsive: {
-                        640: {
-                            items: 1,
-                        },
-
-                        768: {
-                            items: 1,
-                        }
-                    }
-                });
+addScript("{!! asset(env('THEME').'/js/owl.carousel.min.js')!!}");
+addScript("{!! asset(env('THEME').'/js/jquery.waypoints.min.js')!!}");
+addScript("{!! asset(env('THEME').'/js/jquery.counterup.min.js')!!}");
+addScript("{!! asset(env('THEME').'/js/tiny-slider.js')!!}");
 
 
-                var customizedFunction = function (info, eventName) {
+addScript("{!! asset(env('THEME').'/js/jquery.cubeportfolio.min.js')!!}");
+addScript("{!! asset(env('THEME').'/js/tiny-slider.js')!!}");
+addScript("{!! asset(env('THEME').'/js/site-custom.js')!!}");
+addScript("{!! asset(env('THEME').'/js/main.js')!!}");
 
-                    if (info.navItems[info.displayIndex - 1]) {
-
-                        const src = info.navItems[info.displayIndex - 1].dataset.image;
-                        document.querySelector('.header').style.backgroundImage = `url("${src}")`;
-
-                        // console.log(info.navItems[info.displayIndex - 1].dataset.src);
-                        if (info.navItems[info.displayIndex - 1].dataset.loaded == "true") {
-                            info.navItems[info.displayIndex - 1].dataset.image = info.navItems[info.displayIndex - 1].dataset.src;
-                        } else {
-                            var imgs = [];
-                            imgs[info.displayIndex - 1] = new Image();
-                            imgs[info.displayIndex - 1].src = info.navItems[info.displayIndex - 1].dataset.src;
-
-                            imgs[info.displayIndex - 1].onload = function () {
-                                if (imgs[info.displayIndex - 1].complete) {
-                                    info.navItems[info.displayIndex - 1].dataset.image = info.navItems[info.displayIndex - 1].dataset.src;
-                                    document.querySelector('.header').dataset.src = info.navItems[info.displayIndex - 1].dataset.src;
-
-                                }
-                            };
-                        }
-                        // // Assign an onLoad handler to the dummy image *before* assigning the src
-
-                        // document.querySelector('.header').dataset.src = '';
+});
+        
 
 
-                    }
 
-                }
-            });
 
-            // slider.onInit()
+
         </script>
+
+
+
+
 
 
 

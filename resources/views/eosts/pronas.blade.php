@@ -149,7 +149,7 @@ foreach ($allmaps as $key => $map) {
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-12 p-0">
-                            <img src="{{ asset(env('THEME').'/images/why-choose-us.png')}}" class="w-100" alt="" />
+                            <img src="{{ asset(env('THEME').'/images/why-choose-us.jpg')}}" class="w-100" alt="" />
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="p-5 about-whoose">
@@ -218,6 +218,12 @@ foreach ($allmaps as $key => $map) {
     }
  }   
 </style>
+
+
+        {!!Html::script(env('THEME').'/js/fontawesome-all.js')!!}
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+        {!!Html::script(env('THEME').'/js/jquery.gmap.min.js')!!}
+        {!!Html::script(env('THEME').'/js/gmaps.js')!!}
 
 <script type="text/javascript">
 

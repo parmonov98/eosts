@@ -1772,7 +1772,7 @@ footer .social-icons a:hover {
 /*    What We Offer Section
 /*------------------------------------------*/
 .what-we-offer {
-    background-image: url(../images/what-we-offer.png);
+    background-image: url(../images/what-we-offer.jpg);
     box-shadow: 0px 18px 76px 0px rgba(0, 0, 0, 0.06);
     position: relative;
     z-index: 99;
@@ -1784,7 +1784,7 @@ footer .social-icons a:hover {
 /*    Page Breadcrumbs Style
 /*------------------------------------------*/
 .breadcrumbs-page {
-    background-image: url(../images/breadcrumb-about-us-bg.png);
+    background-image: url(../images/breadcrumb-about-us-bg.jpg);
     background-repeat: no-repeat;
     padding: 7rem 0;
     background-position: center center !important;

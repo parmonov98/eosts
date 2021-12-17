@@ -109,7 +109,7 @@ Kalite <span class = "fw-6 txt-orange"> ve </span> verimlilik <br> <span class =
         <div class="container pos-rel">
           <div class="row">
             <div class="img-business-man">
-              <img src="{{ asset(env('THEME').'/images/pros.png') }}" alt="What makes use unique">
+              <img src="{{ asset(env('THEME').'/images/pros.jpg') }}" alt="What makes use unique">
             </div>
 
             <!-- Heading Main -->

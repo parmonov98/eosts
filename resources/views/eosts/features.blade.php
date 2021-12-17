@@ -82,7 +82,7 @@
                             <!-- Icon Box -->
                         </div>
                         <div class="col-12 col-lg-4">
-                            <img class="w-100" src="{{ asset(env('THEME').'/images/eosts-label.png')}}" alt="Наши особенности">
+                            <img class="w-100" src="{{ asset(env('THEME').'/images/eosts-label.jpg')}}" alt="Наши особенности">
                         </div>
 
                         <div class="col-12 col-lg-4">
