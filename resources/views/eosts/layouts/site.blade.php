@@ -749,6 +749,7 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
         {!!Html::script(env('THEME').'/js/popper.min.js')!!}
         {!!Html::script(env('THEME').'/js/bootstrap.min.js')!!}
         {!!Html::script(env('THEME').'/js/bootstrap-dropdownhover.min.js')!!}
+        {!!Html::script(env('THEME').'/js/jquery.cubeportfolio.min.js')!!}
 
 
         <script>
@@ -767,7 +768,7 @@ addScript("{!! asset(env('THEME').'/js/jquery.counterup.min.js')!!}");
 addScript("{!! asset(env('THEME').'/js/tiny-slider.js')!!}");
 
 
-addScript("{!! asset(env('THEME').'/js/jquery.cubeportfolio.min.js')!!}");
+{{--addScript("{!! asset(env('THEME').'/js/jquery.cubeportfolio.min.js')!!}");--}}
 addScript("{!! asset(env('THEME').'/js/tiny-slider.js')!!}");
 addScript("{!! asset(env('THEME').'/js/site-custom.js')!!}");
 addScript("{!! asset(env('THEME').'/js/main.js')!!}");
