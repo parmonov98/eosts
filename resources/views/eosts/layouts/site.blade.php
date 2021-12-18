@@ -663,6 +663,10 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
 
 
 
+
+
+
+
 <!-- Modal -->
 <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" style="padding-left: 107px; padding-right: 107px;top: 15vh;">
@@ -671,8 +675,10 @@ $uslug4 = ['ru'=>'Страхование грузоперевозки','en'=>'Ca
     text-align: right; padding: 8px;">
           <i class="icofont-close-line"></i>
         </button>
-      <div class="modal-body" style="padding: 0;">
-        <img src="/success.jpg" width="100%">
+      <div class="modal-body" style="padding: 0px 10px 10px 10px;">
+        <h6 class="text-center">{{('ru'==$lang)?'Спасибо! ваш информация была отправлена':'Thanks! your information has been sent'}}</h6>
+        <img src="{{ asset('/success.jpg')}}" width="100%">
+        <p style="font-size: 14px;padding: 0 8px;">{{('ru'==$lang)?'Мы свяжемся с Вами в течении рабочего дня':'We will contact you during the working day'}}.</p>
       </div>
     </div>
   </div>
