@@ -364,7 +364,7 @@ $lang = session('lang');
                     <!-- Column First -->
                     <div class="col-lg-4 col-md-6">
                         <div class="logo-footer">
-                            <img src="{{ asset(env('THEME').'/images/logo_footer.png')}}" alt="" />
+                            <img src="{{ asset(env('THEME').'/images/logo.png')}}" alt="" />
                         </div>
                         <p>
                             {!!('ru'==$lang)?'Компания EOSTS(EvroOsiyo Sarbon Trans Servis) занимается доставкой грузов из Узбекистана, Турции, России, Украины, Польши, Литвы, Латвии и стран Европы. Мы работаем с более чем 200 партнерами и сотрудничаем более 10 лет. <br />Наша работа просто классная!':''!!}
